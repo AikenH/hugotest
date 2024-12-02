@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pytorch on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/pytorch/</link>
+    <description>Recent content in Pytorch on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Feb 2022 14:31:37 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fine Tuning</title>
+      <link>https://aikenh.cn/hugotest/posts/finetune/</link>
+      <pubDate>Tue, 08 Feb 2022 14:31:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/finetune/</guid>
+      <description>&lt;p&gt;@Langs: python, torch
+@reference: d2l-pytorch，&lt;a href=&#34;https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer_torch&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;This Note focus on the code part.
+模型微调和模型预训练，在Pytorch中的使用方式对比汇总。&lt;/p&gt;
+&lt;h2 id=&#34;how-to-design-the-fine-tune&#34;&gt;How to Design the Fine Tune&lt;/h2&gt;
+&lt;p&gt;这一部分主要集中于我们对于微调任务的拆解，有几种不同的预训练和微调的方式，在不同的情景下，对应的参数应该怎么设置和调整是问题的重点。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211205143153.png&#34;&gt;
+    &lt;img alt=&#34;WorkFlow&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211205143153.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211205143153.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;WorkFlow&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;基于这种Transfer的策略，我们能够学习到一个更通用，泛化能力更强，有助于识别边缘，色彩，等等有助于下游任务的通用特征提取。&lt;/p&gt;
+&lt;p&gt;在Transfer任务中，有几种不同的调整方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;固定Bakcbone，只训练Classifier&lt;/li&gt;
+&lt;li&gt;同步微调网络&lt;/li&gt;
+&lt;li&gt;区分学习率，微调Backbone，训练Classifirer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了实现这几种不同的Transfer方式，需要用到以下的几种方式：梯度截断，lr区分设置等。&lt;/p&gt;
+&lt;h2 id=&#34;code-part&#34;&gt;Code Part&lt;/h2&gt;
+&lt;h3 id=&#34;不同lr设置&#34;&gt;不同lr设置&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;微调Backbone，训练Classifier&lt;/strong&gt;作为最经典的Transfer设定，在Code上也较为复杂，所以我们首先举个这种例子。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;相关的文档可以参考：&lt;a href=&#34;https://pytorch-cn.readthedocs.io/zh/latest/package_references/torch-optim/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;torch.optim&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# get dataset&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;train_img&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torchvision&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;datasets&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ImageFolder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data_dir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;train&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# get new model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pretrained_new&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expand_dim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;out_dim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;re_init&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# pre train it 定义一个用于微调的函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# pytorch可以通过字典的形式来区分对设置lr&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;train_fine_tuning&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;net&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;learning_rate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;batch_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;128&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num_epoch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;diff_lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;# set dataloader&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;train_iter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;utils&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Dataloader&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;train_img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;batch_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;batch_size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;shuffle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;test_iter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;# set loss&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;loss&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CrossEntropyLoss&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;none&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;# set diff lr for diff part of it &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;diff_lr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;params_1x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;param&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;param&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;net&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name_parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;fc.weight&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;fc.bias&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;trainer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SGD&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([{&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;params&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params_1x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;								  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;params&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;net&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;								  &lt;span class=&#34;s1&#34;&gt;&amp;#39;lr&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;learning_rate&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;								  &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;learning_rate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;weight_decay&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;								 &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;trainer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SGD&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;net&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;learning_rate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;weight_decay&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;同时不用担心，scheduler可以将我们的两组lr同时进行更新，可以基于下面的代码进行测试&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Training Strategy</title>
+      <link>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</link>
+      <pubDate>Thu, 16 Dec 2021 08:34:44 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</guid>
+      <description>&lt;p&gt;@Aiken 2020，&lt;/p&gt;
+&lt;p&gt;主要针对神经网络的训练过程中的一些基础策略的调整，比如当训练的曲线出现一定的问题的时候，我们应该怎么去调整我们训练过程中的策略。&lt;/p&gt;
+&lt;p&gt;参数调整过程中最重要的就是优化器（优化或者说是下降算法）和学习率（优化算法的核心参数），此外像是数据增强策略还是Normalization策略，都能极大的影响一个模型的好坏。&lt;/p&gt;
+&lt;h2 id=&#34;优化器&#34;&gt;优化器&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://wizardforcel.gitbooks.io/learn-dl-with-pytorch-liaoxingyu/content/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Some Material&lt;/a&gt;
+
+实际上虽然有很多的优化算法，但是到最后最常用的还是 SGD+Mon 和 Adam两种：&lt;/p&gt;
+&lt;p&gt;Adam主要的有事在于自适应学习率，他对我们设计的学习率实际上没有那么敏感，但是在具体实验中往往不会有调的好的SGD那么好，只是在SGD的参数调整中会比较费劲。&lt;/p&gt;
+&lt;p&gt;但是有了根据patient调整lr的scheduler后，我们基本上可以使用SGD做一个较为简单的调整，只要设计好初始的lr的实验以及用来调整学习率的参数值。&lt;/p&gt;
+&lt;h2 id=&#34;学习率&#34;&gt;学习率&lt;/h2&gt;
+&lt;p&gt;$\omega^{n} \leftarrow \omega^{n}-\eta \frac{\partial L}{\partial \omega^{n}}$ 其中的权重就是学习率lr，&lt;/p&gt;
+&lt;p&gt;==Basic==&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;学习率大&lt;/th&gt;
+          &lt;th&gt;学习率小&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;学习速度&lt;/td&gt;
+          &lt;td&gt;快&lt;/td&gt;
+          &lt;td&gt;慢&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;使用情景&lt;/td&gt;
+          &lt;td&gt;刚开始训练时&lt;/td&gt;
+          &lt;td&gt;一定的次数过后&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;副作用&lt;/td&gt;
+          &lt;td&gt;1. Loss爆炸 2.振荡&lt;/td&gt;
+          &lt;td&gt;1.过拟合 2.收敛速度慢&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;学习率的基本设置&#34;&gt;学习率的基本设置&lt;/h3&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;在训练过程中，一般根据训练轮数设置动态变化的学习率。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;刚开始训练时：学习率以 0.01 ~ 0.001 为宜。&lt;/li&gt;
+&lt;li&gt;一定轮数过后：逐渐减缓。&lt;/li&gt;
+&lt;li&gt;接近训练结束：学习速率的衰减应该在100倍以上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note：&lt;/strong&gt;
+如果是 &lt;strong&gt;迁移学习&lt;/strong&gt; ，由于模型已在原始数据上收敛，此时应设置较小学习率 (≤10−4) 在新数据上进行 &lt;strong&gt;微调&lt;/strong&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;学习率变化方法&#34;&gt;学习率变化方法&lt;/h3&gt;
+&lt;p&gt;==warm up==&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/338066667/answer/771252708&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;warm up为什么有用&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;warm up衰减策略与上述的策略有些不同，它是先从一个极低的学习率开始增加，增加到某一个值后再逐渐减少, 这点上倒是和Cosine Anneal LR有一定的相似之处，将这两种结合起来是一种常见的训练策略：&lt;/p&gt;
+&lt;p&gt;这样训练模型更加稳定，因为在刚开始时模型的参数都是随机初始化的，此时如果学习率应该取小一点，这样就不会使模型一下子跑偏。&lt;/p&gt;
+&lt;p&gt;而这样的跑偏对于&lt;strong&gt;大模型&lt;/strong&gt;而言，可能是导致很严重的影响，后面收敛了也可能不会达到最佳的效果，一开始的跑偏，可能会造成准确率在后面的严重结果。
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211216001833.png&#34;&gt;
+    &lt;img alt=&#34;warmup&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211216001833.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211216001833.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;warmup&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PyTorch Handbook 00 （Archive）</title>
+      <link>https://aikenh.cn/hugotest/posts/pytorch/</link>
+      <pubDate>Wed, 15 Dec 2021 08:00:57 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/pytorch/</guid>
+      <description>&lt;h1 id=&#34;basic-part基础设定部分&#34;&gt;Basic Part基础设定部分&lt;/h1&gt;
+&lt;p&gt;@AikenH 2020 + 2021&lt;/p&gt;
+&lt;p&gt;this part is about pytorch basic unit, help me to code deep learning better.&lt;/p&gt;
+&lt;h2 id=&#34;tensor张量计算&#34;&gt;Tensor张量计算&lt;/h2&gt;
+&lt;h3 id=&#34;两个tensor的数乘&#34;&gt;两个tensor的数乘&lt;/h3&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;计算两个tensor的矩阵乘法，注意其中的batch要相互对应，如果不考虑batch，就是另一个函数&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 简单的分析一下算法的逻辑&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 这是割裂出来batch的矩阵相乘形式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;batch1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;randn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;batch2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;randn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;out&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bmm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;batch1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;batch2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;output ans is
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;torch.size([10,3,5])&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 按位相乘&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mul&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;batch1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;batch2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;view和permute&lt;/strong&gt;的使用实际上都是不改变原值，要用赋值的方式去做，主要是使用方式要对，一个是按照顺序去做。&lt;/p&gt;
+&lt;h3 id=&#34;张量命名&#34;&gt;张量命名&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;NCHW&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;‘&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;’&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;‘&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;’&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;‘&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;’&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;‘&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;’&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;images&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;randn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;names&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;NCHW&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;images&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;images&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;类型转换&#34;&gt;类型转换&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# tensor 与 nd.array进行互换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ndarray&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tensor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cpu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;numpy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;tensor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;from_numpy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ndarray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;float&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# tensor与PIL.IMAGE进行互换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torchvision&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;transforms&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;functional&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_pil_image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tensor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;./figure.jpg&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;tensor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torchvision&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;transforms&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;functional&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_tensor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PIL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# np.ndarray 与 PIL.Image的互换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PIL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fromarray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;astype&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uint8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ndarray&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;asarray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PIL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;维度堆叠&#34;&gt;维度堆叠&lt;/h3&gt;
+&lt;p&gt;Stack，&lt;strong&gt;普通的维度堆叠的测试代码如下&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Data Augmentation</title>
+      <link>https://aikenh.cn/hugotest/posts/dataaugmentation/</link>
+      <pubDate>Sun, 28 Nov 2021 06:24:20 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/dataaugmentation/</guid>
+      <description>&lt;p&gt;intergrate with those augmentation method.&lt;/p&gt;
+&lt;p&gt;this doc will&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Record those theory and the effect after transformation&lt;/li&gt;
+&lt;li&gt;Show the codes for ez use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And the complete &lt;code&gt;.py&lt;/code&gt; will be intergrate in my classification pipeline&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;reference&lt;/strong&gt; below:arrow_down_small:, if use them,start it for respect for his work.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aleju/imgaug#documentation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aleju/imgaug&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;:star:&lt;a href=&#34;https://github.com/albumentations-team/albumentations&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;albumentations-team/albumentations: &lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pytorch.org/vision/stable/transforms.html#transforms-on-pil-image-and-torch-tensor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;torchvision&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pillow.readthedocs.io/en/stable/reference/ImageEnhance.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PIL/ImageEnhance CCBS&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;opencv&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;principle&#34;&gt;Principle&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Principle 1&lt;/strong&gt; of coding: Don’t reinvent the wheel unless it’s needed&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;具体而言，仅在函数的拓展性较差，无法对其定制化，满足我们的日常需求的时候，我们会自行编写函数从而满足我们的需求，否则我们直接引用已知的库，提升我们的实现效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;strong&gt;Principle 2&lt;/strong&gt; of coding 图像增强的两种使用方式：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>并行训练</title>
+      <link>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Sun, 28 Nov 2021 02:20:31 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://lilianweng.github.io/lil-log/2021/09/24/train-large-neural-networks.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to Train Really Large Models on Many GPUs? (lilianweng.github.io)&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;对于浮点运算，模型参数的存储和中间计算输出（梯度和优化器状态）的存储的在 GPU 内存上的大量需求使得我们需要并行化，下面我们参考一些常用的并行化范式：&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;数据并行策略&#34;&gt;&lt;strong&gt;数据并行&lt;/strong&gt;策略：&lt;/h2&gt;
+&lt;p&gt;在Multi-GPUs上Duplicate模型，然后分别feed数据，进行运算，每个batch同步或者异步的进行多卡间的梯度传递和模型同步。&lt;/p&gt;
+&lt;p&gt;同步可能会导致每个batch需要停止训练，异步则是可能会使用陈旧的梯度进行一段时间的训练，增加了计算时间。&lt;/p&gt;
+&lt;p&gt;而在PT1.5以来，使用一种中间的方式：每隔x次迭代，进行多卡间的全局同步梯度一次，使用这种梯度积累的策略，根据计算图来进行计算和通信调度的优化，提高吞吐量。&lt;/p&gt;
+&lt;h2 id=&#34;模型并行范式&#34;&gt;&lt;strong&gt;模型并行&lt;/strong&gt;范式：&lt;/h2&gt;
+&lt;p&gt;是为了解决单模型过大无法存储在单一的Node上的问题，但是这样会有GPU间的顺序依赖，虽然减少了内存的占用和计算量，但是这种IO的需求导致计算资源的利用率严重不足。&lt;/p&gt;
+&lt;p&gt;在这种pipeline中，就存在利用率的bubble，也就是空白的部分&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211111171158.png&#34;&gt;
+    &lt;img alt=&#34;image-20211111165251900&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211111171158.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211111171158.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image-20211111165251900&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;pipeline并行策略&#34;&gt;&lt;strong&gt;Pipeline并行&lt;/strong&gt;策略：&lt;/h2&gt;
+&lt;p&gt;混合模型和数据并行的策略，来减少低效时间的泡沫，也就是，将一个batch切分成多个小batch，然后分发到每个node上，减少相应的等待时间，只要我们对计算量和运行速度有合理的把握，就能极大的降低这个inefficient time bubbles. 多个mini-batch的梯度聚集起来最后同步更新. 最有情况下甚至可以忽略气泡的开销&lt;/p&gt;
+&lt;div&gt;
+$$ 
+1- \frac{2md}{(2m+2(d-1))d} = \frac{d-1}{m+d-1}
+ $$
+&lt;/div&gt;
+&lt;p&gt;m个mini-batch和d个分布, bubble的比例将如上述所示&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211111170038.png&#34;&gt;
+    &lt;img alt=&#34;image-20211111170037307&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211111170038.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211111170038.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image-20211111170037307&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

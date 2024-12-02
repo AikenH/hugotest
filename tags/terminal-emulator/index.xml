@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Terminal Emulator on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/terminal-emulator/</link>
+    <description>Recent content in Terminal Emulator on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jul 2022 10:03:26 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/terminal-emulator/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Configuration02 Terminal</title>
+      <link>https://aikenh.cn/hugotest/posts/windowsterminal/</link>
+      <pubDate>Sat, 30 Jul 2022 10:03:26 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/windowsterminal/</guid>
+      <description>&lt;h2 id=&#34;config-windows-terminal-in-win11&#34;&gt;Config Windows Terminal in Win11&lt;/h2&gt;
+&lt;h3 id=&#34;install-安装&#34;&gt;Install 安装&lt;/h3&gt;
+&lt;p&gt;windows terminal 在 win11 已经自带，无需安装，如果需要安装的话在 Microsoft Store 下载即可，默认的 terminal 在中文环境中可能要搜索 windows 终端。&lt;/p&gt;
+&lt;h3 id=&#34;baisc-基础设置&#34;&gt;Baisc 基础设置&lt;/h3&gt;
+&lt;p&gt;新版的 Windows Terminal 有了图形化配置界面，因此配置简单和直观了不少，该部分就简要的介绍一下基础的设置。通过 Ctrl+,  或者下拉菜单可以打开设置页面。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;完成每一部分的修改后记得保存&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

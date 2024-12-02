@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Obsidian on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/obsidian/</link>
+    <description>Recent content in Obsidian on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Oct 2023 00:39:59 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian使用 Spaced Repetition 制作闪念卡片</title>
+      <link>https://aikenh.cn/hugotest/posts/flashcard_template/</link>
+      <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/flashcard_template/</guid>
+      <description>&lt;p&gt;该文作为基础的闪念卡片的使用说明，介绍几种闪念卡片定义的方式，便于后续查阅，参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/558326315&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Obsidian: Spaced Repetition插件使用指南 &lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.stephenmwangi.com/obsidian-spaced-repetition/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Index - Obsidian Spaced Repetition&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;基本规则&#34;&gt;基本规则&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;单个确定为 Flashcards 的笔记文件中可以存放多个闪念卡片。&lt;/li&gt;
+&lt;li&gt;会根据记忆程度来设立需要复习的时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;卡片分组&#34;&gt;卡片分组&lt;/h2&gt;
+&lt;p&gt;在 Tab 中使用 &lt;code&gt;/&lt;/code&gt; 可以引出卡片界面的层级，只需要在设置里设定最高层的分组，后续的分组用 &lt;code&gt;/&lt;/code&gt; 引出即可。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231027212958.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231027212958.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231027212958.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;使用以下的标签就能实现上述的分组结果：&lt;code&gt;#vocabulary/day00&lt;/code&gt;；需要注意到的是只有至少一个问答时才会显示在对应的表中。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

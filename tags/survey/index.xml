@@ -2,18 +2,245 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Survey on aiken&#39;s blog</title>
-    <link>https://metisy.cool/tags/survey/</link>
+    <link>https://aikenh.cn/hugotest/tags/survey/</link>
     <description>Recent content in Survey on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Dec 2021 14:36:16 +0000</lastBuildDate>
-    <atom:link href="https://metisy.cool/tags/survey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Dec 2023 08:04:06 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/survey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>家庭服务器的备份工具选择</title>
+      <link>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</link>
+      <pubDate>Fri, 29 Dec 2023 08:04:06 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;在搭建了 Immich 服务之后，考虑到数据本身的重要性，又对硬盘本身的寿命和各种数据安全的场景有所顾虑，对加密备份的需求就浮出水面了，希望能有一个备份的预案来对抗各种数据风险，因此有本篇文章，对各种备份工具做简单调研和选择。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;intro-调研对象介绍&#34;&gt;👾Intro 调研对象介绍&lt;/h2&gt;
+&lt;p&gt;👍出场选手介绍，节选来自以下网站的备份方案：&lt;a href=&#34;https://github.com/awesome-foss/awesome-sysadmin#backups&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;awesome-sysadmin-backup&lt;/a&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kopia.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kopia&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.urbackup.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;urBackUp&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://restic.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;restic&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rclone.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rclone&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://duplicity.gitlab.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;duplicity&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.duplicati.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Duplicati&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://duplicacy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Duplicacy&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;脚本实现简单的备份和上传：Crontab+自动 tar 加密+Webdav 接口进行上传&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了备份大量包含隐私的图像信息，这里最基础的需求有以下几点：&lt;strong&gt;加密&lt;/strong&gt;，&lt;strong&gt;支持云端存储&lt;/strong&gt;服务/Webdav，&lt;strong&gt;增量备份&lt;/strong&gt;，&lt;strong&gt;免费&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;额外如果能够支持以下的需求则额外加分：&lt;strong&gt;压缩&lt;/strong&gt;，&lt;strong&gt;去重&lt;/strong&gt;，&lt;strong&gt;平台一致性&lt;/strong&gt;，&lt;strong&gt;用户界面友好&lt;/strong&gt;（备份状态检查等）&lt;/p&gt;
+&lt;h2 id=&#34;compare-特性对比&#34;&gt;🏓Compare 特性对比&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Name&lt;/th&gt;
+          &lt;th&gt;PSWD&lt;/th&gt;
+          &lt;th&gt;Zip&lt;/th&gt;
+          &lt;th&gt;Webdav&lt;/th&gt;
+          &lt;th&gt;Add&lt;/th&gt;
+          &lt;th&gt;Type&lt;/th&gt;
+          &lt;th&gt;ui&lt;/th&gt;
+          &lt;th&gt;Consis&lt;/th&gt;
+          &lt;th&gt;free&lt;/th&gt;
+          &lt;th&gt;rate&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;kopia&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;urbackup&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;C/S&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;restic&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;r/o&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;CLI&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicity&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;CLI&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicati&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicacy&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y-&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y-&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title>IL Collection</title>
+      <link>https://aikenh.cn/hugotest/posts/il-collection/</link>
+      <pubDate>Tue, 04 Jan 2022 01:38:04 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/il-collection/</guid>
+      <description>&lt;p&gt;@AikenHong 2022&lt;/p&gt;
+&lt;p&gt;[[Draft/IL 总结]]: Thx 2 wyz to provide some clus for learnning Incremental Learning.&lt;/p&gt;
+&lt;p&gt;In this Doc, we may add some related knowledge distill works which is used to design our Incremental Structure.
+在这个文档中，我们可能还会添加一些知识蒸馏的相关工作的文献，这些实际上对于我的增量学习架构有一个比较大的启发&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_36474809/article/details/116176371&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DER&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;SPPR 没有 get 到方法到底是怎么做的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;introduction-&#34;&gt;Introduction 👿&lt;/h2&gt;
+&lt;p&gt;在很多视觉应用中，需要在保留旧知识的基础上学习新知识，==举个例子==，理想的情况是，我们可以保留之前学习的参数，而不发生==灾难性遗忘==，或者我们基于之前的数据进行协同训练，灾难性遗忘是 IL 中最核心的问题。&lt;/p&gt;
+&lt;p&gt;Incremental 的基本过程可以表示如下&lt;sub&gt;[4]&lt;/sub&gt;：
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220106101003.png&#34;&gt;
+    &lt;img alt=&#34;dsa&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220106101003.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220106101003.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;dsa&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WYZ-IL-Collection</title>
+      <link>https://aikenh.cn/hugotest/posts/il-wyz/</link>
+      <pubDate>Mon, 03 Jan 2022 10:41:56 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/il-wyz/</guid>
+      <description>&lt;p&gt;: hammer: 王耀智&lt;/p&gt;
+&lt;h2 id=&#34;regularization-系列方法&#34;&gt;Regularization 系列方法&lt;/h2&gt;
+&lt;p&gt;这类方法旨在添加一些正则化损失来解决 &lt;code&gt;catastrophic forgetting&lt;/code&gt; 的问题。&lt;/p&gt;
+&lt;h3 id=&#34;weight-regularization&#34;&gt;Weight Regularization&lt;/h3&gt;
+&lt;p&gt;这类方法一般是对网络中每个参数的重要性进行评估，根据每个参数的重要性和梯度信息更新参数。&lt;/p&gt;
+&lt;p&gt;典型的文章为 &lt;a href=&#34;https://www.pnas.org/content/pnas/114/13/3521.full.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EWC&lt;/a&gt;
+ .&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS: 这类文章我也没有读过。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;data-regularization&#34;&gt;Data Regularization&lt;/h3&gt;
+&lt;p&gt;这类方法专注于记住特征表示，通常是结合 Hinton 的知识蒸馏损失函数使得模型记住旧类别的知识，解决 catastrophic forgetting。&lt;/p&gt;
+&lt;p&gt;推荐以下几篇文章：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;LwF&lt;/code&gt;(Learning without forgetting)，这篇文章在我看来是增量学习的开山之作，第一次给增量学习找到了一个比较好的方向，也是第一次将知识蒸馏应用到增量学习上；&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/2004.13513&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PODNet CVPR2020&lt;/a&gt;
+ ，这篇文章最大的贡献在我看来是设计了一个全新的蒸馏损失函数，最终结果也是达到了当时的sota，甚至目前也是几个榜单的sota。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;rehearsal-系列方法&#34;&gt;Rehearsal 系列方法&lt;/h2&gt;
+&lt;p&gt;这类方法主要的想法是使用一些旧类别的数据，在新类别到来时使用新旧数据一起训练模型，根据旧类别数据的真假分为以下两种方法。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;pseudo-rehearsal&#34;&gt;Pseudo rehearsal&lt;/h3&gt;
+&lt;p&gt;这类方法通常是在学习旧类别的同时，训练一个生成模型，可以生成旧的类别数据，在新类别数据到来时，生成相当数量的旧类别数据，一起训练新模型。&lt;/p&gt;
+&lt;p&gt;这里推荐一篇文章：Continual learning with deep generative replay。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS：这个小类别的论文我也没有太关注，个人不是很推荐这类方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;save-real-data&#34;&gt;Save real data&lt;/h3&gt;
+&lt;p&gt;这类方法是开辟一个内存空间，空间中保存旧类别的少部分训练数据，在新类别到来时，使用内存空间的数据与新数据共同学习，按照对空间的使用方法不同可分为：&lt;/p&gt;
+&lt;h4 id=&#34;exemplar-rehearsal&#34;&gt;Exemplar Rehearsal&lt;/h4&gt;
+&lt;p&gt;这类方法是将新旧数据混合，共同作为训练数据，一起训练模型，使得模型能够保持旧类别的知识。&lt;/p&gt;
+&lt;p&gt;但是在训练过程中新旧数据的类别数量是不均衡的，这也催生了我下面会说到的一大类解决方法。&lt;/p&gt;
+&lt;p&gt;这种方法推荐的论文是 &lt;code&gt;iCaRL&lt;/code&gt;，这篇论文是 exemplar rehearsal 的开山之作，第一次提出了内存空间这个概念，也提出了一个非常有效的内存选择策略(herb)，并且也是第一个使用特征作为分类依据的方法，我个人认为是继 LwF 之后又一个将 IL 推到一个新的高度的方法。&lt;/p&gt;
+&lt;h4 id=&#34;gradient-rectification&#34;&gt;Gradient Rectification&lt;/h4&gt;
+&lt;p&gt;这类方法我称之为 Gradient Rectification，其主要思路是模型每次更新的梯度由 shared gradient 和 task-specific gradient 组成。分别代表所有类别的共性信息和某一个类别的特性信息，在新类别学习时借助内存空间中的数据获得旧类别的两项梯度，在更新时对梯度进行修正，力求做到不增加共享梯度代表的损失，尽量减少类别特定梯度代表的损失。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>LT Collection</title>
-      <link>https://metisy.cool/posts/lt-collection/</link>
+      <link>https://aikenh.cn/hugotest/posts/lt-collection/</link>
       <pubDate>Wed, 22 Dec 2021 14:36:16 +0000</pubDate>
-      <guid>https://metisy.cool/posts/lt-collection/</guid>
-      <description>&lt;p&gt;@AikenHong 2021&lt;/p&gt;
+      <guid>https://aikenh.cn/hugotest/posts/lt-collection/</guid>
+      <description>&lt;h1 id=&#34;lt-collections&#34;&gt;LT-Collections&lt;/h1&gt;
+&lt;p&gt;@AikenHong 2021&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/mitming/OpenLT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code of must of those methods&lt;/a&gt;
 
 We will analysis those tricks on LT situation, and Analysis why it works.
@@ -51,6 +278,271 @@ We will analysis those tricks on LT situation, and Analysis why it works.
 &lt;h2 id=&#34;rebalance&#34;&gt;Rebalance&lt;/h2&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;对于ReBalance的方法，实际上就是从 &lt;code&gt;data&lt;/code&gt;和 &lt;code&gt;update&lt;/code&gt;两个角度来缓解Unbalance本身，通过从数据量上达到重新均衡，或者基于Loss使得bp过程中赋予Tail更高的权重来达到优化过程的平衡。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>FSL前期调研</title>
+      <link>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
+      <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
+      <description>&lt;head&gt;
+    
+    &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+
+
+
+
+&lt;div class=&#34;hugo-encryptor-container&#34;&gt;
+  &lt;div class=&#34;hugo-encryptor-prompt&#34;&gt;
+    
+      &lt;p&gt;文章的部分内容被密码保护：&lt;/p&gt;
+    
+  &lt;/div&gt;
+  &lt;div class=&#34;hugo-encryptor-form&#34;&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-input&#34;
+      placeholder=&#39;请输入密码&#39;
+    /&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-button&#34;
+      type=&#34;button&#34;
+      value=&#39;CLICK&#39;
+      onclick=&#34;_click_handler(this)&#34;
+    /&gt;
+  &lt;/div&gt;
+  &lt;div
+    class=&#34;hugo-encryptor-cipher-text&#34;
+    data-password=&#34;aikenhong_blog&#34;
+    style=&#34;display: none;&#34;
+  &gt;
+    &lt;span style=&#34;display: none;&#34;&gt;--- DON&#39;T MODIFY THIS LINE ---&lt;/span&gt;
+    &lt;h2 id=&#34;主要是limited-labels--few-samples--data-programing&#34;&gt;主要是limited labels &amp;amp; Few Samples &amp;amp; Data programing&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;del&gt;Weakly supervised learning&lt;/del&gt;&lt;br&gt;
+&lt;del&gt;semi-supervised in video field&lt;/del&gt;&lt;br&gt;
+if we can recoding this work?&lt;br&gt;
+&lt;del&gt;多指标下降（LOSS的耦合或者循环的选择）、相关的CV最新论文等等会在后续关注&lt;/del&gt;&lt;br&gt;
+&lt;del&gt;元学习、浅层神经网络的概念等等&lt;/del&gt;  &lt;del&gt;semi-supervised&lt;/del&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;part1-limited-labels-base-on-lifeifeis-reference&#34;&gt;PART1 Limited Labels （base on LiFeiFei‘s reference）&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;in this part we may list the paper which is useful for my recoding.&lt;/em&gt;&lt;br&gt;
+还有一些其他重要的可能在对论文进行重新精读的时候要记得注意reference：就比如说在loss变换和决策树生成那一块。&lt;br&gt;
+&lt;em&gt;distant supervision(it&amp;rsquo;s kind of early) can be another baseline for our method, we need to understand how this method work for that situation&lt;/em&gt;&lt;br&gt;
+distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Survey for Few-Shot Learning</title>
+      <link>https://aikenh.cn/hugotest/posts/fsl-collection/</link>
+      <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/fsl-collection/</guid>
+      <description>&lt;p&gt;@aikenhong 2020
+@h.aiken.970@gmail.com&lt;/p&gt;
+&lt;p&gt;另一个综述文章：https://zhuanlan.zhihu.com/p/61215293
+对该文中一些内容有一些补充，可以看看&lt;/p&gt;
+&lt;p&gt;FSL简介：https://blog.csdn.net/xhw205/article/details/79491649&lt;/p&gt;
+&lt;p&gt;GCN用于FSL：https://blog.csdn.net/qq_36022260/article/details/93753532&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;FSL的根本目的就是弥合人工智能和人类之间的鸿沟，从少量带有监督信息的示例中学习。像人类一样有很高的泛化能力。这也能解决在实际应用场景中，数据难以收集或者大型数据难以建立的情景。&lt;/p&gt;
+&lt;p&gt;FSL的&lt;strong&gt;核心问题&lt;/strong&gt;是：经验风险最小化器不可靠；那么如何&lt;strong&gt;使用先验知识&lt;/strong&gt;去解决这个问题？&lt;/p&gt;
+&lt;p&gt;三个主要的角度：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数据：使用先验知识增强数据的监督经验&lt;/li&gt;
+&lt;li&gt;模型：使用先验知识来降低假设空间&lt;/li&gt;
+&lt;li&gt;算法：使用先验知识来改变搜索最佳假设（来进行搜索？)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;现阶段针对FSL提出的一些相关的机器学习方法：
+&lt;code&gt;meta-learning;&lt;/code&gt; &lt;code&gt;embedding learning;&lt;/code&gt;  &lt;code&gt;generative modeling etc.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本文的主要工作：&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;基于FSL的原有设定，在现阶段的FSL发展上给出正式定义，同时阐明具体目标以及解决方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过具体示例列举和FSL的相关学习问题，比较了相关性和差异性，更好的区分问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指出核心问题：经验风险最小化器不可靠，这提供了更系统有组织的改进FSL的方向。
+经验风险最小化器👉：基于ML中的错误分解来分析的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;整理，更好的理解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;未来方向&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;notation-and-terminology&#34;&gt;Notation and Terminology&lt;/h2&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200519154522883.png&#34;&gt;
+    &lt;img alt=&#34; &#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200519154522883.png&#34;class=&#34;responsive-image&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200519154522883.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34; &#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+
+一般基于参数方法（因为非参数方法需要大量数据），在假设空间中搜索最优假设，并基于基于标签的Loss Function 来衡量效果。&lt;/p&gt;
+&lt;h2 id=&#34;main-body&#34;&gt;Main Body&lt;/h2&gt;
+&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;2.1：具体定义&amp;amp;示例 2.2：相关问题和FSL的相关性和差异 2.3：核心问题 2.4:现有的方法如何处理这个问题&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OWL-survey</title>
+      <link>https://aikenh.cn/hugotest/posts/owl-survey/</link>
+      <pubDate>Fri, 12 Nov 2021 09:40:46 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/owl-survey/</guid>
+      <description>&lt;p&gt;@AikenHong2021 OWL&lt;/p&gt;
+&lt;p&gt;分析现有的OWL特点，和当前自己的研究做一个区分，也汲取一下别人的研究的要点，&lt;/p&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;arxiv @ &lt;a href=&#34;https://arxiv.org/pdf/2102.07848.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;self-supervised feature improve open-world learning&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/374268236&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;arxiv&lt;/a&gt;
+ @ &lt;a href=&#34;https://arxiv.org/pdf/2102.03526.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;open-world semi-supervised learning&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;arxiv @ &lt;a href=&#34;https://arxiv.org/pdf/2011.12906.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;open-world learning without labels&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;arxiv @ &lt;a href=&#34;https://arxiv.org/pdf/1801.05609.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;unseen class discovery in open-world classification&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;arxiv @ &lt;a href=&#34;https://arxiv.org/pdf/2109.06628.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Open-World Active Learning with Stacking Ensemble for Self-Driving Cars&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.acm.org/doi/pdf/10.1145/3308558.3313644&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;www&lt;/a&gt;
+ @ &lt;a href=&#34;https://blog.csdn.net/u011150266/article/details/118242627&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;open-world learning and application to product classification&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;cvpr @ &lt;a href=&#34;https://openaccess.thecvf.com/content/CVPR2021/papers/Mancini_Open_World_Compositional_Zero-Shot_Learning_CVPR_2021_paper.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;open world composition zero-shot learning&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/pdf/2103.02603.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cvpr&lt;/a&gt;
+ @ &lt;a href=&#34;https://zhuanlan.zhihu.com/p/356272271&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Towards Open World Object Detection&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;[cvpr](&lt;a href=&#34;https://openaccess.thecvf.com/content_CVPR_2019/papers/Liu_Large-Scale_Long-Tailed_Recognition_in_an_Open_World_CVPR_2019_paper.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Large-Scale Long-Tailed Recognition in an Open World (thecvf.com)&lt;/a&gt;
+) @ &lt;a href=&#34;https://github.com/zhmiao/OpenLongTailRecognition-OLTR&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Large-Scale Long-Tailed Recognition in an Open World&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;papers&#34;&gt;Papers&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Mulit Open world Learning Definition&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pooling</title>
+      <link>https://aikenh.cn/hugotest/posts/pooling/</link>
+      <pubDate>Wed, 23 Jun 2021 13:48:56 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/pooling/</guid>
+      <description>&lt;h1 id=&#34;downsamplingpooling的全面调研&#34;&gt;DownSampling：Pooling的全面调研&lt;/h1&gt;
+&lt;p&gt;@Aiken 2021 笔记摘录：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;深度神经网络中的池化方法：全面调研（1989-2020） - 知乎&lt;/a&gt;
+ ；&lt;a href=&#34;https://www.sohu.com/a/442710521_823210&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;相同论文的简单中文Version&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;16页综述，共计67篇参考文献。网络千奇百怪，但基础元素却大致相同！本文全面调研了1989至2020年一些著名且有用的池化方法，并主要对20种池化方法进行了详细介绍（这些方法，你都知道么？） 注1：文末附【计算机视…&lt;/p&gt;
+&lt;p&gt;来自 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://zhuanlan.zhihu.com/p/341820742&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;原文：《Pooling Methods in Deep Neural Networks, a Review》&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/112216409&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;整合2&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;池化的根本目的motivation&#34;&gt;池化的根本目的（Motivation）&lt;/h2&gt;
+&lt;p&gt;卷积神经网络是DNN的一种特殊类型，它由几个卷积层组成，每个卷积层后都有一个激活函数和一个池化层。&lt;/p&gt;
+&lt;p&gt;池化层是重要的层，它对来自上一层的特征图执行下采样，并生成具有简化分辨率的新feature maps 。该层&lt;strong&gt;极大地减小了输入的空间尺寸&lt;/strong&gt;。 它有两个主要目的。 首先是减少参数或权重的数量，从而减少计算成本。 第二是控制网络的过拟合。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;池化可以增加网络对于平移（旋转，伸缩）的不变性，提升网络的泛化能力。&lt;/li&gt;
+&lt;li&gt;增大感受野；&lt;/li&gt;
+&lt;li&gt;降低优化难度和参数数目，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;理想的池化方法应仅提取有用的信息，并丢弃无关的细节。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特征不变性、特征降维、在一定程度上防止过拟合，更方便优化&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;主流的池化方法&#34;&gt;主流的池化方法&lt;/h2&gt;
+&lt;h3 id=&#34;average-pooling-平均池化&#34;&gt;Average Pooling 平均池化&lt;/h3&gt;
+&lt;p&gt;没啥好说的，就是每个block取一个均值。如下图所示：更关注全局特征&lt;/p&gt;
+&lt;h3 id=&#34;max-pooling-最大值池化&#34;&gt;Max Pooling 最大值池化&lt;/h3&gt;
+&lt;p&gt;更关注重要的局部特征&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34;&gt;
+    &lt;img alt=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34;class=&#34;responsive-image&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Related Word of Emotion</title>
+      <link>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</link>
+      <pubDate>Wed, 16 Dec 2020 17:08:26 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</guid>
+      <description>&lt;h2 id=&#34;疑似&#34;&gt;疑似&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;M. Suwa, N. Sugie and K. Fujimora, &amp;ldquo;A Preliminary Note on Pattern Recognition of Human Emotional Expression&amp;rdquo;, &lt;em&gt;Proc. Int&amp;rsquo;l Joint Conf. Pattern Recognition&lt;/em&gt;, pp. 408-410, 1978.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;K. Scherer and P. Ekman, &lt;em&gt;Handbook of Methods in Nonverbal Behavior Research.&lt;/em&gt;, 1982.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;J.M. Carroll and J. Russell, &amp;ldquo;Facial Expression in Hollywood&amp;rsquo;s Portrayal of Emotion&amp;rdquo;, &lt;em&gt;J. Personality and Social Psychology&lt;/em&gt;, vol. 72, pp. 164-176, 1997.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Standardization and Assessment of College Students&amp;rsquo; Facial Expression of Emotion.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hyper-Resolution</title>
+      <link>https://aikenh.cn/hugotest/posts/hyper_resolution/</link>
+      <pubDate>Fri, 06 Mar 2020 14:55:02 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/hyper_resolution/</guid>
+      <description>&lt;p&gt;说明：重点针对&lt;strong&gt;超分辨率&lt;/strong&gt;技术&lt;/p&gt;
+&lt;p&gt;备注：
+超分辨率在人脸识别上的多，但是表情识别上的确实不多，不过很多都会引用一波&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;超分辨率在表情识别中的应用&#34;&gt;超分辨率在表情识别中的应用&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;KEY WORDs ：
+
+1. (&amp;#34;super resolution&amp;#34; OR &amp;#34;image restore&amp;#34;) AND (&amp;#34;facial expression recognition&amp;#34; OR &amp;#34;emotion recognition&amp;#34;)   
+2. (&amp;#34;super resolution&amp;#34;) AND  (&amp;#34;expression recognition&amp;#34;)   
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/pdf/1709.03126.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;lt; Robust Emotion Recognition from Low Quality and Low Bit Rate Video: A Deep Learning Approach &amp;gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;针对于低带宽传输的分辨率不足和比率低的应用场景&lt;/li&gt;
+&lt;li&gt;基于facial expression recognition 的 emotion recognition&lt;/li&gt;
+&lt;li&gt;在解码器进行视频下采样的时候，&lt;strong&gt;联合SR和识别&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sciencedirect.com/science/article/abs/pii/S0925231219312974&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;lt; Effective image super resolution via hierarchical convolutional neural network &amp;gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;通过层次卷积神经网络(HCNN)来实现有校的SR&lt;/li&gt;
+&lt;li&gt;在facial expression recognition 中案例研究发现增强后的图像有助于提高识别性能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.springer.com/chapter/10.1007/978-3-319-56687-0_13&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;lt; Spatio-temporal Pain Recognition in CNN-Based Super-Resolved Facial Images &amp;gt;&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

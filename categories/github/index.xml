@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Github on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/github/</link>
+    <description>Recent content in Github on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Jan 2023 21:25:24 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Profile 个人主页</title>
+      <link>https://aikenh.cn/hugotest/posts/githubprofile/</link>
+      <pubDate>Sat, 21 Jan 2023 21:25:24 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/githubprofile/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文介绍如何配置自己的 Github 的个人资料界面，同时会介绍相关美化个人资料的一些资源网站和项目，并简单介绍其用法。最终结果如下（还有许多优化的空间）：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230122113307.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230122113307.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230122113307.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;创建同名仓库&#34;&gt;创建同名仓库&lt;/h2&gt;
+&lt;p&gt;Github 中创建用户名的同名仓库，该仓库的 README.md 将会在个人的资料页进行展示。(附上官方的说明如下)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AikenH/AikenH is a special repository. Its &lt;code&gt;README.md&lt;/code&gt; will appear on your public profile.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;创建该仓库之后，我们对 Readme 的改动将会实时的同步到我们的个人界面，后续我们就只需要专注于编写和修改该 Readme 即可。&lt;/p&gt;
+&lt;h2 id=&#34;相关资源推荐&#34;&gt;相关资源推荐&lt;/h2&gt;
+&lt;p&gt;由于大家的审美和风格不同，这里不做设计上的推荐，仅推荐一些用于美化个人界面的资源和部分项目的用法（以本人的 blog 为例）。&lt;/p&gt;
+&lt;p&gt;名字部分，简单文字转图片随便找一个&lt;a href=&#34;http://www.atoolbox.net/Tool.php?Id=723&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;工具箱&lt;/a&gt;
+或者网站生成即可，不在赘述；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这里是一个工具和推荐仓库的大全集&lt;/strong&gt;：&lt;a href=&#34;https://github.com/abhisheknaiidu/awesome-github-profile-readme#tools&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abhisheknaiidu/awesome-github-profile-readme&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;这里是一些优秀的 &lt;a href=&#34;https://zzetao.github.io/awesome-github-profile/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;readme profile&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;动态字幕&#34;&gt;动态字幕&lt;/h2&gt;
+&lt;p&gt;介绍使用的动态字幕效果实现：&lt;a href=&#34;https://github.com/DenverCoder1/readme-typing-svg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DenverCoder1/readme-typing-svg&lt;/a&gt;
+，进入其 &lt;a href=&#34;https://readme-typing-svg.demolab.com/demo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Demo Site&lt;/a&gt;
+，设定想要的样式和文字即可生成对应的 markdown 和 html 代码。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

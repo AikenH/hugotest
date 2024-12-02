@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vim on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/vim/</link>
+    <description>Recent content in Vim on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Sep 2022 01:01:01 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>转）vimscript in 5 minus</title>
+      <link>https://aikenh.cn/hugotest/posts/vimscript_5minus/</link>
+      <pubDate>Thu, 01 Sep 2022 01:01:01 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/vimscript_5minus/</guid>
+      <description>&lt;p&gt;学习 vimscript 理解原生 vim 的配置方法，Reference：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://andrewscala.com/vimscript/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Five Minus Vimscript&amp;rdquo;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/37352209&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vimscript 五分钟入门&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Vim 01 Recorder</title>
+      <link>https://aikenh.cn/hugotest/posts/vimoperation/</link>
+      <pubDate>Thu, 07 Apr 2022 14:15:25 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/vimoperation/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Chose Your Dotfile to start the vim&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim -u &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;path to your .vimrc&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;recorder-of-vim&#34;&gt;Recorder of Vim&lt;/h2&gt;
+&lt;p&gt;This Chapter mainly introduces the &lt;strong&gt;Recorder&lt;/strong&gt; in vim,Which is used to do some &lt;strong&gt;repeated&lt;/strong&gt; operations.This function is also called a &lt;strong&gt;macro&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;for more information try &lt;code&gt;:help recording&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;registersrelated-with-recording&#34;&gt;Registers(related with recording)&lt;/h3&gt;
+&lt;p&gt;This section will introduce related &lt;strong&gt;concept/function&lt;/strong&gt; of recording function. Which help us to understand how this works, and what we should pay attention to it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim 00 Basic Opeation</title>
+      <link>https://aikenh.cn/hugotest/posts/vimtutor/</link>
+      <pubDate>Thu, 14 Oct 2021 01:58:22 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/vimtutor/</guid>
+      <description>&lt;p&gt;this is the Note record the vimtutor (the basic usage of vim.)
+@Aiken 2021&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;write some word and we can use shift+a to insert in the end.
+&lt;a href=&#34;https://github.com/HanielF/VimTutor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the doc with Chinese&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- vim-markdown-toc GFM --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#delete-command&#34;&gt;delete command&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#skip-words-and-lines&#34;&gt;skip words and lines&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#undo-and-resume&#34;&gt;undo and resume&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#replace-and-change&#34;&gt;replace and change&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#location-and-file-status&#34;&gt;location and file status&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#search-command&#34;&gt;search command&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#find-the-matched-parentheses-%e6%89%be%e5%88%b0%e5%af%b9%e5%ba%94%e7%9a%84%e6%8b%ac%e5%8f%b7&#34;&gt;find the matched parentheses 找到对应的括号&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#substitute-command-%e6%9b%bf%e6%8d%a2%e5%91%bd%e4%bb%a4&#34;&gt;substitute command 替换命令&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#execute-an-ecternal-command&#34;&gt;EXECUTE AN ECTERNAL COMMAND&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-open-command&#34;&gt;THE OPEN COMMAND&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#copy-and-paste&#34;&gt;COPY AND PASTE&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#set-option&#34;&gt;SET OPTION&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#keyshort&#34;&gt;KEYSHORT&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- vim-markdown-toc --&gt;
+&lt;h2 id=&#34;delete-command&#34;&gt;delete command&lt;/h2&gt;
+&lt;p&gt;Most of the command can use &lt;code&gt;NUM&lt;/code&gt; to repeat it.
+&lt;code&gt;d num&lt;/code&gt; command means delete &lt;code&gt;num&lt;/code&gt; times with args below:
+&lt;code&gt;c&lt;/code&gt; means del and change mode to insert:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim Configuration 03 Spacevim Setup</title>
+      <link>https://aikenh.cn/hugotest/posts/spacevim/</link>
+      <pubDate>Sat, 09 Oct 2021 12:15:41 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/spacevim/</guid>
+      <description>&lt;p&gt;@Aiken 2021 this file is use to record how to config out vim&amp;rsquo; by spacevim.&lt;br&gt;
+I&amp;rsquo;ll write this doc with three Parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install and envs, Plugins(including the LSP), KeyShort&lt;/li&gt;
+&lt;li&gt;Attention: we have much to do if we want to install some other plugins.
+maybe it not a good way to set the vim.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- vim-markdown-toc GFM --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-spacevim-and-config-it&#34;&gt;INSTALL SPACEVIM AND CONFIG IT&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-langs&#34;&gt;INSTALL LANGs&amp;rsquo;&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#cocnvim&#34;&gt;COCNVIM&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#keyshort-and-special-usage&#34;&gt;KEYSHORT and special USAGE&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#split-windows-and-checkout&#34;&gt;SPLIT WINDOWS and CHECKOUT&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#plugins&#34;&gt;Plugins&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- vim-markdown-toc --&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;install-spacevim-and-config-it&#34;&gt;INSTALL SPACEVIM AND CONFIG IT&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Install:&lt;/strong&gt; SpaceVim via the offical websize:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim Configuration 02 Nvim的插件配置</title>
+      <link>https://aikenh.cn/hugotest/posts/vimconfig/</link>
+      <pubDate>Fri, 08 Oct 2021 07:45:42 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/vimconfig/</guid>
+      <description>&lt;p&gt;@Aikenhong 2021&lt;/p&gt;
+&lt;p&gt;Vim is a important consistant for editing file in shell. It&amp;rsquo;s Hightly Customized for Everyone, In this part I&amp;rsquo;ll Show my personal Vim comfigurations&lt;/p&gt;
+&lt;p&gt;And I&amp;rsquo;ll Discuss about the diff between Spacevim &amp;amp; Neovim.&lt;/p&gt;
+&lt;p&gt;Give a conclusion in advance: &lt;strong&gt;Recommand Config the Vim for Yourself&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You only need to config once, then you should save it in the cloud.&lt;/li&gt;
+&lt;li&gt;You will Know all the Keyshot you setting up, and you can customize it as you want.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20211014192437083.png&#34;&gt;
+    &lt;img alt=&#34;image-20211014192437083&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20211014192437083.png&#34;class=&#34;responsive-image&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20211014192437083.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image-20211014192437083&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim Configuration 01 vim的无插件基础设置</title>
+      <link>https://aikenh.cn/hugotest/posts/vimconfigdf/</link>
+      <pubDate>Thu, 07 Oct 2021 15:00:42 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/vimconfigdf/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 &lt;code&gt;/usr/share/vim/vimrc&lt;/code&gt;，也可以在 vim 界面使用 &lt;code&gt;:echo $MYVIMRC&lt;/code&gt; 查看当前的配置文件，默认使用的配置文件地址为 &lt;code&gt;~/.vimrc&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考文献地址：&lt;a href=&#34;https://dougblack.io/words/a-good-vimrc.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Good VimRC&lt;/a&gt;
+ | &lt;a href=&#34;https://segmentfault.com/a/1190000021029480&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Backspace&lt;/a&gt;
+ | &lt;a href=&#34;https://zhuanlan.zhihu.com/p/98360630&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AutoCmd&lt;/a&gt;
+ | &lt;a href=&#34;https://www.ruanyifeng.com/blog/2018/09/vimrc.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VIM配置入门&lt;/a&gt;
+
+配置文件地址：&lt;a href=&#34;https://github.com/AikenH/aikenh-dotfile/tree/main/vim-dot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AikenDotfile&lt;/a&gt;
+，本文这里只介绍部分配置，一些过于常见的配置等等这里就不再介绍，在 dotfile 中对每行配置均有的细致的注释。&lt;/p&gt;
+&lt;p&gt;基于 VimScript） 该 blog 主要记录基础 vim 的配置文件编写，旨在使用基础 vim 的时候也能有一个较好的代码编辑体验，同时提供部分 keymap 集成一些简单的功能，方便文档编写时候的格式转换等。这个配置文件在后续配置 nvim 的时候部分配置也会沿用。&lt;/p&gt;
+&lt;h2 id=&#34;vim-的基础配置&#34;&gt;Vim 的基础配置&lt;/h2&gt;
+&lt;p&gt;自动检测文件修改，以及对多个文件的 workspace 自动切换&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34; &amp;gt;&amp;gt;0-1 state detection.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;autoread&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#34; when file change outside, we will know&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;autochdir&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#34; change workspace when we swtich file, when we open multi-file in one session.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;鼠标和剪切板功能&#34;&gt;鼠标和剪切板功能&lt;/h3&gt;
+&lt;p&gt;设置 vim 对鼠标的支持，支持鼠标选择等&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34; reference the web get the best setting and use it always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34; suppose the mouse operation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34; but this function not work well in the weterm, we disable this part for work.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mouse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34;set selection=exclusive&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34;set selectmode=mouse,key&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;设置和系统同步的剪切板，WSL 下的剪切板设置可以参考下面文章 &lt;a href=&#34;https://github.com/microsoft/WSL/issues/4440&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WSL2 clipboard not shared between Linux and Windows&lt;/a&gt;
+ || &lt;a href=&#34;https://www.reddit.com/r/bashonubuntuonwindows/comments/be2q3l/comment/el2vx7u/?utm_source#&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reddit - Dive into anything&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34; set the clipboard&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;clipboard&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;unnamed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34; WSL yank support&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt;:&lt;span class=&#34;nx&#34;&gt;clip&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/mnt/c/WINDOWS/system32/clip.exe&amp;#39;&lt;/span&gt;  &lt;span class=&#34;c&#34;&gt;&amp;#34; change this path according to your mount point&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;executable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt;:&lt;span class=&#34;nx&#34;&gt;clip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;augroup&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;WSLYank&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;autocmd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;autocmd&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;TextYankPost&lt;/span&gt; * &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;v&lt;/span&gt;:&lt;span class=&#34;nx&#34;&gt;event&lt;/span&gt;.&lt;span class=&#34;nx&#34;&gt;operator&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;==&lt;/span&gt;# &lt;span class=&#34;s1&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;call&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt;:&lt;span class=&#34;nx&#34;&gt;clip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; @&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;endif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;augroup&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;END&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;endif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;设置撤销历史记录&#34;&gt;设置撤销历史记录&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;多次编辑同一个文件的时候保持 Undo 的历史记录，便于对同一个文件进行编辑。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;#34; &amp;gt;&amp;gt;0-2 keep file history&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;undofile&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#34; keep the undo history in file.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;undodir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=~&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;/.vim/&lt;/span&gt;.&lt;span class=&#34;nx&#34;&gt;undo&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;history&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;通过上述命令启用 undofile 的选项，并设置存储目录，这里需要注意的是，&lt;strong&gt;存储目录需要手动创建&lt;/strong&gt;，undo 的历史记录才能生效。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

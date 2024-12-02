@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cpp on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/cpp/</link>
+    <description>Recent content in Cpp on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Oct 2024 17:05:32 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CPP_头文件互相包含</title>
+      <link>https://aikenh.cn/hugotest/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</link>
+      <pubDate>Tue, 22 Oct 2024 17:05:32 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-error&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Error&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;编写 C++ 代码时偶尔会遇到两个类需要相互引用的情况，如果在 h 文件中相互包含会导致 &amp;ldquo;has not been declared&amp;rdquo; 等声明问题，此时需要使用前置声明的方式来解决该问题&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cherno的cpp教程笔记</title>
+      <link>https://aikenh.cn/hugotest/posts/cpp/</link>
+      <pubDate>Mon, 29 Nov 2021 13:12:17 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/cpp/</guid>
+      <description>&lt;p&gt;this notebook is based on Cherno‘s Video Class in &lt;a href=&#34;https://www.youtube.com/watch?v=wXBcwHwIt_I&amp;amp;list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&amp;amp;index=62&amp;amp;ab_channel=TheCherno&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YouTube&lt;/a&gt;
+；if there is sth get confused，I can &lt;strong&gt;recheck&lt;/strong&gt; the video which talk about it, or &lt;strong&gt;just google it&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;this is not totally for newbie, so some basic information we should search it&lt;/li&gt;
+&lt;li&gt;And this is a important &lt;a href=&#34;https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;websize&lt;/a&gt;
+ to tell us basic info about C++.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;strong&gt;ToDo:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; using c++ and Python to finish the leetcode.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; review data structure when we code.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; eorganize the notebook by onenote** and leetcode&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 后续可能会添加 Effetive C++中的相关内容&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; C++ Switch&lt;a href=&#34;https://www.runoob.com/cplusplus/cpp-switch.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;语句&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Attention：&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>C&#43;&#43;的常见数据类型和操作</title>
+      <link>https://aikenh.cn/hugotest/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</link>
+      <pubDate>Sun, 28 Nov 2021 06:24:23 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</guid>
+      <description>&lt;p&gt;主要介绍一些常用数据类型的一些method，区别还有一些特殊的定义；&lt;/p&gt;
+&lt;p&gt;priority_queue 默认是大顶堆，great的话是小顶堆，less的话是大顶堆，自定义的话不知道是不是一致的&lt;/p&gt;
+&lt;p&gt;set默认top是小顶，这个大小我就不知道了，自定义的话，好像和我想得是一致的&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所有的动态容器都是存放在heap上的，像是什么Vector，String，unordered_map之类的&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;指定精度的输出和计算&#34;&gt;指定精度的输出和计算&lt;/h2&gt;
+&lt;p&gt;在腾讯的笔试中出现的需要指定精度和指定的计算精度的分析，在使用常数的时候一定要使用.0去修正一个方法。&lt;/p&gt;
+&lt;h2 id=&#34;vector-动态数组&#34;&gt;Vector 动态数组&lt;/h2&gt;
+&lt;p&gt;Vector中的一些常用的函数，方法，以及一些属性介绍和辨析&lt;/p&gt;
+&lt;h3 id=&#34;emplace_back--push_back在末尾添加元素&#34;&gt;emplace_back &amp;amp; push_back（在末尾添加元素）&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;empalce_back &lt;/code&gt;直接在数组的末尾进行构造，而&lt;code&gt;push_back&lt;/code&gt;借助于构造的临时变量再将其加入数组末尾，所以在一些操作中&lt;code&gt;empalce_back&lt;/code&gt;对于空间时间的效率是会更高的，但是如果我们有重复构筑的数据的话，可能就需要使用&lt;code&gt;push_back&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;要注意实际上vector中并&lt;strong&gt;没有&lt;/strong&gt;append的方法。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;初始化方法&#34;&gt;初始化方法&lt;/h3&gt;
+&lt;p&gt;主要有几种常用的构造函数，在这里主要介绍的是关于多维度的初始化构造方式。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 最基本的定义
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 通过大括号来设定多级的vector的初始值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;5&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;7&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;6&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;9&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;5&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;常用的长度和常量&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;defaultvalue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;unordered_mapset哈希结构&#34;&gt;Unordered_map&amp;amp;set哈希结构&lt;/h2&gt;
+&lt;h3 id=&#34;cpp中hash-table的实现数据类型&#34;&gt;CPP中hash table的实现数据类型：&lt;/h3&gt;
+&lt;p&gt;实际上就是无序表，针对不同情况下的基本的定义方式，理念相同，针对不同的应用场景&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt; unordered_map&amp;lt;typedef,typedef&amp;gt; Hashtable&lt;/code&gt; : 实际上是Key-Value的架构&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;unordered_set&amp;lt;typedef&amp;gt; Hashset&lt;/code&gt; ：只包含key的类型&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;插入的话，可以使用数组的形式，也可以用insert 或者emplace把。&lt;/p&gt;
+&lt;h3 id=&#34;取值方式&#34;&gt;取值方式&lt;/h3&gt;
+&lt;p&gt;除了通过Key取Value这种老生常谈的方式，我们这里探讨的是iterator的情况下如何取到当前的值：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;set&lt;/strong&gt;: &lt;code&gt;*it&lt;/code&gt;即可；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;map：&lt;/strong&gt;&lt;code&gt;*it&lt;/code&gt;取的应该是value，&lt;strong&gt;key&lt;/strong&gt;的话通过 &lt;code&gt;it-&amp;gt;first&lt;/code&gt;来取值，&lt;strong&gt;value&lt;/strong&gt;通过&lt;code&gt;it-&amp;gt;second&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;按照迭代器来初始化&#34;&gt;按照迭代器来初始化&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;unordered_set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deaded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;deadends&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;deadends&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;是否存在键值&#34;&gt;是否存在键值&lt;/h3&gt;
+&lt;p&gt;使用&lt;code&gt;.count&lt;/code&gt;不要再用find和end了，那个估计时间成本特别高了。。。。怎么更慢了。&lt;/p&gt;
+&lt;p&gt;使用map[key] 可以访问键对应的值，但是如果Key不存在，cpp会自动创建这个key同时赋值为0；&lt;/p&gt;
+&lt;h3 id=&#34;erase&#34;&gt;erase&lt;/h3&gt;
+&lt;p&gt;可以直接根据键值进行erase()&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

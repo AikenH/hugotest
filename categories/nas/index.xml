@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>NAS on aiken&#39;s blog</title>
-    <link>https://metisy.cool/categories/nas/</link>
+    <link>https://aikenh.cn/hugotest/categories/nas/</link>
     <description>Recent content in NAS on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Dec 2023 08:24:36 +0000</lastBuildDate>
-    <atom:link href="https://metisy.cool/categories/nas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Dec 2023 08:04:06 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/nas/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>家庭服务器整体方案</title>
-      <link>https://metisy.cool/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</link>
-      <pubDate>Wed, 20 Dec 2023 08:24:36 +0000</pubDate>
-      <guid>https://metisy.cool/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</guid>
+      <title>家庭服务器的备份工具选择</title>
+      <link>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</link>
+      <pubDate>Fri, 29 Dec 2023 08:04:06 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -20,39 +20,208 @@
     &lt;/svg&gt;
     &lt;span&gt;Summary&lt;/span&gt;
   &lt;/p&gt;
-  &lt;p&gt;本文主要介绍笔者的家庭服务器设计方案 V1。该方案中中涵盖影视、图像、图书&amp;amp;文献、博客、智能家居管理、密码管理服务，以及公网上内容分发的初步设计和选择的考量。&lt;/p&gt;
+  &lt;p&gt;在搭建了 Immich 服务之后，考虑到数据本身的重要性，又对硬盘本身的寿命和各种数据安全的场景有所顾虑，对加密备份的需求就浮出水面了，希望能有一个备份的预案来对抗各种数据风险，因此有本篇文章，对各种备份工具做简单调研和选择。&lt;/p&gt;
 
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;整体架构&#34;&gt;整体架构&lt;/h2&gt;
-&lt;p&gt;整个服务中心在设计的时候主要考虑以下的几个方面：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;💻操作设备&amp;amp;系统(OS)和内容存储方案：如何&lt;strong&gt;经济实惠&lt;/strong&gt;的选择合适的设备和系统&lt;/li&gt;
-&lt;li&gt;🌦️服务需求：需要搭建&lt;strong&gt;哪些服务&lt;/strong&gt;，应该选择&lt;strong&gt;哪个服务&lt;/strong&gt;进行自托管&lt;/li&gt;
-&lt;li&gt;🌍部署方案：如何保证在局域网+&lt;strong&gt;公网&lt;/strong&gt;都能顺利且&lt;strong&gt;安全的访问&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;📱访问策略：各个平台上的访问方式的选择&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;此外，并非所有服务都需要在公网上进行部署，这里的部分服务可以仅用于局域网，由于仅开放了 Nginx 端口，因此从公网中访问不到未分发的内容，因此，部分存储与敏感信息相关的服务可以仅保留在局域网中进行访问。&lt;/p&gt;
-
-
-
-  
-  
-
-&lt;blockquote class=&#34;alert-blockquote alert-note&#34;&gt;
-  &lt;p class=&#34;alert-heading&#34;&gt;
-    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
-      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
-    &lt;/svg&gt;
-    &lt;span&gt;Note&lt;/span&gt;
-  &lt;/p&gt;
-  &lt;p&gt;在这种情况下如果希望能够使用一致的域名访问方式，是否可以考虑使用 Nginx 鉴权限制访问 ip 为内网 ip，其他公网访问直接丢弃？&lt;/p&gt;
-
-&lt;/blockquote&gt;
-&lt;p&gt;初版家庭服务中心的架构图如下，(这里并非列出所有的服务组件)，该架构图中所有的应用都是为了方便日常生活中的各项活动，下面会对架构图自底向上的做一些简单的说明。&lt;/p&gt;
 &lt;p&gt;
 &lt;div class=&#34;post-img-view&#34;&gt;
-  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231209082421.png&#34;&gt;
-    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231209082421.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231209082421.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;intro-调研对象介绍&#34;&gt;👾Intro 调研对象介绍&lt;/h2&gt;
+&lt;p&gt;👍出场选手介绍，节选来自以下网站的备份方案：&lt;a href=&#34;https://github.com/awesome-foss/awesome-sysadmin#backups&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;awesome-sysadmin-backup&lt;/a&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kopia.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kopia&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.urbackup.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;urBackUp&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://restic.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;restic&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rclone.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rclone&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://duplicity.gitlab.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;duplicity&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.duplicati.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Duplicati&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://duplicacy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Duplicacy&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;脚本实现简单的备份和上传：Crontab+自动 tar 加密+Webdav 接口进行上传&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了备份大量包含隐私的图像信息，这里最基础的需求有以下几点：&lt;strong&gt;加密&lt;/strong&gt;，&lt;strong&gt;支持云端存储&lt;/strong&gt;服务/Webdav，&lt;strong&gt;增量备份&lt;/strong&gt;，&lt;strong&gt;免费&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;额外如果能够支持以下的需求则额外加分：&lt;strong&gt;压缩&lt;/strong&gt;，&lt;strong&gt;去重&lt;/strong&gt;，&lt;strong&gt;平台一致性&lt;/strong&gt;，&lt;strong&gt;用户界面友好&lt;/strong&gt;（备份状态检查等）&lt;/p&gt;
+&lt;h2 id=&#34;compare-特性对比&#34;&gt;🏓Compare 特性对比&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Name&lt;/th&gt;
+          &lt;th&gt;PSWD&lt;/th&gt;
+          &lt;th&gt;Zip&lt;/th&gt;
+          &lt;th&gt;Webdav&lt;/th&gt;
+          &lt;th&gt;Add&lt;/th&gt;
+          &lt;th&gt;Type&lt;/th&gt;
+          &lt;th&gt;ui&lt;/th&gt;
+          &lt;th&gt;Consis&lt;/th&gt;
+          &lt;th&gt;free&lt;/th&gt;
+          &lt;th&gt;rate&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;kopia&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;urbackup&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;C/S&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;restic&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;r/o&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;CLI&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicity&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;CLI&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicati&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicacy&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y-&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y-&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title>破解本地自托管Emby服务</title>
+      <link>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</link>
+      <pubDate>Fri, 10 Nov 2023 14:05:15 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</guid>
+      <description>&lt;h2 id=&#34;intro-问题描述&#34;&gt;Intro 问题描述&lt;/h2&gt;
+&lt;p&gt;以 emby 为例，学习如何对这种自托管的服务，请求验证网站的软件进行破解，破解的整体思路分为以下的两类：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一种是改客户端，一种是改服务端。两种方式的最终原理一样，都是搭建仿冒认证服务器，客户端访问伪服务器拿到授权信息；【3】&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因此无论是那种方法我们都需要搭建伪验证服务器：所以以下的操作是必须的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;抓取定位到验证服务器的地址，并获取验证服务器返回的验证信息格式；&lt;/li&gt;
+&lt;li&gt;使用 Nginx 搭建虚拟的验证服务器，使其返回激活/验证信息；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果是&lt;strong&gt;修改客户端&lt;/strong&gt;，则在搭建完验证站后需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改 Host 文件，将请求验证服务器的请求劫持到本地搭建的服务上；&lt;/li&gt;
+&lt;li&gt;需要伪服务器和客户端都要安装自签名证书&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果是&lt;strong&gt;修改服务端&lt;/strong&gt;，则后续需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改服务端源文件，将默认的认证服务器 mb3admin.com 地址直接改成伪服务器&lt;/li&gt;
+&lt;li&gt;这样就&lt;strong&gt;不需要安装自签名证书&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果是使用 Docker 进行部署的 emby 可以使用别人修改好的服务端的镜像进行部署安装（like 开心版）&lt;/p&gt;
+&lt;p&gt;本文主要介绍验证服务器的搭建、修改客户端的方法，以及一些其他的注意事项；&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务03 DDNS-go 动态域名解析</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</link>
+      <pubDate>Tue, 07 Nov 2023 13:40:13 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第三篇，以 DDNS-go 开源项目为例，部署动态域名解析服务，自动更新主机记录值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jeessy2/ddns-go&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;jeessy2/ddns-go: 简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾讯云、Dnspod、Cloudflare、Callback、华为云、百度云、Porkbun、GoDaddy、Google Domain) (github.com)&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;该工具使用起来非常简单，推荐需要动态域名解析的可以尝试使用该工具，简单介绍工具的使用如下：&lt;/p&gt;
+&lt;h2 id=&#34;配置-ddns-go&#34;&gt;配置 DDNS-GO&lt;/h2&gt;
+&lt;p&gt;前往 &lt;a href=&#34;https://github.com/jeessy2/ddns-go/releases/tag/v5.6.6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;release&lt;/a&gt;
+ 页面下载对应系统的版本：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;解压后双击打开 ddns-go.exe 会自动弹出配置的界面：locahost:9876,选择需要解析域名的 DNS 服务商，选择创建密钥并填入对应的密钥。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
       alt=&#34;image.png&#34;  /&gt;
   &lt;/a&gt;
 &lt;/div&gt;
@@ -68,6 +237,407 @@
   });
 &lt;/script&gt;
 &lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务02 Nginx和Https</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</link>
+      <pubDate>Mon, 06 Nov 2023 20:49:16 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第二篇，以腾讯云和 Nginx 为例，介绍如何将服务部署到 https://域名 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;需要以下的事前准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;腾讯云/阿里云/Cloudflare 等随便一个地方购买一个自己的域名&lt;/li&gt;
+&lt;li&gt;公网 ipv4/ipv6 地址&lt;/li&gt;
+&lt;li&gt;本地部署一个服务以供测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;nginxdocker-安装&#34;&gt;Nginx(Docker) 安装&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里选择 Docker 来分离安装 Nginx 服务，Docker 部署的优势这里就不再赘述，这里建议使用 portainer 进行容器管理和运行状态查看。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先创建存放 Nginx 配置文件和证书文件的目录，后续挂载给 Nginx Contrainer 使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /home/username/docker-file/nginx/conf.d
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /home/username/docker-file/nginx/cert
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;配置文件存放到 &lt;code&gt;conf.d&lt;/code&gt; 中，&lt;strong&gt;各种 SSL 证书则存放到&lt;/strong&gt; &lt;code&gt;cert&lt;/code&gt; 文件夹中；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接着部署 Nginx，这次先不挂载目录，将 Nginx 中一些默认配置拷贝出来，以供后续使用和修改：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# run会自己执行镜像拉取，pull可以不执行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker pull nginx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run --name nginx -p 80:80 -d nginx 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;将配置文件复制出来：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/conf.d/default.conf /home/username/docker-file/nginx/conf.d/default.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/nginx.conf /home/username/docker-file/nginx/conf.d/nginx.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/mime.types /home/username/docker-file/nginx/conf.d/mime.types
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;基于原始的配置文件挂载后查看 nginx 是否正常运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker rm -f nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run --name nginx -p 80:80 -p 443:443 -v /home/username/docker-file/nginx/conf.d/nginx.conf:/etc/nginx/nginx.conf -v /home/username/docker-file/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /home/username/docker-file/nginx/conf.d/mime.types:/etc/nginx/mime.types -v /home/username/docker-file/nginx/cert:/etc/nginx/cert -d nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考资料：&lt;a href=&#34;https://www.cnblogs.com/Aamir-Ye/p/16823739.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;使用docker部署nginx并配置https - 逊老头 - 博客园 (cnblogs.com)&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务01 IPV6开启和设置</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</link>
+      <pubDate>Sun, 05 Nov 2023 19:23:17 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第一篇，以电信宽带为例，说明如何开启 ipv6 服务和外网访问放行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;开启 IPV6 服务主要需要修改两个地方的配置：**光猫开启桥接模式和 IPV6 **、&lt;strong&gt;路由器修改为 pppoe 拨号模式以及防火墙设置&lt;/strong&gt;；这里以本人的电信光猫和小米路由器为例：&lt;/p&gt;
+&lt;h2 id=&#34;背景介绍&#34;&gt;背景介绍&lt;/h2&gt;
+&lt;p&gt;需要在外网访问部署于家庭内网的一些服务，考虑了以下的几个方案，决定使用 ipv6作为核心&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;方案&lt;/th&gt;
+          &lt;th&gt;简要说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;Zerotier&lt;/td&gt;
+          &lt;td&gt;免费，需要注册账户，支持移动端，国内速度极慢，且不稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;Tailscale（备用）&lt;/td&gt;
+          &lt;td&gt;免费，需要注册账号，支持移动端，国内速度一版，稳定性相 Zetotier 较好，但仍不够稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;frp&lt;/td&gt;
+          &lt;td&gt;申请一个有公网的服务器，使用 frp 自己作为内网穿透的中转，贵，较为麻烦&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;公网 IP&lt;/td&gt;
+          &lt;td&gt;Ipv4&lt;/td&gt;
+          &lt;td&gt;难以申请，其他都好&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;公网 IP&lt;/td&gt;
+          &lt;td&gt;Ipv6（主力）&lt;/td&gt;
+          &lt;td&gt;获取简单，需要配置一下光猫使用，一劳永逸，快，稳定，多，有暴露公网的危险，需要设置防火墙&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;其他&lt;/td&gt;
+          &lt;td&gt;Cloudflare Zerotrust&lt;/td&gt;
+          &lt;td&gt;简单，免费，可以绑定域名，但是网站根本登不进去配置页面，速度不快&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;光猫设置&#34;&gt;光猫设置&lt;/h2&gt;
+&lt;p&gt;查看光猫背面的管理员 url，进入光猫管理界面，登录&lt;strong&gt;超级管理员账户&lt;/strong&gt;（非普通账户，会跳转到更详细的管理页面，大部分同地区的超级管理员账户应该是一致的，不对可以询问下宽带师傅）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;管理地址通常为：192.168.1.1&lt;/li&gt;
+&lt;li&gt;超级管理员账号：useradmin&lt;/li&gt;
+&lt;li&gt;超级管理员密码：nE7jA%5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;开始之前准备 PPPoe 拨号的帐号和密码，不知道的话等询问好了再开始操作。&lt;/p&gt;
+&lt;p&gt;在天翼网关-&amp;gt;网络-&amp;gt;网络设置中进行如下的操作：（这里可以尝试改成 pppoe 并通过开发者模式查看密码，不知道密码不要轻易进行后续操作）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;连接名称选择 &lt;code&gt;+++INTERENT_R_VID_41&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;连接模式从路由改为桥接&lt;/li&gt;
+&lt;li&gt;IP 模式确认为 &lt;code&gt;IPv4&amp;amp;IPv6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;点击保存/应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;在天翼网关-&amp;gt;状态-&amp;gt;网络侧信息中检查 IPv4 和 IPv6 是否都开启成功：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://cloud.tencent.com/developer/article/1894991&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;个人宽带如何开启IPv6网络访问&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HomeAssistant01 入门基础篇</title>
+      <link>https://aikenh.cn/hugotest/posts/homeassistant_init/</link>
+      <pubDate>Sat, 12 Aug 2023 17:24:50 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/homeassistant_init/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;接下来本文安装的是 Container 版本的 HA，并非 Supervised 的版本，所以其中是不包含 Add-on 的，如果需要特定的 Add-on 的版本请注意。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;基于本篇流程安装 HA 的前置条件是系统上已经安装好了可用的 Docker，该文会介绍 HA 和 HACS 的安装以及一些基础的配置。&lt;/p&gt;
+&lt;h2 id=&#34;ha--hacs-安装&#34;&gt;HA &amp;amp; HACS 安装&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文安装于 Raspberry pi 4B，与其他操作环境可能会存在一些差异，要注意甄别。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;ha&#34;&gt;HA&lt;/h3&gt;
+&lt;p&gt;安装过程主要参考 &lt;a href=&#34;https://www.home-assistant.io/installation/raspberrypi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspberry Pi - Home Assistant &lt;/a&gt;
+ 中 Install Home Assistant Container 的章节，如果为其他的 OS 也可以在官网找到类似的指引，不过 docker 版本的差异应该不会特别的大，个人的 Docker Compose File 也已经上传到 &lt;a href=&#34;https://github.com/AikenH/aikenh-DockerComposeYML/blob/master/HomeAssistant/docker-compose.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB&lt;/a&gt;
+ 可自行取用。&lt;/p&gt;
+&lt;p&gt;修改完 &lt;code&gt;-v&lt;/code&gt; 的挂载目录以后（将数据保存在本地的目录）和 &lt;code&gt;-e&lt;/code&gt; 的时区后，即可执行拉取和安装 docker，这里-v 挂载的本地目录要记得，后面有用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker compose up -d 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完后基于 Host 模式的 HA 会运行在 http://localhost:8123 中，localhost 也可以用 ip 替代。安装完后随着&lt;a href=&#34;https://www.home-assistant.io/getting-started/onboarding/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;指引&lt;/a&gt;
+完成一些基础的设置，设置好默认的账号密码即可重启 docker 进入 HA 的界面；&lt;/p&gt;
+&lt;p&gt;到这里已经可以做一些基础的使用了，但是为了支持更多智能家具产品，往往需要安装第三方用户商店 HACS ，从中去下载对于其他智能家具产品的支持。&lt;/p&gt;
+&lt;h3 id=&#34;hacs&#34;&gt;HACS&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Home Assistant Community Store 第三方用户商店，便于下载各种各样的集成实现对于各个不同智能家具品牌和产品的支持。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;各种不同版本的安装方式可以参考&lt;a href=&#34;https://hacs.xyz/docs/setup/download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方网页&lt;/a&gt;
+，以下只介绍基于 Container 的安装方式，官方提供了安装脚本，因此现在下载已经相对简单，具体如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入挂载的本地目录，执行下面命令，即包含了下载和执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -O - https://get.hacs.xyz &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; bash -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;如果下不下来也可以直接打开网页复制进.Sh 脚本中；也可以去我的仓库中拉下来&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装完重启 HA，在集成页面添加集成，搜索 HACS，搜索到直接进行安装，跟随配置进行安装，并打开 GITHUB 进行登录和授权即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>内网穿透（NAT穿透）</title>
+      <link>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Tue, 04 Apr 2023 14:40:12 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</guid>
+      <description>&lt;p&gt;本文简要介绍对内网穿透技术、对内网穿透技术的需求以及介绍一些用于&amp;quot;个人&amp;quot;进行内网穿透的工具和使用。&lt;/p&gt;
+&lt;h2 id=&#34;1-什么是内网穿透nat-traversal&#34;&gt;1. 什么是内网穿透(NAT traversal）&lt;/h2&gt;
+&lt;p&gt;在计算机科学中，&lt;strong&gt;NAT穿越&lt;/strong&gt;（NAT traversal）涉及TCP/IP中的一个常见问题，即在处于使用了NAT设备的私有TCP/IP网络中的主机之间创建连接的问题。&lt;/p&gt;
+&lt;p&gt;其中 NAT 即&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;网络地址转换&lt;/a&gt;
+（Network Address Translation）在计算机网络中是一种在 IP 数据包通过路由器或防火墙时重写来源 IP 地址或目的 IP 地址的技术。&lt;strong&gt;这种技术被普遍使用在有多台主机但只通过一个公有 IP 地址访问互联网的私有网络中&lt;/strong&gt;。它是一个方便且得到了广泛应用的技术。当然，NAT 也让主机之间的通信变得复杂，导致了通信效率的降低。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NAT 是作为一种解决&lt;a href=&#34;https://zh.wikipedia.org/wiki/IPv4%E4%BD%8D%E5%9D%80%E6%9E%AF%E7%AB%AD&#34; title=&#34;IPv4位址枯竭&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPv4地址短缺&lt;/a&gt;
+以避免保留 IP 地址困难的方案而流行起来的。NAT 成了家庭和小型办公室网络连接上的路由器的一个标准特征。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其中最为常见的 NAT 设备就是家家户户都有的路由器，将所有的设备在&lt;strong&gt;局域网&lt;/strong&gt;中统一管理，并基于唯一的公网 ip 对互联网（私有网络）进行访问。&lt;/p&gt;
+&lt;p&gt;而 NAT 会带来以下的问题，因此会需要内网穿透的技术：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外网主动发起的服务无法准确的定位到内网的指定机器，会被 NAT 设备丢弃，因此链接会变成单项的，无法双向交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此无法在外网访问内网机器提供给局域网的服务，因此我们的机器，我们部署于 NAS、docker 的服务就只能在局域网中访问，在一定程度上就造成不便。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NAS</title>
+      <link>https://aikenh.cn/hugotest/posts/nas/</link>
+      <pubDate>Wed, 27 Jul 2022 23:30:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/nas/</guid>
+      <description>&lt;p&gt;“NAS本质上就是一个可以开启文件共享的具有大存储的系统：无论是Windows，Linux或其他一切可基于诸如SMB、Internet提供文件共享或访问功能的系统都可以作为NAS的系统使用。”&lt;/p&gt;
+&lt;p&gt;不出意外，针对该应用场景，也有针对性的一些简化OS，故而在构建NAS之前，首先分析对NAS存储的需求，进而选择一个合适的系统去构建。&lt;/p&gt;
+&lt;h2 id=&#34;个人nas需求分析&#34;&gt;个人NAS需求分析&lt;/h2&gt;
+&lt;p&gt;就像NAS：Network Attached Storage所说，NAS最基本的需求是“存储”与“共享”（随时存取），实际也是一个私有网盘（支持更多功能？），本文便基于该脉络分析需求。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;存储/功能类型&lt;/th&gt;
+          &lt;th&gt;使用场景说明&lt;/th&gt;
+          &lt;th&gt;需求程度&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;图片、文件归档&lt;/td&gt;
+          &lt;td&gt;存储，预览（基于AI识别分类，时间线，照片墙）&lt;/td&gt;
+          &lt;td&gt;-&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;大文件&lt;/td&gt;
+          &lt;td&gt;内网快速传输&lt;/td&gt;
+          &lt;td&gt;-&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;电影&lt;/td&gt;
+          &lt;td&gt;流媒体服务器：多设备在线观看、封面集归纳和整理（PLEX）&lt;/td&gt;
+          &lt;td&gt;-&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;工作文档&lt;/td&gt;
+          &lt;td&gt;历史版本，协作编辑&lt;/td&gt;
+          &lt;td&gt;Option&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下载功能&lt;/td&gt;
+          &lt;td&gt;看到想看的电影的时候可以直接让他开始下载&lt;/td&gt;
+          &lt;td&gt;-&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;支持docker扩充功能&lt;/td&gt;
+          &lt;td&gt;可以使用Docker下载并部署一些其他的乱七八糟的功能&lt;/td&gt;
+          &lt;td&gt;Core&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;在支持基本功能的基础之上，通过配置的选择来，尽量减少功耗，从而减少长时间启动带来的电费消耗，如果可以的话使用软件或者硬件来记录NAS每个月的耗电量。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;此外，还需要考虑数据的稳定性，好像叫做《阵列》？（&lt;strong&gt;后续进行补充了解&lt;/strong&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;断电自动重启&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文件共享服务：SMB、FTP‘&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加密和数据安全性&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不需要显示器，只需要网络和SSH进行远程登陆和控制之类的。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;nas-os&#34;&gt;NAS-OS&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;主要的一些NAS系统有：FreeNas、nas4free（xigmaNAS）、&lt;strong&gt;unraid（收费）&lt;/strong&gt;、&lt;strong&gt;TrueNas Scale/Core&lt;/strong&gt;、&lt;strong&gt;omv&lt;/strong&gt;、EasyNAS黑群晖&lt;/p&gt;
+&lt;p&gt;基于完整OS搭建：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian/Ubuntu（server）+（samba+syncthing+Docker）&lt;/li&gt;
+&lt;li&gt;windows（server）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好像可以搭配软路由（OpenWrt）一起搭建家用存储系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;主要考虑Unraid、TrueNas、Omv，由于Unraid收费，考虑使用TrueNas、OMV是否足够满足需要，如果需要的话就不在考虑其他。&lt;/p&gt;
+&lt;h3 id=&#34;基于docker的软件部署&#34;&gt;基于Docker的软件部署&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;jellyfin或Plex进行视频资源管理&lt;/li&gt;
+&lt;li&gt;运行虚拟机基于黑群晖进行图像管理？&lt;/li&gt;
+&lt;li&gt;下载工具&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;部署可于外网访问虚拟内网构建&#34;&gt;部署可于外网访问（虚拟内网构建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;zerotier内网穿透？&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;配置分析&#34;&gt;配置分析&lt;/h2&gt;
+&lt;p&gt;实际上就是组装一台不带屏幕的电脑，故而基于现有的多余硬件来组建NAS。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;设备名称&lt;/th&gt;
+          &lt;th&gt;预算-&amp;gt;具体型号&lt;/th&gt;
+          &lt;th&gt;功率&lt;/th&gt;
+          &lt;th&gt;FI？&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;机箱&lt;/td&gt;
+          &lt;td&gt;x&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;√&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;机箱风扇&lt;/td&gt;
+          &lt;td&gt;x&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;√&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内存&lt;/td&gt;
+          &lt;td&gt;x&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;√&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CPU（带集显支持硬解）+自带散热&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;256-ssd（系统）&lt;/td&gt;
+          &lt;td&gt;200-300&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Hard-Drive（存储空间4T+4T+4T+4T）&lt;/td&gt;
+          &lt;td&gt;1k&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;电源（基于设备需求进行购买）&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;仍需考虑&lt;/strong&gt;的问题：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

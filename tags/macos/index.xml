@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MacOS on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/macos/</link>
+    <description>Recent content in MacOS on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Apr 2023 19:28:48 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Macos Configuration01 MacOS terminal 设置</title>
+      <link>https://aikenh.cn/hugotest/posts/macos_bash_config/</link>
+      <pubDate>Sun, 02 Apr 2023 19:28:48 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/macos_bash_config/</guid>
+      <description>&lt;p&gt;Mac 的 Terminal 和 Ubuntu 的操作上较为相似，都是 Unix 的吧，但是要注意一下安全和软件管理库。&lt;/p&gt;
+&lt;p&gt;其他的参考资料： &lt;a href=&#34;https://www.youtube.com/watch?v=RNqDkF17ogY&amp;amp;t=787s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.youtube.com/watch?v=RNqDkF17ogY&amp;t=787s&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;temrinal-终端&#34;&gt;Temrinal 终端&lt;/h2&gt;
+&lt;p&gt;The default terminal is zsh, so we do not need to install zsh from scratch.&lt;/p&gt;
+&lt;h3 id=&#34;brew&#34;&gt;Brew&lt;/h3&gt;
+&lt;p&gt;we install brew follow the &lt;a href=&#34;https://brew.sh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official website&lt;/a&gt;
+ settings :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/bin/bash -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;iterm-2&#34;&gt;Iterm 2&lt;/h3&gt;
+&lt;p&gt;After install brew we can install iterm 2 like this :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install iterm2 --cask
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Then we download and config its&amp;rsquo; setting in the preference menu. Or export the profile.&lt;/p&gt;
+&lt;p&gt;Those following settings are what i&amp;rsquo;m most concerned about, and because of the simple UI, we will not introduce too much.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Transparent&lt;/li&gt;
+&lt;li&gt;Snippets&lt;/li&gt;
+&lt;li&gt;Status line&lt;/li&gt;
+&lt;li&gt;Split windows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这将会是我们的主终端应用，后续会结合 fig 一起使用，这给我们提供了媲美，甚至超越 windows terminal 的使用体验。&lt;/p&gt;
+&lt;p&gt;Seems like 可以取代 tmux 来进行分屏&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Macos Configuration00 软件安装和基础配置</title>
+      <link>https://aikenh.cn/hugotest/posts/macos/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/macos/</guid>
+      <description>&lt;p&gt;配置一台全新的 MacOs（M1）用于日常使用和编程开发，这里总结一下自己体验比较好的 APP 和开发工具。Let‘s Go&lt;/p&gt;
+&lt;h2 id=&#34;系统基础设置&#34;&gt;系统基础设置&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;调转 F 区功能&lt;/strong&gt;：在涉及到开发的时候，F 区很多情况下就会派上用场，因此这里简单介绍一下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统设置里搜索&amp;quot;功能键&amp;quot;&lt;/li&gt;
+&lt;li&gt;在弹出页面中选择将 F 1 作为标准功能键勾选即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;触控板功能&lt;/strong&gt;：特别是三指拖动功能一定要开启，用来拖放窗口和文件方便太多。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统偏好设置 -&amp;gt; 触控板 -&amp;gt; 三指点按查询&lt;/li&gt;
+&lt;li&gt;系统偏好设置 -&amp;gt; 辅助功能 -&amp;gt; 指针控制-&amp;gt; 触控板选项 -&amp;gt; 三指拖动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;访达设置：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;首先在偏好设置中有以下的几个可以调整：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通用 -&amp;gt; 开启新访达窗口时打开&lt;/li&gt;
+&lt;li&gt;高级 -&amp;gt; 显示文件拓展名&lt;/li&gt;
+&lt;li&gt;边栏 -&amp;gt; 选择自己想要的边栏&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接着是在显示选线卡中，可以勾选：“显示路径栏”、“‘显示状态栏’”&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230402164844.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230402164844.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230402164844.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

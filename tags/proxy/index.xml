@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Proxy on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/proxy/</link>
+    <description>Recent content in Proxy on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Jun 2023 10:41:25 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clash局域网代理共享</title>
+      <link>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</link>
+      <pubDate>Thu, 22 Jun 2023 10:41:25 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文介绍基于 Windows Clash Desktop 的代理服务器设置，可以为局域网内的设备提供代理服务，该方案可以解决一定的科学上网需求，但是没办法覆盖所有的场景，例如 PS5 的 Netflix ，其不走代理服务器，因此无法通过该方案解决，（软路由可破）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本篇的设置内容主要会从两个方面出发：一个是服务器的开启和防火墙的设置、另一个是客户端如何设置使用对应的代理服务器。&lt;/p&gt;
+&lt;h2 id=&#34;clash开启代理服务器&#34;&gt;Clash开启代理服务器&lt;/h2&gt;
+&lt;p&gt;Clash 作为局域网代理服务器开启的方式十分简单，主要是以下几步。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;开启局域网访问 -&amp;gt; 设置端口，查看 ip -&amp;gt;  防火墙允许通行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;配置代理服务器&#34;&gt;配置代理服务器&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;开启局域网访问&lt;/strong&gt;： Allow LAN 打钩即可。
+&lt;strong&gt;端口&lt;/strong&gt;：设置好想要的 mixport 即可。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091350.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091350.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091350.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;防火墙允许通行&lt;/strong&gt;： 防火墙-&amp;gt; 高级设置，找到 Clash 所有项，允许其在专用网络上通行。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091506.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091506.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091506.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+
+&lt;strong&gt;查看 ip&lt;/strong&gt;：命令行输入 &lt;code&gt;ipconfig/ all&lt;/code&gt; 里面的 WLAN 模块，可以找到自己的局域网 ip&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091742.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091742.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230626091742.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

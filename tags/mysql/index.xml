@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mysql on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/mysql/</link>
+    <description>Recent content in Mysql on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Oct 2022 18:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于Vue和Django的前后端开发实践</title>
+      <link>https://aikenh.cn/hugotest/posts/custom_web/</link>
+      <pubDate>Sun, 02 Oct 2022 18:00:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/custom_web/</guid>
+      <description>&lt;head&gt;
+    
+    &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+
+
+
+
+&lt;div class=&#34;hugo-encryptor-container&#34;&gt;
+  &lt;div class=&#34;hugo-encryptor-prompt&#34;&gt;
+    
+      &lt;p&gt;文章的部分内容被密码保护：&lt;/p&gt;
+    
+  &lt;/div&gt;
+  &lt;div class=&#34;hugo-encryptor-form&#34;&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-input&#34;
+      placeholder=&#39;请输入密码&#39;
+    /&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-button&#34;
+      type=&#34;button&#34;
+      value=&#39;CLICK&#39;
+      onclick=&#34;_click_handler(this)&#34;
+    /&gt;
+  &lt;/div&gt;
+  &lt;div
+    class=&#34;hugo-encryptor-cipher-text&#34;
+    data-password=&#34;aikenhong_blog&#34;
+    style=&#34;display: none;&#34;
+  &gt;
+    &lt;span style=&#34;display: none;&#34;&gt;--- DON&#39;T MODIFY THIS LINE ---&lt;/span&gt;
+    &lt;p&gt;@Aikenhong 2022 介绍基于Tdesign和Django的界面安装和前后端联调，ubuntu version，&lt;/p&gt;
+&lt;p&gt;该文章首先介绍如何配置环境，后续基于现有项目来介绍如何从零来构建基本的网页和后端服务。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;基本信息&#34;&gt;基本信息&lt;/h2&gt;
+&lt;p&gt;（已完成）下载编写好的网页压缩包：web-design，里面包含了vue和django模块。&lt;/p&gt;
+&lt;p&gt;路径两种方式打开：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;（命令行） &lt;code&gt;cd ~/workspace/web_design_group10/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;（资源管理器）主目录下的workspace/web_design_group10&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;编辑代码方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用vscode打开该文件夹进行编辑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;启动服务&#34;&gt;启动服务&lt;/h3&gt;
+&lt;p&gt;（以下的操作都分别基于web_design_group10路径）完整的网页启动需要分别启动前后端的服务，并均保持开启状态，所以需要使用两个终端窗口来分别启动。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;前端服务：在view-design路径下使用命令:&lt;code&gt;npm run dev&lt;/code&gt;，可参考VUE启动&lt;/li&gt;
+&lt;li&gt;后端服务：在vuebackend页面使用命令：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python manager.py runserver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;（python版本需要是3以上）&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;数据库服务：数据库安装后好像是默认启动的，如果发现有数据库的错误，按照ubuntu 启动mysql执行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在启动服务之前，有一些环境需要配置，接下来我们将描述初始的环境准备。&lt;/p&gt;
+&lt;h2 id=&#34;环境配置ubuntu&#34;&gt;环境配置（Ubuntu）&lt;/h2&gt;
+&lt;p&gt;配置主要有几个部分组成：配置前端环境（vue、node）、配置数据库（mysql）、配置后端（python包），我们首先描述前端环境的配置。&lt;/p&gt;
+&lt;p&gt;**特定项目迁移：**只需要安装node和NPM，然后再对应目录npm i即可&lt;/p&gt;
+&lt;p&gt;**初始化一个项目：**安装完node、npm之后，安装vue和tdesign，参考对应的官方文档即可，（npm install）&lt;/p&gt;
+&lt;h3 id=&#34;前端环境配置&#34;&gt;前端环境配置&lt;/h3&gt;
+&lt;p&gt;前端项目基于NodeJS，所以我们需要首先安装Node和NPM，在Ubuntu中安装Node的命令如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 首先更新NOdejs的软件源，基于基于需要的版本修改其中的版本号 14/16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 接着使用apt命令下载nodejs 和 npm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install npm, nodejs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看版本验证安装是否成功&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;node -V
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;npm -V
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;接着对特定前端（NodeJS）项目安装依赖&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

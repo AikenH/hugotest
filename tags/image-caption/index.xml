@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Image Caption on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/image-caption/</link>
+    <description>Recent content in Image Caption on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jan 2020 02:13:25 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/image-caption/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Image Caption Dataset</title>
+      <link>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</link>
+      <pubDate>Tue, 14 Jan 2020 02:13:25 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</guid>
+      <description>&lt;h2 id=&#34;goals&#34;&gt;Goals：&lt;/h2&gt;
+&lt;p&gt;1.数据量要求&lt;br&gt;
+2.标注的标准&lt;br&gt;
+3.标注的手段&lt;/p&gt;
+&lt;h2 id=&#34;microsoft-coco-captions&#34;&gt;Microsoft COCO Captions:&lt;/h2&gt;
+&lt;p&gt;使用Amazon的Mechanical Turk(AMT)收集数据，再对数据进行标注。&lt;br&gt;
+“Each of our captions are also generated using human subjects on AMT.”&lt;/p&gt;
+&lt;h3 id=&#34;一些其他信息caption-evaluation-server&#34;&gt;一些其他信息：(Caption Evaluation Server):&lt;/h3&gt;
+&lt;p&gt;好像是可以评价caption的生成质量，但是应该是仅仅针对于使用COCO数据进行的，所以这一部分就不分析了。&lt;br&gt;
+文中（section 3）包含了几种不同评价方法的介绍：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;BLEU&lt;br&gt;
+ROUGE&lt;br&gt;
+METEOR&lt;br&gt;
+CIDEr&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在进行Evaluation之前的 Tokenization and preprocessing中：&lt;br&gt;
+使用了工具来添加caption标记：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stanford PTBTokenizer in Stanford CoreNLP tools (version 3.4.1)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个工具是模仿的是peen treebank3.   其参考文献和相关链接如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“The Stanford CoreNLP natural language processing toolkit,” in Proceedings of 52nd Annual Meeting of the Association for Computational Linguistics: System Demonstrations, 2014, pp. 55–60. &lt;a href=&#34;http://www.aclweb.org/anthology/P/P14/P14-5010&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;related-link&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

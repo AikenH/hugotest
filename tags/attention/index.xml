@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Attention on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/attention/</link>
+    <description>Recent content in Attention on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Sep 2021 05:34:22 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/attention/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Attention Mechanism</title>
+      <link>https://aikenh.cn/hugotest/posts/attention/</link>
+      <pubDate>Tue, 28 Sep 2021 05:34:22 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/attention/</guid>
+      <description>&lt;p&gt;@Aiken 2020.9.16&lt;/p&gt;
+&lt;p&gt;对基本注意力机制的一些资料和理解做一些简单的汇总，着重分析基本思想原理，应用和实现（即 structure），还有一些Weakness和相应的解决方案。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;strong&gt;1.TODO-List：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据Lil’Log的Attention？Attention！进行初步的整理&lt;/li&gt;
+&lt;li&gt;各个分类的具体含义分开整理，理解一部分整理一部分，可能结合实际的应用去整理吧。&lt;/li&gt;
+&lt;li&gt;其中很重要的一点是数学分析的部分，需要对数学原理进行整理和领会。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;whats-attention-in-deep-learning&#34;&gt;What’s Attention In Deep Learning&lt;/h2&gt;
+&lt;p&gt;在某种程度上，注意力是由我么如何关注视觉图像的不同区域或者我们如何关联同一个句子中的不同单词所启发的：针对于问题的不同，我们会对图像的某些具体的区域重视（某些区域在视觉中呈现高分辨率，而另一些则是低分辨率的情况），或者句子中的某些词重视的情况。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911182724.png&#34;&gt;
+    &lt;img alt=&#34;image-20210118210915289&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911182724.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911182724.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image-20210118210915289&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;可以解释一个句子中紧密的上下文单词之间的关系，比如我们看到eating就会期待看到food，而color对于我们来说就没有那么重要。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911182729.png&#34;&gt;
+    &lt;img alt=&#34;image-20210118210936862&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911182729.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911182729.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image-20210118210936862&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

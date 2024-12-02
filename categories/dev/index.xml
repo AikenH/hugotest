@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dev on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/dev/</link>
+    <description>Recent content in Dev on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Nov 2023 12:08:37 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派家庭影音中心2</title>
+      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
+      <pubDate>Sat, 11 Nov 2023 12:08:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
+      <description>&lt;h2 id=&#34;禁止屏幕休眠显示作为-dashboard-显示&#34;&gt;禁止屏幕休眠显示作为 Dashboard 显示&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;树莓派官方的 Raspbian 系统使用的是 lightdm 桌面显示管理器，可以设置 xservice 桌面交互显示来达到屏幕常亮的目的，也就是修改桌面配置文件 lightdm.Conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;http://www.raspi.cc/read-10-1.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;树莓派设置禁止让屏幕休眠，显示器保持常亮状态-树莓派基础学习入门-树莓派极客,raspi.cc - Powered by raspi&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vim /etc/lightdm/lightdm.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;找到 x-server-command 取消注释并在后面加 &lt;code&gt;-s 0-dpms&lt;/code&gt;，添加完后重启即可。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231111132731.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231111132731.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231111132731.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参数里的：-s 参数：设置屏幕保护不启动，0 数字零，-dpms 参数：关闭电源节能管理。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>树莓派02 家用服务器</title>
+      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Sun, 02 Jul 2023 10:30:11 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;树莓派家庭服务器的搭建以 docker 为核心，通过 docker 统一管理家庭服务，目前搭建的服务还在持续完善中，主要目的是为了方便日常使用、满足学习和探索的需求。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Docker 的安装这里不再赘述，参考 Docker Configuration01 Install on Linux 一文进行安装即可；本篇主要侧重于介绍部署的镜像和服务，以及简单介绍使用方式。&lt;/p&gt;
+&lt;h2 id=&#34;一些-docker-容器推荐&#34;&gt;一些 Docker 容器推荐&lt;/h2&gt;
+&lt;p&gt;这里推荐一些 Docker 容器：Alist、XiaoYa、PiDashboard、redis、mysql、portainer、memos、wikijs&lt;/p&gt;
+&lt;p&gt;相关的 Docker-Compose 文件会上传到&lt;a href=&#34;https://github.com/AikenH/aikenh-DockerComposeYML&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AikenH/aikenh-DockerComposeYML (github.com)&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;数据库部署与远程连接测试&#34;&gt;数据库部署与远程连接测试&lt;/h2&gt;
+&lt;h3 id=&#34;sqlite-3&#34;&gt;sqlite 3&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sqlite 与 Mysql 等不同，是一个无服务器、零配置的数据库，其更像是一个解析特定数据库文件的命令接口（CLI 工具），其将数据完全存储于一个单一的跨平台磁盘文件中；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于 sqlite3 的特性，决定了其是一个&lt;strong&gt;轻量级&lt;/strong&gt;且&lt;strong&gt;不需要额外配置&lt;/strong&gt;的数据库，但是在远程访问方面，只能通过文件共享来实现远程操作数据库。&lt;/p&gt;
+&lt;p&gt;大多数的 Linux 系统版本都会附带 SQLite 的安装，因此我们可以直接使用下面的指令验证一下是否安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sqlite3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果没有安装的话，可以去官方的&lt;a href=&#34;https://www.sqlite.org/download.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载页面&lt;/a&gt;
+下载对应的预编译包，然后进行安装即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://www.sqlite.org/2023/sqlite-autoconf-3420000.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar -zxvf sqlite-autoconf-3420000.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; sqlite-autoconf-3420000
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./configure --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这里也提供使用 Docker-compose 安装的方式，但实际上看该数据库的特性，用 docker 安装的并不是推荐的选择。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://www.mustafabugra.com/development/sqlite-3-docker-compose/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SQLite 3 Docker Compose – Mustafa Bugra&lt;/a&gt;
+。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;sqlite3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;container_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;sqlite3_container&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;nouchka/sqlite3:latest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;stdin_open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#Modify following line&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;path-to/your/databases/sqlite3:/root/db/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;s1&#34;&gt;&amp;#39;9000:9000&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# expose ports - HOST:CONTAINER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;restart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;unless-stopped&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果是树莓派的 ARM64，可能需要使用另一个&lt;a href=&#34;https://hub.docker.com/r/keinos/sqlite3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;镜像&lt;/a&gt;
+。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run --rm -it -v &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;:/workspace&amp;#34;&lt;/span&gt; -w /workspace keinos/sqlite3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;但是该镜像的使用方式，实际上就是将其当成一个命令来用，所以还是建议本机安装。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>树莓派01 家庭影音中心</title>
+      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
+      <pubDate>Wed, 28 Jun 2023 07:28:27 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;将 RaspBerry Pi 4B 作为家庭影视中心/机顶盒的核心就是 KODI 软件，这是考虑到以下的几点：遥控器的控制、对挂载 webdav 和其他的支持&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最方便的方式可以选择以 KODI 为核心的两个 OS：LibreELEC、OSMC（推荐），这两个系统以 KODI 为默认启动，同时也支持远程登录和 Docker 部署等 Linux 的功能。后者更为推荐应该是前者的官方改进版本。&lt;/p&gt;
+&lt;p&gt;考虑到后续可能会将该 SD 卡用于其他用处，因此本文选择的是使用 RaspBerryPi OS 的方案，以下围绕该方案进行展开：&lt;/p&gt;
+&lt;h2 id=&#34;raspberry-pi-oskodialist-方案探究&#34;&gt;RaspBerry Pi OS+Kodi+Alist 方案探究&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以参考 trouble shooting，可以发现实际上安装 kodi 最简单的方式就是直接使用 apt，无需做其他的 PPA 添加。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;安装kodi&#34;&gt;安装Kodi&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install kodi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完后，使用 kodi 命令开启或者在开始菜单的软件中心中选择 kodi 打开。&lt;/p&gt;
+&lt;h3 id=&#34;设置-gpu-显存硬解相关&#34;&gt;设置 GPU 显存（硬解相关）&lt;/h3&gt;
+&lt;p&gt;首先做一下&lt;strong&gt;固件的升级&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo rpi-update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后&lt;strong&gt;调整一下显存&lt;/strong&gt;：系统设置里面将 gpu_mem 调高一些，我使用的是 4G，调整到了 256MB，切记不要调整太高，否则可能会开机失败，重启后查看显存是否设置成功。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查看 GPU 显存&lt;/strong&gt;的方式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vcgencmd get_mem arm &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; vcgencmd get_mem gpu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;最后在 kodi 中查看相关的选项的开关情况：&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://www.liujason.com/article/656.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;树莓派RaspberryPi 4B设置显存开启硬件加速 支持Emby|Plex|JellyFin转码 LiuJason&amp;rsquo;sBlog&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>树莓派00 组装和亮机篇</title>
+      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</link>
+      <pubDate>Tue, 20 Jun 2023 22:38:15 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;最近入手了树莓派 4B，打算基于树莓派做一些有趣&amp;amp;有用的项目，该系列笔记来记录个人树莓派学习和开发的历程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;连载确认！该系列文章将会从装机开始，介绍树莓派用于以下几个项目的开发和部署过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 基于 Docker 的家庭服务器&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 智能家居控制中枢&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 影音中心 &amp;amp; 电视机顶盒&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 物联网 or AI 的衍生应用实践&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本篇首先介绍亮机和开发环境设置过程，包含：组装、系统安装、远程开发环境设置（SSH、XRDP）&lt;/p&gt;
+&lt;h2 id=&#34;树莓派组装&#34;&gt;树莓派组装&lt;/h2&gt;
+&lt;p&gt;树莓派组装上比较防呆接口，唯一需要注意的是散热块和风扇的安装：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 CPU 和缓存等模块上装上散热片&lt;/li&gt;
+&lt;li&gt;风扇的固定位置在外壳上，接线如下图所示&lt;/li&gt;
+&lt;li&gt;SD 卡的安装位置在背面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230626091027.jpg&#34;&gt;
+    &lt;img alt=&#34;微信图片_20230626091027.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230626091027.jpg&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230626091027.jpg&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;微信图片_20230626091027.jpg&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;系统安装&#34;&gt;系统安装&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;该部分仅介绍我使用的系统安装和烧录软件，系统的选择需要根据自己所拥有的设备，以及目的去选择。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;硬件准备：SD 卡，读卡器，一台正常运行的 PC，可外接的屏幕。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Whats DevOps?</title>
+      <link>https://aikenh.cn/hugotest/posts/devops/</link>
+      <pubDate>Sat, 25 Mar 2023 09:55:32 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/devops/</guid>
+      <description>&lt;p&gt;在一个庞大的组织架构中，CI/CD 和 Devops 的概念是避不开的，了解它的工作原理和概念能帮助我们更好的与他人进行协作。&lt;/p&gt;
+&lt;h2 id=&#34;cicd-介绍&#34;&gt;CI/CD 介绍&lt;/h2&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;
+    &lt;img src= https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230403173436.png title=&#34;devops&#34;&gt;
+&lt;/div&gt;
+&lt;p&gt;这是一个用来描绘 CI/CD 的示意图，其描绘了 CI/CD 的工作流和各自的一些职责，接下来本文分别对两者进行介绍。&lt;/p&gt;
+&lt;h3 id=&#34;ci-continuous-integration-持续集成&#34;&gt;CI (Continuous integration) 持续集成&lt;/h3&gt;
+&lt;p&gt;持续集成是面向开发者（Developer）的环节。从上述的图也可以看出，整体的流程如下：&lt;/p&gt;
+&lt;p&gt;Developer 基于给出的需求进行&lt;strong&gt;编码（code）&lt;/strong&gt;，完成 Feature 或者 Bug 修复后，&lt;strong&gt;提交（Commit）代码&lt;/strong&gt;，然后平台会对这些需要（Merge Request）代码进行&lt;strong&gt;编译（Build）&lt;/strong&gt;，编译通过后，执行自动化的&lt;strong&gt;持续测试（Continuous Test）&lt;/strong&gt;，待测试通过后才会正式合并入主干。&lt;/p&gt;
+&lt;p&gt;也就是说，CI 工具在检测到代码变更后，自动对其执行编译和单元测试，验证其代码的正确性和可用性，以及是否适合与源代码进行集成，然后进行自动集成。&lt;/p&gt;
+&lt;p&gt;该流程有以下的优势：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;能够避免不同开发环境带来的不一致问题&lt;/li&gt;
+&lt;li&gt;减少手动操作&lt;/li&gt;
+&lt;li&gt;清晰的版本管理和控制&lt;/li&gt;
+&lt;li&gt;降低人为操作的风险&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Git 01 入门与常用操作</title>
+      <link>https://aikenh.cn/hugotest/posts/git_manual1/</link>
+      <pubDate>Tue, 01 Feb 2022 12:19:34 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/git_manual1/</guid>
+      <description>&lt;p&gt;参考文献：&lt;a href=&#34;https://juejin.cn/post/7131713973572861966&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;稀土掘金&lt;/a&gt;
+ | ProGit2&lt;/p&gt;
+&lt;h2 id=&#34;git-与-svn-的区别&#34;&gt;GIT 与 SVN 的区别&lt;/h2&gt;
+&lt;p&gt;SVN 是集中式版本控制系统，其所有的版本管理都是集中在某个中央服务器，因此，在干活的时候，首先都需要从中央服务器中获取最新的版本，修改后将版本推送到中央服务器，因此大多数场景下需要进行联网使用。可能会更依托于相应的图形化客户端来进行同步和版本管理，便于管理美术资源等等。&lt;/p&gt;
+&lt;p&gt;GIT 是分布式版本管理系统，每个人的电脑就是一个完整的版本库，可以进行独立的版本管理，多人协作可能依托于 github 之类的中继节点，将修改同步给对方，解决冲突。&lt;/p&gt;
+&lt;h2 id=&#34;init-初始化&#34;&gt;Init 初始化&lt;/h2&gt;
+&lt;p&gt;包含 ssh 的详细指令在 ssh 的文档中，这边只介绍设置完这一系列操作之后的 git 初始化，主要是初始化 ssh，并将私钥放到 github 或者 gitee 的账户中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourName&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourEmailAdress&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看相关的配置信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 设置CRLF和LF的相关转换 第一条在提交的时候自动抓换位LF，迁出转换为CRLF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 第二条拒绝混合换行符的提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global core.autocrlf &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global core.safecrlf &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;github-设置&#34;&gt;Github 设置&lt;/h3&gt;
+&lt;p&gt;官方文档介绍的一些权限错误的地址：&amp;lt; &lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/error-permission-denied-publickey%3e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.github.com/en/github/authenticating-to-github/error-permission-denied-publickey&gt;&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Colab 使用的问题记录</title>
+      <link>https://aikenh.cn/hugotest/posts/googlecolab/</link>
+      <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/googlecolab/</guid>
+      <description>&lt;p&gt;@Aiken 2020&lt;/p&gt;
+&lt;p&gt;在使用Google Colab的时候会有一些常见的使用错误，然后我们记录一些常见的错误的解决方案，方便后续使用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;INDEX：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;命令行参数的输入问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tensorboard的执行方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 在colab中写的时候要把前面的符号也写上&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;%load_ext tensorboard  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;%tensorboard --logdir &lt;span class=&#34;s1&#34;&gt;&amp;#39;./runs&amp;#39;&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;command命令的使用：包括库安装和卸载之类的。
+主要就是在命令前+！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;!/opt/bin/nvidia-smi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 下面顺便解决了一下&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ImportError: cannot import name &amp;#39;PILLOW_VERSION&amp;#39;(版本问题)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;!pip uninstall pillow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;!pip install &lt;span class=&#34;nv&#34;&gt;pillow&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;5.2.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>SSH 常用场景和操作</title>
+      <link>https://aikenh.cn/hugotest/posts/ssh/</link>
+      <pubDate>Mon, 22 Feb 2021 01:45:43 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/ssh/</guid>
+      <description>&lt;p&gt;主要介绍ssh服务在以下的几个方面（windows，linux）的使用情况：远程服务器连接（22），git&amp;amp;github（gitee），vscode免密登录。&lt;/p&gt;
+&lt;h2 id=&#34;ssh-key&#34;&gt;ssh-key&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB关于SSH的教程&lt;/a&gt;
+ 👈可以直接切换成中文模式的&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查看是否已存在&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls -al ~/.ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;**初始化 / 生成 ssh key **&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# github 推荐，优先度从上到下递减&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t ed25519 -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;your_email@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# if not support &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -b &lt;span class=&#34;m&#34;&gt;4096&lt;/span&gt; -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;your_email@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# tradition&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;chenlangl@outlook.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;将ssh添加到github的个人权限界面中&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;免密登录&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在github的教程中也有另一种方式来实现免密登录，好像是ssh-agent的方式安全的保存密码。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;linux-开放ssh远程权限&#34;&gt;Linux 开放ssh远程权限&lt;/h2&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;http://frantic1048.logdown.com/posts/291498-resolve-the-ssh-password-is-correct-but-was-refused-connection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;设置sshd配置文件&lt;/a&gt;
+ | &lt;a href=&#34;https://www.cnblogs.com/zqifa/p/linux-ssh-2.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;允许passwd登录root&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;在开放远程权限之前，首先检查 ssh 服务是否已经启动/安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Ps检查相关进程是否启动&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ps aux &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果没有启动相关进程，可以检查一下是否存在相关服务：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 重启ssh服务，下面是两种不同linux的写法&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service ssh restart
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl restart sshd.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果也没有相关服务，需要在设备上先安装相关服务：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

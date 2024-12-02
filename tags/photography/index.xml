@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Photography on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/photography/</link>
+    <description>Recent content in Photography on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Oct 2023 00:41:43 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/photography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Photography00 XS20_Recipes</title>
+      <link>https://aikenh.cn/hugotest/posts/taskphoto00_xs20_recipes/</link>
+      <pubDate>Thu, 05 Oct 2023 00:41:43 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/taskphoto00_xs20_recipes/</guid>
+      <description>&lt;head&gt;
+    
+    &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+
+
+
+
+&lt;div class=&#34;hugo-encryptor-container&#34;&gt;
+  &lt;div class=&#34;hugo-encryptor-prompt&#34;&gt;
+    
+      &lt;p&gt;文章的部分内容被密码保护：&lt;/p&gt;
+    
+  &lt;/div&gt;
+  &lt;div class=&#34;hugo-encryptor-form&#34;&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-input&#34;
+      placeholder=&#39;请输入密码&#39;
+    /&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-button&#34;
+      type=&#34;button&#34;
+      value=&#39;CLICK&#39;
+      onclick=&#34;_click_handler(this)&#34;
+    /&gt;
+  &lt;/div&gt;
+  &lt;div
+    class=&#34;hugo-encryptor-cipher-text&#34;
+    data-password=&#34;aikenhong_blog&#34;
+    style=&#34;display: none;&#34;
+  &gt;
+    &lt;span style=&#34;display: none;&#34;&gt;--- DON&#39;T MODIFY THIS LINE ---&lt;/span&gt;
+    &lt;blockquote&gt;
+&lt;p&gt;受限于 XS20 只能同时保存4个自定义的 Recipes，但是可以通过手机的 XApp 备份相机当前的设置，因此本文主要用于记录各组备份包含的 Recipes 分别有哪些内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;该文会通过主要会以如下的方式记录配方内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{ &lt;strong&gt;Recipe&lt;/strong&gt; - Tag - &lt;strong&gt;Sample&lt;/strong&gt; - PS } 三元组的方式来展示对应的配方，同时也会有一个较为粗糙的分类来整理这些配方。&lt;/li&gt;
+&lt;li&gt;{ &lt;strong&gt;Backup&lt;/strong&gt; - &lt;strong&gt;Recipes&lt;/strong&gt;} 记录每个备份文件中包含哪些配方。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;备份文件对应配方&#34;&gt;备份文件对应配方&lt;/h2&gt;
+&lt;p&gt;Fujifilm-XS20可以通过 X-APP 备份手机当前的配置，保存为多个配置文件，因此这里我们将多组设置分别备份，以便需要的时候直接覆盖。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tokyo-Recipes&lt;/strong&gt;  C1: &lt;a href=&#34;#%e6%99%a8%e9%97%b4-%e9%98%b4%e5%a4%a9%e9%83%bd%e5%b8%82&#34;&gt;晨间_阴天都市&lt;/a&gt;
+  &lt;strong&gt;C2&lt;/strong&gt; : &lt;a href=&#34;#%e6%99%a8%e9%97%b4-%e5%86%b7%e7%99%bd%e7%9a%ae%e4%ba%ba%e5%83%8f&#34;&gt;晨间_冷白皮人像&lt;/a&gt;
+ C3: &lt;a href=&#34;#%e6%99%a8%e9%97%b4-%e6%99%b4%e7%a9%ba%e5%ae%a4%e5%a4%96&#34;&gt;晨间_晴空室外&lt;/a&gt;
+ &lt;strong&gt;C4&lt;/strong&gt; : &lt;a href=&#34;#%e5%a4%9c%e6%99%af-%e5%9f%8e%e5%b8%82%e5%a4%9c%e6%99%af&#34;&gt;夜景_城市夜景&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;配方细节&#34;&gt;配方细节&lt;/h2&gt;
+&lt;p&gt;该部分记录各个配方的详细设置，以及简单放一些样片以供查阅和参考。&lt;/p&gt;
+&lt;h3 id=&#34;夜景_城市夜景&#34;&gt;夜景_城市夜景&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;该配方建议在都市场景下常备，拍都市夜景的效果十分出彩，在城市霓虹和各种灯光效果下均比较容易出图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005005438.png&#34; style=&#34;zoom: 33%;&#34;&gt;
+&lt;p&gt;该配方适合用于都市等场景下的夜景拍摄，其整体效果偏向暖色调，灯光色彩等偏黄，却也构成照片的主色调，对整体光影的效果有强调作用，下面展示一些用改配方拍摄出来的图片以供参考。&lt;/p&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1&#34;&gt;
+    &lt;script src=&#34;https://cdn.jsdmirror.com/npm/jquery@3.3.1/dist/jquery.min.js&#34;&gt;&lt;/script&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdmirror.com/npm/nanogallery2@3.0.5/dist/css/nanogallery2.min.css&#34;&gt;
+    &lt;script src=&#34;https://cdn.jsdmirror.com/npm/nanogallery2@3.0.5/dist/jquery.nanogallery2.min.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div data-nanogallery2=&#39;{
+	 &#34;thumbnailDisplayTransition&#34;:          &#34;none&#34;,
+     &#34;thumbnailDisplayTransitionDuration&#34;:  500,
+     &#34;thumbnailDisplayInterval&#34;:            30,
+     &#34;galleryDisplayTransition&#34;:            &#34;none&#34;,
+     &#34;galleryDisplayTransitionDuration&#34;:    500,
+     &#34;galleryDisplayMode&#34;: &#34;rows&#34;,
+     &#34;thumbnailDisplayOutsideScreen&#34;: &#34;false&#34;,
+     &#34;eventsDebounceDelay&#34;: 10,
+     &#34;thumbnailL1BorderHorizontal&#34;: 0,
+     &#34;thumbnailL1BorderVertical&#34;: 0,
+     &#34;thumbnailLabel&#34;: {
+        &#34;titleFontSize&#34;: &#34;0.6em&#34;
+     },
+     &#34;thumbnailHoverEffect2&#34;: &#34;image_scale_1.00_1.10|label_backgroundColor_rgba(0,0,0,0)_rgba(255,255,255,0)&#34;,
+     &#34;galleryTheme&#34;: {
+        &#34;thumbnail&#34;: {
+            &#34;borderRadius&#34;: &#34;8px&#34;
+        }
+     },
+     &#34;thumbnailToolbarImage&#34;: {
+        &#34;topLeft&#34;: &#34;&#34;,
+        &#34;topRight&#34;: &#34;&#34;,
+        &#34;bottomLeft&#34;: &#34;&#34;,
+        &#34;bottomRight&#34;: &#34;&#34;
+     },
+     &#34;viewerToolbar&#34;:   {
+        &#34;display&#34;: true,
+        &#34;standard&#34;: &#34;label&#34;
+     },
+     &#34;viewerTools&#34;:     {
+        &#34;topLeft&#34;:    &#34;pageCounter, playPauseButton&#34;,
+        &#34;topRight&#34;:   &#34;downloadButton, rotateLeft, zoomButton, fullscreenButton, closeButton&#34;
+     },
+     &#34;viewerGalleryTWidth&#34;: 40,
+     &#34;viewerGalleryTHeight&#34;: 40
+}&#39;&gt;
+&lt;p&gt;&lt;a href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005005911.png&#34; data-ngThumb=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005005911.png&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005010107.png&#34; data-ngThumb=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005010107.png&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005011633.png&#34; data-ngThumb=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005011633.png&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005011713.png&#34; data-ngThumb=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005011713.png&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005011751.png&#34; data-ngThumb=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231005011751.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

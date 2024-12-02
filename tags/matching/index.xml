@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Matching on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/matching/</link>
+    <description>Recent content in Matching on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Dec 2021 00:29:37 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/matching/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hungarian</title>
+      <link>https://aikenh.cn/hugotest/posts/hungarian/</link>
+      <pubDate>Fri, 03 Dec 2021 00:29:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/hungarian/</guid>
+      <description>&lt;p&gt;@AikenHong 2021
+@Code: &lt;strong&gt;Scipy&lt;/strong&gt;（repo）
+@Reference:  &lt;a href=&#34;https://zhuanlan.zhihu.com/p/62981901&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;匈牙利算法&amp;amp;KM算法&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;该篇笔记用来介绍匈牙利算法和KM算法(Kuhn-Munkres Algorithm)，这两个算法通常用来做目标之间的匹配问题。
+常用于：多目标跟踪，和深度聚类中的标签匹配问题。&lt;/p&gt;
+&lt;h2 id=&#34;method&#34;&gt;Method&lt;/h2&gt;
+&lt;p&gt;这两种方法实际上解决的问题都是： 二分图的最大匹配问题；
+首先需要对二分图有个基本的了解：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/20211202164156.png&#34;&gt;
+    &lt;img alt=&#34;二分图&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/20211202164156.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/20211202164156.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;二分图&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;实际上就是将数据分为两组，各组的每一个点都去另一个组找对应的匹配，我们希望将两组中，相关的数据尽可能的准确的匹配起来。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以想象成，是同一个数据在不同的映射下的不同表征需要做这样的匹配关系。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解决这种问题的方式就是使用匈牙利算法或者KM算法&lt;/p&gt;
+&lt;h3 id=&#34;匈牙利算法&#34;&gt;匈牙利算法&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;匈牙利算法是一种在多项式时间内求解任务分配问题的组合优化算法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;匈牙利算法可以将二分图中的连线，看成是我们认为可能是相同的目标（不带权值），实际上就是从上到下假想成立，然后进行唯一匹配的搜索，有点像BackTrack的过程。&lt;/p&gt;
+&lt;p&gt;整体算法的成功率或者准确率实际上十分依赖与连线的准确率，对算法输出预测的准确度要求更高。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;km&#34;&gt;KM&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;KM解决的是带权的二分图的最优匹配的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;相当于我们给每条线都给出一个置信度预测值，基于这样的权值图去计算对应的匹配关系&lt;/p&gt;
+&lt;p&gt;Step1: 将左边节点标上与他所关联的最大权值的边的数值
+Step2: 寻找匹配，原则如下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只有权重和左边分数相同的边才进行匹配；&lt;/li&gt;
+&lt;li&gt;如果找不到边，此条路径的所有左边顶点-d，右侧+d，这里我们将d取值为0.1&lt;/li&gt;
+&lt;li&gt;对于考虑换边的另一个节点，如果无法换边，也需要对应的进行-d&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;具体的例子可以这么看（最好还是看blog）：
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/cf20ef3a1fa97ecf3dc0e4c620f61b8.jpg&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/cf20ef3a1fa97ecf3dc0e4c620f61b8.jpg&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/cf20ef3a1fa97ecf3dc0e4c620f61b8.jpg&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

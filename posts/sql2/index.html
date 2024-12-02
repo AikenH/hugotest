@@ -1,0 +1,248 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>SQL Chapter2 安装和基本概念 | aiken's blog</title>
+<meta name=keywords content="SQL,Database,Langs"><meta name=description content="本章节从MySQL的安装到基础使用，MySQL本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：
+
+InnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好）
+MyISAM：早期默认，不支持事务
+
+接口和引擎的关系好比浏览器和浏览器引擎，切换MySQL引擎不影响自己写的应用程序使用MySQL的接口，由于其开源，也衍生出了各种开源版本（包括针对各种云存储中托管数据库的版本等）
+安装MySQL
+Windows直接官网下载对应的版本就好了，Community Version
+在该超链接进行下载，其他版本就按需下载，按需付费就行。
+
+Linux下载MySQL：
+
+
+1
+
+
+sudo apt-get install mysql-server
+
+
+验证是否下载安装完成：
+
+
+1
+2
+3
+4
+
+
+# 链接服务器
+mysql
+# 登录服务器（需要输入口令）
+mysql -u root -p 
+
+
+成功链接后会变成mysql>，输入exit可以推出MySQL命令行，但是其将仍然在后台运行。
+关系模型
+关系数据建立在关系模型之上，关系模型本质上就是若干个存储数据的二维表（Excel表），其中
+
+每一行称为记录（Record）：记录是一个逻辑意义上的数据
+每一列成为字段（Column）：同一个表的每一行记录都拥有相同的若干字段，字段需要规定其数据类型，以及是否允许为Null（缺省值）
+
+
+避免允许Null，不允许可简化查询条件，加快查询速度，也避免程序调用时需要处理Null
+
+关系数据的表和表之间的跳转可以建立“一对多”，“多对一”和“一对一的关系”，这样才能按照应用册灰姑娘徐的逻辑来组织和存储数据，通俗的讲
+：
+
+一个班级可以对应很多学生
+多位学生对应同个班级
+一个班级对应一个班主任
+
+在关系数据库中，关系是通过主键和外键来维护的。
+主键
+在关系数据库中，一张表中的每一行数据被称为一条记录。一条记录就是由多个字段组成的。例如，students表的两行记录：
+
+  
+      
+          id
+          class_id
+          name
+          gender
+          score
+      
+  
+  
+      
+          1
+          1
+          小明
+          M
+          90
+      
+      
+          2
+          1
+          小红
+          F
+          95
+      
+  
+
+每一条记录都包含若干定义好的字段。同一个表的所有记录都有相同的字段定义。
+而在关系表中，有个很重要的约束：任意两条记录不能重复，而不重复指的并非是两条记录不完全相同，而是，能够通过某个字段唯一区分出不同的记录，这个字段成为主键。
+
+也就是说，如果Name作为主键，那么我们不能存储同名的两个不同的同学。
+
+由于主键的该特性，通常将主键用来定位和记录，修改主键将造成较大影响，因此我们一般不对主键进行修改。为了避免修改主键，我们避免将主键设置为与任何业务相关的字段（例如身份证、手机等等），避免所有的更新换代和修改造成的不良影响。由此通常使用id来进行主键的存储。
+
+自增整数类型：数据库会在插入数据时自动为每一条记录分配一个自增整数，这样我们就完全不用担心主键重复，也不用自己预先生成主键；
+全局唯一GUID类型：使用一种全局唯一的字符串作为主键，类似8f55d96b-8acc-4636-8cb8-76bf8abc2f57。GUID算法通过网卡MAC地址、时间戳和随机数保证任意计算机在任意时间生成的字符串都是不同的，大部分编程语言都内置了GUID算法，可以自己预算出主键。
+
+大部分应用使用自增整数类型即可，BIGINT NOT NULL AUTO_INCREMENT类型。"><meta name=author content="aikenhong"><link rel=canonical href=https://aikenh.cn/hugotest/posts/sql2/><link crossorigin=anonymous href=/hugotest/assets/css/stylesheet.2f85ca17c12c62fa86b1e474b8a51aca4856f0d645debfe4922a4d5ddc6aa978.css integrity="sha256-L4XKF8EsYvqGseR0uKUaykhW8NZF3r/kkipNXdxqqXg=" rel="preload stylesheet" as=style><link rel=icon href=https://aikenh.cn/favicon/ghost.ico><link rel=icon type=image/png sizes=16x16 href=https://aikenh.cn/favicon/ghost-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aikenh.cn/favicon/ghost-32x32.png><link rel=apple-touch-icon href=https://aikenh.cn/favicon/ghost-apple-touch-icon.png><link rel=mask-icon href=https://aikenh.cn/favicon/ghost-192x192.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aikenh.cn/hugotest/posts/sql2/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel=stylesheet><meta property="og:url" content="https://aikenh.cn/hugotest/posts/sql2/"><meta property="og:site_name" content="aiken's blog"><meta property="og:title" content="SQL Chapter2 安装和基本概念"><meta property="og:description" content="本章节从MySQL的安装到基础使用，MySQL本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：
+InnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好） MyISAM：早期默认，不支持事务 接口和引擎的关系好比浏览器和浏览器引擎，切换MySQL引擎不影响自己写的应用程序使用MySQL的接口，由于其开源，也衍生出了各种开源版本（包括针对各种云存储中托管数据库的版本等）
+安装MySQL Windows直接官网下载对应的版本就好了，Community Version 在该超链接进行下载，其他版本就按需下载，按需付费就行。
+Linux下载MySQL：
+1 sudo apt-get install mysql-server 验证是否下载安装完成：
+1 2 3 4 # 链接服务器 mysql # 登录服务器（需要输入口令） mysql -u root -p 成功链接后会变成mysql>，输入exit可以推出MySQL命令行，但是其将仍然在后台运行。
+关系模型 关系数据建立在关系模型之上，关系模型本质上就是若干个存储数据的二维表（Excel表），其中
+每一行称为记录（Record）：记录是一个逻辑意义上的数据 每一列成为字段（Column）：同一个表的每一行记录都拥有相同的若干字段，字段需要规定其数据类型，以及是否允许为Null（缺省值） 避免允许Null，不允许可简化查询条件，加快查询速度，也避免程序调用时需要处理Null
+关系数据的表和表之间的跳转可以建立“一对多”，“多对一”和“一对一的关系”，这样才能按照应用册灰姑娘徐的逻辑来组织和存储数据，通俗的讲 ：
+一个班级可以对应很多学生 多位学生对应同个班级 一个班级对应一个班主任 在关系数据库中，关系是通过主键和外键来维护的。
+主键 在关系数据库中，一张表中的每一行数据被称为一条记录。一条记录就是由多个字段组成的。例如，students表的两行记录：
+id class_id name gender score 1 1 小明 M 90 2 1 小红 F 95 每一条记录都包含若干定义好的字段。同一个表的所有记录都有相同的字段定义。
+而在关系表中，有个很重要的约束：任意两条记录不能重复，而不重复指的并非是两条记录不完全相同，而是，能够通过某个字段唯一区分出不同的记录，这个字段成为主键。
+也就是说，如果Name作为主键，那么我们不能存储同名的两个不同的同学。
+由于主键的该特性，通常将主键用来定位和记录，修改主键将造成较大影响，因此我们一般不对主键进行修改。为了避免修改主键，我们避免将主键设置为与任何业务相关的字段（例如身份证、手机等等），避免所有的更新换代和修改造成的不良影响。由此通常使用id来进行主键的存储。
+自增整数类型：数据库会在插入数据时自动为每一条记录分配一个自增整数，这样我们就完全不用担心主键重复，也不用自己预先生成主键； 全局唯一GUID类型：使用一种全局唯一的字符串作为主键，类似8f55d96b-8acc-4636-8cb8-76bf8abc2f57。GUID算法通过网卡MAC地址、时间戳和随机数保证任意计算机在任意时间生成的字符串都是不同的，大部分编程语言都内置了GUID算法，可以自己预算出主键。 大部分应用使用自增整数类型即可，BIGINT NOT NULL AUTO_INCREMENT类型。"><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-08-03T10:17:00+00:00"><meta property="article:modified_time" content="2022-08-03T10:17:00+00:00"><meta property="article:tag" content="SQL"><meta property="article:tag" content="Database"><meta property="article:tag" content="Langs"><meta property="og:image" content="https://aikenh.cn/cover/cover7.jpeg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aikenh.cn/cover/cover7.jpeg"><meta name=twitter:title content="SQL Chapter2 安装和基本概念"><meta name=twitter:description content="本章节从MySQL的安装到基础使用，MySQL本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：
+
+InnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好）
+MyISAM：早期默认，不支持事务
+
+接口和引擎的关系好比浏览器和浏览器引擎，切换MySQL引擎不影响自己写的应用程序使用MySQL的接口，由于其开源，也衍生出了各种开源版本（包括针对各种云存储中托管数据库的版本等）
+安装MySQL
+Windows直接官网下载对应的版本就好了，Community Version
+在该超链接进行下载，其他版本就按需下载，按需付费就行。
+
+Linux下载MySQL：
+
+
+1
+
+
+sudo apt-get install mysql-server
+
+
+验证是否下载安装完成：
+
+
+1
+2
+3
+4
+
+
+# 链接服务器
+mysql
+# 登录服务器（需要输入口令）
+mysql -u root -p 
+
+
+成功链接后会变成mysql>，输入exit可以推出MySQL命令行，但是其将仍然在后台运行。
+关系模型
+关系数据建立在关系模型之上，关系模型本质上就是若干个存储数据的二维表（Excel表），其中
+
+每一行称为记录（Record）：记录是一个逻辑意义上的数据
+每一列成为字段（Column）：同一个表的每一行记录都拥有相同的若干字段，字段需要规定其数据类型，以及是否允许为Null（缺省值）
+
+
+避免允许Null，不允许可简化查询条件，加快查询速度，也避免程序调用时需要处理Null
+
+关系数据的表和表之间的跳转可以建立“一对多”，“多对一”和“一对一的关系”，这样才能按照应用册灰姑娘徐的逻辑来组织和存储数据，通俗的讲
+：
+
+一个班级可以对应很多学生
+多位学生对应同个班级
+一个班级对应一个班主任
+
+在关系数据库中，关系是通过主键和外键来维护的。
+主键
+在关系数据库中，一张表中的每一行数据被称为一条记录。一条记录就是由多个字段组成的。例如，students表的两行记录：
+
+  
+      
+          id
+          class_id
+          name
+          gender
+          score
+      
+  
+  
+      
+          1
+          1
+          小明
+          M
+          90
+      
+      
+          2
+          1
+          小红
+          F
+          95
+      
+  
+
+每一条记录都包含若干定义好的字段。同一个表的所有记录都有相同的字段定义。
+而在关系表中，有个很重要的约束：任意两条记录不能重复，而不重复指的并非是两条记录不完全相同，而是，能够通过某个字段唯一区分出不同的记录，这个字段成为主键。
+
+也就是说，如果Name作为主键，那么我们不能存储同名的两个不同的同学。
+
+由于主键的该特性，通常将主键用来定位和记录，修改主键将造成较大影响，因此我们一般不对主键进行修改。为了避免修改主键，我们避免将主键设置为与任何业务相关的字段（例如身份证、手机等等），避免所有的更新换代和修改造成的不良影响。由此通常使用id来进行主键的存储。
+
+自增整数类型：数据库会在插入数据时自动为每一条记录分配一个自增整数，这样我们就完全不用担心主键重复，也不用自己预先生成主键；
+全局唯一GUID类型：使用一种全局唯一的字符串作为主键，类似8f55d96b-8acc-4636-8cb8-76bf8abc2f57。GUID算法通过网卡MAC地址、时间戳和随机数保证任意计算机在任意时间生成的字符串都是不同的，大部分编程语言都内置了GUID算法，可以自己预算出主键。
+
+大部分应用使用自增整数类型即可，BIGINT NOT NULL AUTO_INCREMENT类型。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aikenh.cn/hugotest/posts/"},{"@type":"ListItem","position":2,"name":"SQL Chapter2 安装和基本概念","item":"https://aikenh.cn/hugotest/posts/sql2/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SQL Chapter2 安装和基本概念","name":"SQL Chapter2 安装和基本概念","description":"本章节从MySQL的安装到基础使用，MySQL本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：\nInnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好） MyISAM：早期默认，不支持事务 接口和引擎的关系好比浏览器和浏览器引擎，切换MySQL引擎不影响自己写的应用程序使用MySQL的接口，由于其开源，也衍生出了各种开源版本（包括针对各种云存储中托管数据库的版本等）\n安装MySQL Windows直接官网下载对应的版本就好了，Community Version 在该超链接进行下载，其他版本就按需下载，按需付费就行。\nLinux下载MySQL：\n1 sudo apt-get install mysql-server 验证是否下载安装完成：\n1 2 3 4 # 链接服务器 mysql # 登录服务器（需要输入口令） mysql -u root -p 成功链接后会变成mysql\u0026gt;，输入exit可以推出MySQL命令行，但是其将仍然在后台运行。\n关系模型 关系数据建立在关系模型之上，关系模型本质上就是若干个存储数据的二维表（Excel表），其中\n每一行称为记录（Record）：记录是一个逻辑意义上的数据 每一列成为字段（Column）：同一个表的每一行记录都拥有相同的若干字段，字段需要规定其数据类型，以及是否允许为Null（缺省值） 避免允许Null，不允许可简化查询条件，加快查询速度，也避免程序调用时需要处理Null\n关系数据的表和表之间的跳转可以建立“一对多”，“多对一”和“一对一的关系”，这样才能按照应用册灰姑娘徐的逻辑来组织和存储数据，通俗的讲 ：\n一个班级可以对应很多学生 多位学生对应同个班级 一个班级对应一个班主任 在关系数据库中，关系是通过主键和外键来维护的。\n主键 在关系数据库中，一张表中的每一行数据被称为一条记录。一条记录就是由多个字段组成的。例如，students表的两行记录：\nid class_id name gender score 1 1 小明 M 90 2 1 小红 F 95 每一条记录都包含若干定义好的字段。同一个表的所有记录都有相同的字段定义。\n而在关系表中，有个很重要的约束：任意两条记录不能重复，而不重复指的并非是两条记录不完全相同，而是，能够通过某个字段唯一区分出不同的记录，这个字段成为主键。\n也就是说，如果Name作为主键，那么我们不能存储同名的两个不同的同学。\n由于主键的该特性，通常将主键用来定位和记录，修改主键将造成较大影响，因此我们一般不对主键进行修改。为了避免修改主键，我们避免将主键设置为与任何业务相关的字段（例如身份证、手机等等），避免所有的更新换代和修改造成的不良影响。由此通常使用id来进行主键的存储。\n自增整数类型：数据库会在插入数据时自动为每一条记录分配一个自增整数，这样我们就完全不用担心主键重复，也不用自己预先生成主键； 全局唯一GUID类型：使用一种全局唯一的字符串作为主键，类似8f55d96b-8acc-4636-8cb8-76bf8abc2f57。GUID算法通过网卡MAC地址、时间戳和随机数保证任意计算机在任意时间生成的字符串都是不同的，大部分编程语言都内置了GUID算法，可以自己预算出主键。 大部分应用使用自增整数类型即可，BIGINT NOT NULL AUTO_INCREMENT类型。\n","keywords":["SQL","Database","Langs"],"articleBody":"本章节从MySQL的安装到基础使用，MySQL本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：\nInnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好） MyISAM：早期默认，不支持事务 接口和引擎的关系好比浏览器和浏览器引擎，切换MySQL引擎不影响自己写的应用程序使用MySQL的接口，由于其开源，也衍生出了各种开源版本（包括针对各种云存储中托管数据库的版本等）\n安装MySQL Windows直接官网下载对应的版本就好了，Community Version 在该超链接进行下载，其他版本就按需下载，按需付费就行。\nLinux下载MySQL：\n1 sudo apt-get install mysql-server 验证是否下载安装完成：\n1 2 3 4 # 链接服务器 mysql # 登录服务器（需要输入口令） mysql -u root -p 成功链接后会变成mysql\u003e，输入exit可以推出MySQL命令行，但是其将仍然在后台运行。\n关系模型 关系数据建立在关系模型之上，关系模型本质上就是若干个存储数据的二维表（Excel表），其中\n每一行称为记录（Record）：记录是一个逻辑意义上的数据 每一列成为字段（Column）：同一个表的每一行记录都拥有相同的若干字段，字段需要规定其数据类型，以及是否允许为Null（缺省值） 避免允许Null，不允许可简化查询条件，加快查询速度，也避免程序调用时需要处理Null\n关系数据的表和表之间的跳转可以建立“一对多”，“多对一”和“一对一的关系”，这样才能按照应用册灰姑娘徐的逻辑来组织和存储数据，通俗的讲 ：\n一个班级可以对应很多学生 多位学生对应同个班级 一个班级对应一个班主任 在关系数据库中，关系是通过主键和外键来维护的。\n主键 在关系数据库中，一张表中的每一行数据被称为一条记录。一条记录就是由多个字段组成的。例如，students表的两行记录：\nid class_id name gender score 1 1 小明 M 90 2 1 小红 F 95 每一条记录都包含若干定义好的字段。同一个表的所有记录都有相同的字段定义。\n而在关系表中，有个很重要的约束：任意两条记录不能重复，而不重复指的并非是两条记录不完全相同，而是，能够通过某个字段唯一区分出不同的记录，这个字段成为主键。\n也就是说，如果Name作为主键，那么我们不能存储同名的两个不同的同学。\n由于主键的该特性，通常将主键用来定位和记录，修改主键将造成较大影响，因此我们一般不对主键进行修改。为了避免修改主键，我们避免将主键设置为与任何业务相关的字段（例如身份证、手机等等），避免所有的更新换代和修改造成的不良影响。由此通常使用id来进行主键的存储。\n自增整数类型：数据库会在插入数据时自动为每一条记录分配一个自增整数，这样我们就完全不用担心主键重复，也不用自己预先生成主键； 全局唯一GUID类型：使用一种全局唯一的字符串作为主键，类似8f55d96b-8acc-4636-8cb8-76bf8abc2f57。GUID算法通过网卡MAC地址、时间戳和随机数保证任意计算机在任意时间生成的字符串都是不同的，大部分编程语言都内置了GUID算法，可以自己预算出主键。 大部分应用使用自增整数类型即可，BIGINT NOT NULL AUTO_INCREMENT类型。\nINT自增类型上限差不多是21亿，BIGINT自增类型最多约922亿亿\n联合主键 关系数据库实际上还允许通过多个字段唯一标识记录，即两个或更多的字段都设置为主键，这种主键被称为联合主键。对于联合主键，允许一列有重复，只要不是所有主键列都重复即可：\n没有必要的情况下，尽量不使用联合主键，其带来关系表的复杂度的上升。\n外键 以学生和班级的数据集为例对外键进行分析和介绍。\n主键唯一标识记录，我们可以在students中确认任意一个学生的记录，在Classes表中确定任何一个班级的位置等。而一个班级可以有多个学生，这种一对多关系，对应的表的映射的实现，我们需要在students表中加入class_id，让它的值与classes表中的某条记录相对应。\nid name other columns 1 一班 … 2 二班 … 这样就可以通过class_id定位出students和classes的对应关系，通过class_id字段，将students和classes表连接起来，这种列（字段）被称为外键。\n外键并不是通过列名实现的，而是通过定义外键约束实现的：\n1 2 3 4 ALTER TABLE students ADD CONSTRAINT fk_class_id FOREIGN KEY (class_id) REFERENCES classes (id); 其中，外键约束的名称fk_class_id可以任意，FOREIGN KEY (class_id)指定了class_id作为外键，REFERENCES classes (id)指定了这个外键将关联到classes表的id列（即classes表的主键）。\n通过定义外键约束，关系数据库可以保证无法插入无效的数据。即如果classes表不存在id=99的记录，students表就无法插入class_id=99的记录。\n由于外键约束会降低数据库的性能，大部分互联网应用程序为了追求速度，并不设置外键约束，而是仅靠应用程序自身来保证逻辑的正确性。这种情况下，class_id仅仅是一个普通的列，只是它起到了外键的作用而已。\n删除外键约束也是通过ALTER TABLE实现的：\n1 2 ALTER TABLE students DROP FOREIGN KEY fk_class_id; 多对多是通过一个中间表实现的。\n一对一还要建表是为了避免缺省值\n“关系数据库通过外键可以实现一对多、多对多和一对一的关系。外键既可以通过数据库来约束，也可以不设置约束，仅依靠应用程序的逻辑来保证。”\n索引 为了快速搜索数据，需要对（用于搜索的）特定关键词建立索引，通过索引进行预排序，帮助快速定位到符合条件的记录来加快查询速度。\n如果我们希望对学生的成绩score建立索引，方便对score进行快速查找：\n1 2 ALTER TABLE students ADD INDEX idx_score(score); 使用ADD INDEX idx_score (score)就创建了一个名称为idx_score，使用列score的索引。索引名称是任意的，索引如果有多列，可以在括号里依次写上，例如：\n1 2 ALTER TABLE students ADD INDEX idx_name_score(score, name); 索引的效率取决于散列的程度，如果值越分散，索引效率越高，如果存在大量的重复值（像性别），创建索引就没有意义。\n优缺点 可以对同一张表建立多个索引，但是索引的建立会带来如下的优缺点：\n提高了查询效率 插入、更新、删除记录的时候需要更新，越多索引修改的速度就越慢 唯一索引 具有业务意义，如身份证之类的唯一标识，不适合作为主键，但是可以构建唯一索引，其具备最高的索引效率。\n1 2 ALTER TABLE students ADD UNIQUE INDEX uni_name(name); 也可以只对某一列添加一个唯一约束而不创建唯一索引：\n1 2 ALTER TABLE students ADD CONSTRAINT uni_name UNIQUE (name); 在这种情况下，没有建立索引，但是具备唯一性约束。\n","wordCount":"175","inLanguage":"en","image":"https://aikenh.cn/cover/cover7.jpeg","datePublished":"2022-08-03T10:17:00Z","dateModified":"2022-08-03T10:17:00Z","author":[{"@type":"Person","name":"aikenhong"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://aikenh.cn/hugotest/posts/sql2/"},"publisher":{"@type":"Organization","name":"aiken's blog","logo":{"@type":"ImageObject","url":"https://aikenh.cn/favicon/ghost.ico"}}}</script></head><body id=top><script type=module src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js defer></script><script nomodule src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js defer></script><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aikenh.cn/hugotest/ accesskey=h title="aiken's blog (Alt + H)">aiken's blog</a><div class=logo-switches><button id=theme-toggle-nav accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aikenh.cn/hugotest/ title=home><span>home</span></a></li><li><a href=https://aikenh.cn/hugotest/posts/ title=posts><span>posts</span></a></li><li><a href=https://aikenh.cn/hugotest/tags/ title=tags><span>tags</span></a></li><li><a href=https://aikenh.cn/hugotest/categories/ title=categories><span>categories</span></a></li><li><a href=https://aikenh.cn/hugotest/archives/ title=archives><span>archives</span></a></li><li><a href=https://aikenh.cn/hugotest/about/ title=about><span>about</span></a></li><li><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><span>search</span></a></li></ul></nav></header><div class=sidebar><ul><li class=logo style=--bg:#333><a href=#><div class=logo-icon><img src=/logo/logo.png></div><div class=logo-text>Aiken's Blog</div></a></li><div class=menulist><li style=--bg:#f44336><a href=https://aikenh.cn/hugotest/ title=home><div class=logo-icon><ion-icon name=home-outline></ion-icon></div><div class=logo-text>home</div></a></li><li style=--bg:#b145e9><a href=https://aikenh.cn/hugotest/posts/ title=posts><div class=logo-icon><ion-icon name=newspaper-outline></ion-icon></div><div class=logo-text>posts</div></a></li><li style=--bg:#0f93c7><a href=https://aikenh.cn/hugotest/tags/ title=tags><div class=logo-icon><ion-icon name=pricetags-outline></ion-icon></div><div class=logo-text>tags</div></a></li><li style=--bg:#ffa117><a href=https://aikenh.cn/hugotest/categories/ title=categories><div class=logo-icon><ion-icon name=grid-outline></ion-icon></div><div class=logo-text>categories</div></a></li><li style=--bg:#0fc70f><a href=https://aikenh.cn/hugotest/archives/ title=archives><div class=logo-icon><ion-icon name=folder-outline></ion-icon></div><div class=logo-text>archives</div></a></li><li style=--bg:#d16111><a href=https://aikenh.cn/hugotest/about/ title=about><div class=logo-icon><ion-icon name=person></ion-icon></div><div class=logo-text>about</div></a></li><li style=--bg:#15c095><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><div class=logo-icon><ion-icon name=search></ion-icon></div><div class=logo-text>search</div></a></li></div><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt +T)"><li><div class=logo-icon id=moon><ion-icon name=moon-outline></ion-icon></div><div class=logo-icon id=sun><ion-icon name=sunny-outline></ion-icon></div></li></button></div></ul></div><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://aikenh.cn/hugotest/>Home</a>&nbsp;»&nbsp;<a href=https://aikenh.cn/hugotest/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">SQL Chapter2 安装和基本概念</h1><div class=post-meta><span title='2022-08-03 10:17:00 +0000 UTC'>August 3, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;175 words&nbsp;·&nbsp;aikenhong&nbsp;·&nbsp;<a href=/tags/sql> SQL</a>&nbsp;·&nbsp;<a href=/tags/database> Database</a>&nbsp;·&nbsp;<a href=/tags/langs> Langs</a>&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/SQL2.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://aikenh.cn/cover/cover7.jpeg alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e5%ae%89%e8%a3%85mysql aria-label=安装MySQL>安装MySQL</a></li><li><a href=#%e5%85%b3%e7%b3%bb%e6%a8%a1%e5%9e%8b aria-label=关系模型>关系模型</a></li><li><a href=#%e4%b8%bb%e9%94%ae aria-label=主键>主键</a><ul class=header-level-2><li><a href=#%e8%81%94%e5%90%88%e4%b8%bb%e9%94%ae aria-label=联合主键>联合主键</a></li></ul></li><li><a href=#%e5%a4%96%e9%94%ae aria-label=外键>外键</a></li><li><a href=#%e7%b4%a2%e5%bc%95 aria-label=索引>索引</a><ul class=header-level-2><li><a href=#%e4%bc%98%e7%bc%ba%e7%82%b9 aria-label=优缺点>优缺点</a></li><li><a href=#%e5%94%af%e4%b8%80%e7%b4%a2%e5%bc%95 aria-label=唯一索引>唯一索引</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;document.addEventListener("DOMContentLoaded",function(){if(checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),elements.length>0){activeElement=elements[0];const e=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${e}"]`).classList.add("active")}const t=document.getElementById("top-link");t&&t.addEventListener("click",e=>{e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})})},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{const e=window.pageYOffset||document.documentElement.scrollTop;if(e===0)return;elements&&elements.length>0&&(elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase(),n=document.querySelector(`.inner ul li a[href="#${t}"]`);n.classList.remove("read")}),activeElement=Array.from(elements).find(t=>{if(getOffsetTop(t)-e>0&&getOffsetTop(t)-e<window.innerHeight/2)return t})||activeElement,elements.forEach((t)=>{const o=encodeURI(t.getAttribute("id")).toLowerCase(),s=document.querySelector(`.inner ul li a[href="#${o}"]`);if(t===activeElement){s.classList.add("active");const e=document.querySelector(".toc .inner"),t=s.offsetTop,n=e.clientHeight,o=s.clientHeight,i=t-n/2+o/2;e.scrollTo({top:i,behavior:"smooth"})}else getOffsetTop(t)<e&&s.classList.add("read"),s.classList.remove("active")}))},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return!document.querySelector(".hugo-encryptor-prompt")&&elements.length!=0&&(elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),console.log("Elements re-queried:",elements)),0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><p>本章节从MySQL的安装到基础使用，<strong>MySQL</strong>本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：</p><ul><li>InnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好）</li><li>MyISAM：早期默认，不支持事务</li></ul><p>接口和引擎的关系好比浏览器和浏览器引擎，切换MySQL引擎不影响自己写的应用程序使用MySQL的接口，由于其开源，也衍生出了各种开源版本（包括针对各种云存储中托管数据库的版本等）</p><h2 id=安装mysql>安装MySQL<a hidden class=anchor aria-hidden=true href=#安装mysql>#</a></h2><p><strong>Windows</strong>直接官网下载对应的版本就好了，<a href=https://dev.mysql.com/downloads/mysql/ target=_blank rel=noopener>Community Version</a>
+在该超链接进行下载，其他版本就按需下载，按需付费就行。</p><p><strong>Linux</strong>下载MySQL：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt-get install mysql-server
+</span></span></code></pre></td></tr></table></div></div><p>验证是否下载安装完成：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 链接服务器</span>
+</span></span><span class=line><span class=cl>mysql
+</span></span><span class=line><span class=cl><span class=c1># 登录服务器（需要输入口令）</span>
+</span></span><span class=line><span class=cl>mysql -u root -p 
+</span></span></code></pre></td></tr></table></div></div><p>成功链接后会变成<code>mysql></code>，输入<code>exit</code>可以推出MySQL命令行，但是其将仍然在后台运行。</p><h2 id=关系模型>关系模型<a hidden class=anchor aria-hidden=true href=#关系模型>#</a></h2><p>关系数据建立在关系模型之上，关系模型本质上就是若干个存储数据的二维表（Excel表），其中</p><ul><li><strong>每一行称为记录（Record）</strong>：记录是一个逻辑意义上的数据</li><li><strong>每一列成为字段（Column）</strong>：同一个表的每一行记录都拥有相同的若干字段，字段需要规定其数据类型，以及是否允许为Null（缺省值）</li></ul><blockquote><p>避免允许Null，不允许可简化查询条件，加快查询速度，也避免程序调用时需要处理Null</p></blockquote><p>关系数据的<strong>表和表之间的跳转</strong>可以建立“一对多”，“多对一”和“一对一的关系”，这样才能按照应用册灰姑娘徐的逻辑来组织和存储数据，<a href=https://www.liaoxuefeng.com/wiki/1177760294764384/1218728991649984 target=_blank rel=noopener>通俗的讲</a>
+：</p><ul><li>一个班级可以对应很多学生</li><li>多位学生对应同个班级</li><li>一个班级对应一个班主任</li></ul><p>在关系数据库中，关系是通过<strong>主键</strong>和<strong>外键</strong>来维护的。</p><h2 id=主键>主键<a hidden class=anchor aria-hidden=true href=#主键>#</a></h2><p>在关系数据库中，一张表中的每一行数据被称为一条记录。一条记录就是由多个字段组成的。例如，<code>students</code>表的两行记录：</p><table><thead><tr><th>id</th><th>class_id</th><th>name</th><th>gender</th><th>score</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>小明</td><td>M</td><td>90</td></tr><tr><td>2</td><td>1</td><td>小红</td><td>F</td><td>95</td></tr></tbody></table><p>每一条记录都包含若干定义好的字段。同一个表的所有记录都有相同的字段定义。</p><p>而在关系表中，有个很重要的约束：<strong>任意两条记录不能重复</strong>，而不重复指的并非是两条记录不完全相同，而是，能够通过某个字段唯一区分出不同的记录，这个字段成为主键。</p><blockquote><p>也就是说，如果Name作为主键，那么我们不能存储同名的两个不同的同学。</p></blockquote><p>由于主键的该特性，通常将主键用来定位和记录，修改主键将造成较大影响，因此我们一般不对主键进行修改。为了避免修改主键，我们避免将主键设置为与任何业务相关的字段（例如身份证、手机等等），避免所有的更新换代和修改造成的不良影响。由此通常使用id来进行主键的存储。</p><ul><li>自增整数类型：数据库会在插入数据时自动为每一条记录分配一个自增整数，这样我们就完全不用担心主键重复，也不用自己预先生成主键；</li><li>全局唯一GUID类型：使用一种全局唯一的字符串作为主键，类似<code>8f55d96b-8acc-4636-8cb8-76bf8abc2f57</code>。GUID算法通过网卡MAC地址、时间戳和随机数保证任意计算机在任意时间生成的字符串都是不同的，大部分编程语言都内置了GUID算法，可以自己预算出主键。</li></ul><p>大部分应用使用自增整数类型即可，<code>BIGINT NOT NULL AUTO_INCREMENT</code>类型。</p><blockquote><p>INT自增类型上限差不多是21亿，BIGINT自增类型最多约922亿亿</p></blockquote><h3 id=联合主键>联合主键<a hidden class=anchor aria-hidden=true href=#联合主键>#</a></h3><p>关系数据库实际上还允许通过多个字段唯一标识记录，即两个或更多的字段都设置为主键，这种主键被称为联合主键。对于联合主键，允许一列有重复，只要不是所有主键列都重复即可：</p><p>没有必要的情况下，尽量不使用联合主键，其带来关系表的复杂度的上升。</p><h2 id=外键>外键<a hidden class=anchor aria-hidden=true href=#外键>#</a></h2><blockquote><p>以学生和班级的数据集为例对外键进行分析和介绍。</p></blockquote><p>主键唯一标识记录，我们可以在students中确认任意一个学生的记录，在Classes表中确定任何一个班级的位置等。而一个班级可以有多个学生，这种一对多关系，对应的表的映射的实现，我们需要在<code>students</code>表中加入<code>class_id</code>，让它的值与<code>classes</code>表中的某条记录相对应。</p><table><thead><tr><th>id</th><th>name</th><th>other columns</th></tr></thead><tbody><tr><td>1</td><td>一班</td><td>…</td></tr><tr><td>2</td><td>二班</td><td>…</td></tr></tbody></table><p>这样就可以通过<code>class_id</code>定位出<code>students</code>和<code>classes</code>的对应关系，通过<code>class_id</code>字段，将<code>students</code>和<code>classes</code>表连接起来，这种列（字段）被称为<strong>外键</strong>。</p><p>外键并不是通过列名实现的，而是通过定义外键约束实现的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-SQL data-lang=SQL><span class=line><span class=cl><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>students</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ADD</span><span class=w> </span><span class=k>CONSTRAINT</span><span class=w> </span><span class=n>fk_class_id</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>FOREIGN</span><span class=w> </span><span class=k>KEY</span><span class=w> </span><span class=p>(</span><span class=n>class_id</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>REFERENCES</span><span class=w> </span><span class=n>classes</span><span class=w> </span><span class=p>(</span><span class=n>id</span><span class=p>);</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>其中，外键约束的名称<code>fk_class_id</code>可以任意，<code>FOREIGN KEY (class_id)</code>指定了<code>class_id</code>作为外键，<code>REFERENCES classes (id)</code>指定了这个外键将关联到<code>classes</code>表的<code>id</code>列（即<code>classes</code>表的主键）。</p><p>通过定义外键约束，关系数据库可以保证无法插入无效的数据。即如果<code>classes</code>表不存在<code>id=99</code>的记录，<code>students</code>表就无法插入<code>class_id=99</code>的记录。</p><p>由于外键约束会降低数据库的性能，大部分互联网应用程序为了追求速度，并不设置外键约束，而是仅靠应用程序自身来保证逻辑的正确性。这种情况下，<code>class_id</code>仅仅是一个普通的列，只是它起到了外键的作用而已。</p><p>删除外键约束也是通过<code>ALTER TABLE</code>实现的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>students</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>DROP</span><span class=w> </span><span class=k>FOREIGN</span><span class=w> </span><span class=k>KEY</span><span class=w> </span><span class=n>fk_class_id</span><span class=p>;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>多对多是通过一个中间表实现的。</p><p>一对一还要建表是为了避免缺省值</p><blockquote><p>“关系数据库通过外键可以实现一对多、多对多和一对一的关系。外键既可以通过数据库来约束，也可以不设置约束，仅依靠应用程序的逻辑来保证。”</p></blockquote><h2 id=索引>索引<a hidden class=anchor aria-hidden=true href=#索引>#</a></h2><p>为了快速搜索数据，需要对（用于搜索的）特定关键词建立索引，通过索引进行预排序，帮助快速定位到符合条件的记录来加快查询速度。</p><p>如果我们希望对学生的成绩<code>score</code>建立索引，方便对<code>score</code>进行快速查找：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>students</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ADD</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>idx_score</span><span class=p>(</span><span class=n>score</span><span class=p>);</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>使用<code>ADD INDEX idx_score (score)</code>就创建了一个名称为<code>idx_score</code>，使用列<code>score</code>的索引。索引名称是任意的，索引如果有多列，可以在括号里依次写上，例如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>students</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ADD</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>idx_name_score</span><span class=p>(</span><span class=n>score</span><span class=p>,</span><span class=w> </span><span class=n>name</span><span class=p>);</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>索引的效率取决于散列的程度，如果值越分散，索引效率越高，如果存在大量的重复值（像性别），创建索引就没有意义。</p><h3 id=优缺点>优缺点<a hidden class=anchor aria-hidden=true href=#优缺点>#</a></h3><p>可以对同一张表建立多个索引，但是索引的建立会带来如下的优缺点：</p><ul><li>提高了查询效率</li><li>插入、更新、删除记录的时候需要更新，越多索引修改的速度就越慢</li></ul><h3 id=唯一索引>唯一索引<a hidden class=anchor aria-hidden=true href=#唯一索引>#</a></h3><p>具有业务意义，如身份证之类的唯一标识，不适合作为主键，但是可以构建唯一索引，其具备最高的索引效率。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>students</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ADD</span><span class=w> </span><span class=k>UNIQUE</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>uni_name</span><span class=p>(</span><span class=n>name</span><span class=p>);</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>也可以只对某一列添加一个唯一约束而不创建唯一索引：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>students</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ADD</span><span class=w> </span><span class=k>CONSTRAINT</span><span class=w> </span><span class=n>uni_name</span><span class=w> </span><span class=k>UNIQUE</span><span class=w> </span><span class=p>(</span><span class=n>name</span><span class=p>);</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>在这种情况下，没有建立索引，但是具备唯一性约束。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://aikenh.cn/hugotest/tags/sql/>SQL</a></li><li><a href=https://aikenh.cn/hugotest/tags/database/>Database</a></li><li><a href=https://aikenh.cn/hugotest/tags/langs/>Langs</a></li></ul><nav class=paginav><a class=prev href=https://aikenh.cn/hugotest/posts/sql3/><span class=title>« Prev</span><br><span>SQL Chapter3 查询命令</span>
+</a><a class=next href=https://aikenh.cn/hugotest/posts/sql1/><span class=title>Next »</span><br><span>SQL Chapter1 Introduce</span></a></nav></footer><div id=disqus_thread></div><script>function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://aiken-hugo.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url=window.location.href,this.page.identifier=window.location.href.substring(18)}}var runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){if(!isBot&&supportsIntersectionObserver){var e=new IntersectionObserver(function(t){t[0].isIntersecting&&(loadDisqus(),e.disconnect())},{threshold:[0]});e.observe(document.getElementById("disqus_thread"))}else loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by
+Disqus.</a></noscript></article></main><footer class=footer><span>&copy; 2024 <a href=https://aikenh.cn/hugotest/>aiken's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span id=busuanzi_container>Visitors: <span id=busuanzi_value_site_uv></span>
+Views: <span id=busuanzi_value_site_pv></span></span></footer><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),o=13863,i=16993;if(!e||!t){console.error("Busuanzi elements not found.");return}const n=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+o;break}}),s=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){s.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+i;break}});n.observe(e,{childList:!0}),s.observe(t,{childList:!0})})</script><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><span class=topInner><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+<span id=read_progress></span>
+</span></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))}),document.getElementById("theme-toggle-nav").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script>document.addEventListener("scroll",function(){const t=document.getElementById("read_progress"),n=document.documentElement.scrollHeight,s=document.documentElement.clientHeight,o=document.documentElement.scrollTop||document.body.scrollTop;t.innerText=((o/(n-s)).toFixed(2)*100).toFixed(0)})</script><script>(function(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(e)}),i.parentNode.insertBefore(n,i)})("/js/pangu.js",function(){pangu.spacingPage()})</script></body></html>

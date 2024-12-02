@@ -1,0 +1,389 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>LearnWeb18-JS03-事件 | aiken's blog</title>
+<meta name=keywords content="Web,JS"><meta name=description content='
+  
+    
+      
+    
+    Summary
+  
+  web-js 中主要的编程方式就是需要结合browser 的事件和属性来实现对页面的动态控制，事件章节可以说是web 动态编程中的核心部分了，了解主要存在和需要被控制的事件是相当重要的。
+
+
+常见的浏览器事件
+下面列出一些常见的事件类型和具体事件，更多的事件可以参考Mdn
+，在设计页面的时候可以考虑我们希望获得什么效果来找寻是否有对应的事件来构建对应的动态响应。
+
+  
+      
+          事件类型
+          具体事件
+      
+  
+  
+      
+          鼠标事件
+          点击、选择、悬停、拖拽、滚轮、焦点(focus, blur)
+      
+      
+          键盘事件
+          按键、剪切板、文本输入
+      
+      
+          窗口事件
+          调整大小、窗口关闭
+      
+      
+          页面事件
+          加载结束、错误发生、CSS 变换、DOM 事件
+      
+      
+          自定义事件
+          点击按钮，表单提交
+      
+      
+          多媒体事件
+          视频播放、暂停、结束
+      
+  
+
+在确定了事件之后，就需要对事件附加一个事件处理器（监听器），当事件触发的时候，运行指定的js 代码对该事件做出相应。
+事件处理器
+
+
+
+  
+  
+
+
+  
+    
+      
+    
+    Summary
+  
+  通常而言，我们使用特定的 element 调用 addEventListener(event, function) 添加一个事件监听器，当参数中指定的事件 event 在对应元素上发生，就调用对应的 function 执行相应的变动，如果不是通用的函数，这里经常可以看到使用匿名函数去定义对应的操作。
+
+
+添加事件处理器
+因此对于一个事件而言，实际上包含的操作有以下的几个：找到 DOM 中要操作的对应元素、添加事件监听器、选择对应的事件、定义对应的操作函数；
+
+
+1
+
+
+const btn = document.querySelector("button");
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+function changeBackground() {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+}
+
+
+
+
+1
+
+
+btn.addEventListener("click", changeBackground);
+
+
+可以为同一个事件设置多个处理器，也就是添加多个 function，对于添加事件来说其中 addEventListener 是最为通用的，可以绑定多种事件，不过除了 addEventListener 之外，还有一些特殊事件的添加监听的方法，例如 click 事件有一个内联的监听器：onclick。
+
+
+1
+
+
+btn.onlick = changeBackground;
+
+
+虽然有一些示例在 html 中绑定事件内联，但是最好还是分开在 js 中绑定更好。'><meta name=author content="aikenhong"><link rel=canonical href=https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/><link crossorigin=anonymous href=/hugotest/assets/css/stylesheet.2f85ca17c12c62fa86b1e474b8a51aca4856f0d645debfe4922a4d5ddc6aa978.css integrity="sha256-L4XKF8EsYvqGseR0uKUaykhW8NZF3r/kkipNXdxqqXg=" rel="preload stylesheet" as=style><link rel=icon href=https://aikenh.cn/favicon/ghost.ico><link rel=icon type=image/png sizes=16x16 href=https://aikenh.cn/favicon/ghost-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aikenh.cn/favicon/ghost-32x32.png><link rel=apple-touch-icon href=https://aikenh.cn/favicon/ghost-apple-touch-icon.png><link rel=mask-icon href=https://aikenh.cn/favicon/ghost-192x192.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel=stylesheet><meta property="og:url" content="https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/"><meta property="og:site_name" content="aiken's blog"><meta property="og:title" content="LearnWeb18-JS03-事件"><meta property="og:description" content='Summaryweb-js 中主要的编程方式就是需要结合browser 的事件和属性来实现对页面的动态控制，事件章节可以说是web 动态编程中的核心部分了，了解主要存在和需要被控制的事件是相当重要的。
+常见的浏览器事件 下面列出一些常见的事件类型和具体事件，更多的事件可以参考Mdn ，在设计页面的时候可以考虑我们希望获得什么效果来找寻是否有对应的事件来构建对应的动态响应。
+事件类型 具体事件 鼠标事件 点击、选择、悬停、拖拽、滚轮、焦点(focus, blur) 键盘事件 按键、剪切板、文本输入 窗口事件 调整大小、窗口关闭 页面事件 加载结束、错误发生、CSS 变换、DOM 事件 自定义事件 点击按钮，表单提交 多媒体事件 视频播放、暂停、结束 在确定了事件之后，就需要对事件附加一个事件处理器（监听器），当事件触发的时候，运行指定的js 代码对该事件做出相应。
+事件处理器 Summary通常而言，我们使用特定的 element 调用 addEventListener(event, function) 添加一个事件监听器，当参数中指定的事件 event 在对应元素上发生，就调用对应的 function 执行相应的变动，如果不是通用的函数，这里经常可以看到使用匿名函数去定义对应的操作。
+添加事件处理器 因此对于一个事件而言，实际上包含的操作有以下的几个：找到 DOM 中要操作的对应元素、添加事件监听器、选择对应的事件、定义对应的操作函数；
+1 const btn = document.querySelector("button"); 1 2 3 4 5 6 7 8 function random(number) { return Math.floor(Math.random() * (number + 1)); } function changeBackground() { const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`; document.body.style.backgroundColor = rndCol; } 1 btn.addEventListener("click", changeBackground); 可以为同一个事件设置多个处理器，也就是添加多个 function，对于添加事件来说其中 addEventListener 是最为通用的，可以绑定多种事件，不过除了 addEventListener 之外，还有一些特殊事件的添加监听的方法，例如 click 事件有一个内联的监听器：onclick。
+1 btn.onlick = changeBackground; 虽然有一些示例在 html 中绑定事件内联，但是最好还是分开在 js 中绑定更好。'><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-04-17T09:31:23+00:00"><meta property="article:modified_time" content="2024-04-17T09:31:23+00:00"><meta property="article:tag" content="Web"><meta property="article:tag" content="JS"><meta property="og:image" content="https://aikenh.cn/cover/cover10.jpeg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aikenh.cn/cover/cover10.jpeg"><meta name=twitter:title content="LearnWeb18-JS03-事件"><meta name=twitter:description content='
+  
+    
+      
+    
+    Summary
+  
+  web-js 中主要的编程方式就是需要结合browser 的事件和属性来实现对页面的动态控制，事件章节可以说是web 动态编程中的核心部分了，了解主要存在和需要被控制的事件是相当重要的。
+
+
+常见的浏览器事件
+下面列出一些常见的事件类型和具体事件，更多的事件可以参考Mdn
+，在设计页面的时候可以考虑我们希望获得什么效果来找寻是否有对应的事件来构建对应的动态响应。
+
+  
+      
+          事件类型
+          具体事件
+      
+  
+  
+      
+          鼠标事件
+          点击、选择、悬停、拖拽、滚轮、焦点(focus, blur)
+      
+      
+          键盘事件
+          按键、剪切板、文本输入
+      
+      
+          窗口事件
+          调整大小、窗口关闭
+      
+      
+          页面事件
+          加载结束、错误发生、CSS 变换、DOM 事件
+      
+      
+          自定义事件
+          点击按钮，表单提交
+      
+      
+          多媒体事件
+          视频播放、暂停、结束
+      
+  
+
+在确定了事件之后，就需要对事件附加一个事件处理器（监听器），当事件触发的时候，运行指定的js 代码对该事件做出相应。
+事件处理器
+
+
+
+  
+  
+
+
+  
+    
+      
+    
+    Summary
+  
+  通常而言，我们使用特定的 element 调用 addEventListener(event, function) 添加一个事件监听器，当参数中指定的事件 event 在对应元素上发生，就调用对应的 function 执行相应的变动，如果不是通用的函数，这里经常可以看到使用匿名函数去定义对应的操作。
+
+
+添加事件处理器
+因此对于一个事件而言，实际上包含的操作有以下的几个：找到 DOM 中要操作的对应元素、添加事件监听器、选择对应的事件、定义对应的操作函数；
+
+
+1
+
+
+const btn = document.querySelector("button");
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+function changeBackground() {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+}
+
+
+
+
+1
+
+
+btn.addEventListener("click", changeBackground);
+
+
+可以为同一个事件设置多个处理器，也就是添加多个 function，对于添加事件来说其中 addEventListener 是最为通用的，可以绑定多种事件，不过除了 addEventListener 之外，还有一些特殊事件的添加监听的方法，例如 click 事件有一个内联的监听器：onclick。
+
+
+1
+
+
+btn.onlick = changeBackground;
+
+
+虽然有一些示例在 html 中绑定事件内联，但是最好还是分开在 js 中绑定更好。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aikenh.cn/hugotest/posts/"},{"@type":"ListItem","position":2,"name":"LearnWeb18-JS03-事件","item":"https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"LearnWeb18-JS03-事件","name":"LearnWeb18-JS03-事件","description":"\rSummary\rweb-js 中主要的编程方式就是需要结合browser 的事件和属性来实现对页面的动态控制，事件章节可以说是web 动态编程中的核心部分了，了解主要存在和需要被控制的事件是相当重要的。\n常见的浏览器事件 下面列出一些常见的事件类型和具体事件，更多的事件可以参考Mdn ，在设计页面的时候可以考虑我们希望获得什么效果来找寻是否有对应的事件来构建对应的动态响应。\n事件类型 具体事件 鼠标事件 点击、选择、悬停、拖拽、滚轮、焦点(focus, blur) 键盘事件 按键、剪切板、文本输入 窗口事件 调整大小、窗口关闭 页面事件 加载结束、错误发生、CSS 变换、DOM 事件 自定义事件 点击按钮，表单提交 多媒体事件 视频播放、暂停、结束 在确定了事件之后，就需要对事件附加一个事件处理器（监听器），当事件触发的时候，运行指定的js 代码对该事件做出相应。\n事件处理器 Summary\r通常而言，我们使用特定的 element 调用 addEventListener(event, function) 添加一个事件监听器，当参数中指定的事件 event 在对应元素上发生，就调用对应的 function 执行相应的变动，如果不是通用的函数，这里经常可以看到使用匿名函数去定义对应的操作。\n添加事件处理器 因此对于一个事件而言，实际上包含的操作有以下的几个：找到 DOM 中要操作的对应元素、添加事件监听器、选择对应的事件、定义对应的操作函数；\n1 const btn = document.querySelector(\u0026#34;button\u0026#34;); 1 2 3 4 5 6 7 8 function random(number) { return Math.floor(Math.random() * (number + 1)); } function changeBackground() { const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`; document.body.style.backgroundColor = rndCol; } 1 btn.addEventListener(\u0026#34;click\u0026#34;, changeBackground); 可以为同一个事件设置多个处理器，也就是添加多个 function，对于添加事件来说其中 addEventListener 是最为通用的，可以绑定多种事件，不过除了 addEventListener 之外，还有一些特殊事件的添加监听的方法，例如 click 事件有一个内联的监听器：onclick。\n1 btn.onlick = changeBackground; 虽然有一些示例在 html 中绑定事件内联，但是最好还是分开在 js 中绑定更好。\n","keywords":["Web","JS"],"articleBody":"\rSummary\rweb-js 中主要的编程方式就是需要结合browser 的事件和属性来实现对页面的动态控制，事件章节可以说是web 动态编程中的核心部分了，了解主要存在和需要被控制的事件是相当重要的。\n常见的浏览器事件 下面列出一些常见的事件类型和具体事件，更多的事件可以参考Mdn ，在设计页面的时候可以考虑我们希望获得什么效果来找寻是否有对应的事件来构建对应的动态响应。\n事件类型 具体事件 鼠标事件 点击、选择、悬停、拖拽、滚轮、焦点(focus, blur) 键盘事件 按键、剪切板、文本输入 窗口事件 调整大小、窗口关闭 页面事件 加载结束、错误发生、CSS 变换、DOM 事件 自定义事件 点击按钮，表单提交 多媒体事件 视频播放、暂停、结束 在确定了事件之后，就需要对事件附加一个事件处理器（监听器），当事件触发的时候，运行指定的js 代码对该事件做出相应。\n事件处理器 Summary\r通常而言，我们使用特定的 element 调用 addEventListener(event, function) 添加一个事件监听器，当参数中指定的事件 event 在对应元素上发生，就调用对应的 function 执行相应的变动，如果不是通用的函数，这里经常可以看到使用匿名函数去定义对应的操作。\n添加事件处理器 因此对于一个事件而言，实际上包含的操作有以下的几个：找到 DOM 中要操作的对应元素、添加事件监听器、选择对应的事件、定义对应的操作函数；\n1 const btn = document.querySelector(\"button\"); 1 2 3 4 5 6 7 8 function random(number) { return Math.floor(Math.random() * (number + 1)); } function changeBackground() { const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`; document.body.style.backgroundColor = rndCol; } 1 btn.addEventListener(\"click\", changeBackground); 可以为同一个事件设置多个处理器，也就是添加多个 function，对于添加事件来说其中 addEventListener 是最为通用的，可以绑定多种事件，不过除了 addEventListener 之外，还有一些特殊事件的添加监听的方法，例如 click 事件有一个内联的监听器：onclick。\n1 btn.onlick = changeBackground; 虽然有一些示例在 html 中绑定事件内联，但是最好还是分开在 js 中绑定更好。\n移除监听器 如果使用 addEventListener 添加了一个事件处理器，可以使用 removeEventListener(event, function) 方法将该监听器删除，同样要使用对应的 element ，event，function。\n也可以对元素调用 abort 移除与该元素相关的所有事件处理器：\n1 element.abort(); 事件对象 有时候在事件处理函数内部，有时候会看到一些固定名称的参数，例如 event，evt，e 这些是事件对象，它会自动传递给事件处理函数。\n1 2 3 4 5 6 7 8 9 10 11 12 13 const btn = document.querySelector(\"button\"); function random(number) { return Math.floor(Math.random() * (number + 1)); } function bgChange(e) { const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`; e.target.style.backgroundColor = rndCol; console.log(e); } btn.addEventListener(\"click\", bgChange); 例如上文中的 e 指的是事件对象，e.target 指的是这个按钮本身，类似的大多数事件对象都会有一些额外的属性和方法可供使用，这个可以参考 event-object ，找到对应 event 的事件对象的属性。\n阻止默认行为 最常见的是 web 表单，当用户输入的内容不符合 format 的时候，我们希望直接阻止默认提交行为，不将其提交到服务器去处理。\n1 2 3 4 5 6 form.addEventListener(\"submit\", (e) =\u003e { if (fname.value === \"\" || lname.value === \"\") { e.preventDefault(); para.textContent = \"You need to fill in both names!\"; } }); 事件行为/传播逻辑 事件冒泡 1 2 3 \u003cdiv id=\"container\"\u003e \u003cbutton\u003e点我！\u003c/button\u003e \u003c/div\u003e 以上述 DOM 为例，当我们点击 btn 的时候，btn、div、body 会依次冒泡触发 click 事件；\n这种冒泡有时候会因为函数之间的冲突导致一些不希望出现的问题，这种时候我们可以对事件传递一个阻止冒泡的元素方法 stopPropagation，防止其继续向父级冒泡。\n1 2 3 4 video.addEventListener(\"click\", (event) =\u003e { event.stopPropagation(); video.play(); }); 事件捕获 事件传播的另一种形式是事件捕获，这个就像事件冒泡，但是顺序是相反的，也就是从最外层逐渐到最里层的形式，但是需要在 addEventListener() 的 capture 选项中启用它，这样的顺序就会是完全相反的。\n1 2 3 4 5 6 7 8 9 10 11 const output = document.querySelector(\"#output\"); function handleClick(e) { output.textContent += `你在 ${e.currentTarget.tagName} 元素上进行了点击\\n`; } const container = document.querySelector(\"#container\"); const button = document.querySelector(\"button\"); document.body.addEventListener(\"click\", handleClick, { capture: true }); container.addEventListener(\"click\", handleClick, { capture: true }); button.addEventListener(\"click\", handleClick); 例如上面的这串代码，有capture 和没有的顺序是完全相反的。\n事件委托 上述的事件冒泡和事件捕获的一个应用，例如，我们将页面划分成n 个区域，希望每个区域都支持在点击后随机设置其背景颜色，\n1 2 3 4 5 6 \u003cdiv id=\"container\"\u003e \u003cdiv class=\"tile\"\u003e\u003c/div\u003e \u003cdiv class=\"tile\"\u003e\u003c/div\u003e \u003cdiv class=\"tile\"\u003e\u003c/div\u003e \u003cdiv class=\"tile\"\u003e\u003c/div\u003e \u003c/div\u003e 但我们显然不希望对每个子元素都进行一次绑定，尤其是子元素的数量多起来以后，因此，更简单的是我们对父元素设置事件处理器，然后基于事件冒泡来确认用户点击每个区域时函数被执行。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 function random(number) { return Math.floor(Math.random() * number); } function bgChange() { const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`; return rndCol; } const container = document.querySelector(\"#container\"); container.addEventListener(\"click\", (event) =\u003e { event.target.style.backgroundColor = bgChange(); }); 备注： 在这个例子中，我们使用 event.target 来获取事件的目标元素（也就是最里面的元素）。如果我们想访问处理这个事件的元素（在这个例子中是容器），我们可以使用 event.currentTarget。\n可以去这里 link 查看对应效果，理解以下这个事件是怎么发生的，其实最关键的是 target 和currentTarget 的区分 ，简单的讲：\ntarget 是实际触发事件的元素 currentTarget 始终是绑定监听器的元素。 ","wordCount":"372","inLanguage":"en","image":"https://aikenh.cn/cover/cover10.jpeg","datePublished":"2024-04-17T09:31:23Z","dateModified":"2024-04-17T09:31:23Z","author":[{"@type":"Person","name":"aikenhong"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/"},"publisher":{"@type":"Organization","name":"aiken's blog","logo":{"@type":"ImageObject","url":"https://aikenh.cn/favicon/ghost.ico"}}}</script></head><body id=top><script type=module src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js defer></script><script nomodule src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js defer></script><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aikenh.cn/hugotest/ accesskey=h title="aiken's blog (Alt + H)">aiken's blog</a><div class=logo-switches><button id=theme-toggle-nav accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aikenh.cn/hugotest/ title=home><span>home</span></a></li><li><a href=https://aikenh.cn/hugotest/posts/ title=posts><span>posts</span></a></li><li><a href=https://aikenh.cn/hugotest/tags/ title=tags><span>tags</span></a></li><li><a href=https://aikenh.cn/hugotest/categories/ title=categories><span>categories</span></a></li><li><a href=https://aikenh.cn/hugotest/archives/ title=archives><span>archives</span></a></li><li><a href=https://aikenh.cn/hugotest/about/ title=about><span>about</span></a></li><li><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><span>search</span></a></li></ul></nav></header><div class=sidebar><ul><li class=logo style=--bg:#333><a href=#><div class=logo-icon><img src=/logo/logo.png></div><div class=logo-text>Aiken's Blog</div></a></li><div class=menulist><li style=--bg:#f44336><a href=https://aikenh.cn/hugotest/ title=home><div class=logo-icon><ion-icon name=home-outline></ion-icon></div><div class=logo-text>home</div></a></li><li style=--bg:#b145e9><a href=https://aikenh.cn/hugotest/posts/ title=posts><div class=logo-icon><ion-icon name=newspaper-outline></ion-icon></div><div class=logo-text>posts</div></a></li><li style=--bg:#0f93c7><a href=https://aikenh.cn/hugotest/tags/ title=tags><div class=logo-icon><ion-icon name=pricetags-outline></ion-icon></div><div class=logo-text>tags</div></a></li><li style=--bg:#ffa117><a href=https://aikenh.cn/hugotest/categories/ title=categories><div class=logo-icon><ion-icon name=grid-outline></ion-icon></div><div class=logo-text>categories</div></a></li><li style=--bg:#0fc70f><a href=https://aikenh.cn/hugotest/archives/ title=archives><div class=logo-icon><ion-icon name=folder-outline></ion-icon></div><div class=logo-text>archives</div></a></li><li style=--bg:#d16111><a href=https://aikenh.cn/hugotest/about/ title=about><div class=logo-icon><ion-icon name=person></ion-icon></div><div class=logo-text>about</div></a></li><li style=--bg:#15c095><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><div class=logo-icon><ion-icon name=search></ion-icon></div><div class=logo-text>search</div></a></li></div><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt +T)"><li><div class=logo-icon id=moon><ion-icon name=moon-outline></ion-icon></div><div class=logo-icon id=sun><ion-icon name=sunny-outline></ion-icon></div></li></button></div></ul></div><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://aikenh.cn/hugotest/>Home</a>&nbsp;»&nbsp;<a href=https://aikenh.cn/hugotest/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">LearnWeb18-JS03-事件</h1><div class=post-meta><span title='2024-04-17 09:31:23 +0000 UTC'>April 17, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;372 words&nbsp;·&nbsp;aikenhong&nbsp;·&nbsp;<a href=/tags/web> Web</a>&nbsp;·&nbsp;<a href=/tags/js> JS</a>&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/LearnWeb18-JS03-%e4%ba%8b%e4%bb%b6.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://aikenh.cn/cover/cover10.jpeg alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e5%b8%b8%e8%a7%81%e7%9a%84%e6%b5%8f%e8%a7%88%e5%99%a8%e4%ba%8b%e4%bb%b6 aria-label=常见的浏览器事件>常见的浏览器事件</a></li><li><a href=#%e4%ba%8b%e4%bb%b6%e5%a4%84%e7%90%86%e5%99%a8 aria-label=事件处理器>事件处理器</a><ul class=header-level-2><li><a href=#%e6%b7%bb%e5%8a%a0%e4%ba%8b%e4%bb%b6%e5%a4%84%e7%90%86%e5%99%a8 aria-label=添加事件处理器>添加事件处理器</a></li><li><a href=#%e7%a7%bb%e9%99%a4%e7%9b%91%e5%90%ac%e5%99%a8 aria-label=移除监听器>移除监听器</a></li><li><a href=#%e4%ba%8b%e4%bb%b6%e5%af%b9%e8%b1%a1 aria-label=事件对象>事件对象</a></li><li><a href=#%e9%98%bb%e6%ad%a2%e9%bb%98%e8%ae%a4%e8%a1%8c%e4%b8%ba aria-label=阻止默认行为>阻止默认行为</a></li></ul></li><li><a href=#%e4%ba%8b%e4%bb%b6%e8%a1%8c%e4%b8%ba%e4%bc%a0%e6%92%ad%e9%80%bb%e8%be%91 aria-label=事件行为/传播逻辑>事件行为/传播逻辑</a><ul class=header-level-2><li><a href=#%e4%ba%8b%e4%bb%b6%e5%86%92%e6%b3%a1 aria-label=事件冒泡>事件冒泡</a></li><li><a href=#%e4%ba%8b%e4%bb%b6%e6%8d%95%e8%8e%b7 aria-label=事件捕获>事件捕获</a></li><li><a href=#%e4%ba%8b%e4%bb%b6%e5%a7%94%e6%89%98 aria-label=事件委托>事件委托</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;document.addEventListener("DOMContentLoaded",function(){if(checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),elements.length>0){activeElement=elements[0];const e=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${e}"]`).classList.add("active")}const t=document.getElementById("top-link");t&&t.addEventListener("click",e=>{e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})})},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{const e=window.pageYOffset||document.documentElement.scrollTop;if(e===0)return;elements&&elements.length>0&&(elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase(),n=document.querySelector(`.inner ul li a[href="#${t}"]`);n.classList.remove("read")}),activeElement=Array.from(elements).find(t=>{if(getOffsetTop(t)-e>0&&getOffsetTop(t)-e<window.innerHeight/2)return t})||activeElement,elements.forEach((t)=>{const o=encodeURI(t.getAttribute("id")).toLowerCase(),s=document.querySelector(`.inner ul li a[href="#${o}"]`);if(t===activeElement){s.classList.add("active");const e=document.querySelector(".toc .inner"),t=s.offsetTop,n=e.clientHeight,o=s.clientHeight,i=t-n/2+o/2;e.scrollTo({top:i,behavior:"smooth"})}else getOffsetTop(t)<e&&s.classList.add("read"),s.classList.remove("active")}))},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return!document.querySelector(".hugo-encryptor-prompt")&&elements.length!=0&&(elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),console.log("Elements re-queried:",elements)),0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><blockquote class="alert-blockquote alert-summary"><p class=alert-heading><svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5.0 100 13 6.5 6.5.0 000-13zM6.5 7.75A.75.75.0 017.25 7h1a.75.75.0 01.75.75v2.75h.25a.75.75.0 010 1.5h-2a.75.75.0 010-1.5h.25v-2h-.25a.75.75.0 01-.75-.75zM8 6a1 1 0 110-2 1 1 0 010 2z"/></svg>
+<span>Summary</span></p><p>web-js 中主要的编程方式就是需要结合browser 的事件和属性来实现对页面的动态控制，事件章节可以说是web 动态编程中的核心部分了，了解主要存在和需要被控制的事件是相当重要的。</p></blockquote><h2 id=常见的浏览器事件>常见的浏览器事件<a hidden class=anchor aria-hidden=true href=#常见的浏览器事件>#</a></h2><p>下面列出一些常见的事件类型和具体事件，更多的事件可以<a href=https://developer.mozilla.org/zh-CN/docs/Web/Events target=_blank rel=noopener>参考Mdn</a>
+，在设计页面的时候可以考虑我们希望获得什么效果来找寻是否有对应的事件来构建对应的动态响应。</p><table><thead><tr><th>事件类型</th><th>具体事件</th></tr></thead><tbody><tr><td><strong>鼠标事件</strong></td><td>点击、选择、悬停、拖拽、滚轮、焦点(focus, blur)</td></tr><tr><td><strong>键盘事件</strong></td><td>按键、剪切板、文本输入</td></tr><tr><td><strong>窗口事件</strong></td><td>调整大小、窗口关闭</td></tr><tr><td><strong>页面事件</strong></td><td>加载结束、错误发生、CSS 变换、DOM 事件</td></tr><tr><td><strong>自定义事件</strong></td><td>点击按钮，表单提交</td></tr><tr><td><strong>多媒体事件</strong></td><td>视频播放、暂停、结束</td></tr></tbody></table><p>在确定了事件之后，就需要对事件附加一个<strong>事件处理器（监听器）</strong>，当事件触发的时候，运行指定的js 代码对该事件做出相应。</p><h2 id=事件处理器>事件处理器<a hidden class=anchor aria-hidden=true href=#事件处理器>#</a></h2><blockquote class="alert-blockquote alert-summary"><p class=alert-heading><svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5.0 100 13 6.5 6.5.0 000-13zM6.5 7.75A.75.75.0 017.25 7h1a.75.75.0 01.75.75v2.75h.25a.75.75.0 010 1.5h-2a.75.75.0 010-1.5h.25v-2h-.25a.75.75.0 01-.75-.75zM8 6a1 1 0 110-2 1 1 0 010 2z"/></svg>
+<span>Summary</span></p><p>通常而言，我们使用特定的 <code>element</code> 调用 <code>addEventListener(event, function)</code> 添加一个事件监听器，当参数中指定的事件 <code>event</code> 在对应元素上发生，就调用对应的 <code>function</code> 执行相应的变动，如果不是通用的函数，这里经常可以看到使用匿名函数去定义对应的操作。</p></blockquote><h3 id=添加事件处理器>添加事件处理器<a hidden class=anchor aria-hidden=true href=#添加事件处理器>#</a></h3><p>因此对于一个事件而言，实际上包含的操作有以下的几个：找到 DOM 中要操作的对应元素、添加事件监听器、选择对应的事件、定义对应的操作函数；</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>btn</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s2>&#34;button&#34;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>random</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=p>(</span><span class=nx>number</span> <span class=o>+</span> <span class=mi>1</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>changeBackground</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>rndCol</span> <span class=o>=</span> <span class=sb>`rgb(</span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>, </span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>, </span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>)`</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>body</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>backgroundColor</span> <span class=o>=</span> <span class=nx>rndCol</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>btn</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=nx>changeBackground</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以为同一个事件设置多个处理器，也就是添加多个 function，对于添加事件来说其中 <code>addEventListener</code> 是最为通用的，可以绑定多种事件，不过除了 <code>addEventListener</code> 之外，还有一些特殊事件的添加监听的方法，例如 click 事件有一个内联的监听器：<code>onclick</code>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>btn</span><span class=p>.</span><span class=nx>onlick</span> <span class=o>=</span> <span class=nx>changeBackground</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>虽然有一些示例在 html 中绑定事件内联，但是最好还是分开在 js 中绑定更好。</p><h3 id=移除监听器>移除监听器<a hidden class=anchor aria-hidden=true href=#移除监听器>#</a></h3><p>如果使用 <code>addEventListener</code> 添加了一个事件处理器，可以使用 <code>removeEventListener(event, function)</code> 方法将该监听器删除，同样要使用对应的 <code>element</code> ，<code>event</code>，<code>function</code>。</p><p>也可以对元素调用 <code>abort</code> 移除与该元素相关的所有事件处理器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>element</span><span class=p>.</span><span class=nx>abort</span><span class=p>();</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=事件对象>事件对象<a hidden class=anchor aria-hidden=true href=#事件对象>#</a></h3><p>有时候在事件处理函数内部，有时候会看到一些固定名称的参数，例如 <code>event</code>，<code>evt</code>，<code>e</code> 这些是事件对象，它会自动传递给事件处理函数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>btn</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s2>&#34;button&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>random</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=p>(</span><span class=nx>number</span> <span class=o>+</span> <span class=mi>1</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>bgChange</span><span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>rndCol</span> <span class=o>=</span> <span class=sb>`rgb(</span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>, </span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>, </span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>)`</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>e</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>backgroundColor</span> <span class=o>=</span> <span class=nx>rndCol</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>e</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>btn</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=nx>bgChange</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>例如上文中的 <code>e</code> 指的是事件对象，<code>e.target</code> 指的是这个按钮本身，类似的大多数事件对象都会有一些额外的属性和方法可供使用，这个可以参考 <a href=https://developer.mozilla.org/zh-CN/docs/Web/API/Event target=_blank rel=noopener>event-object</a>
+，找到对应 event 的事件对象的属性。</p><h3 id=阻止默认行为>阻止默认行为<a hidden class=anchor aria-hidden=true href=#阻止默认行为>#</a></h3><p>最常见的是 web 表单，当用户输入的内容不符合 format 的时候，我们希望直接阻止默认提交行为，不将其提交到服务器去处理。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>form</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;submit&#34;</span><span class=p>,</span> <span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>fname</span><span class=p>.</span><span class=nx>value</span> <span class=o>===</span> <span class=s2>&#34;&#34;</span> <span class=o>||</span> <span class=nx>lname</span><span class=p>.</span><span class=nx>value</span> <span class=o>===</span> <span class=s2>&#34;&#34;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>e</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=nx>para</span><span class=p>.</span><span class=nx>textContent</span> <span class=o>=</span> <span class=s2>&#34;You need to fill in both names!&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=事件行为传播逻辑>事件行为/传播逻辑<a hidden class=anchor aria-hidden=true href=#事件行为传播逻辑>#</a></h2><h3 id=事件冒泡>事件冒泡<a hidden class=anchor aria-hidden=true href=#事件冒泡>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;container&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>button</span><span class=p>&gt;</span>点我！<span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>以上述 DOM 为例，当我们点击 btn 的时候，btn、div、body 会依次冒泡触发 click 事件；</p><p>这种冒泡有时候会因为函数之间的冲突导致一些不希望出现的问题，这种时候我们可以对事件传递一个<strong>阻止冒泡</strong>的元素方法 <code>stopPropagation</code>，防止其继续向父级冒泡。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>video</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=p>(</span><span class=nx>event</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>event</span><span class=p>.</span><span class=nx>stopPropagation</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=nx>video</span><span class=p>.</span><span class=nx>play</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=事件捕获>事件捕获<a hidden class=anchor aria-hidden=true href=#事件捕获>#</a></h3><p>事件传播的另一种形式是事件捕获，这个就像事件冒泡，但是顺序是相反的，也就是从最外层逐渐到最里层的形式，但是需要在 <code>addEventListener()</code> 的 <code>capture</code> 选项中启用它，这样的顺序就会是完全相反的。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>output</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s2>&#34;#output&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>handleClick</span><span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>output</span><span class=p>.</span><span class=nx>textContent</span> <span class=o>+=</span> <span class=sb>`你在 </span><span class=si>${</span><span class=nx>e</span><span class=p>.</span><span class=nx>currentTarget</span><span class=p>.</span><span class=nx>tagName</span><span class=si>}</span><span class=sb> 元素上进行了点击\n`</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>container</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s2>&#34;#container&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>button</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s2>&#34;button&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>document</span><span class=p>.</span><span class=nx>body</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=nx>handleClick</span><span class=p>,</span> <span class=p>{</span> <span class=nx>capture</span><span class=o>:</span> <span class=kc>true</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>container</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=nx>handleClick</span><span class=p>,</span> <span class=p>{</span> <span class=nx>capture</span><span class=o>:</span> <span class=kc>true</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>button</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=nx>handleClick</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>例如上面的这串代码，有capture 和没有的顺序是完全相反的。</p><h3 id=事件委托>事件委托<a hidden class=anchor aria-hidden=true href=#事件委托>#</a></h3><p>上述的事件冒泡和事件捕获的一个应用，例如，我们将页面划分成n 个区域，希望每个区域都支持在点击后随机设置其背景颜色，</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;container&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;tile&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;tile&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;tile&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;tile&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>但我们显然不希望对每个子元素都进行一次绑定，尤其是子元素的数量多起来以后，因此，更简单的是我们对父元素设置事件处理器，然后基于事件冒泡来确认用户点击每个区域时函数被执行。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>random</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>number</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>bgChange</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>rndCol</span> <span class=o>=</span> <span class=sb>`rgb(</span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>, </span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>, </span><span class=si>${</span><span class=nx>random</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=si>}</span><span class=sb>)`</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>rndCol</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>container</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s2>&#34;#container&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>container</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=p>(</span><span class=nx>event</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>event</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>backgroundColor</span> <span class=o>=</span> <span class=nx>bgChange</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p><strong>备注：</strong> 在这个例子中，我们使用 <code>event.target</code> 来获取事件的目标元素（也就是最里面的元素）。如果我们想访问处理这个事件的元素（在这个例子中是容器），我们可以使用 <code>event.currentTarget</code>。</p></blockquote><p>可以去这里 <a href=https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1 target=_blank rel=noopener>link</a>
+查看对应效果，理解以下这个事件是怎么发生的，其实最关键的是 <a href=https://juejin.cn/post/6844903506399199246 target=_blank rel=noopener>target 和currentTarget 的区分</a>
+，简单的讲：</p><ul><li>target 是实际触发事件的元素</li><li>currentTarget 始终是绑定监听器的元素。</li></ul><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240425005404.png><img alt=image.png loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240425005404.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240425005404.png style="display:block;margin:0 auto" alt=image.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p></div><footer class=post-footer><ul class=post-tags><li><a href=https://aikenh.cn/hugotest/tags/web/>Web</a></li><li><a href=https://aikenh.cn/hugotest/tags/js/>JS</a></li></ul><nav class=paginav><a class=prev href=https://aikenh.cn/hugotest/posts/learnweb19-js04-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/><span class=title>« Prev</span><br><span>LearnWeb19-JS04-类与对象</span>
+</a><a class=next href=https://aikenh.cn/hugotest/posts/learnweb17-js02-intro/><span class=title>Next »</span><br><span>LearnWeb17-JS02-Intro</span></a></nav></footer><div id=disqus_thread></div><script>function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://aiken-hugo.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url=window.location.href,this.page.identifier=window.location.href.substring(18)}}var runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){if(!isBot&&supportsIntersectionObserver){var e=new IntersectionObserver(function(t){t[0].isIntersecting&&(loadDisqus(),e.disconnect())},{threshold:[0]});e.observe(document.getElementById("disqus_thread"))}else loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by
+Disqus.</a></noscript></article></main><footer class=footer><span>&copy; 2024 <a href=https://aikenh.cn/hugotest/>aiken's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span id=busuanzi_container>Visitors: <span id=busuanzi_value_site_uv></span>
+Views: <span id=busuanzi_value_site_pv></span></span></footer><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),o=13863,i=16993;if(!e||!t){console.error("Busuanzi elements not found.");return}const n=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+o;break}}),s=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){s.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+i;break}});n.observe(e,{childList:!0}),s.observe(t,{childList:!0})})</script><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><span class=topInner><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+<span id=read_progress></span>
+</span></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))}),document.getElementById("theme-toggle-nav").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script>document.addEventListener("scroll",function(){const t=document.getElementById("read_progress"),n=document.documentElement.scrollHeight,s=document.documentElement.clientHeight,o=document.documentElement.scrollTop||document.body.scrollTop;t.innerText=((o/(n-s)).toFixed(2)*100).toFixed(0)})</script><script>(function(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(e)}),i.parentNode.insertBefore(n,i)})("/js/pangu.js",function(){pangu.spacingPage()})</script></body></html>

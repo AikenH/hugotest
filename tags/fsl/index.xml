@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>FSL on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/fsl/</link>
+    <description>Recent content in FSL on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Nov 2021 13:12:05 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/fsl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FSL前期调研</title>
+      <link>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
+      <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
+      <description>&lt;head&gt;
+    
+    &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+
+
+
+
+&lt;div class=&#34;hugo-encryptor-container&#34;&gt;
+  &lt;div class=&#34;hugo-encryptor-prompt&#34;&gt;
+    
+      &lt;p&gt;文章的部分内容被密码保护：&lt;/p&gt;
+    
+  &lt;/div&gt;
+  &lt;div class=&#34;hugo-encryptor-form&#34;&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-input&#34;
+      placeholder=&#39;请输入密码&#39;
+    /&gt;
+    &lt;input
+      class=&#34;hugo-encryptor-button&#34;
+      type=&#34;button&#34;
+      value=&#39;CLICK&#39;
+      onclick=&#34;_click_handler(this)&#34;
+    /&gt;
+  &lt;/div&gt;
+  &lt;div
+    class=&#34;hugo-encryptor-cipher-text&#34;
+    data-password=&#34;aikenhong_blog&#34;
+    style=&#34;display: none;&#34;
+  &gt;
+    &lt;span style=&#34;display: none;&#34;&gt;--- DON&#39;T MODIFY THIS LINE ---&lt;/span&gt;
+    &lt;h2 id=&#34;主要是limited-labels--few-samples--data-programing&#34;&gt;主要是limited labels &amp;amp; Few Samples &amp;amp; Data programing&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;del&gt;Weakly supervised learning&lt;/del&gt;&lt;br&gt;
+&lt;del&gt;semi-supervised in video field&lt;/del&gt;&lt;br&gt;
+if we can recoding this work?&lt;br&gt;
+&lt;del&gt;多指标下降（LOSS的耦合或者循环的选择）、相关的CV最新论文等等会在后续关注&lt;/del&gt;&lt;br&gt;
+&lt;del&gt;元学习、浅层神经网络的概念等等&lt;/del&gt;  &lt;del&gt;semi-supervised&lt;/del&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;part1-limited-labels-base-on-lifeifeis-reference&#34;&gt;PART1 Limited Labels （base on LiFeiFei‘s reference）&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;in this part we may list the paper which is useful for my recoding.&lt;/em&gt;&lt;br&gt;
+还有一些其他重要的可能在对论文进行重新精读的时候要记得注意reference：就比如说在loss变换和决策树生成那一块。&lt;br&gt;
+&lt;em&gt;distant supervision(it&amp;rsquo;s kind of early) can be another baseline for our method, we need to understand how this method work for that situation&lt;/em&gt;&lt;br&gt;
+distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Survey for Few-Shot Learning</title>
+      <link>https://aikenh.cn/hugotest/posts/fsl-collection/</link>
+      <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/fsl-collection/</guid>
+      <description>&lt;p&gt;@aikenhong 2020
+@h.aiken.970@gmail.com&lt;/p&gt;
+&lt;p&gt;另一个综述文章：https://zhuanlan.zhihu.com/p/61215293
+对该文中一些内容有一些补充，可以看看&lt;/p&gt;
+&lt;p&gt;FSL简介：https://blog.csdn.net/xhw205/article/details/79491649&lt;/p&gt;
+&lt;p&gt;GCN用于FSL：https://blog.csdn.net/qq_36022260/article/details/93753532&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;FSL的根本目的就是弥合人工智能和人类之间的鸿沟，从少量带有监督信息的示例中学习。像人类一样有很高的泛化能力。这也能解决在实际应用场景中，数据难以收集或者大型数据难以建立的情景。&lt;/p&gt;
+&lt;p&gt;FSL的&lt;strong&gt;核心问题&lt;/strong&gt;是：经验风险最小化器不可靠；那么如何&lt;strong&gt;使用先验知识&lt;/strong&gt;去解决这个问题？&lt;/p&gt;
+&lt;p&gt;三个主要的角度：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数据：使用先验知识增强数据的监督经验&lt;/li&gt;
+&lt;li&gt;模型：使用先验知识来降低假设空间&lt;/li&gt;
+&lt;li&gt;算法：使用先验知识来改变搜索最佳假设（来进行搜索？)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;现阶段针对FSL提出的一些相关的机器学习方法：
+&lt;code&gt;meta-learning;&lt;/code&gt; &lt;code&gt;embedding learning;&lt;/code&gt;  &lt;code&gt;generative modeling etc.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本文的主要工作：&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;基于FSL的原有设定，在现阶段的FSL发展上给出正式定义，同时阐明具体目标以及解决方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过具体示例列举和FSL的相关学习问题，比较了相关性和差异性，更好的区分问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指出核心问题：经验风险最小化器不可靠，这提供了更系统有组织的改进FSL的方向。
+经验风险最小化器👉：基于ML中的错误分解来分析的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;整理，更好的理解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;未来方向&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;notation-and-terminology&#34;&gt;Notation and Terminology&lt;/h2&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200519154522883.png&#34;&gt;
+    &lt;img alt=&#34; &#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200519154522883.png&#34;class=&#34;responsive-image&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200519154522883.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34; &#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+
+一般基于参数方法（因为非参数方法需要大量数据），在假设空间中搜索最优假设，并基于基于标签的Loss Function 来衡量效果。&lt;/p&gt;
+&lt;h2 id=&#34;main-body&#34;&gt;Main Body&lt;/h2&gt;
+&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;2.1：具体定义&amp;amp;示例 2.2：相关问题和FSL的相关性和差异 2.3：核心问题 2.4:现有的方法如何处理这个问题&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

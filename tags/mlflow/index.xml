@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MLFlow on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/mlflow/</link>
+    <description>Recent content in MLFlow on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Nov 2021 06:24:19 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/mlflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MLFlow</title>
+      <link>https://aikenh.cn/hugotest/posts/mlflow/</link>
+      <pubDate>Sun, 28 Nov 2021 06:24:19 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/mlflow/</guid>
+      <description>&lt;h1 id=&#34;mlflow-机器学习系统的使用&#34;&gt;MLFlow 机器学习系统的使用&lt;/h1&gt;
+&lt;p&gt;@Aiken 2020&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;基于Python开发的DAG数据工作流系统，面向机器学习，支持Spark并行环境和K8S容器集群；&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;MLFlow主要解决了三个问题，也就是三个我们可能会需要使用的功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Tracking&lt;/strong&gt;：跟踪实验训练结果，记录算法参数，模型结果和运行效果等等；&lt;/li&gt;
+&lt;li&gt;Projects：对所有的算法项目有一套标准的projects概念，记录下代码版本，参数和运行环境这些东西，并且projects是可以拟合所有的算法框架的；&lt;/li&gt;
+&lt;li&gt;Models：解决的是打包和部署模型的这样一个行为，提供json接口给后续的flsk框架等等进行使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;基本部署&#34;&gt;基本部署&lt;/h2&gt;
+&lt;p&gt;INSTALL：&lt;/p&gt;
+&lt;p&gt;DEPLOY：&lt;/p&gt;
+&lt;h2 id=&#34;tracking-实验版本跟踪&#34;&gt;Tracking 实验版本跟踪&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Tracking&lt;/strong&gt;为本次描述的重点，来做一个训练过程中的版本管理，记录每一次训练的参数和变量信息等等，这样便于后续的恢复和实验信息的整理。便于统计和管理。使用的时候好像也是需要代码嵌入的部分，就是需要在代码中调用MLFlow的API。&lt;/p&gt;
+&lt;p&gt;但是在Tracking的时候有一个比较重要的点在于，这个方法和&lt;code&gt;Tensorboard&lt;/code&gt;对原模型的参数的嵌入和Logging记录中&lt;u&gt;会不会产生冲突&lt;/u&gt;，同时两个方法之间是不是有什么overlap；关键的问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这两个API能不能进行混合使用&lt;/li&gt;
+&lt;li&gt;怎么统一和区分两个方法的应用情景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;!-- more --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mlflow.org/docs/latest/tracking.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://mlflow.org/docs/latest/tracking.html&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mlflow.org/docs/latest/projects.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://mlflow.org/docs/latest/projects.html&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mlflow/mlflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mlflow/mlflow&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/chenhuipin1173/article/details/100913909&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://blog.csdn.net/chenhuipin1173/article/details/100913909&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://my.oschina.net/u/2306127/blog/1825638&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://my.oschina.net/u/2306127/blog/1825638&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zhihu.com/question/280162556&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.zhihu.com/question/280162556&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

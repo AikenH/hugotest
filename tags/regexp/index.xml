@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>RegExp on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/regexp/</link>
+    <description>Recent content in RegExp on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Oct 2023 16:53:03 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/regexp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VsCode&#39;s RegExp Catch 正则捕获</title>
+      <link>https://aikenh.cn/hugotest/posts/vsocde_regexp/</link>
+      <pubDate>Thu, 19 Oct 2023 16:53:03 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/vsocde_regexp/</guid>
+      <description>&lt;p&gt;本篇简单介绍一些 VsCode 进行文本替换和查找的一些特殊的正则，该文会随着自己的使用来逐步记录，目前主要内容如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;捕获组合及其替换模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里不会介绍正则表达式的语法，对其基本语法感兴趣可以查看如下链接 &lt;a href=&#34;https://learn.microsoft.com/zh-cn/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2022&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VsCode使用正则表达式&lt;/a&gt;
+，以及我之前写过的&lt;a href=&#34;https://aikenh.cn/cn/Linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;基础的正则表达式&lt;/a&gt;
+ 一文，下面进入正题；&lt;/p&gt;
+&lt;h2 id=&#34;intro-正则搜索&#34;&gt;Intro 正则搜索&lt;/h2&gt;
+&lt;p&gt;正则表达式主要思路为&lt;strong&gt;模式匹配&lt;/strong&gt;，通过符号表达来指定一种模式，识别所有符合该模式的字符组合，而非某些&lt;strong&gt;特定的文字&lt;/strong&gt;，因此可以简化我们的搜索和替换过程，下面以一个例子说明。&lt;/p&gt;
+&lt;p&gt;例如有一个文件配置如下，而我们希望找到其中所有 &lt;code&gt;user_config&lt;/code&gt; ，查看每个 user 的设置是否正确，由于 username 的长度和内容都不是一样的，所以这里需要使用正则来进行搜索：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zxc1_config=123
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;some content we dont need
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;asd2_config=234
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;and some other infomation or comment
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;qwer3_config=345
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;对应该场景的正则表达则为 &lt;code&gt;+*_config=&lt;/code&gt; 或者 &lt;code&gt;[a-z, 0-9]*_config=&lt;/code&gt; 等写法均可，效果如下：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231019173213.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231019173213.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231019173213.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到我们需要的内容都被高亮了，这也就方便了我们进行一些复杂的文字处理，而搜索，也就是正则最基本也是最正统的用法，这里不再多说。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

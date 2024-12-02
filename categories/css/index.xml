@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CSS on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/css/</link>
+    <description>Recent content in CSS on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Feb 2024 17:53:55 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LearnWeb15-CSS09-媒体查询与响应式设计</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Thu, 08 Feb 2024 17:53:55 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Responsive_Design&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;响应式设计的历史和思路：&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Media_queries&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;媒介查询的入门 与或非等语句&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;传统的布局方法&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;尽可能使用现代的布局方法，我们可能不需要媒介查询的方式去实现响应式设计了，当然我们也可以结合媒介查询去对现代布局方式做优化。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb14-CSS08-CSS布局</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Wed, 07 Feb 2024 17:09:44 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;这里 CSS 的布局指的是通过控制元素的属性：宽度，高度，块（不同类型），内联等来实现在 HTML 的基础上对整体页面的布局进行调整。将其排布在页面上。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CSS 页面布局技术允许我们拾取网页中的元素，并且控制它们相对正常布局流、周边元素、父容器或者主视口/窗口的位置。在这个模块中将涉及更多关于页面&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Layout_mode&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;布局技术&lt;/a&gt;
+的细节：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;布局模式介绍&#34;&gt;布局模式介绍&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Normal_Flow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;正常布局流&lt;/strong&gt;&lt;/a&gt;
+：指的是不对页面进行任何布局控制的时候，浏览器默认的 HTML 布局方式，实际上就是按照源码中的先后次序依次出现，在 HTML 布局的过程中，最为重要的就是元素的块和内联两种布局方式。这里需要注意的就是，块的方向和元素的书写方向的关系。&lt;/p&gt;
+&lt;p&gt;而当我们希望使用 CSS 来改变正常的布局形式的时候，通常会使用以下的一些属性，或者说布局技术，来覆盖掉默认的 HTML 布局行为。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/display&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;display&lt;/code&gt;&lt;/a&gt;
+&lt;/strong&gt; 属性：改变元素在 HTML 中的渲染形式，如 &lt;code&gt;block&lt;/code&gt; &lt;code&gt;inline&lt;/code&gt; &lt;code&gt;inline-block&lt;/code&gt; 还有 CSS 引入的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Grids&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSS Grid&lt;/a&gt;
+ 和 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Flexbox&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Flexbox&lt;/a&gt;
+.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/float&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;float&lt;/code&gt;&lt;/a&gt;
+&lt;/strong&gt; 属性：使用 float 属性能改变块级元素换行的特性，实现类似换行的效果，其值指定其他元素围绕块级元素的哪一边。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/position&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;position&lt;/code&gt;&lt;/a&gt;
+&lt;/strong&gt; 属性：利用 position 来设置盒子在盒子中的位置，在嵌套的情况下就可以产生多样的排布&lt;/li&gt;
+&lt;li&gt;表格布局：表格的布局方式可以用在非表格内容上，可以使用&lt;code&gt;display: table&lt;/code&gt;和相关属性在非表元素上使用&lt;/li&gt;
+&lt;li&gt;多列布局： &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_multicol_layout&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Multi-column layout&lt;/a&gt;
+ 属性可以让块按列布局，比如报纸的内容就是一列一列排布的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在讨论布局时，&lt;code&gt;display&lt;/code&gt; 最多用到的属性为 &lt;code&gt;flex&lt;/code&gt; 和 &lt;code&gt;grid&lt;/code&gt; 属性，利用这两个属性值来改变布局。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb13-CSS07-CSS开发流程</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Wed, 07 Feb 2024 15:54:33 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;这一章节主要是涵盖开发 css 的各部分，有一些需要掌握的技能的 TODO 还有一些代码风格之类的东西&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb12-CSS06-表格样式处理</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 07 Feb 2024 15:06:05 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;表格的部分主要还是要实操，&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Styling_tables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MDN&lt;/a&gt;
+ 中给了一个例子，这里给我的启示是要更多的去阅读&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_table&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;表格的相关属性&lt;/a&gt;
+，或者去阅读别人对表格设计中用到的元素，才能更好的掌握一些设计的思路，这里就给出本文中给出的一些常见的属性和设置方法，后续在具体实践中慢慢补充。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;table-layout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;fixed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;border-collapse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;collapse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;border&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;solid&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;purple&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;td&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;当为表格设置初始样式的时候，使用 layout 为 fixed 会使得表格的行为更好预测，避免由于内容产生的畸变导致难以设置或者出现一些奇怪对齐情况，使用 fixed 然后设置每一列的宽度，在对内容进行处理可能更好。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;nth-child&lt;/code&gt; 设置每一列的宽度，最终相加为 100%，使得在不同分辨率下比较好控制。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;border-collapse: collapse;&lt;/code&gt; 原本两个格子之间会有两条边线，这样的话可以合并重叠的边线，让表格更符合我们的预期。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;text-align&lt;/code&gt; 设置对齐方式&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;thead&lt;/code&gt;，&lt;code&gt;tfoot&lt;/code&gt;，&lt;code&gt;tbody&lt;/code&gt; 来分别设置样式，可以做出类似三线表之类的东西&lt;/li&gt;
+&lt;li&gt;为标题 &lt;code&gt;caption&lt;/code&gt; 设置对应的样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;后续可能会找一些比较常见的表之类的来整理，&amp;amp; 查看一下组件库。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb11-CSS05-部分常见样式设置</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Tue, 06 Feb 2024 16:24:17 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;该篇章主要收集一些常见的样式设置的参考页和一些需要记住的重要设置内容，由于不可能记住所有的属性和设置，善用查询可能才是唯一的王道。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;css-中的值与单位&#34;&gt;CSS 中的值与单位&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Values_and_units&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSS 中的值与单位&lt;/a&gt;
+ 这里介绍常见的一些值和单位，有一些新的可能会有所缺失，但是大部分都有了，这里可以列举几个常见但是之前不理解的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;em&lt;/code&gt; 相对字体大小&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vw&lt;/code&gt; 视窗宽度，值为百分比的含义&lt;/li&gt;
+&lt;li&gt;百分比：与父辈容器的百分比&lt;/li&gt;
+&lt;li&gt;rgba 或者 rgb 的第四个值代表透明度，十六进制想设置透明度的话，就在后面再加两位 16 进制表示透明度的百分比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里倒是提示我们需要有个比较好的取色器或者像 vscode 中的色盘来编写 css，颜色搭配网站在 css 中也是很重要的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb10-CSS04-盒子模型</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Tue, 06 Feb 2024 15:08:50 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;HTML 和 CSS 中，所有的元素都是基于一个个的 Box 去渲染的，理解盒子模型的设计，才能知道如何进行布局，从而使的页面按照希望的样子呈现，该定义实际上和 HTML 的块级元素和内联元素使完全相对应的。需要注意两者之间的关联性。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;块级盒子block-box和内联盒子inline-box&#34;&gt;块级盒子(Block Box)和内联盒子(Inline Box)&lt;/h2&gt;
+&lt;p&gt;块级盒子和 HTML 中的块级元素使相互对应的，例如 &lt;code&gt;h&lt;/code&gt; 和 &lt;code&gt;p&lt;/code&gt; 有以下的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;与其他元素之间会换行&lt;/li&gt;
+&lt;li&gt;因为换行，在内联的方向上（也就是行）会占据所有可用空间，即绝大多数情况下和父容器一样宽。&lt;/li&gt;
+&lt;li&gt;width 和 height 属性均可发挥总用&lt;/li&gt;
+&lt;li&gt;内边距（padding）, 外边距（margin）和边框（border）会将其他元素从当前盒子周围“推开”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;内联盒子和 HTML 中的内联元素相互对应，例如 &lt;code&gt;span&lt;/code&gt;, &lt;code&gt;em&lt;/code&gt;, &lt;code&gt;strong&lt;/code&gt; 等，有以下的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不会换行&lt;/li&gt;
+&lt;li&gt;width 和 height 属性不起作用&lt;/li&gt;
+&lt;li&gt;垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 &lt;code&gt;inline&lt;/code&gt; 状态的盒子推开。&lt;/li&gt;
+&lt;li&gt;水平方向的内边距、外边距以及边框会被应用且会把其他处于 &lt;code&gt;inline&lt;/code&gt; 状态的盒子推开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果希望切换元素的内联或者块级属性，可以通过对盒子的 display 属性设置进行切换，对应的属性值为 &lt;code&gt;inline&lt;/code&gt; 和 &lt;code&gt;block&lt;/code&gt;，而更有趣的，如果我们希望不换行，但是内联中的 &lt;code&gt;width&lt;/code&gt; 和 &lt;code&gt;height&lt;/code&gt; 属性起到作用，可以使用 &lt;code&gt;inline-box&lt;/code&gt; 属性。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Inline-box 属性在导航栏/链接元素中很常见，我们通过增大内容区域来使得链接存在更大的命中区域，同时不影响别的元素的呈现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在这里还会看到片一个十分常见的盒子属性 &lt;code&gt;flex&lt;/code&gt; 其通常会将外部的显示类型转换为 block，但是内部的显示类型设置为 flex，对其内部的各个子元素，都将转换为 flex 元素，并基于 flex 即&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Flexbox&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;弹性盒子的规则&lt;/a&gt;
+进行布局，可以生成更灵活的界面，这个后面在排版部分针对性的了解，这里简单介绍如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;flex 会将内部的元素默认沿着行的方向均分切成几个 box，但是具体的切分可以根据后续的属性进行定义。&lt;/li&gt;
+&lt;li&gt;如果希望 flex 的外部为内联的，则使用 inline-flex 属性。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb09-CSS03-层叠层</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</link>
+      <pubDate>Tue, 06 Feb 2024 10:48:11 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;本章节是额外对于优先级的补充章节，在使用上可能会没有明显的感知，但是从概念上理解 CSS 的优先级和后续复杂项目的开发中还是起到了比较大的作用，该章节介绍层叠层的概念，在原先的优先级判定上添加了层的概念。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;层叠概念回顾&#34;&gt;层叠概念回顾&lt;/h2&gt;
+&lt;p&gt;该 Section 内容完全摘录自 MDN CSS 教程，也算是对于整体重要性和优先级的一个很好的总结。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;相关声明&lt;/strong&gt;：找到所有具有匹配每个元素的选择器的声明代码块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重要性&lt;/strong&gt;：根据规则是普通还是重要对规则进行排序。重要的样式是指设置了 &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/important&#34; title=&#34;Currently only available in English (US)&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;!important&lt;/code&gt; (en-US)&lt;/a&gt;
+ 标志的样式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;来源&lt;/strong&gt;：在两个按重要性划分的分组内，按作者、用户或用户代理这几个来源对规则进行排序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;层&lt;/strong&gt;：在六个按重要性和来源划分的分组内，按层叠层进行排序。普通声明的层顺序是从创建的第一个到最后一个，然后是未分层的普通样式。对于重要的样式，这个顺序是反转的，但保持未分层的重要样式优先权最低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优先级&lt;/strong&gt;：对于来源层中优先权相同的竞争样式，按&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;优先级&lt;/a&gt;
+对声明进行排序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;出现顺序&lt;/strong&gt;：当两个来源层的优先权相同的选择器具有相同的优先级时，最后声明的具有最高优先级的选择器的属性值获胜。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CSS 渲染过程中会逐步往下选择，如果在中间已经决出了胜负就不会继续往下，例如对一个元素在每个来源中只有一个定义，那么在来源层就可以决出胜负，无需往下了，而若获胜的来源中有多个层定义了同个属性，那么就会对比各个层的优先级，诸如此类。&lt;/p&gt;
+&lt;p&gt;其他的部分前文已经基本提到了，接下来补充来源和层的两个概念。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;![note]+
+三个来源中的：&amp;lsquo;用户代理&amp;rsquo;指的是浏览器，用户指的是网站访问者，作者指的是网站开发者，浏览器内部将来自这三个来源的样式表进行来源的排序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;来源的优先级排序&#34;&gt;来源的优先级排序&lt;/h3&gt;
+&lt;p&gt;有三种&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Cascade#origin_types&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;层叠来源类型&lt;/a&gt;
+：用户代理样式表、用户样式表和作者样式表。浏览器根据来源和重要性将每个声明分为六个来源分组。有八个优先权级别：六个来源分组、正在过渡的属性和正在动画的属性。优先权的顺序是从具有最低优先权的普通用户代理样式，到当前应用的动画中的样式，到具有最高优先权的重要用户代理样式，再到正在过渡的样式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户代理普通样式&lt;/li&gt;
+&lt;li&gt;用户普通样式&lt;/li&gt;
+&lt;li&gt;作者普通样式&lt;/li&gt;
+&lt;li&gt;正在动画的样式&lt;/li&gt;
+&lt;li&gt;作者重要样式&lt;/li&gt;
+&lt;li&gt;用户重要样式&lt;/li&gt;
+&lt;li&gt;用户代理重要样式&lt;/li&gt;
+&lt;li&gt;正在过渡的样式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;用 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/style&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt;&lt;/a&gt;
+ 元素直接在元素上声明的样式是作者样式。不包括动画和过渡样式，用户代理普通样式具有最低优先权；用户代理重要样式具有最高优先权。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb08-CSS02-CSS入门</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 04 Feb 2024 17:05:12 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-note&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Note&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;&lt;ol&gt;
+&lt;li&gt;你永远无法记住所有的 CSS 属性，善用参考资料：&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MDN CSS reference&lt;/a&gt;
+ 和 GPT&lt;/li&gt;
+&lt;li&gt;善用浏览器的开发者面板在页面上及时编辑 CSS。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;css-运行逻辑&#34;&gt;CSS 运行逻辑&lt;/h2&gt;
+&lt;p&gt;前面在 &lt;a href=&#34;LearnWeb00-Web%e5%85%a5%e9%97%a8.md&#34;&gt;LearnWeb00-Web入门&lt;/a&gt;
+ 中简单提及了浏览器以及 CSS 起了什么作用，这里则是对于 CSS 是如何具体参与进页面的渲染的讲解，包括早该知道的 DOM 的定义也会在这里介绍，是 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/How_CSS_works&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSS 是如何运行&lt;/a&gt;
+的读书笔记。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240205140358.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240205140358.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240205140358.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;浏览器获取了 HTML 之后：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;会拉取其所依赖的所有 CSS，JS 和静态资源（Parser HTML）&lt;/li&gt;
+&lt;li&gt;解析 HTML 代码，根据其中的 Tag、Class、ID 和相互之间的关系将 HTML 解析成 DOM ，每个元素作为其中的一个节点放进相对应的桶中。（元素桶、ID 桶之类）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;紧接着，在拉取完 CSS 之后，浏览器开始解析 CSS，基于 CSS 中的选择器找到每个样式所属的 DOM 节点，并将其添加进去。&lt;/p&gt;
+&lt;p&gt;最后基于最终的 DOM(Document Object Model) 渲染出完整的页面，这里对 DOM 进行一个简单的解释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个 DOM 有一个树形结构，标记语言中的每一个元素、属性以及每一段文字都对应着结构树中的一个节点（Node/DOM 或 DOM node）。节点由节点本身和其他 DOM 节点的关系定义，有些节点有父节点，有些节点有兄弟节点（同级节点）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此外浏览器在渲染过程中如果遇到了位置的 CSS 会直接跳过相应的 CSS ，然后渲染下一个规则。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb03-CSS01-基础CSS规则</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</link>
+      <pubDate>Wed, 31 Jan 2024 15:58:10 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;在前文 web 入门中已经简单介绍了 CSS 是如何起作用，如何与 HTML 进行相互合作的，本篇主要简单介绍如何编写 CSS 文件中的各种样式。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mdn css入门&lt;/a&gt;
+ | &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MDN css属性大全&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;在本文及后续的尝试中，都使用单独 CSS 文件外挂的格式，该种格式的结构会更清晰，即将下述代码放入 HTML 文件的 Head 部分。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;styles/style.css&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;href 部分需要替换为自己实际存放 css 文件的地址即可，此外也简单重复一下剩下的两种使用 CSS 的方式：内部样式表和内联样式表&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;内部样式表&lt;/strong&gt;即在 HTML 的 Head 部分添加 &lt;code&gt;&amp;lt;style&amp;gt;your css code&amp;lt;/style&amp;gt;&lt;/code&gt; 将 CSS 代码都包裹起来&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内联样式表&lt;/strong&gt;即在特定元素中定义 style 属性，&lt;code&gt;&amp;lt;p style=&amp;quot;your css code&amp;quot;&amp;gt;&lt;/code&gt; 在 style 属性中填充需要的 CSS 代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来进入正文，讲解 css 部分的组成和编写规则。&lt;/p&gt;
+&lt;h2 id=&#34;pattern-基础范式&#34;&gt;Pattern 基础范式&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Principle to Write Css.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131161211.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131161211.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131161211.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;这是一个最基本的 CSS 结构，更为专业的名称是 &lt;strong&gt;CSS 规则集&lt;/strong&gt;（简称为规则），其组成分成一下几个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;选择器 Selector&lt;/strong&gt;：类似表格中的筛选，筛选这个规则使用的范围，针对 Class、ID、Tag 等不同类型有不同的选择器写法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;属性 Property&lt;/strong&gt;: 选择要修改的属性，如颜色，大小，位置灯多重类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;属性值 Property value&lt;/strong&gt;: 各种对应属性的取值，如具体的哪个颜色，字体多大等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;声明 Declaration&lt;/strong&gt;：由属性和属性值组成的一条单独的规则，指定一种特定的样式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上述结构称为规则&lt;strong&gt;集&lt;/strong&gt;，因为其可以同时包含多个规则（即声明），编写时有以下约定：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个规则使用 &lt;code&gt;;&lt;/code&gt; 作为结尾的分割&lt;/li&gt;
+&lt;li&gt;同一个规则集的规则需要编写在 &lt;code&gt;{}&lt;/code&gt; 之中&lt;/li&gt;
+&lt;li&gt;属性和属性值为 K-V 对，声明时使用 &lt;code&gt;:&lt;/code&gt; 作为分割符，且属性和值均不区分大小写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;注释方法&#34;&gt;注释方法&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;all between those two symbol is comment.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

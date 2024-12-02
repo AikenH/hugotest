@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Investment on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/investment/</link>
+    <description>Recent content in Investment on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Mar 2024 23:05:46 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/investment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《定投十年财务自由》读书笔记</title>
+      <link>https://aikenh.cn/hugotest/posts/%E5%AE%9A%E6%8A%95%E5%8D%81%E5%B9%B4%E8%B4%A2%E5%8A%A1%E8%87%AA%E7%94%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 12 Mar 2024 23:05:46 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E5%AE%9A%E6%8A%95%E5%8D%81%E5%B9%B4%E8%B4%A2%E5%8A%A1%E8%87%AA%E7%94%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;本篇读书笔记主要记录书中一些投资理财相关的概念、一些思维方式、一些典型的策略等等，用于自己后续理财的基础。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;“投资理财越早开始越好，无需拘泥于启动资金的多少，时间才是投资理财中最重要的增长因子”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;财务自由&#34;&gt;财务自由&lt;/h2&gt;
+&lt;h3 id=&#34;需要多少钱才能财富自由&#34;&gt;需要多少钱才能财富自由&lt;/h3&gt;
+&lt;p&gt;4%法则（William Bengen）：通过投资一组资产，每年从退休金中提取不超过 4%的金额用来支付自己的生活所需，那么直到自己趋势，退休金都花不完。&lt;/p&gt;
+&lt;p&gt;因此如果每年需要 40w 的开销，那么就需要超过 1000w 的资产来实现一个比较稳定的财富自由，按照自己每年的消费可以进行简单的换算。&lt;/p&gt;
+&lt;h3 id=&#34;如何避免财富缩水&#34;&gt;如何避免财富缩水&lt;/h3&gt;
+
+
+
+  
+  
+
+&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;财富缩水主要的原因就在于通货膨胀，对通货膨胀有所了解才能更好的从通货膨胀中保护自己的财富。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;很多时候通货膨胀看的是 CPI(居民消费价格指数)，最近几年国内的 CPI 同比增长一年为 2%~3%，也就是说物价每年上涨 2%~3%，但是实际上只看 CPI 是不够的，这是因为 CPI 实际上仅包含了必需消费，而如果要保证生活质量的水平不变，需要跑赢的是&amp;quot;可选消费通货膨胀率&amp;quot;。&lt;/p&gt;
+&lt;p&gt;这是因为任何一个社会，优质的教育和医疗资源的价格增长速度是比较显著的高于 CPI 的，因此可选消费指数才是我们要跑赢的目标。而这个增长速度则通常和 M2 的增长速度相关。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;M2 是广义货币的量，代表社会广义货币的增长速度，最近三年的同比大概在 8%~9%，但是该指数并非完全和可选消费指数相等同。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;综合而言，我们通常需要考虑的膨胀指数应该介于 CPI 和 M2 增速之间，因此资产增值的速度应该在 3%~9%之间，才能避免财富缩水，如果考虑一些不稳定时局的原因，可能还要存一些避险资产例如黄金。&lt;/p&gt;
+&lt;p&gt;通常来说，只要长期投资债券基金（包括相关的理财产品）是可以跑赢 CPI 的，债券通常的长期平均收益都在 6%上下，但若想要获得更高的收益可能就得上股票这种高风险高收益的了。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

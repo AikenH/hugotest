@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vue on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/vue/</link>
+    <description>Recent content in Vue on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Sep 2022 10:34:08 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue Chapter1 基础语法</title>
+      <link>https://aikenh.cn/hugotest/posts/vue-chapter1/</link>
+      <pubDate>Wed, 14 Sep 2022 10:34:08 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/vue-chapter1/</guid>
+      <description>&lt;p&gt;基本Vue语法规则学习笔记，方便我们去自定义和看懂别人的网页代码。&lt;/p&gt;
+&lt;p&gt;概念补充：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;&#34;&gt;DOM&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;超文本标记语言HTML&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;查表&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Attribute和&lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt;协同使用，在其中定义括起来的“文本”的属性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;template-syntax&#34;&gt;Template Syntax&lt;/h2&gt;
+&lt;p&gt;vue的模版语法是基于HTML的，但是在底层机制中，会将模版编译成高度优化的JS代码，因此可以通过：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTML style 默认&lt;/li&gt;
+&lt;li&gt;JSX, 编写渲染函数而不使用模版，但是这样不会享受 VUE 自带的优化。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

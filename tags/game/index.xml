@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Game on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/game/</link>
+    <description>Recent content in Game on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jul 2022 11:26:00 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markov Junior</title>
+      <link>https://aikenh.cn/hugotest/posts/markovjunior/</link>
+      <pubDate>Sun, 10 Jul 2022 11:26:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/markovjunior/</guid>
+      <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzIxODg1OTk1MA==&amp;amp;mid=2247513354&amp;amp;idx=1&amp;amp;sn=28b5492cc0a86b04f0a0b975bf42568c&amp;amp;ascene=56&amp;amp;devicetype=iOS15.5&amp;amp;version=1800172f&amp;amp;nettype=WIFI&amp;amp;abtest_cookie=AAACAA%3D%3D&amp;amp;lang=zh_CN&amp;amp;fontScale=100&amp;amp;exportkey=ARSr9kinLTM%2B6fr7WYBKF%2FM%3D&amp;amp;pass_ticket=gK4kcTE5wfRRXzd0FMTJlg9zBNGh%2BZ5VoWQkUbqSJXykXGIdMXasyLJgUxII1IDt&amp;amp;wx_header=3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jack Cui&lt;/a&gt;
+ | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Markov Junior&lt;/a&gt;
+ | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wiki Markov algorithm&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;第一篇文章简要介绍了一下该编程语言能实现什么效果；第二个是官方repo，其文档和代码都有很强的借鉴意义；第三个是wikipedia对马尔可夫算法的解释，在该编程语言的实现中有重要的意义。&lt;/p&gt;
+&lt;h2 id=&#34;markov-algorithm&#34;&gt;markov algorithm&lt;/h2&gt;
+&lt;p&gt;马尔可夫算法指的是字符串重写算法，其基本逻辑如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自顶向下依次检查规则，看是否能在符号串中找到任何在箭头左边的字符串。&lt;/li&gt;
+&lt;li&gt;如果没有找到，停止执行算法。&lt;/li&gt;
+&lt;li&gt;如果找到一个或多个，把符号串中的最左匹配的文字替换为在第一个相应规则的箭头右边的字符串。&lt;/li&gt;
+&lt;li&gt;返回步骤1并继续。（如果应用的规则是终止规则，则停止执行算法。） [1]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/image-20220710134410108.png&#34;&gt;
+    &lt;img alt=&#34;image-20220710134410108&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/image-20220710134410108.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/image-20220710134410108.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image-20220710134410108&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;markovjunior&#34;&gt;MarkovJunior&lt;/h2&gt;
+&lt;p&gt;Markov Junior是一种基于概率的编程语言，通过重写和传播规则（约束）来实现随机的生成和编写。最终对画布进行重写来实现随机的生成。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://github.com/mxgmn/MarkovJunior/raw/main/images/top-iso.gif&#34;&gt;
+    &lt;img alt=&#34;sample&#34; loading=&#34;lazy&#34; src=&#34;https://github.com/mxgmn/MarkovJunior/raw/main/images/top-iso.gif&#34;class=&#34;responsive-image&#34; src=&#34;https://github.com/mxgmn/MarkovJunior/raw/main/images/top-iso.gif&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;sample&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wave Function Collapse</title>
+      <link>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 10 Jul 2022 09:42:50 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://github.com/mxgmn/WaveFunctionCollapse&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Mxgmn&lt;/a&gt;
+ | &lt;a href=&#34;https://zhuanlan.zhihu.com/p/66416593&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;zhihu&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;概念简介和复习&#34;&gt;概念简介和复习&lt;/h2&gt;
+&lt;p&gt;本质上该方法的底层思想就是条件概率的启发式随机生成算法。&lt;/p&gt;
+&lt;h3 id=&#34;波函数坍塌&#34;&gt;波函数坍塌&lt;/h3&gt;
+&lt;p&gt;在介绍算法之前首先需要明确几个概念，第一个就是**“波函数坍塌”&lt;strong&gt;（名字的来源是量子力学中的概念），参考&lt;/strong&gt;“薛定谔的猫”&lt;strong&gt;，可以理解成：在一系列的不确定像素（存在多种可能）的基础之上，通过&lt;/strong&gt;确定的规则**、&lt;strong&gt;相关关系&lt;/strong&gt;，随机的将所有的像素变成确定的状态。（可以通过给定种子来启动，也可以通过随机规则来启动），实现在一定规则或者模式下的随机生成。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;熵&#34;&gt;熵&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;熵&lt;/strong&gt;作为热力学中，表示物理状态的参量，其含义在于表示物质的&lt;strong&gt;混乱程度&lt;/strong&gt;（正相关）。在当前的场景下，使用信息熵（而非热熵）来衡量变量的&lt;strong&gt;不确定程度&lt;/strong&gt;（完全随机，或者有限随机，或者二选一等等）。&lt;/p&gt;
+&lt;div&gt;
+$$ 
+H(X) = \sum_{x\in X}p(x)log p(x)
+ $$
+&lt;/div&gt;
+&lt;p&gt;式中描述的是信息熵的计算公式，在实际应用中，可以使用任何表示状态不确定程度的度量来进行一下的计算。&lt;/p&gt;
+&lt;h2 id=&#34;算法原理-流程&#34;&gt;算法原理-流程&lt;/h2&gt;
+&lt;p&gt;动态地使可选的范围越来越小，直到最后整体都是确定的状态。而缩小范围的方法核心可以总结为（数独）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;约束规则&lt;/strong&gt;、&lt;strong&gt;状态传播&lt;/strong&gt;、&lt;strong&gt;回溯&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从最小熵的单位开始坍缩，保证最小概率的坍缩失败，从而&lt;strong&gt;减少大量的回溯&lt;/strong&gt;过程，来减少计算量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以&lt;strong&gt;地图生成&lt;/strong&gt;为例：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;约束规则&lt;/strong&gt;：（选择一个熵最小的slot开始）针对于每个slot的坍缩，是在ModuleSet（可选模块集合）中随机取一个概率最高的模块，进行合成，而这个概率受我们制定的&lt;strong&gt;规则&lt;/strong&gt;，&lt;strong&gt;周边的Slot&lt;/strong&gt;的状态影响。
+&lt;strong&gt;状态传播&lt;/strong&gt;：模块确定后就将该状态和规则传递到相邻的moduleset中，删除不匹配的模块等。
+&lt;strong&gt;回溯&lt;/strong&gt;：当坍缩陷入矛盾（与规则相互矛盾，坍缩失效），就对状态进行回溯（Backtrack）重新进行状态搜索和回溯。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Read the input bitmap and count NxN patterns.
+&lt;ol&gt;
+&lt;li&gt;(optional) Augment pattern data with rotations and reflections.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Create an array with the dimensions of the output (called &amp;ldquo;wave&amp;rdquo; in the source). Each element of this array represents a state of an NxN region in the output. A state of an NxN region is a superposition of NxN patterns of the input with boolean coefficients (so a state of a pixel in the output is a superposition of input colors with real coefficients). False coefficient means that the corresponding pattern is forbidden, true coefficient means that the corresponding pattern is not yet forbidden.&lt;/li&gt;
+&lt;li&gt;Initialize the wave in the completely unobserved state, i.e. with all the boolean coefficients being true.&lt;/li&gt;
+&lt;li&gt;Repeat the following steps:
+&lt;ol&gt;
+&lt;li&gt;Observation:
+&lt;ol&gt;
+&lt;li&gt;Find a wave element with the minimal nonzero entropy. If there is no such elements (if all elements have zero or undefined entropy) then break the cycle (4) and go to step (5).&lt;/li&gt;
+&lt;li&gt;Collapse this element into a definite state according to its coefficients and the distribution of NxN patterns in the input.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Propagation: propagate information gained on the previous observation step.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;By now all the wave elements are either in a completely observed state (all the coefficients except one being zero) or in the contradictory state (all the coefficients being zero). In the first case return the output. In the second case finish the work without returning anything.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+&lt;p&gt;官方仓库中有诸多样例和各种代码版本的实现，可以参考并实现部分版本。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

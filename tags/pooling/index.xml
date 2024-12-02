@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pooling on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/pooling/</link>
+    <description>Recent content in Pooling on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Jun 2021 13:48:56 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/pooling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pooling</title>
+      <link>https://aikenh.cn/hugotest/posts/pooling/</link>
+      <pubDate>Wed, 23 Jun 2021 13:48:56 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/pooling/</guid>
+      <description>&lt;h1 id=&#34;downsamplingpooling的全面调研&#34;&gt;DownSampling：Pooling的全面调研&lt;/h1&gt;
+&lt;p&gt;@Aiken 2021 笔记摘录：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;深度神经网络中的池化方法：全面调研（1989-2020） - 知乎&lt;/a&gt;
+ ；&lt;a href=&#34;https://www.sohu.com/a/442710521_823210&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;相同论文的简单中文Version&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;16页综述，共计67篇参考文献。网络千奇百怪，但基础元素却大致相同！本文全面调研了1989至2020年一些著名且有用的池化方法，并主要对20种池化方法进行了详细介绍（这些方法，你都知道么？） 注1：文末附【计算机视…&lt;/p&gt;
+&lt;p&gt;来自 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://zhuanlan.zhihu.com/p/341820742&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;原文：《Pooling Methods in Deep Neural Networks, a Review》&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/112216409&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;整合2&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;池化的根本目的motivation&#34;&gt;池化的根本目的（Motivation）&lt;/h2&gt;
+&lt;p&gt;卷积神经网络是DNN的一种特殊类型，它由几个卷积层组成，每个卷积层后都有一个激活函数和一个池化层。&lt;/p&gt;
+&lt;p&gt;池化层是重要的层，它对来自上一层的特征图执行下采样，并生成具有简化分辨率的新feature maps 。该层&lt;strong&gt;极大地减小了输入的空间尺寸&lt;/strong&gt;。 它有两个主要目的。 首先是减少参数或权重的数量，从而减少计算成本。 第二是控制网络的过拟合。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;池化可以增加网络对于平移（旋转，伸缩）的不变性，提升网络的泛化能力。&lt;/li&gt;
+&lt;li&gt;增大感受野；&lt;/li&gt;
+&lt;li&gt;降低优化难度和参数数目，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;理想的池化方法应仅提取有用的信息，并丢弃无关的细节。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特征不变性、特征降维、在一定程度上防止过拟合，更方便优化&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;主流的池化方法&#34;&gt;主流的池化方法&lt;/h2&gt;
+&lt;h3 id=&#34;average-pooling-平均池化&#34;&gt;Average Pooling 平均池化&lt;/h3&gt;
+&lt;p&gt;没啥好说的，就是每个block取一个均值。如下图所示：更关注全局特征&lt;/p&gt;
+&lt;h3 id=&#34;max-pooling-最大值池化&#34;&gt;Max Pooling 最大值池化&lt;/h3&gt;
+&lt;p&gt;更关注重要的局部特征&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34;&gt;
+    &lt;img alt=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34;class=&#34;responsive-image&#34; src=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20210219153154458.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

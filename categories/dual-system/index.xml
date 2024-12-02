@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dual System on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/dual-system/</link>
+    <description>Recent content in Dual System on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Jan 2023 16:25:27 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/dual-system/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Configuration04 Dual-System-Ubuntu</title>
+      <link>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</link>
+      <pubDate>Sun, 22 Jan 2023 16:25:27 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</guid>
+      <description>&lt;p&gt;该文介绍基于 Windows11 系统的双系统安装和删除，安装的双系统选择 Ubuntu（开发还是比较推荐使用 WSL2 即可）&lt;/p&gt;
+&lt;h2 id=&#34;install-dual-system&#34;&gt;Install Dual System&lt;/h2&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://blog.csdn.net/NeoZng/article/details/122779035&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;全面解决各种问题&lt;/a&gt;
+ &lt;a href=&#34;https://www.cnblogs.com/masbay/p/10745170.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;双系统安装&lt;/a&gt;
+ &lt;a href=&#34;https://zhuanlan.zhihu.com/p/363640824&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows+Ubuntu20.04双系统安装教程&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;1-安装-u-盘制作&#34;&gt;1. 安装 u 盘制作&lt;/h3&gt;
+&lt;p&gt;这里推荐 &lt;a href=&#34;https://github.com/ventoy/Ventoy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ventoy&lt;/a&gt;
+ 来做启动盘，ventoy 可以同时将很多系统的镜像放到一个 u 盘中，最最重要的是：干净简洁，可以参考其&lt;a href=&#34;https://www.ventoy.net/cn/doc_start.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方文档&lt;/a&gt;
+来制作盘，制作后将镜像文件放到指定目录即可。&lt;/p&gt;
+&lt;h3 id=&#34;2-硬盘分区&#34;&gt;2. 硬盘分区&lt;/h3&gt;
+&lt;p&gt;win+s 搜索创建并格式化分区，找一块空闲空间较大的硬盘，右键压缩卷，设定好预留给 Linux 的空间即可（记住该大小，方便后续辨认，可以将各个盘的大小拍照记录下来，安装的时候别把 windows 覆盖了）。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230323085002.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230323085002.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230323085002.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230323085239.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230323085239.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230323085239.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;该预留的&lt;strong&gt;未分配&lt;/strong&gt;空间，建议至少 30G 以上，如果需要开发和机器学习啥的话可以 50G、100G 以上。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

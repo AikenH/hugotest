@@ -1,0 +1,366 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Vim Configuration 01 vim的无插件基础设置 | aiken's blog</title>
+<meta name=keywords content="Vimscript,Vim"><meta name=description content='
+该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 /usr/share/vim/vimrc，也可以在 vim 界面使用 :echo $MYVIMRC 查看当前的配置文件，默认使用的配置文件地址为 ~/.vimrc
+
+参考文献地址：Good VimRC
+ | Backspace
+ | AutoCmd
+ | VIM配置入门
+
+配置文件地址：AikenDotfile
+，本文这里只介绍部分配置，一些过于常见的配置等等这里就不再介绍，在 dotfile 中对每行配置均有的细致的注释。
+基于 VimScript） 该 blog 主要记录基础 vim 的配置文件编写，旨在使用基础 vim 的时候也能有一个较好的代码编辑体验，同时提供部分 keymap 集成一些简单的功能，方便文档编写时候的格式转换等。这个配置文件在后续配置 nvim 的时候部分配置也会沿用。
+Vim 的基础配置
+自动检测文件修改，以及对多个文件的 workspace 自动切换
+
+
+1
+2
+3
+
+
+" >>0-1 state detection.
+set autoread " when file change outside, we will know
+set autochdir " change workspace when we swtich file, when we open multi-file in one session.
+
+
+鼠标和剪切板功能
+设置 vim 对鼠标的支持，支持鼠标选择等
+
+
+1
+2
+3
+4
+5
+6
+
+
+" reference the web get the best setting and use it always
+" suppose the mouse operation
+" but this function not work well in the weterm, we disable this part for work.
+set mouse=a
+"set selection=exclusive
+"set selectmode=mouse,key
+
+
+设置和系统同步的剪切板，WSL 下的剪切板设置可以参考下面文章 WSL2 clipboard not shared between Linux and Windows
+ || Reddit - Dive into anything
+
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+
+
+" set the clipboard
+set clipboard+=unnamed
+
+" WSL yank support
+let s:clip = &#39;/mnt/c/WINDOWS/system32/clip.exe&#39;  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# &#39;y&#39; | call system(s:clip, @0) | endif
+    augroup END
+endif
+
+
+设置撤销历史记录
+
+多次编辑同一个文件的时候保持 Undo 的历史记录，便于对同一个文件进行编辑。
+
+
+
+1
+2
+3
+4
+
+
+" >>0-2 keep file history
+set undofile " keep the undo history in file.
+set undodir=~/.vim/.undo//
+set history=1000
+
+
+通过上述命令启用 undofile 的选项，并设置存储目录，这里需要注意的是，存储目录需要手动创建，undo 的历史记录才能生效。'><meta name=author content="aikenhong"><link rel=canonical href=https://aikenh.cn/hugotest/posts/vimconfigdf/><link crossorigin=anonymous href=/hugotest/assets/css/stylesheet.2f85ca17c12c62fa86b1e474b8a51aca4856f0d645debfe4922a4d5ddc6aa978.css integrity="sha256-L4XKF8EsYvqGseR0uKUaykhW8NZF3r/kkipNXdxqqXg=" rel="preload stylesheet" as=style><link rel=icon href=https://aikenh.cn/favicon/ghost.ico><link rel=icon type=image/png sizes=16x16 href=https://aikenh.cn/favicon/ghost-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aikenh.cn/favicon/ghost-32x32.png><link rel=apple-touch-icon href=https://aikenh.cn/favicon/ghost-apple-touch-icon.png><link rel=mask-icon href=https://aikenh.cn/favicon/ghost-192x192.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aikenh.cn/hugotest/posts/vimconfigdf/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel=stylesheet><meta property="og:url" content="https://aikenh.cn/hugotest/posts/vimconfigdf/"><meta property="og:site_name" content="aiken's blog"><meta property="og:title" content="Vim Configuration 01 vim的无插件基础设置"><meta property="og:description" content=' 该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 /usr/share/vim/vimrc，也可以在 vim 界面使用 :echo $MYVIMRC 查看当前的配置文件，默认使用的配置文件地址为 ~/.vimrc
+参考文献地址：Good VimRC | Backspace | AutoCmd | VIM配置入门 配置文件地址：AikenDotfile ，本文这里只介绍部分配置，一些过于常见的配置等等这里就不再介绍，在 dotfile 中对每行配置均有的细致的注释。
+基于 VimScript） 该 blog 主要记录基础 vim 的配置文件编写，旨在使用基础 vim 的时候也能有一个较好的代码编辑体验，同时提供部分 keymap 集成一些简单的功能，方便文档编写时候的格式转换等。这个配置文件在后续配置 nvim 的时候部分配置也会沿用。
+Vim 的基础配置 自动检测文件修改，以及对多个文件的 workspace 自动切换
+1 2 3 " >>0-1 state detection. set autoread " when file change outside, we will know set autochdir " change workspace when we swtich file, when we open multi-file in one session. 鼠标和剪切板功能 设置 vim 对鼠标的支持，支持鼠标选择等
+1 2 3 4 5 6 " reference the web get the best setting and use it always " suppose the mouse operation " but this function not work well in the weterm, we disable this part for work. set mouse=a "set selection=exclusive "set selectmode=mouse,key 设置和系统同步的剪切板，WSL 下的剪切板设置可以参考下面文章 WSL2 clipboard not shared between Linux and Windows || Reddit - Dive into anything 1 2 3 4 5 6 7 8 9 10 11 " set the clipboard set clipboard+=unnamed " WSL yank support let s:clip = &#39;/mnt/c/WINDOWS/system32/clip.exe&#39; " change this path according to your mount point if executable(s:clip) augroup WSLYank autocmd! autocmd TextYankPost * if v:event.operator ==# &#39;y&#39; | call system(s:clip, @0) | endif augroup END endif 设置撤销历史记录 多次编辑同一个文件的时候保持 Undo 的历史记录，便于对同一个文件进行编辑。
+1 2 3 4 " >>0-2 keep file history set undofile " keep the undo history in file. set undodir=~/.vim/.undo// set history=1000 通过上述命令启用 undofile 的选项，并设置存储目录，这里需要注意的是，存储目录需要手动创建，undo 的历史记录才能生效。'><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-10-07T15:00:42+00:00"><meta property="article:modified_time" content="2021-10-07T15:00:42+00:00"><meta property="article:tag" content="Vimscript"><meta property="article:tag" content="Vim"><meta property="og:image" content="https://aikenh.cn/cover/cover0.jpeg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aikenh.cn/cover/cover0.jpeg"><meta name=twitter:title content="Vim Configuration 01 vim的无插件基础设置"><meta name=twitter:description content='
+该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 /usr/share/vim/vimrc，也可以在 vim 界面使用 :echo $MYVIMRC 查看当前的配置文件，默认使用的配置文件地址为 ~/.vimrc
+
+参考文献地址：Good VimRC
+ | Backspace
+ | AutoCmd
+ | VIM配置入门
+
+配置文件地址：AikenDotfile
+，本文这里只介绍部分配置，一些过于常见的配置等等这里就不再介绍，在 dotfile 中对每行配置均有的细致的注释。
+基于 VimScript） 该 blog 主要记录基础 vim 的配置文件编写，旨在使用基础 vim 的时候也能有一个较好的代码编辑体验，同时提供部分 keymap 集成一些简单的功能，方便文档编写时候的格式转换等。这个配置文件在后续配置 nvim 的时候部分配置也会沿用。
+Vim 的基础配置
+自动检测文件修改，以及对多个文件的 workspace 自动切换
+
+
+1
+2
+3
+
+
+" >>0-1 state detection.
+set autoread " when file change outside, we will know
+set autochdir " change workspace when we swtich file, when we open multi-file in one session.
+
+
+鼠标和剪切板功能
+设置 vim 对鼠标的支持，支持鼠标选择等
+
+
+1
+2
+3
+4
+5
+6
+
+
+" reference the web get the best setting and use it always
+" suppose the mouse operation
+" but this function not work well in the weterm, we disable this part for work.
+set mouse=a
+"set selection=exclusive
+"set selectmode=mouse,key
+
+
+设置和系统同步的剪切板，WSL 下的剪切板设置可以参考下面文章 WSL2 clipboard not shared between Linux and Windows
+ || Reddit - Dive into anything
+
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+
+
+" set the clipboard
+set clipboard+=unnamed
+
+" WSL yank support
+let s:clip = &#39;/mnt/c/WINDOWS/system32/clip.exe&#39;  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# &#39;y&#39; | call system(s:clip, @0) | endif
+    augroup END
+endif
+
+
+设置撤销历史记录
+
+多次编辑同一个文件的时候保持 Undo 的历史记录，便于对同一个文件进行编辑。
+
+
+
+1
+2
+3
+4
+
+
+" >>0-2 keep file history
+set undofile " keep the undo history in file.
+set undodir=~/.vim/.undo//
+set history=1000
+
+
+通过上述命令启用 undofile 的选项，并设置存储目录，这里需要注意的是，存储目录需要手动创建，undo 的历史记录才能生效。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aikenh.cn/hugotest/posts/"},{"@type":"ListItem","position":2,"name":"Vim Configuration 01 vim的无插件基础设置","item":"https://aikenh.cn/hugotest/posts/vimconfigdf/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vim Configuration 01 vim的无插件基础设置","name":"Vim Configuration 01 vim的无插件基础设置","description":" 该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 /usr/share/vim/vimrc，也可以在 vim 界面使用 :echo $MYVIMRC 查看当前的配置文件，默认使用的配置文件地址为 ~/.vimrc\n参考文献地址：Good VimRC | Backspace | AutoCmd | VIM配置入门 配置文件地址：AikenDotfile ，本文这里只介绍部分配置，一些过于常见的配置等等这里就不再介绍，在 dotfile 中对每行配置均有的细致的注释。\n基于 VimScript） 该 blog 主要记录基础 vim 的配置文件编写，旨在使用基础 vim 的时候也能有一个较好的代码编辑体验，同时提供部分 keymap 集成一些简单的功能，方便文档编写时候的格式转换等。这个配置文件在后续配置 nvim 的时候部分配置也会沿用。\nVim 的基础配置 自动检测文件修改，以及对多个文件的 workspace 自动切换\n1 2 3 \u0026#34; \u0026gt;\u0026gt;0-1 state detection. set autoread \u0026#34; when file change outside, we will know set autochdir \u0026#34; change workspace when we swtich file, when we open multi-file in one session. 鼠标和剪切板功能 设置 vim 对鼠标的支持，支持鼠标选择等\n1 2 3 4 5 6 \u0026#34; reference the web get the best setting and use it always \u0026#34; suppose the mouse operation \u0026#34; but this function not work well in the weterm, we disable this part for work. set mouse=a \u0026#34;set selection=exclusive \u0026#34;set selectmode=mouse,key 设置和系统同步的剪切板，WSL 下的剪切板设置可以参考下面文章 WSL2 clipboard not shared between Linux and Windows || Reddit - Dive into anything 1 2 3 4 5 6 7 8 9 10 11 \u0026#34; set the clipboard set clipboard+=unnamed \u0026#34; WSL yank support let s:clip = \u0026#39;/mnt/c/WINDOWS/system32/clip.exe\u0026#39; \u0026#34; change this path according to your mount point if executable(s:clip) augroup WSLYank autocmd! autocmd TextYankPost * if v:event.operator ==# \u0026#39;y\u0026#39; | call system(s:clip, @0) | endif augroup END endif 设置撤销历史记录 多次编辑同一个文件的时候保持 Undo 的历史记录，便于对同一个文件进行编辑。\n1 2 3 4 \u0026#34; \u0026gt;\u0026gt;0-2 keep file history set undofile \u0026#34; keep the undo history in file. set undodir=~/.vim/.undo// set history=1000 通过上述命令启用 undofile 的选项，并设置存储目录，这里需要注意的是，存储目录需要手动创建，undo 的历史记录才能生效。\n","keywords":["Vimscript","Vim"],"articleBody":" 该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 /usr/share/vim/vimrc，也可以在 vim 界面使用 :echo $MYVIMRC 查看当前的配置文件，默认使用的配置文件地址为 ~/.vimrc\n参考文献地址：Good VimRC | Backspace | AutoCmd | VIM配置入门 配置文件地址：AikenDotfile ，本文这里只介绍部分配置，一些过于常见的配置等等这里就不再介绍，在 dotfile 中对每行配置均有的细致的注释。\n基于 VimScript） 该 blog 主要记录基础 vim 的配置文件编写，旨在使用基础 vim 的时候也能有一个较好的代码编辑体验，同时提供部分 keymap 集成一些简单的功能，方便文档编写时候的格式转换等。这个配置文件在后续配置 nvim 的时候部分配置也会沿用。\nVim 的基础配置 自动检测文件修改，以及对多个文件的 workspace 自动切换\n1 2 3 \" \u003e\u003e0-1 state detection. set autoread \" when file change outside, we will know set autochdir \" change workspace when we swtich file, when we open multi-file in one session. 鼠标和剪切板功能 设置 vim 对鼠标的支持，支持鼠标选择等\n1 2 3 4 5 6 \" reference the web get the best setting and use it always \" suppose the mouse operation \" but this function not work well in the weterm, we disable this part for work. set mouse=a \"set selection=exclusive \"set selectmode=mouse,key 设置和系统同步的剪切板，WSL 下的剪切板设置可以参考下面文章 WSL2 clipboard not shared between Linux and Windows || Reddit - Dive into anything 1 2 3 4 5 6 7 8 9 10 11 \" set the clipboard set clipboard+=unnamed \" WSL yank support let s:clip = '/mnt/c/WINDOWS/system32/clip.exe' \" change this path according to your mount point if executable(s:clip) augroup WSLYank autocmd! autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif augroup END endif 设置撤销历史记录 多次编辑同一个文件的时候保持 Undo 的历史记录，便于对同一个文件进行编辑。\n1 2 3 4 \" \u003e\u003e0-2 keep file history set undofile \" keep the undo history in file. set undodir=~/.vim/.undo// set history=1000 通过上述命令启用 undofile 的选项，并设置存储目录，这里需要注意的是，存储目录需要手动创建，undo 的历史记录才能生效。\n搜索选项 搜索部分主要有以下的几个事：显示匹配的括号，逐字搜索，搜索高亮，忽略大小写\n1 2 3 4 5 \" \u003e\u003e1-3 Search Setting set showmatch \" highlight match parentheses set incsearch \" search as characters are entered set hlsearch \" highlight the search result. set ignorecase \" ignore cases when searching 其中需要注意的是，vim 中的搜索高亮不会自动关闭，因此我们需要设置快捷键映射来关闭搜索的高亮。\n1 nnoremap \u003cleader\u003ess :nohlsearch\u003cCR\u003e \" turn off the highlight, bcus it will not auto close. 其他设置 1 set backspace=indent,eol,start \" help to del special character.(or =2) 基本用户界面设置 设置滚动行和上下的间距：\n1 set scrolloff=10 设置折行及折行不破坏单词完整性：\n1 2 3 set wrap \" wrap line and if line is too long set linebreak \" Line breaks do not break the word. \" set textwidth=80 \" how many chacter in oneline 状态栏设置 首先设置命令窗口的大小，并使得状态栏仅在多文件窗口时打开，便于区分不同文件\n1 2 3 4 5 6 7 \" \u003e\u003e2-3 Status Line Setting set cmdheight=2 \" set the cmd line height set laststatus=1 \" enable:2 only in multi windows:1 off:0 set ruler \" show row,col of cursor in status line. \" reference : https://blog.csdn.net/strategycn/article/details/7620261 set statusline=%F%m%r%h%w\\ [FORMAT=%{\u0026ff}]\\ [TYPE=%Y]\\ [POS=%04l,%04v][%p%%]\\ [LEN=%L]\\ [TIME=%{strftime('%c')}] 设置 VIm 的 CMD 指令显示状态以及补全办法：\n1 2 3 4 5 6 \" \u003e\u003e2-4 Command hint. set showcmd \" show the command we just type in. like 2d set showmode \" show insert or command mode now (seems like not working) \" \u003e\u003e2-5 show Bottom CMD Menu set wildmenu \" show completion list. 光标位置记录 1 2 3 4 5 6 7 \" \u003e\u003e2-7 return to last edit pos when open same files. autocmd BufReadPost * \\ if line(\"'\\\"\") \u003e 0 \u0026\u0026 line(\"'\\\"\") \u003c= line(\"$\") | \\ exe \"normal! g`\\\"\" | \\ endif \" Remember info about open buffers on close set viminfo^=% 缩进方法和折叠 这里只以 Python 为例介绍默认的 indent 方案，同时 folder 这里只介绍 marker 方法，用 {{{}}} 来进行折叠，不同文件的 indent 方案用 filetype 和 autocmd 实现，具体参见配置文件中的 Part8.\n缩进 1 2 3 4 5 6 7 8 9 10 \" \u003e\u003e3.1 Indent (c-style) set ai \"autoindent, keep same indent with prev line. set si \"smartindent, add {, # special situation of ai. (for c or java) \" \u003e\u003e3.2 Tab(better using autocmd) set tabstop=4 \"tab== space set softtabstop=4 \"when we type in tab == space set shiftwidth=4 \"the auto indet(when change line or using \u003e or \u003c ) will be better keep it same with tab. set smarttab \"will change basis on others in this file. set expandtab \"make all tab as space 这里的 指的是空格的个数，具体的设置和注释如上，后续基于不同的文件类型进行配置的需要打开如下的内容：\n1 2 3 4 5 6 \" \u003e\u003e3.3 specific indent file. \" load filetype-specific indent files. \" *.py will load ~/.vim/indent/python.vim file filetype on filetype plugin on filetype indent on 其他内容参见 dotfile，使用 autocmd 对不同文件的缩进进行区分设置。\n折叠 1 2 3 4 5 6 \" -----------------------6.Folder{{{----------------------------- set foldenable \" enable fold function set foldlevelstart=10 \" fold level at start. 0: all be closed; 99: always open. set foldnestmax=10 \" 10 nested fold max set foldmethod=marker \" could be indent. mark should use {{{}}} \"try help foldmethod 将折叠全开后的效果如下：\n快捷键和函数 快捷键和函数的数量较多，这里不详细说，具体查看 dotfile，这里简要说明以下主要实现了哪些 KeyMap。\n这里通过快捷键和函数实现了如下的一些功能。\n用 TAB 和 SHIFT-TAB 调整缩进 Toggle Wrap、Spell、Number、Paste 快捷编辑配置文件 Windows、Tab 切换 快捷注释 Tailing 和 Retab 编译和执行当前代码文件 自动添加指定的文件头（如 blog 的 meta 文件） 由于篇幅限制就不再赘述。\n自动注释 感谢大神 KarimElghamry 提供的方案，可以直接将其代码拷贝到自己的 vmrc 中来实现行注释和块注释，也可以很轻易的添加不同后缀的处理方式。\nFI 该版本的 Vimrc 应该是个人的最终版本了，如果有其他的点子和需求的话，欢迎到评论区讨论，如果有更新的话也会在这个 dotfile 上更新。\n","wordCount":"725","inLanguage":"en","image":"https://aikenh.cn/cover/cover0.jpeg","datePublished":"2021-10-07T15:00:42Z","dateModified":"2021-10-07T15:00:42Z","author":[{"@type":"Person","name":"aikenhong"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://aikenh.cn/hugotest/posts/vimconfigdf/"},"publisher":{"@type":"Organization","name":"aiken's blog","logo":{"@type":"ImageObject","url":"https://aikenh.cn/favicon/ghost.ico"}}}</script></head><body id=top><script type=module src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js defer></script><script nomodule src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js defer></script><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aikenh.cn/hugotest/ accesskey=h title="aiken's blog (Alt + H)">aiken's blog</a><div class=logo-switches><button id=theme-toggle-nav accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aikenh.cn/hugotest/ title=home><span>home</span></a></li><li><a href=https://aikenh.cn/hugotest/posts/ title=posts><span>posts</span></a></li><li><a href=https://aikenh.cn/hugotest/tags/ title=tags><span>tags</span></a></li><li><a href=https://aikenh.cn/hugotest/categories/ title=categories><span>categories</span></a></li><li><a href=https://aikenh.cn/hugotest/archives/ title=archives><span>archives</span></a></li><li><a href=https://aikenh.cn/hugotest/about/ title=about><span>about</span></a></li><li><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><span>search</span></a></li></ul></nav></header><div class=sidebar><ul><li class=logo style=--bg:#333><a href=#><div class=logo-icon><img src=/logo/logo.png></div><div class=logo-text>Aiken's Blog</div></a></li><div class=menulist><li style=--bg:#f44336><a href=https://aikenh.cn/hugotest/ title=home><div class=logo-icon><ion-icon name=home-outline></ion-icon></div><div class=logo-text>home</div></a></li><li style=--bg:#b145e9><a href=https://aikenh.cn/hugotest/posts/ title=posts><div class=logo-icon><ion-icon name=newspaper-outline></ion-icon></div><div class=logo-text>posts</div></a></li><li style=--bg:#0f93c7><a href=https://aikenh.cn/hugotest/tags/ title=tags><div class=logo-icon><ion-icon name=pricetags-outline></ion-icon></div><div class=logo-text>tags</div></a></li><li style=--bg:#ffa117><a href=https://aikenh.cn/hugotest/categories/ title=categories><div class=logo-icon><ion-icon name=grid-outline></ion-icon></div><div class=logo-text>categories</div></a></li><li style=--bg:#0fc70f><a href=https://aikenh.cn/hugotest/archives/ title=archives><div class=logo-icon><ion-icon name=folder-outline></ion-icon></div><div class=logo-text>archives</div></a></li><li style=--bg:#d16111><a href=https://aikenh.cn/hugotest/about/ title=about><div class=logo-icon><ion-icon name=person></ion-icon></div><div class=logo-text>about</div></a></li><li style=--bg:#15c095><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><div class=logo-icon><ion-icon name=search></ion-icon></div><div class=logo-text>search</div></a></li></div><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt +T)"><li><div class=logo-icon id=moon><ion-icon name=moon-outline></ion-icon></div><div class=logo-icon id=sun><ion-icon name=sunny-outline></ion-icon></div></li></button></div></ul></div><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://aikenh.cn/hugotest/>Home</a>&nbsp;»&nbsp;<a href=https://aikenh.cn/hugotest/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Vim Configuration 01 vim的无插件基础设置</h1><div class=post-meta><span title='2021-10-07 15:00:42 +0000 UTC'>October 7, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;725 words&nbsp;·&nbsp;aikenhong&nbsp;·&nbsp;<a href=/tags/vimscript> Vimscript</a>&nbsp;·&nbsp;<a href=/tags/vim> Vim</a>&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/VimConfigDf.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://aikenh.cn/cover/cover0.jpeg alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#vim-%e7%9a%84%e5%9f%ba%e7%a1%80%e9%85%8d%e7%bd%ae aria-label="Vim 的基础配置">Vim 的基础配置</a><ul class=header-level-2><li><a href=#%e9%bc%a0%e6%a0%87%e5%92%8c%e5%89%aa%e5%88%87%e6%9d%bf%e5%8a%9f%e8%83%bd aria-label=鼠标和剪切板功能>鼠标和剪切板功能</a></li><li><a href=#%e8%ae%be%e7%bd%ae%e6%92%a4%e9%94%80%e5%8e%86%e5%8f%b2%e8%ae%b0%e5%bd%95 aria-label=设置撤销历史记录>设置撤销历史记录</a></li><li><a href=#%e6%90%9c%e7%b4%a2%e9%80%89%e9%a1%b9 aria-label=搜索选项>搜索选项</a></li><li><a href=#%e5%85%b6%e4%bb%96%e8%ae%be%e7%bd%ae aria-label=其他设置>其他设置</a></li></ul></li><li><a href=#%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%88%b7%e7%95%8c%e9%9d%a2%e8%ae%be%e7%bd%ae aria-label=基本用户界面设置>基本用户界面设置</a><ul class=header-level-2><li><a href=#%e7%8a%b6%e6%80%81%e6%a0%8f%e8%ae%be%e7%bd%ae aria-label=状态栏设置>状态栏设置</a></li><li><a href=#%e5%85%89%e6%a0%87%e4%bd%8d%e7%bd%ae%e8%ae%b0%e5%bd%95 aria-label=光标位置记录>光标位置记录</a></li></ul></li><li><a href=#%e7%bc%a9%e8%bf%9b%e6%96%b9%e6%b3%95%e5%92%8c%e6%8a%98%e5%8f%a0 aria-label=缩进方法和折叠>缩进方法和折叠</a><ul class=header-level-2><li><a href=#%e7%bc%a9%e8%bf%9b aria-label=缩进>缩进</a></li><li><a href=#%e6%8a%98%e5%8f%a0 aria-label=折叠>折叠</a></li></ul></li><li><a href=#%e5%bf%ab%e6%8d%b7%e9%94%ae%e5%92%8c%e5%87%bd%e6%95%b0 aria-label=快捷键和函数>快捷键和函数</a></li><li><a href=#%e8%87%aa%e5%8a%a8%e6%b3%a8%e9%87%8a aria-label=自动注释>自动注释</a></li><li><a href=#fi aria-label=FI>FI</a></li></ul></div></details></div></aside><script>let activeElement,elements;document.addEventListener("DOMContentLoaded",function(){if(checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),elements.length>0){activeElement=elements[0];const e=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${e}"]`).classList.add("active")}const t=document.getElementById("top-link");t&&t.addEventListener("click",e=>{e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})})},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{const e=window.pageYOffset||document.documentElement.scrollTop;if(e===0)return;elements&&elements.length>0&&(elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase(),n=document.querySelector(`.inner ul li a[href="#${t}"]`);n.classList.remove("read")}),activeElement=Array.from(elements).find(t=>{if(getOffsetTop(t)-e>0&&getOffsetTop(t)-e<window.innerHeight/2)return t})||activeElement,elements.forEach((t)=>{const o=encodeURI(t.getAttribute("id")).toLowerCase(),s=document.querySelector(`.inner ul li a[href="#${o}"]`);if(t===activeElement){s.classList.add("active");const e=document.querySelector(".toc .inner"),t=s.offsetTop,n=e.clientHeight,o=s.clientHeight,i=t-n/2+o/2;e.scrollTo({top:i,behavior:"smooth"})}else getOffsetTop(t)<e&&s.classList.add("read"),s.classList.remove("active")}))},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return!document.querySelector(".hugo-encryptor-prompt")&&elements.length!=0&&(elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),console.log("Elements re-queried:",elements)),0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><blockquote><p>该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 <code>/usr/share/vim/vimrc</code>，也可以在 vim 界面使用 <code>:echo $MYVIMRC</code> 查看当前的配置文件，默认使用的配置文件地址为 <code>~/.vimrc</code></p></blockquote><p>参考文献地址：<a href=https://dougblack.io/words/a-good-vimrc.html target=_blank rel=noopener>Good VimRC</a>
+| <a href=https://segmentfault.com/a/1190000021029480 target=_blank rel=noopener>Backspace</a>
+| <a href=https://zhuanlan.zhihu.com/p/98360630 target=_blank rel=noopener>AutoCmd</a>
+| <a href=https://www.ruanyifeng.com/blog/2018/09/vimrc.html target=_blank rel=noopener>VIM配置入门</a>
+配置文件地址：<a href=https://github.com/AikenH/aikenh-dotfile/tree/main/vim-dot target=_blank rel=noopener>AikenDotfile</a>
+，本文这里只介绍部分配置，一些过于常见的配置等等这里就不再介绍，在 dotfile 中对每行配置均有的细致的注释。</p><p>基于 VimScript） 该 blog 主要记录基础 vim 的配置文件编写，旨在使用基础 vim 的时候也能有一个较好的代码编辑体验，同时提供部分 keymap 集成一些简单的功能，方便文档编写时候的格式转换等。这个配置文件在后续配置 nvim 的时候部分配置也会沿用。</p><h2 id=vim-的基础配置>Vim 的基础配置<a hidden class=anchor aria-hidden=true href=#vim-的基础配置>#</a></h2><p>自动检测文件修改，以及对多个文件的 workspace 自动切换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;0-1 state detection.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>autoread</span> <span class=c>&#34; when file change outside, we will know</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>autochdir</span> <span class=c>&#34; change workspace when we swtich file, when we open multi-file in one session.</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=鼠标和剪切板功能>鼠标和剪切板功能<a hidden class=anchor aria-hidden=true href=#鼠标和剪切板功能>#</a></h3><p>设置 vim 对鼠标的支持，支持鼠标选择等</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; reference the web get the best setting and use it always</span>
+</span></span><span class=line><span class=cl><span class=c>&#34; suppose the mouse operation</span>
+</span></span><span class=line><span class=cl><span class=c>&#34; but this function not work well in the weterm, we disable this part for work.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>mouse</span><span class=p>=</span><span class=nx>a</span>
+</span></span><span class=line><span class=cl><span class=c>&#34;set selection=exclusive</span>
+</span></span><span class=line><span class=cl><span class=c>&#34;set selectmode=mouse,key</span>
+</span></span></code></pre></td></tr></table></div></div><p>设置和系统同步的剪切板，WSL 下的剪切板设置可以参考下面文章 <a href=https://github.com/microsoft/WSL/issues/4440 target=_blank rel=noopener>WSL2 clipboard not shared between Linux and Windows</a>
+|| <a href=https://www.reddit.com/r/bashonubuntuonwindows/comments/be2q3l/comment/el2vx7u/?utm_source# target=_blank rel=noopener>Reddit - Dive into anything</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; set the clipboard</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>clipboard</span><span class=p>+=</span><span class=nx>unnamed</span>
+</span></span><span class=line><span class=cl><span class=c>
+</span></span></span><span class=line><span class=cl><span class=c>&#34; WSL yank support</span>
+</span></span><span class=line><span class=cl><span class=k>let</span> <span class=nx>s</span>:<span class=nx>clip</span> <span class=p>=</span> <span class=s1>&#39;/mnt/c/WINDOWS/system32/clip.exe&#39;</span>  <span class=c>&#34; change this path according to your mount point</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>executable</span><span class=p>(</span><span class=nx>s</span>:<span class=nx>clip</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>augroup</span> <span class=nx>WSLYank</span>
+</span></span><span class=line><span class=cl>        <span class=k>autocmd</span><span class=p>!</span>
+</span></span><span class=line><span class=cl>        <span class=k>autocmd</span> <span class=nx>TextYankPost</span> * <span class=k>if</span> <span class=nx>v</span>:<span class=nx>event</span>.<span class=nx>operator</span> <span class=p>==</span># <span class=s1>&#39;y&#39;</span> <span class=p>|</span> <span class=nx>call</span> <span class=nx>system</span><span class=p>(</span><span class=nx>s</span>:<span class=nx>clip</span><span class=p>,</span> @<span class=m>0</span><span class=p>)</span> <span class=p>|</span> <span class=k>endif</span>
+</span></span><span class=line><span class=cl>    <span class=nx>augroup</span> <span class=nx>END</span>
+</span></span><span class=line><span class=cl><span class=k>endif</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=设置撤销历史记录>设置撤销历史记录<a hidden class=anchor aria-hidden=true href=#设置撤销历史记录>#</a></h3><blockquote><p>多次编辑同一个文件的时候保持 Undo 的历史记录，便于对同一个文件进行编辑。</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;0-2 keep file history</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>undofile</span> <span class=c>&#34; keep the undo history in file.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>undodir</span><span class=p>=~</span><span class=sr>/.vim/</span>.<span class=nx>undo</span><span class=sr>//</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>history</span><span class=p>=</span><span class=m>1000</span>
+</span></span></code></pre></td></tr></table></div></div><p>通过上述命令启用 undofile 的选项，并设置存储目录，这里需要注意的是，<strong>存储目录需要手动创建</strong>，undo 的历史记录才能生效。</p><h3 id=搜索选项>搜索选项<a hidden class=anchor aria-hidden=true href=#搜索选项>#</a></h3><p>搜索部分主要有以下的几个事：显示匹配的括号，逐字搜索，搜索高亮，忽略大小写</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;1-3 Search Setting</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>showmatch</span> <span class=c>&#34; highlight match parentheses</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>incsearch</span> <span class=c>&#34; search as characters are entered</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>hlsearch</span> <span class=c>&#34; highlight the search result.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>ignorecase</span> <span class=c>&#34; ignore cases when searching</span>
+</span></span></code></pre></td></tr></table></div></div><p>其中需要注意的是，vim 中的搜索高亮不会自动关闭，因此我们需要设置快捷键映射来关闭搜索的高亮。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>leader</span><span class=p>&gt;</span><span class=nx>ss</span> :<span class=nx>nohlsearch</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span> <span class=c>&#34; turn off the highlight, bcus it will not auto close.</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=其他设置>其他设置<a hidden class=anchor aria-hidden=true href=#其他设置>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=k>set</span> <span class=nx>backspace</span><span class=p>=</span><span class=nx>indent</span><span class=p>,</span><span class=nx>eol</span><span class=p>,</span><span class=nx>start</span> <span class=c>&#34; help to del special character.(or =2)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=基本用户界面设置>基本用户界面设置<a hidden class=anchor aria-hidden=true href=#基本用户界面设置>#</a></h2><p>设置滚动行和上下的间距：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=k>set</span> <span class=nx>scrolloff</span><span class=p>=</span><span class=m>10</span>
+</span></span></code></pre></td></tr></table></div></div><p>设置折行及折行不破坏单词完整性：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=k>set</span> <span class=nx>wrap</span> <span class=c>&#34; wrap line and if line is too long</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>linebreak</span> <span class=c>&#34; Line breaks do not break the word.</span>
+</span></span><span class=line><span class=cl><span class=c>&#34; set textwidth=80 &#34; how many chacter in oneline</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=状态栏设置>状态栏设置<a hidden class=anchor aria-hidden=true href=#状态栏设置>#</a></h3><p>首先设置命令窗口的大小，并使得状态栏仅在多文件窗口时打开，便于区分不同文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;2-3 Status Line Setting</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>cmdheight</span><span class=p>=</span><span class=m>2</span> <span class=c>&#34; set the cmd line height</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>laststatus</span><span class=p>=</span><span class=m>1</span> <span class=c>&#34; enable:2 only in multi windows:1 off:0</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>ruler</span> <span class=c>&#34; show row,col of cursor in status line.</span>
+</span></span><span class=line><span class=cl><span class=c>
+</span></span></span><span class=line><span class=cl><span class=c>&#34; reference : https://blog.csdn.net/strategycn/article/details/7620261</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>statusline</span><span class=p>=</span>%<span class=nx>F</span>%<span class=nx>m</span>%<span class=nx>r</span>%<span class=nx>h</span>%<span class=nx>w</span>\ [<span class=nx>FORMAT</span><span class=p>=</span>%{&amp;<span class=nx>ff</span>}]\ [<span class=nx>TYPE</span><span class=p>=</span>%<span class=nx>Y</span>]\ [<span class=nx>POS</span><span class=p>=</span>%<span class=m>04</span>l<span class=p>,</span>%<span class=m>04</span>v][%<span class=nx>p</span>%%]\ [<span class=nx>LEN</span><span class=p>=</span>%<span class=nx>L</span>]\ [<span class=nx>TIME</span><span class=p>=</span>%{<span class=nx>strftime</span><span class=p>(</span><span class=s1>&#39;%c&#39;</span><span class=p>)</span>}]
+</span></span></code></pre></td></tr></table></div></div><p>设置 VIm 的 CMD 指令显示状态以及补全办法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;2-4 Command hint.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>showcmd</span> <span class=c>&#34; show the command we just type in. like 2d</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>showmode</span> <span class=c>&#34; show insert or command mode now (seems like not working)</span>
+</span></span><span class=line><span class=cl><span class=c>
+</span></span></span><span class=line><span class=cl><span class=c>&#34; &gt;&gt;2-5 show Bottom CMD Menu</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>wildmenu</span> <span class=c>&#34; show completion list.</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=光标位置记录>光标位置记录<a hidden class=anchor aria-hidden=true href=#光标位置记录>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;2-7 return to last edit pos when open same files.</span>
+</span></span><span class=line><span class=cl><span class=k>autocmd</span> <span class=nx>BufReadPost</span> *
+</span></span><span class=line><span class=cl>    \ <span class=k>if</span> <span class=nx>line</span><span class=p>(</span><span class=s2>&#34;&#39;\&#34;&#34;</span><span class=p>)</span> <span class=p>&gt;</span> <span class=m>0</span> &amp;&amp; <span class=nx>line</span><span class=p>(</span><span class=s2>&#34;&#39;\&#34;&#34;</span><span class=p>)</span> <span class=p>&lt;=</span> <span class=nx>line</span><span class=p>(</span><span class=s2>&#34;$&#34;</span><span class=p>)</span> <span class=p>|</span>
+</span></span><span class=line><span class=cl>    \   <span class=nx>exe</span> <span class=s2>&#34;normal! g`\&#34;&#34;</span> <span class=p>|</span>
+</span></span><span class=line><span class=cl>    \ <span class=k>endif</span>
+</span></span><span class=line><span class=cl><span class=c>&#34; Remember info about open buffers on close</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>viminfo</span>^<span class=p>=</span>%
+</span></span></code></pre></td></tr></table></div></div><h2 id=缩进方法和折叠>缩进方法和折叠<a hidden class=anchor aria-hidden=true href=#缩进方法和折叠>#</a></h2><blockquote><p>这里只以 Python 为例介绍默认的 indent 方案，同时 folder 这里只介绍 marker 方法，用 <code>{{{}}}</code> 来进行折叠，不同文件的 indent 方案用 filetype 和 autocmd 实现，具体参见配置文件中的 Part8.</p></blockquote><h3 id=缩进>缩进<a hidden class=anchor aria-hidden=true href=#缩进>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;3.1 Indent (c-style)</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>ai</span> <span class=c>&#34;autoindent, keep same indent with prev line.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>si</span> <span class=c>&#34;smartindent, add {, # special situation of ai. (for c or java)</span>
+</span></span><span class=line><span class=cl><span class=c>
+</span></span></span><span class=line><span class=cl><span class=c>&#34; &gt;&gt;3.2 Tab(better using autocmd)</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>tabstop</span><span class=p>=</span><span class=m>4</span> <span class=c>&#34;tab==&lt;n&gt; space</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>softtabstop</span><span class=p>=</span><span class=m>4</span> <span class=c>&#34;when we type in tab == &lt;n&gt; space</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>shiftwidth</span><span class=p>=</span><span class=m>4</span> <span class=c>&#34;the auto indet(when change line or using &gt; or &lt; ) will be &lt;n&gt; better keep it same with tab.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>smarttab</span> <span class=c>&#34;will change &lt;n&gt; basis on others in this file.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>expandtab</span> <span class=c>&#34;make all tab as space</span>
+</span></span></code></pre></td></tr></table></div></div><p>这里的 <code>&lt;n></code> 指的是空格的个数，具体的设置和注释如上，后续基于不同的文件类型进行配置的需要打开如下的内容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; &gt;&gt;3.3 specific indent file.</span>
+</span></span><span class=line><span class=cl><span class=c>&#34; load filetype-specific indent files.</span>
+</span></span><span class=line><span class=cl><span class=c>&#34; *.py will load ~/.vim/indent/python.vim file</span>
+</span></span><span class=line><span class=cl><span class=k>filetype</span> <span class=nx>on</span>
+</span></span><span class=line><span class=cl><span class=k>filetype</span> <span class=nx>plugin</span> <span class=nx>on</span>
+</span></span><span class=line><span class=cl><span class=k>filetype</span> <span class=nx>indent</span> <span class=nx>on</span>
+</span></span></code></pre></td></tr></table></div></div><p>其他内容参见 dotfile，使用 autocmd 对不同文件的缩进进行区分设置。</p><h3 id=折叠>折叠<a hidden class=anchor aria-hidden=true href=#折叠>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=c>&#34; -----------------------6.Folder{{{-----------------------------</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>foldenable</span> <span class=c>&#34; enable fold function</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>foldlevelstart</span><span class=p>=</span><span class=m>10</span> <span class=c>&#34; fold level at start. 0: all be closed; 99: always open.</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>foldnestmax</span><span class=p>=</span><span class=m>10</span> <span class=c>&#34; 10 nested fold max</span>
+</span></span><span class=line><span class=cl><span class=k>set</span> <span class=nx>foldmethod</span><span class=p>=</span><span class=nx>marker</span> <span class=c>&#34; could be indent. mark should use {{{}}}</span>
+</span></span><span class=line><span class=cl><span class=c>&#34;try help foldmethod</span>
+</span></span></code></pre></td></tr></table></div></div><p>将折叠全开后的效果如下：</p><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230524164856.png><img alt=image.png loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230524164856.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230524164856.png style="display:block;margin:0 auto" alt=image.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><h2 id=快捷键和函数>快捷键和函数<a hidden class=anchor aria-hidden=true href=#快捷键和函数>#</a></h2><blockquote><p>快捷键和函数的数量较多，这里不详细说，具体查看 dotfile，这里简要说明以下主要实现了哪些 KeyMap。</p></blockquote><p>这里通过快捷键和函数实现了如下的一些功能。</p><ol><li>用 TAB 和 SHIFT-TAB 调整缩进</li><li>Toggle Wrap、Spell、Number、Paste</li><li>快捷编辑配置文件</li><li>Windows、Tab 切换</li><li>快捷注释</li><li>Tailing 和 Retab</li><li>编译和执行当前代码文件</li><li>自动添加指定的文件头（如 blog 的 meta 文件）</li></ol><p>由于篇幅限制就不再赘述。</p><h2 id=自动注释>自动注释<a hidden class=anchor aria-hidden=true href=#自动注释>#</a></h2><p>感谢大神 <a href=https://github.com/KarimElghamry/vim-auto-comment target=_blank rel=noopener>KarimElghamry</a>
+提供的方案，可以直接将其代码拷贝到自己的 vmrc 中来实现行注释和块注释，也可以很轻易的添加不同后缀的处理方式。</p><h2 id=fi>FI<a hidden class=anchor aria-hidden=true href=#fi>#</a></h2><p>该版本的 Vimrc 应该是个人的最终版本了，如果有其他的点子和需求的话，欢迎到评论区讨论，如果有更新的话也会在这个 dotfile 上更新。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://aikenh.cn/hugotest/tags/vimscript/>Vimscript</a></li><li><a href=https://aikenh.cn/hugotest/tags/vim/>Vim</a></li></ul><nav class=paginav><a class=prev href=https://aikenh.cn/hugotest/posts/vimconfig/><span class=title>« Prev</span><br><span>Vim Configuration 02 Nvim的插件配置</span>
+</a><a class=next href=https://aikenh.cn/hugotest/posts/stylegan/><span class=title>Next »</span><br><span>StyleGAN</span></a></nav></footer><div id=disqus_thread></div><script>function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://aiken-hugo.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url=window.location.href,this.page.identifier=window.location.href.substring(18)}}var runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){if(!isBot&&supportsIntersectionObserver){var e=new IntersectionObserver(function(t){t[0].isIntersecting&&(loadDisqus(),e.disconnect())},{threshold:[0]});e.observe(document.getElementById("disqus_thread"))}else loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by
+Disqus.</a></noscript></article></main><footer class=footer><span>&copy; 2024 <a href=https://aikenh.cn/hugotest/>aiken's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span id=busuanzi_container>Visitors: <span id=busuanzi_value_site_uv></span>
+Views: <span id=busuanzi_value_site_pv></span></span></footer><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),o=13863,i=16993;if(!e||!t){console.error("Busuanzi elements not found.");return}const n=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+o;break}}),s=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){s.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+i;break}});n.observe(e,{childList:!0}),s.observe(t,{childList:!0})})</script><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><span class=topInner><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+<span id=read_progress></span>
+</span></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))}),document.getElementById("theme-toggle-nav").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script>document.addEventListener("scroll",function(){const t=document.getElementById("read_progress"),n=document.documentElement.scrollHeight,s=document.documentElement.clientHeight,o=document.documentElement.scrollTop||document.body.scrollTop;t.innerText=((o/(n-s)).toFixed(2)*100).toFixed(0)})</script><script>(function(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(e)}),i.parentNode.insertBefore(n,i)})("/js/pangu.js",function(){pangu.spacingPage()})</script></body></html>

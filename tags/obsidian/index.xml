@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Obsidian on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/obsidian/</link>
+    <description>Recent content in Obsidian on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Oct 2023 00:39:59 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian使用 Spaced Repetition 制作闪念卡片</title>
+      <link>https://aikenh.cn/hugotest/posts/flashcard_template/</link>
+      <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/flashcard_template/</guid>
+      <description>&lt;p&gt;该文作为基础的闪念卡片的使用说明，介绍几种闪念卡片定义的方式，便于后续查阅，参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/558326315&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Obsidian: Spaced Repetition插件使用指南 &lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.stephenmwangi.com/obsidian-spaced-repetition/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Index - Obsidian Spaced Repetition&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;基本规则&#34;&gt;基本规则&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;单个确定为 Flashcards 的笔记文件中可以存放多个闪念卡片。&lt;/li&gt;
+&lt;li&gt;会根据记忆程度来设立需要复习的时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;卡片分组&#34;&gt;卡片分组&lt;/h2&gt;
+&lt;p&gt;在 Tab 中使用 &lt;code&gt;/&lt;/code&gt; 可以引出卡片界面的层级，只需要在设置里设定最高层的分组，后续的分组用 &lt;code&gt;/&lt;/code&gt; 引出即可。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231027212958.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231027212958.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231027212958.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;使用以下的标签就能实现上述的分组结果：&lt;code&gt;#vocabulary/day00&lt;/code&gt;；需要注意到的是只有至少一个问答时才会显示在对应的表中。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hexo Write</title>
+      <link>https://aikenh.cn/hugotest/posts/hexo_write/</link>
+      <pubDate>Wed, 13 Apr 2022 23:29:10 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/hexo_write/</guid>
+      <description>&lt;p&gt;Hexo和Gitee一致，都是由Markdown文件为基础，构建的博客，编写Markdown本身无需多言，由于Hexo并非笔者的首选笔记管理方式，故而再其他地方构建和编写文件是常态，该Blog主要是利用其他工具来方便Hexo博文的编写（Header）&lt;/p&gt;
+&lt;p&gt;默认的是 &lt;code&gt;hexo new [layout] title&lt;/code&gt; 可简写为 &lt;code&gt;hexo n [layout] title&lt;/code&gt;，其中布局应该是在博客目录中定义，该命令也局限于博客的对应目录。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;post(默认)、draft、page&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;除了默认的方法，本篇将介绍Obsidian、VsCode-like、Vim自动添加Header的方式，用以方便随时随地的编写博文。&lt;/p&gt;
+&lt;p&gt;同时为了方便已有笔记迁移，本文也编写了Python脚本，CPY后为Target Dir的版本自动添加Header，但是其中对应的Catagories最好还是手动修改一下。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;obsidian&#34;&gt;Obsidian&lt;/h2&gt;
+&lt;p&gt;通过&lt;strong&gt;template&lt;/strong&gt;插件，按照对应主题的Header样式添加，可以去官方文档中找对应的语法和说明。从而构建自己的Template&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Workflow&lt;/strong&gt;：插件市场添加Template -&amp;gt; 设置指定Template文件夹 -&amp;gt; 按照语法编写Template文件 -&amp;gt; 使用快捷键插入模板&lt;/p&gt;
+&lt;p&gt;由于这一块没有什么存在歧义的操作，就不赘述，唯一需要注意的是语法，简单参考一下&lt;a href=&#34;https://silentvoid13.github.io/Templater/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方的Example&lt;/a&gt;
+即可，无需过于深入&lt;/p&gt;
+&lt;p&gt;本文使用的是Live my Life的Hexo-Theme，模板文件如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;tp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;catalog&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;tp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;YYYY-MM-DD HH:mm:ss&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;subtitle&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;cn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;header&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;/img/header_img/lml_bg1.jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;tag&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;mathjax&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;sticky&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;实际上各个模块的操作思想都是一致的Snippet方案。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

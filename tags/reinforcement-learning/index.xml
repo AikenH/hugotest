@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Reinforcement Learning on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/reinforcement-learning/</link>
+    <description>Recent content in Reinforcement Learning on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Jul 2021 13:51:48 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL-DouZero</title>
+      <link>https://aikenh.cn/hugotest/posts/rl-douzero/</link>
+      <pubDate>Tue, 06 Jul 2021 13:51:48 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/rl-douzero/</guid>
+      <description>&lt;p&gt;Desc: GAME, RL
+Finished?: Yes
+Tags: Paper
+URL1: &lt;a href=&#34;https://arxiv.org/abs/2106.06135&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://arxiv.org/abs/2106.06135&lt;/a&gt;
+
+URL2: &lt;a href=&#34;https://github.com/kwai/DouZero&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/kwai/DouZero&lt;/a&gt;
+
+URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/datamllab/rlcard-showdown&lt;/a&gt;
+）&lt;/p&gt;
+&lt;p&gt;使用蒙特卡洛方法进行自我对弈不断更新预测模型的方法，这实际上也是普通人对于强化学习如何在self-play中实现自我更新的最基础的想法把：
+自我对弈（记录动作序列）- 用最终的胜负（价值）更新网络。&lt;/p&gt;
+&lt;h2 id=&#34;算法的设计和思路&#34;&gt;算法的设计和思路&lt;/h2&gt;
+&lt;p&gt;算法的目标是学习一个价值网路。网络的输入是当前状态和一个动作，输出是在当前状态做这个动作的期望收益（比如胜率）。简单来说，价值网络在每一步计算出哪种牌型赢的概率最大，然后选择最有可能赢的牌型。蒙特卡罗方法不断重复以下步骤来优化价值网络：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用价值网络生成一场对局&lt;/li&gt;
+&lt;li&gt;记录下该对局中所有的状态、动作和最后的收益（胜率）&lt;/li&gt;
+&lt;li&gt;将每一对状态和动作作为网络输入，收益作为网络输出，用梯度下降对价值网络进行一次更新&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其实，所谓的蒙特卡罗方法就是一种随机模拟，即通过不断的重复实验来估计真实价值。&lt;/p&gt;
+&lt;p&gt;如下图所示，斗零采用一个价值神经网络，其输入是状态和动作，输出是价值。首先，过去的出牌用 LSTM 神经网络进行编码。然后 LSTM 的输出以及其他的表征被送入了 6 层全连接网络，最后输出价值。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911211016&#34;&gt;
+    &lt;img alt=&#34;img&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911211016&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911211016&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;img&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;系统训练的主要瓶颈在于模拟数据的生成，因为每一步出牌都要对神经网络做一次前向传播。斗零采用多演员（actor）的架构，在单个 GPU 服务器上，用了 45 个演员同时产生数据，最终数据被汇集到一个中央训练器进行训练。比较有趣的是，斗零并不需要太多的计算资源，仅仅需要一个普通的四卡 GPU 服务器就能达到不错的效果。这可以让大多数实验室轻松基于作者的代码做更多的尝试。&lt;/p&gt;
+&lt;p&gt;该方法的设计和实现上听起来都挺简单的，可以找个时间自己测试一下，玩一玩这个东西，对于我来说，看看他们怎么用这个lstm去进行历史编码的，以及在对transformer了解后，看看如何用transformer去替代这样的lstm是我这边的研究重点。&lt;/p&gt;
+&lt;h2 id=&#34;蒙特卡洛方法存在的问题&#34;&gt;蒙特卡洛方法存在的问题&lt;/h2&gt;
+&lt;p&gt;蒙特卡罗方法在强化学习领域中被大多数研究者忽视。学界普遍认为蒙特卡罗方法存在两个缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;蒙特卡罗方法不能处理不完整的状态序列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;蒙特卡罗方法有很大的方差，导致采样效率很低。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;但是斗地主中，可以产生转正的状态序列，同时很容易通过并行来采集大量的样本降低方差，主要是实现上简单，但是可能也是需要大量的数据把。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reward is Enough</title>
+      <link>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</link>
+      <pubDate>Sun, 06 Jun 2021 13:53:36 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</guid>
+      <description>&lt;p&gt;Desc: RL
+Finished?: Yes
+Tags: Paper&lt;/p&gt;
+&lt;p&gt;通用人工智能，是否能通过强化学习的奖励机制就实现&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/XTNyLjZ9KfdtHY4Omb9_4w&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;实现AGI，强化学习就够了？Sutton、Silver师徒联手：奖励机制足够实现各种目标&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;对reward构建agi的可行性的分析和探讨&#34;&gt;对reward构建AGI的可行性的分析和探讨&lt;/h2&gt;
+&lt;p&gt;这篇文章实际上没有给出一个很好的方案通过reward来实现各种AGI的设计，但是给出了在每一种场景下的AGI的reward设计的设想把。和对用reward进行设计的可行性分析。
+同时分析了：感知、社交、语言、泛化、模仿，这几个方面&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;类似地，如果人工智能体的经验流足够丰富，那么单一目标（例如电池寿命或生存）可能隐含地需要实现同样广泛的子目标的能力，因此奖励最大化应该足以产生一种通用人工智能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这不久回到了最基础的问题，没有这种长线以及大量数据交互以及全面场景的经验流，来支撑这样一个AGI的学习，所以这不也是在现阶段上纸上谈兵嘛？&lt;/p&gt;
+&lt;p&gt;对这篇论文我的总结是，我不推荐详细阅读，我觉得收益有限，太理想化，其实和强化学习本身的假设也没有太多新东西，我们可以假设强化学习能带来一个AGI，但是对应的约束和限制确实是有点多了。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RL-MobaAI</title>
+      <link>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</link>
+      <pubDate>Sun, 30 May 2021 13:52:42 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</guid>
+      <description>&lt;p&gt;Created by: Aiken H
+Desc: GAME, RL
+Finished?: Yes
+Tags: Paper&lt;/p&gt;
+&lt;p&gt;《Master Complex Control in MOBA Games with Deep Reinforcement Learning》 论文阅读笔记&lt;/p&gt;
+&lt;p&gt;@Aiken H 2021.06&lt;/p&gt;
+&lt;h2 id=&#34;introduction-and-related-research&#34;&gt;Introduction and Related Research.&lt;/h2&gt;
+&lt;p&gt;MOBA游戏的复杂度和状态空间都远比以前的围棋之类的运动更大，所以难度会更大一些&lt;/p&gt;
+&lt;p&gt;早一些的游戏ai使用的是（2015） Deep Q-Network  通过 supervised learning and self-play 结合的训练策略在围棋上击败了专业人类，而最近更多的使用了DRL（Deep Reinforcement Learning）的方法在近几年被进一步的应用。&lt;/p&gt;
+&lt;h3 id=&#34;neural-network-architecture-include&#34;&gt;&lt;strong&gt;Neural Network Architecture Include&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;contributions&#34;&gt;&lt;strong&gt;Contributions&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;the &lt;strong&gt;encoding&lt;/strong&gt; of &lt;strong&gt;Multi-modal inputs 多模态输入&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;the &lt;strong&gt;decoupling&lt;/strong&gt; of inter-correlations in controls &lt;strong&gt;控制内关联解码&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;exploration &lt;strong&gt;pruning&lt;/strong&gt; mechanism  &lt;strong&gt;剪枝设置&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action mask&lt;/strong&gt; for efficient exploration ❓&lt;strong&gt;效率&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;attack &lt;strong&gt;attention&lt;/strong&gt;(for target selection) &lt;strong&gt;Attention机制做目标选择&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LSTM&lt;/strong&gt; for learning skill combos &lt;strong&gt;LSTM 机制做技能释放和链接&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimize&lt;/strong&gt; by multi-label proximal policy algorithm(&lt;strong&gt;improved PPO&lt;/strong&gt;)
+&lt;ul&gt;
+&lt;li&gt;dual-clip PPO 帮助训练的收敛&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;!-- more --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;present a systematic and thorough study&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RL Notebook 01</title>
+      <link>https://aikenh.cn/hugotest/posts/rl-c1/</link>
+      <pubDate>Sun, 23 May 2021 13:50:06 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/rl-c1/</guid>
+      <description>&lt;p&gt;Created by: Aiken H
+Detail: survey
+Finished?: No
+Tags: Paper
+URL1: &lt;a href=&#34;https://www.cnblogs.com/pinard/category/1254674.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.cnblogs.com/pinard/category/1254674.html&lt;/a&gt;
+
+URL2: &lt;a href=&#34;https://github.com/ljpzzz/machinelearning&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/ljpzzz/machinelearning&lt;/a&gt;
+
+URL3: &lt;a href=&#34;https://datawhalechina.github.io/easy-rl/#/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://datawhalechina.github.io/easy-rl/#/&lt;/a&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;chapter1-模型基础&#34;&gt;Chapter1 模型基础&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/pinard/p/9385570.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;强化学习（一）模型基础&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;强化学习是介于监督和无监督学习之间的，强化学习没有输出值，但是有&lt;strong&gt;reward：&lt;/strong&gt; 同时这个reward是事后给出的，而不是及时回馈的。而无监督学习是只有数据特征，同时数据之间是独立的，没有前后依赖的关系。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911210000.png&#34;&gt;
+    &lt;img alt=&#34;https://images2018.cnblogs.com/blog/1042406/201807/1042406-20180729163058011-290427357.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911210000.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20210911210000.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;https://images2018.cnblogs.com/blog/1042406/201807/1042406-20180729163058011-290427357.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;theory理论基础&#34;&gt;Theory理论基础&lt;/h2&gt;
+&lt;!-- more --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;简化模型介绍：&lt;/p&gt;
+&lt;p&gt;上面的大脑代表我们的算法执行个体，我们可以操作个体来做决策，即选择一个合适的动作（Action）At。下面的地球代表我们要研究的环境,它有自己的状态模型，我们选择了动作At后，环境的状态(State)会变，我们会发现环境状态已经变为St+1,同时我们得到了我们采取动作At的延时奖励(Reward)Rt+1。然后个体可以继续选择下一个合适的动作，然后环境的状态又会变，又有新的奖励值。。。这就是强化学习的思路。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;强化学习的模型关键要素：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;环境的状态S：t时刻环境的状态 $S_t$ 是它环境状态集中的某一个状态&lt;/li&gt;
+&lt;li&gt;个体的动作A：个体在某个时刻可能做出的动作集合&lt;/li&gt;
+&lt;li&gt;环境的奖励R：个体在某个时刻对应状态下做出的动作 $A_t$ 得到的奖励会在t+1时刻得到&lt;/li&gt;
+&lt;li&gt;个体的策略 $\pi$ ：个体根据当前的环境选择采取动作的策略分布（函数），一般表示为一个条件概率分布的形式，概率大的动作被个体选择的概率显然更高&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div&gt;
+$$ \pi(a|s)= P(A_t = a | S_t = s) $$
+&lt;/div&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;在策略 $\pi$ 和状态s采行动后的价值 $v_\pi(s)$ ：一般是一个期望函数，因为我们不能每次只能选择当前的reward最大的策略，而是需要考虑大局，所以我们要有一个综合的（当前和后续）的延时奖励。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div&gt;
+$$ v_\pi(s) = \mathbb{E}(R_{t+1} + \gamma R_{t+2} + \gamma ^2 R_{t+3} + ... |S_t = s) $$
+&lt;/div&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;奖励衰减因子 $\gamma$ ：也就是上式的权重，极端值考虑贪婪和一致等同，范围在[0,1]&lt;/li&gt;
+&lt;li&gt;环境的状态转移模型：也就是环境从s经过a后转化下一个状态的状态机，也可以表示为一个概率模型 $P_{ss^‘}^a$ (s→s&amp;rsquo; , a)&lt;/li&gt;
+&lt;li&gt;探索率 $\epsilon$ ：主要用于训练迭代中，我们一般选择当前价值最大的动作，但是为了搜索空间的完备，我们会用 $\epsilon$ 的概率去选择非最大价值的动作，来提升训练的鲁棒性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;SUMMARY：主要介绍了强化学习模型的workflow以及其中需要考虑的8个主要参数和函数架构。最主要的机制还是Policy和reward设计这一块&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>APPs on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/apps/</link>
+    <description>Recent content in APPs on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Apr 2023 22:42:58 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/apps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows App01 Potplayer &amp; Alist</title>
+      <link>https://aikenh.cn/hugotest/posts/alist_potplayer/</link>
+      <pubDate>Sun, 30 Apr 2023 22:42:58 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/alist_potplayer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本篇主要介绍一下播放器 PotPlayer 的设置以及结合 Alist&amp;amp;小雅 alist 的使用，这样就可以直接在播放器访问本地网盘上的内容，便于使用和观看。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;alist-deploy&#34;&gt;Alist Deploy&lt;/h2&gt;
+&lt;p&gt;Alist 作为一个网盘管理中心，可以将各大网盘中的资源进行统一管理，同时支持视频的 webdav 播放，这里推荐的安装方式是使用 Docker-Compose 进行安装，根据自己的情况来选择对应的挂载和安装目录。&lt;/p&gt;
+&lt;p&gt;由于官方的文档已经事无巨细，这里就不在赘述如何安装和配置 alist 的各个网盘挂载，详情参见：&lt;a href=&#34;https://alist.nn.ci/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Home | AList Docs (nn.ci)&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;安装完并&lt;strong&gt;启动 Alist 服务&lt;/strong&gt;即可，记住自己的&lt;strong&gt;端口&lt;/strong&gt;和设置的&lt;strong&gt;账号密码&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;aria2离线下载支持&#34;&gt;Aria2离线下载支持&lt;/h3&gt;
+&lt;p&gt;该部分介绍如何通过 docker 为 Alist 添加 Aria2 作为离线下载服务，以及一些常见的问题解决方法。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://p3terx.com/archives/docker-aria2-pro.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aria2-pro&lt;/a&gt;
+ |  &lt;a href=&#34;https://github.com/P3TERX/Aria2-Pro-Docker/blob/master/docker-compose.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aira2-pro-github&lt;/a&gt;
+ |  &lt;a href=&#34;https://yiwangmeng.com/aria2-status-page-to-prompt-the-solution-of&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aria2认证失败&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;这里介绍使用 docker-compose 安装 aria2的方法，并将 docker 版本的 aria2和 alist 结合起来使用，在基于 docker 安装之前，我们先准备几个文件夹：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &amp;lt;your-path-2-aria2&amp;gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; mkdir aria2-config &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; chmod &lt;span class=&#34;m&#34;&gt;777&lt;/span&gt; aria2-config
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir aria2-downloads &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; chmod &lt;span class=&#34;m&#34;&gt;777&lt;/span&gt; aria2-downloads
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中 downloads 目录是我们用来下载文件的目录，我们也可以使用挂载的目录或者共享的目录来存储下载的文件；然后我们准备一下 alist 中用于离线下载的目录，&lt;strong&gt;该目录需要在 alist 的 docker 和 aria2的 docker 中都将该 volume 挂载到同一个地方&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;本文将 aria2的队名目录挂载到 alist 的对应目录中，对应的 alist 的 compose 文件有&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709161919.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709161919.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709161919.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;而 aria2的 compose 文件则有：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709161956.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709161956.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709161956.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;再将该目录的权限改成777，&lt;code&gt;chmod 777 &amp;lt;this-dir&amp;gt;&lt;/code&gt; 之后即可再 alist 中离线下载成功，而且该下载文件会在指定的网盘中上传，当上传完成时会删除临时文件，不占用本地磁盘空间。&lt;/p&gt;
+&lt;p&gt;完整的 Compose 文件可以参考 &lt;a href=&#34;https://github.com/P3TERX/Aria2-Pro-Docker/blob/master/docker-compose.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Aria2-Pro-Docker/docker-compose.yml at master · P3TERX/Aria2-Pro-Docker · GitHub&lt;/a&gt;
+ 官方的配置进行安装，我个人的 compose 文件则会上传到&lt;a href=&#34;https://github.com/AikenH/aikenh-DockerComposeYML&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AikenH/aikenh-DockerComposeYML (github.com)&lt;/a&gt;
+中。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Aria2Ng 界面认证失败&lt;/strong&gt;的问题，是因为我们再 compose 中设置了密码之后，要在该界面的设置中设置密码后才能正常认证。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162444.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162444.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162444.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;密码需要到如下地方设置：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162537.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162537.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162537.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;设置完成后应该就不会有认证失败的提示了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;alist 设置 Aria2失败&lt;/strong&gt;，由于使用的 docker 部署的 aria2，这里不能使用 localhost，要使用对应的 ip 来设置该服务，如下图所示&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162724.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162724.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230709162724.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;完成这些设置后应该就可以正常使用了，但是由于现在都是网盘场景更多，所以离线下载的可能使用场景也有限，而且通过测试发现，如果完全装在树莓派上的话，可能会对系统的性能造成一定的负担。&lt;/p&gt;
+&lt;h2 id=&#34;xiaoya-deploy&#34;&gt;Xiaoya Deploy&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Xiaoya 是基于 Alist 做改版的个人资源站，里面涵盖了大量的影视资源，并在不断的更新，通过在本地挂载 xiaoya 我们也可以用来通过 webdav 在播放器中直接选择视频进行播放，大多数情况下都免去了找资源的痛苦。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;官方网站：&lt;a href=&#34;http://alist.xiaoya.pro/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;主页 | 小雅的分类 Alist (xiaoya.pro)&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;拥有了 Docker 环境后，就可以基于 xiaoya 提供的脚本实现一键拉取镜像和启动 Docker，默认的端口是 5678，安装指令如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo bash -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -s http://docker.xiaoya.pro/update_new.sh&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装过程中会需要填入如下内容：token、open_token、转存目录的 folder id，具体和后续更新参考&lt;a href=&#34;https://xiaoyaliu.notion.site/xiaoya-docker-69404af849504fa5bcf9f2dd5ecaa75f&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;配置页&lt;/a&gt;
+，（跟随安装引导界面进行安装即可。）&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

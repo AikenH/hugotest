@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ipv6 on aiken&#39;s blog</title>
-    <link>https://metisy.cool/tags/ipv6/</link>
+    <link>https://aikenh.cn/hugotest/tags/ipv6/</link>
     <description>Recent content in Ipv6 on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Dec 2023 08:24:36 +0000</lastBuildDate>
-    <atom:link href="https://metisy.cool/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aikenh.cn/hugotest/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>家庭服务器整体方案</title>
-      <link>https://metisy.cool/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</link>
+      <link>https://aikenh.cn/hugotest/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</link>
       <pubDate>Wed, 20 Dec 2023 08:24:36 +0000</pubDate>
-      <guid>https://metisy.cool/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://aikenh.cn/hugotest/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -67,6 +67,241 @@
       });
   });
 &lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务03 DDNS-go 动态域名解析</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</link>
+      <pubDate>Tue, 07 Nov 2023 13:40:13 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第三篇，以 DDNS-go 开源项目为例，部署动态域名解析服务，自动更新主机记录值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jeessy2/ddns-go&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;jeessy2/ddns-go: 简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾讯云、Dnspod、Cloudflare、Callback、华为云、百度云、Porkbun、GoDaddy、Google Domain) (github.com)&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;该工具使用起来非常简单，推荐需要动态域名解析的可以尝试使用该工具，简单介绍工具的使用如下：&lt;/p&gt;
+&lt;h2 id=&#34;配置-ddns-go&#34;&gt;配置 DDNS-GO&lt;/h2&gt;
+&lt;p&gt;前往 &lt;a href=&#34;https://github.com/jeessy2/ddns-go/releases/tag/v5.6.6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;release&lt;/a&gt;
+ 页面下载对应系统的版本：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;解压后双击打开 ddns-go.exe 会自动弹出配置的界面：locahost:9876,选择需要解析域名的 DNS 服务商，选择创建密钥并填入对应的密钥。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务02 Nginx和Https</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</link>
+      <pubDate>Mon, 06 Nov 2023 20:49:16 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第二篇，以腾讯云和 Nginx 为例，介绍如何将服务部署到 https://域名 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;需要以下的事前准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;腾讯云/阿里云/Cloudflare 等随便一个地方购买一个自己的域名&lt;/li&gt;
+&lt;li&gt;公网 ipv4/ipv6 地址&lt;/li&gt;
+&lt;li&gt;本地部署一个服务以供测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;nginxdocker-安装&#34;&gt;Nginx(Docker) 安装&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里选择 Docker 来分离安装 Nginx 服务，Docker 部署的优势这里就不再赘述，这里建议使用 portainer 进行容器管理和运行状态查看。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先创建存放 Nginx 配置文件和证书文件的目录，后续挂载给 Nginx Contrainer 使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /home/username/docker-file/nginx/conf.d
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /home/username/docker-file/nginx/cert
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;配置文件存放到 &lt;code&gt;conf.d&lt;/code&gt; 中，&lt;strong&gt;各种 SSL 证书则存放到&lt;/strong&gt; &lt;code&gt;cert&lt;/code&gt; 文件夹中；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接着部署 Nginx，这次先不挂载目录，将 Nginx 中一些默认配置拷贝出来，以供后续使用和修改：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# run会自己执行镜像拉取，pull可以不执行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker pull nginx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run --name nginx -p 80:80 -d nginx 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;将配置文件复制出来：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/conf.d/default.conf /home/username/docker-file/nginx/conf.d/default.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/nginx.conf /home/username/docker-file/nginx/conf.d/nginx.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/mime.types /home/username/docker-file/nginx/conf.d/mime.types
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;基于原始的配置文件挂载后查看 nginx 是否正常运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker rm -f nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run --name nginx -p 80:80 -p 443:443 -v /home/username/docker-file/nginx/conf.d/nginx.conf:/etc/nginx/nginx.conf -v /home/username/docker-file/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /home/username/docker-file/nginx/conf.d/mime.types:/etc/nginx/mime.types -v /home/username/docker-file/nginx/cert:/etc/nginx/cert -d nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考资料：&lt;a href=&#34;https://www.cnblogs.com/Aamir-Ye/p/16823739.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;使用docker部署nginx并配置https - 逊老头 - 博客园 (cnblogs.com)&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务01 IPV6开启和设置</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</link>
+      <pubDate>Sun, 05 Nov 2023 19:23:17 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第一篇，以电信宽带为例，说明如何开启 ipv6 服务和外网访问放行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;开启 IPV6 服务主要需要修改两个地方的配置：**光猫开启桥接模式和 IPV6 **、&lt;strong&gt;路由器修改为 pppoe 拨号模式以及防火墙设置&lt;/strong&gt;；这里以本人的电信光猫和小米路由器为例：&lt;/p&gt;
+&lt;h2 id=&#34;背景介绍&#34;&gt;背景介绍&lt;/h2&gt;
+&lt;p&gt;需要在外网访问部署于家庭内网的一些服务，考虑了以下的几个方案，决定使用 ipv6作为核心&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;方案&lt;/th&gt;
+          &lt;th&gt;简要说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;Zerotier&lt;/td&gt;
+          &lt;td&gt;免费，需要注册账户，支持移动端，国内速度极慢，且不稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;Tailscale（备用）&lt;/td&gt;
+          &lt;td&gt;免费，需要注册账号，支持移动端，国内速度一版，稳定性相 Zetotier 较好，但仍不够稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;frp&lt;/td&gt;
+          &lt;td&gt;申请一个有公网的服务器，使用 frp 自己作为内网穿透的中转，贵，较为麻烦&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;公网 IP&lt;/td&gt;
+          &lt;td&gt;Ipv4&lt;/td&gt;
+          &lt;td&gt;难以申请，其他都好&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;公网 IP&lt;/td&gt;
+          &lt;td&gt;Ipv6（主力）&lt;/td&gt;
+          &lt;td&gt;获取简单，需要配置一下光猫使用，一劳永逸，快，稳定，多，有暴露公网的危险，需要设置防火墙&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;其他&lt;/td&gt;
+          &lt;td&gt;Cloudflare Zerotrust&lt;/td&gt;
+          &lt;td&gt;简单，免费，可以绑定域名，但是网站根本登不进去配置页面，速度不快&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;光猫设置&#34;&gt;光猫设置&lt;/h2&gt;
+&lt;p&gt;查看光猫背面的管理员 url，进入光猫管理界面，登录&lt;strong&gt;超级管理员账户&lt;/strong&gt;（非普通账户，会跳转到更详细的管理页面，大部分同地区的超级管理员账户应该是一致的，不对可以询问下宽带师傅）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;管理地址通常为：192.168.1.1&lt;/li&gt;
+&lt;li&gt;超级管理员账号：useradmin&lt;/li&gt;
+&lt;li&gt;超级管理员密码：nE7jA%5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;开始之前准备 PPPoe 拨号的帐号和密码，不知道的话等询问好了再开始操作。&lt;/p&gt;
+&lt;p&gt;在天翼网关-&amp;gt;网络-&amp;gt;网络设置中进行如下的操作：（这里可以尝试改成 pppoe 并通过开发者模式查看密码，不知道密码不要轻易进行后续操作）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;连接名称选择 &lt;code&gt;+++INTERENT_R_VID_41&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;连接模式从路由改为桥接&lt;/li&gt;
+&lt;li&gt;IP 模式确认为 &lt;code&gt;IPv4&amp;amp;IPv6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;点击保存/应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;在天翼网关-&amp;gt;状态-&amp;gt;网络侧信息中检查 IPv4 和 IPv6 是否都开启成功：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://cloud.tencent.com/developer/article/1894991&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;个人宽带如何开启IPv6网络访问&lt;/a&gt;
 &lt;/p&gt;</description>
     </item>
   </channel>

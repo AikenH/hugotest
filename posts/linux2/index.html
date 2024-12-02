@@ -1,0 +1,343 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Linux02 基础指令 | aiken's blog</title>
+<meta name=keywords content="Linux,manual"><meta name=description content='@Aiken 2022
+If u want get detail params info go to: http://www.explainshell.com
+.
+tar 压缩命令
+linux中主要使用tar来进行文件的打包和解压，如果需要处理zip文件需要额外的支持，在上一章节中已经提到了，该章节压缩文件部分主要介绍tar命令
+压缩文件（夹）
+
+
+1
+2
+
+
+tar -zcvf {final_name}.tgz {dir} --exclude={dir/sub_dire1}
+tar -cvf ...
+
+
+解压文件（夹）
+
+
+1
+2
+
+
+tar -zxvf {tarfile}.tgz -C {指定目录}
+tar -xvf ...
+
+
+批量解压tar
+编写脚本批量解压tar文件到对应的文件夹中，这里主要的核心在于脚本的编写，而非tar的package
+
+
+1
+2
+3
+4
+5
+6
+
+
+# version 1 ez2understrand
+for i in `ls *.tar.gz`
+do
+    mkdir /dir/${i/.tar.gz//}
+    tar zxvf $i -C /dir/${i/.tar.gz//}
+done
+
+
+也可以使用第二种方法：
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+# version 2 try to use assignment method
+# 可以发现基本的操作是一样的，就是对应的定义的地方
+# 可以考虑一下是如何使用echo和cut以及对应的-d 和 -f1是什么意思
+for file in `ls *.tar`
+do
+    todir=`echo $file | cut -d"." -f1`
+    mkdir $todir && tar -xvf $file -C $todir
+done
+
+
+参考资料：tar压缩解压缩命令详解
+'><meta name=author content="aikenhong"><link rel=canonical href=https://aikenh.cn/hugotest/posts/linux2/><link crossorigin=anonymous href=/hugotest/assets/css/stylesheet.2f85ca17c12c62fa86b1e474b8a51aca4856f0d645debfe4922a4d5ddc6aa978.css integrity="sha256-L4XKF8EsYvqGseR0uKUaykhW8NZF3r/kkipNXdxqqXg=" rel="preload stylesheet" as=style><link rel=icon href=https://aikenh.cn/favicon/ghost.ico><link rel=icon type=image/png sizes=16x16 href=https://aikenh.cn/favicon/ghost-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aikenh.cn/favicon/ghost-32x32.png><link rel=apple-touch-icon href=https://aikenh.cn/favicon/ghost-apple-touch-icon.png><link rel=mask-icon href=https://aikenh.cn/favicon/ghost-192x192.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aikenh.cn/hugotest/posts/linux2/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel=stylesheet><meta property="og:url" content="https://aikenh.cn/hugotest/posts/linux2/"><meta property="og:site_name" content="aiken's blog"><meta property="og:title" content="Linux02 基础指令"><meta property="og:description" content='@Aiken 2022
+If u want get detail params info go to: http://www.explainshell.com .
+tar 压缩命令 linux中主要使用tar来进行文件的打包和解压，如果需要处理zip文件需要额外的支持，在上一章节中已经提到了，该章节压缩文件部分主要介绍tar命令
+压缩文件（夹）
+1 2 tar -zcvf {final_name}.tgz {dir} --exclude={dir/sub_dire1} tar -cvf ... 解压文件（夹）
+1 2 tar -zxvf {tarfile}.tgz -C {指定目录} tar -xvf ... 批量解压tar 编写脚本批量解压tar文件到对应的文件夹中，这里主要的核心在于脚本的编写，而非tar的package
+1 2 3 4 5 6 # version 1 ez2understrand for i in `ls *.tar.gz` do mkdir /dir/${i/.tar.gz//} tar zxvf $i -C /dir/${i/.tar.gz//} done 也可以使用第二种方法：
+1 2 3 4 5 6 7 8 # version 2 try to use assignment method # 可以发现基本的操作是一样的，就是对应的定义的地方 # 可以考虑一下是如何使用echo和cut以及对应的-d 和 -f1是什么意思 for file in `ls *.tar` do todir=`echo $file | cut -d"." -f1` mkdir $todir && tar -xvf $file -C $todir done 参考资料：tar压缩解压缩命令详解 '><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-09-04T21:30:00+00:00"><meta property="article:modified_time" content="2022-09-04T21:30:00+00:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Manual"><meta property="og:image" content="https://aikenh.cn/cover/cover9.jpeg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aikenh.cn/cover/cover9.jpeg"><meta name=twitter:title content="Linux02 基础指令"><meta name=twitter:description content='@Aiken 2022
+If u want get detail params info go to: http://www.explainshell.com
+.
+tar 压缩命令
+linux中主要使用tar来进行文件的打包和解压，如果需要处理zip文件需要额外的支持，在上一章节中已经提到了，该章节压缩文件部分主要介绍tar命令
+压缩文件（夹）
+
+
+1
+2
+
+
+tar -zcvf {final_name}.tgz {dir} --exclude={dir/sub_dire1}
+tar -cvf ...
+
+
+解压文件（夹）
+
+
+1
+2
+
+
+tar -zxvf {tarfile}.tgz -C {指定目录}
+tar -xvf ...
+
+
+批量解压tar
+编写脚本批量解压tar文件到对应的文件夹中，这里主要的核心在于脚本的编写，而非tar的package
+
+
+1
+2
+3
+4
+5
+6
+
+
+# version 1 ez2understrand
+for i in `ls *.tar.gz`
+do
+    mkdir /dir/${i/.tar.gz//}
+    tar zxvf $i -C /dir/${i/.tar.gz//}
+done
+
+
+也可以使用第二种方法：
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+# version 2 try to use assignment method
+# 可以发现基本的操作是一样的，就是对应的定义的地方
+# 可以考虑一下是如何使用echo和cut以及对应的-d 和 -f1是什么意思
+for file in `ls *.tar`
+do
+    todir=`echo $file | cut -d"." -f1`
+    mkdir $todir && tar -xvf $file -C $todir
+done
+
+
+参考资料：tar压缩解压缩命令详解
+'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aikenh.cn/hugotest/posts/"},{"@type":"ListItem","position":2,"name":"Linux02 基础指令","item":"https://aikenh.cn/hugotest/posts/linux2/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Linux02 基础指令","name":"Linux02 基础指令","description":"@Aiken 2022\nIf u want get detail params info go to: http://www.explainshell.com .\ntar 压缩命令 linux中主要使用tar来进行文件的打包和解压，如果需要处理zip文件需要额外的支持，在上一章节中已经提到了，该章节压缩文件部分主要介绍tar命令\n压缩文件（夹）\n1 2 tar -zcvf {final_name}.tgz {dir} --exclude={dir/sub_dire1} tar -cvf ... 解压文件（夹）\n1 2 tar -zxvf {tarfile}.tgz -C {指定目录} tar -xvf ... 批量解压tar 编写脚本批量解压tar文件到对应的文件夹中，这里主要的核心在于脚本的编写，而非tar的package\n1 2 3 4 5 6 # version 1 ez2understrand for i in `ls *.tar.gz` do mkdir /dir/${i/.tar.gz//} tar zxvf $i -C /dir/${i/.tar.gz//} done 也可以使用第二种方法：\n1 2 3 4 5 6 7 8 # version 2 try to use assignment method # 可以发现基本的操作是一样的，就是对应的定义的地方 # 可以考虑一下是如何使用echo和cut以及对应的-d 和 -f1是什么意思 for file in `ls *.tar` do todir=`echo $file | cut -d\u0026#34;.\u0026#34; -f1` mkdir $todir \u0026amp;\u0026amp; tar -xvf $file -C $todir done 参考资料：tar压缩解压缩命令详解 ","keywords":["Linux","manual"],"articleBody":"@Aiken 2022\nIf u want get detail params info go to: http://www.explainshell.com .\ntar 压缩命令 linux中主要使用tar来进行文件的打包和解压，如果需要处理zip文件需要额外的支持，在上一章节中已经提到了，该章节压缩文件部分主要介绍tar命令\n压缩文件（夹）\n1 2 tar -zcvf {final_name}.tgz {dir} --exclude={dir/sub_dire1} tar -cvf ... 解压文件（夹）\n1 2 tar -zxvf {tarfile}.tgz -C {指定目录} tar -xvf ... 批量解压tar 编写脚本批量解压tar文件到对应的文件夹中，这里主要的核心在于脚本的编写，而非tar的package\n1 2 3 4 5 6 # version 1 ez2understrand for i in `ls *.tar.gz` do mkdir /dir/${i/.tar.gz//} tar zxvf $i -C /dir/${i/.tar.gz//} done 也可以使用第二种方法：\n1 2 3 4 5 6 7 8 # version 2 try to use assignment method # 可以发现基本的操作是一样的，就是对应的定义的地方 # 可以考虑一下是如何使用echo和cut以及对应的-d 和 -f1是什么意思 for file in `ls *.tar` do todir=`echo $file | cut -d\".\" -f1` mkdir $todir \u0026\u0026 tar -xvf $file -C $todir done 参考资料：tar压缩解压缩命令详解 文件操作 cd 路径切换 cd means change directory 切换工作区路径，毋庸置疑是最常使用的指令，基础用法cd {path}\n返回上次目录\n1 2 cd - # - equal to $OLDPWD 推荐使用 zjump 能通过z指令快速定位目录，其通过frecency来管理地址优先级，能通过地址的简写，或者最终文件夹的名字快速跳转和定位。\ntouch 新建 1 2 touch {filename} mkdir {foldername} rm 删除 删除文件夹的时候需要-r指定递归删除，最好结合-v看看自己到底删了什么\n1 2 rm -{option} {filename} rm -{option}r {foldername} “rm -f” 强行删除，忽略不存在的文件，不提示确认。(force) “rm -i” 进行交互式删除，即删除时会提示确认。(interactive) “rm -r” 将参数中列出的全部目录和子目录进行递归删除。(recursive) “rm -v” 详细显示删除操作进行的步骤。(verbose)\n删除文件夹中的文件，但是不删除文件夹\n1 rm -rf {folder}/* mv 移动 mv 主要承担了以下两个职责：重命名、移动\n1 2 mv {fileA} {nameB} mv files dir/ 实际上name就代表了在系统中的position，所以当nameB可为地址，可以在移动的同时重命名。\n建议使用-i参数强制执行提示功能， 避免意外覆盖文件。\ncp 拷贝 1 2 # using cp to copy file cp dir1/filea dir2/filea.bak -i 使用cp -i 强制询问是否覆盖，避免不必要的版本损失 -R 递归复制目录 ln 软连接 Linux 软连接，类似windows系统中做快捷方式\n1 2 # 在target地址建立一个名为linkname的软连接，链接到source_dir ln -s source_dir/ target_dir/linkname 删除快捷方式只需要rm即可，切记！！不要-f -v -r。\n1 2 rm linkname # 删除软连接(注意后面千万不能有/) mv linknamea linknameb # 同理换名也是一样的 切换软连接连接的对象\n1 ln -snf {new source} {linkname} Search 搜索命令 FileType 文件类型查看 1 file my_file 可以查看符号连接的源目录\nList Files 列出文件 ls: list directory contents.\n1 ls -l -r -t -h -s -l: use a long listing format -s: print the allocated size of each file, in blocks -t: sort by time(modify, newest first) -h: human-readable -r: reverse order -a: show all files include those hide If we want to find file by “pattern”, we donot need grep we can do like this:\n1 2 ls *.md ls *todo* 列出文件，也可以使用tree dir/列出文件夹的层级结构。\n查看某个文件夹下文件或者文件夹的个数：参考资料 1 2 3 4 5 6 7 ls [dirname] -l| grep \"^-\" | wc -l # 1.查看某文件夹下文件的个数 ls [dirname] -lR| grep \"^-\"| wc -l # 2.包括子文件夹下的文件 ls [dirname] -l| grep \"^d\" | wc -l # 3.只查看文件夹 ls [dirname] -lR| grep \"^d\"| wc -l # 4. 包括子文件夹中的文件夹 # 通过管道查看 ll | wc -l Find Files 文件查找 find: search for files in a directory hierarchy\n1 2 find [path...] -name # find file in this path by pattern Grep Content 格式匹配 Linux grep 命令用于查找文件里符合条件的字符串。\ngrep 指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设 grep 指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为 -，则 grep 指令会从标准输入设备读取数据。\n通过grep在命令行中筛选输出显示，只显示grep指定的部分。\n1 2 # 只显示其中包括str的部分 command | grep 'str' 直接使用Grep搜索文档中的字符数据，\n1 2 grep [option] pattern [file] # 该命令会在输入或指定的文件中搜索包含匹配指定模式的支付的行。 Option:\n-v 反向搜索，搜索不匹配该模式的行 -n 显示所在的行的行号 -c 显示有多少匹配到了 -e 来指定多个匹配模式 grep -e p1 -e p2file1 -r 递归搜索 -i 忽略大小写 -I 忽略二进制文件 -w, word-regexp\n“或” 搜索：\n1 grep -E \"optionA | optionB\" * History Command 历史命令查询 HISTORY主要针对如何找到历史指令，如何重复执行某一行指令；\n1 2 3 4 5 6 7 # show the history command idx history 1262 btm # resume this command idx, it'll get command by the idx !1262 btm CTRL+r : Reverse Cmd Searching\n命令行反向搜索模式，方便输入重复的指令和地址，其会根据当前的键入内容去匹配历史指令。\nCheck 系统状态查看 系统时间显示 date \"+format\" 通过在＋号的后面指定 format 来约束输出时间的样式，具体格式可以参考网站 网络状态 ifconfig 命令需要先安装 net-tools，直接使用 sudo apt-get install net-tools 安装\n1 ifconfig netstat 命令用于显示网络连接、路由表、接口状态等网络信息。\n1 netstat -i 显示网卡列表信息 -r 显示路由表信息 -l 列出正在监听的服务 -a 所有连接中的socket\n系统磁盘占用 查看文件夹和磁盘的空间占用：explain_shell du df 命令可以显示目前所有文件系统的可用空间和使用情形\n1 2 # 参数 -h 表示使用「Human-readable」的输出，也就是在档案系统大小使用 GB、MB 等易读的格式。 df -h du 查询文件或者当前文件夹的磁盘使用\n1 2 3 4 5 # 查询当前文件夹下面各个文件夹的大小： # 将深度改成n应该可以改变递归到子文件夹下的深度 du -h --max-depth=1 * # *代表的是当前文件目录 du -h --max-depth=1 [path] 查看当前目录下文件和文件夹的大小（定位哪里占用空间最大）：\n1 2 3 4 # 查看当前文件夹下所有文件夹的占用空间 du -sh * # 对应的查看指定文件夹大小的方式为： du -sh dir 系统内存占用 free 命令用于显示当前系统中的内存使用信息，使用 free -h 即可查看。\nWatch 监控 将watch加在前面可以监控一些信息的实时变化\n1 2 watch ps -aux watch nvidia-smi Cat File（more、less、nl） cat是显示文本文件中所有数据的得力工具，但是文件的文本会在显示器上一晃而过，难以控制后面的操作。\n1 cat file1 -n 给所有的行加上行号 -b 给非空行加上行号 -T 不显示制表符 more会显示文本文件的内容，但是会在每页数据之后停下来，使用spc/enter翻页，q退出\nless来自 less is more，是 more 的升级版，可以实现文件的前后移动和高级搜索功能。\nnl 命令式再 linux 中用来计算文件的行号，其会计算出每一个非空行（可以控制是否忽视）的行号，加在改行的前面输出改行，参考：每天一个linux命令(11)：nl命令 Head Doc（Tail） 1 2 3 4 tail -n 2 log_file tail -2 log_file # -n 显示文件的后面N行 head -5 log_file 只显示命令行输出的前几条或者后面几条\n1 2 history | head -i histo | tail -i 实时查看正在写入的文件 -f\n1 tail -f file_inprocess.log ps 进程操作 ps 的英文全称为：process，主要用来查看系统中的进程状态，参数的主要参考资料：explain ps 1 2 ps -aux | grep {content} kill {PID} -a 显示所有进程（-e同上） -N 显示与指定参数不符的所有进程 -u 显示用户即 其他详细信息 -x 显示没有控制终端的进程 其他进程操作命令 pstree 命令则可以结合 ps 命令，可用树状图的形式显示进程之间的关系。 top 命令用于动态地监视进程的活动以及系统的负载 pidof 命令可以查看指定服务进程的 PID 号码 killall 复杂的服务进程可能会有多个 pid 进程号，killall 可以批量的终结指令 Sleep 暂停 sleep t引入一段时间的暂停\n","wordCount":"695","inLanguage":"en","image":"https://aikenh.cn/cover/cover9.jpeg","datePublished":"2022-09-04T21:30:00Z","dateModified":"2022-09-04T21:30:00Z","author":[{"@type":"Person","name":"aikenhong"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://aikenh.cn/hugotest/posts/linux2/"},"publisher":{"@type":"Organization","name":"aiken's blog","logo":{"@type":"ImageObject","url":"https://aikenh.cn/favicon/ghost.ico"}}}</script></head><body id=top><script type=module src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js defer></script><script nomodule src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js defer></script><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aikenh.cn/hugotest/ accesskey=h title="aiken's blog (Alt + H)">aiken's blog</a><div class=logo-switches><button id=theme-toggle-nav accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aikenh.cn/hugotest/ title=home><span>home</span></a></li><li><a href=https://aikenh.cn/hugotest/posts/ title=posts><span>posts</span></a></li><li><a href=https://aikenh.cn/hugotest/tags/ title=tags><span>tags</span></a></li><li><a href=https://aikenh.cn/hugotest/categories/ title=categories><span>categories</span></a></li><li><a href=https://aikenh.cn/hugotest/archives/ title=archives><span>archives</span></a></li><li><a href=https://aikenh.cn/hugotest/about/ title=about><span>about</span></a></li><li><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><span>search</span></a></li></ul></nav></header><div class=sidebar><ul><li class=logo style=--bg:#333><a href=#><div class=logo-icon><img src=/logo/logo.png></div><div class=logo-text>Aiken's Blog</div></a></li><div class=menulist><li style=--bg:#f44336><a href=https://aikenh.cn/hugotest/ title=home><div class=logo-icon><ion-icon name=home-outline></ion-icon></div><div class=logo-text>home</div></a></li><li style=--bg:#b145e9><a href=https://aikenh.cn/hugotest/posts/ title=posts><div class=logo-icon><ion-icon name=newspaper-outline></ion-icon></div><div class=logo-text>posts</div></a></li><li style=--bg:#0f93c7><a href=https://aikenh.cn/hugotest/tags/ title=tags><div class=logo-icon><ion-icon name=pricetags-outline></ion-icon></div><div class=logo-text>tags</div></a></li><li style=--bg:#ffa117><a href=https://aikenh.cn/hugotest/categories/ title=categories><div class=logo-icon><ion-icon name=grid-outline></ion-icon></div><div class=logo-text>categories</div></a></li><li style=--bg:#0fc70f><a href=https://aikenh.cn/hugotest/archives/ title=archives><div class=logo-icon><ion-icon name=folder-outline></ion-icon></div><div class=logo-text>archives</div></a></li><li style=--bg:#d16111><a href=https://aikenh.cn/hugotest/about/ title=about><div class=logo-icon><ion-icon name=person></ion-icon></div><div class=logo-text>about</div></a></li><li style=--bg:#15c095><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><div class=logo-icon><ion-icon name=search></ion-icon></div><div class=logo-text>search</div></a></li></div><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt +T)"><li><div class=logo-icon id=moon><ion-icon name=moon-outline></ion-icon></div><div class=logo-icon id=sun><ion-icon name=sunny-outline></ion-icon></div></li></button></div></ul></div><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://aikenh.cn/hugotest/>Home</a>&nbsp;»&nbsp;<a href=https://aikenh.cn/hugotest/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Linux02 基础指令</h1><div class=post-meta><span title='2022-09-04 21:30:00 +0000 UTC'>September 4, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;695 words&nbsp;·&nbsp;aikenhong&nbsp;·&nbsp;<a href=/tags/linux> Linux</a>&nbsp;·&nbsp;<a href=/tags/manual> manual</a>&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/linux2.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://aikenh.cn/cover/cover9.jpeg alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#tar-%e5%8e%8b%e7%bc%a9%e5%91%bd%e4%bb%a4 aria-label="tar 压缩命令">tar 压缩命令</a><ul class=header-level-2><li><a href=#%e6%89%b9%e9%87%8f%e8%a7%a3%e5%8e%8btar aria-label=批量解压tar>批量解压tar</a></li></ul></li><li><a href=#%e6%96%87%e4%bb%b6%e6%93%8d%e4%bd%9c aria-label=文件操作>文件操作</a><ul class=header-level-2><li><a href=#cd-%e8%b7%af%e5%be%84%e5%88%87%e6%8d%a2 aria-label="cd 路径切换"><code>cd</code> 路径切换</a></li><li><a href=#touch-%e6%96%b0%e5%bb%ba aria-label="touch 新建"><code>touch</code> 新建</a></li><li><a href=#rm-%e5%88%a0%e9%99%a4 aria-label="rm 删除"><code>rm</code> 删除</a></li><li><a href=#mv-%e7%a7%bb%e5%8a%a8 aria-label="mv 移动"><code>mv</code> 移动</a></li><li><a href=#cp-%e6%8b%b7%e8%b4%9d aria-label="cp 拷贝"><code>cp</code> 拷贝</a></li><li><a href=#ln-%e8%bd%af%e8%bf%9e%e6%8e%a5 aria-label="ln 软连接"><code>ln</code> 软连接</a></li></ul></li><li><a href=#search-%e6%90%9c%e7%b4%a2%e5%91%bd%e4%bb%a4 aria-label="Search 搜索命令">Search 搜索命令</a><ul class=header-level-2><li><a href=#filetype-%e6%96%87%e4%bb%b6%e7%b1%bb%e5%9e%8b%e6%9f%a5%e7%9c%8b aria-label="FileType 文件类型查看"><code>FileType</code> 文件类型查看</a></li><li><a href=#list-files-%e5%88%97%e5%87%ba%e6%96%87%e4%bb%b6 aria-label="List Files 列出文件"><code>List</code> Files 列出文件</a></li><li><a href=#find-files-%e6%96%87%e4%bb%b6%e6%9f%a5%e6%89%be aria-label="Find Files 文件查找"><code>Find</code> Files 文件查找</a></li><li><a href=#grep-content-%e6%a0%bc%e5%bc%8f%e5%8c%b9%e9%85%8d aria-label="Grep Content 格式匹配"><code>Grep</code> Content 格式匹配</a></li><li><a href=#history-command-%e5%8e%86%e5%8f%b2%e5%91%bd%e4%bb%a4%e6%9f%a5%e8%af%a2 aria-label="History Command 历史命令查询"><code>History</code> Command 历史命令查询</a></li></ul></li><li><a href=#check-%e7%b3%bb%e7%bb%9f%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b aria-label="Check 系统状态查看">Check 系统状态查看</a><ul class=header-level-2><li><a href=#%e7%b3%bb%e7%bb%9f%e6%97%b6%e9%97%b4%e6%98%be%e7%a4%ba aria-label=系统时间显示>系统时间显示</a></li><li><a href=#%e7%bd%91%e7%bb%9c%e7%8a%b6%e6%80%81 aria-label=网络状态>网络状态</a></li><li><a href=#%e7%b3%bb%e7%bb%9f%e7%a3%81%e7%9b%98%e5%8d%a0%e7%94%a8 aria-label=系统磁盘占用>系统磁盘占用</a></li><li><a href=#%e7%b3%bb%e7%bb%9f%e5%86%85%e5%ad%98%e5%8d%a0%e7%94%a8 aria-label=系统内存占用>系统内存占用</a></li><li><a href=#watch-%e7%9b%91%e6%8e%a7 aria-label="Watch 监控"><code>Watch</code> 监控</a></li><li><a href=#cat-filemorelessnl aria-label="Cat File（more、less、nl）"><code>Cat</code> File（more、less、nl）</a></li><li><a href=#head-doctail aria-label="Head Doc（Tail）"><code>Head</code> Doc（Tail）</a></li></ul></li><li><a href=#ps-%e8%bf%9b%e7%a8%8b%e6%93%8d%e4%bd%9c aria-label="ps 进程操作"><code>ps</code> 进程操作</a><ul class=header-level-2><li><a href=#%e5%85%b6%e4%bb%96%e8%bf%9b%e7%a8%8b%e6%93%8d%e4%bd%9c%e5%91%bd%e4%bb%a4 aria-label=其他进程操作命令>其他进程操作命令</a></li></ul></li><li><a href=#sleep-%e6%9a%82%e5%81%9c aria-label="Sleep 暂停">Sleep 暂停</a></li></ul></div></details></div></aside><script>let activeElement,elements;document.addEventListener("DOMContentLoaded",function(){if(checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),elements.length>0){activeElement=elements[0];const e=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${e}"]`).classList.add("active")}const t=document.getElementById("top-link");t&&t.addEventListener("click",e=>{e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})})},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{const e=window.pageYOffset||document.documentElement.scrollTop;if(e===0)return;elements&&elements.length>0&&(elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase(),n=document.querySelector(`.inner ul li a[href="#${t}"]`);n.classList.remove("read")}),activeElement=Array.from(elements).find(t=>{if(getOffsetTop(t)-e>0&&getOffsetTop(t)-e<window.innerHeight/2)return t})||activeElement,elements.forEach((t)=>{const o=encodeURI(t.getAttribute("id")).toLowerCase(),s=document.querySelector(`.inner ul li a[href="#${o}"]`);if(t===activeElement){s.classList.add("active");const e=document.querySelector(".toc .inner"),t=s.offsetTop,n=e.clientHeight,o=s.clientHeight,i=t-n/2+o/2;e.scrollTo({top:i,behavior:"smooth"})}else getOffsetTop(t)<e&&s.classList.add("read"),s.classList.remove("active")}))},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return!document.querySelector(".hugo-encryptor-prompt")&&elements.length!=0&&(elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),console.log("Elements re-queried:",elements)),0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><p>@Aiken 2022</p><p>If u want get detail params info go to: <a href=http://www.explainshell.com target=_blank rel=noopener>http://www.explainshell.com</a>
+.</p><h2 id=tar-压缩命令>tar 压缩命令<a hidden class=anchor aria-hidden=true href=#tar-压缩命令>#</a></h2><p>linux中主要使用tar来进行文件的打包和解压，如果需要处理zip文件需要额外的支持，在上一章节中已经提到了，该章节压缩文件部分主要介绍tar命令</p><p><strong>压缩文件（夹）</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>tar -zcvf <span class=o>{</span>final_name<span class=o>}</span>.tgz <span class=o>{</span>dir<span class=o>}</span> --exclude<span class=o>={</span>dir/sub_dire1<span class=o>}</span>
+</span></span><span class=line><span class=cl>tar -cvf ...
+</span></span></code></pre></td></tr></table></div></div><p><strong>解压文件（夹）</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>tar -zxvf <span class=o>{</span>tarfile<span class=o>}</span>.tgz -C <span class=o>{</span>指定目录<span class=o>}</span>
+</span></span><span class=line><span class=cl>tar -xvf ...
+</span></span></code></pre></td></tr></table></div></div><h3 id=批量解压tar>批量解压tar<a hidden class=anchor aria-hidden=true href=#批量解压tar>#</a></h3><p>编写脚本批量解压tar文件到对应的文件夹中，这里主要的核心在于脚本的编写，而非tar的package</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># version 1 ez2understrand</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> i in <span class=sb>`</span>ls *.tar.gz<span class=sb>`</span>
+</span></span><span class=line><span class=cl><span class=k>do</span>
+</span></span><span class=line><span class=cl>    mkdir /dir/<span class=si>${</span><span class=nv>i</span><span class=p>/.tar.gz//</span><span class=si>}</span>
+</span></span><span class=line><span class=cl>    tar zxvf <span class=nv>$i</span> -C /dir/<span class=si>${</span><span class=nv>i</span><span class=p>/.tar.gz//</span><span class=si>}</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p>也可以使用第二种方法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># version 2 try to use assignment method</span>
+</span></span><span class=line><span class=cl><span class=c1># 可以发现基本的操作是一样的，就是对应的定义的地方</span>
+</span></span><span class=line><span class=cl><span class=c1># 可以考虑一下是如何使用echo和cut以及对应的-d 和 -f1是什么意思</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> file in <span class=sb>`</span>ls *.tar<span class=sb>`</span>
+</span></span><span class=line><span class=cl><span class=k>do</span>
+</span></span><span class=line><span class=cl>    <span class=nv>todir</span><span class=o>=</span><span class=sb>`</span><span class=nb>echo</span> <span class=nv>$file</span> <span class=p>|</span> cut -d<span class=s2>&#34;.&#34;</span> -f1<span class=sb>`</span>
+</span></span><span class=line><span class=cl>    mkdir <span class=nv>$todir</span> <span class=o>&amp;&amp;</span> tar -xvf <span class=nv>$file</span> -C <span class=nv>$todir</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p>参考资料：<a href=https://www.cnblogs.com/hhandbibi/p/7283862.html target=_blank rel=noopener>tar压缩解压缩命令详解</a></p><h2 id=文件操作>文件操作<a hidden class=anchor aria-hidden=true href=#文件操作>#</a></h2><h3 id=cd-路径切换><code>cd</code> 路径切换<a hidden class=anchor aria-hidden=true href=#cd-路径切换>#</a></h3><p><code>cd</code> means change directory 切换工作区路径，毋庸置疑是最常使用的指令，基础用法<code>cd {path}</code></p><p><strong>返回上次目录</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nb>cd</span> -
+</span></span><span class=line><span class=cl><span class=c1># - equal to $OLDPWD</span>
+</span></span></code></pre></td></tr></table></div></div><p>推荐使用 <a href=https://github.com/rupa/z target=_blank rel=noopener>zjump</a>
+能通过z指令快速定位目录，其通过frecency来管理地址优先级，能通过地址的简写，或者最终文件夹的名字快速跳转和定位。</p><h3 id=touch-新建><code>touch</code> 新建<a hidden class=anchor aria-hidden=true href=#touch-新建>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>touch <span class=o>{</span>filename<span class=o>}</span>
+</span></span><span class=line><span class=cl>mkdir <span class=o>{</span>foldername<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=rm-删除><code>rm</code> 删除<a hidden class=anchor aria-hidden=true href=#rm-删除>#</a></h3><p>删除文件夹的时候需要-r指定递归删除，最好结合-v看看自己到底删了什么</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>rm -<span class=o>{</span>option<span class=o>}</span> <span class=o>{</span>filename<span class=o>}</span>
+</span></span><span class=line><span class=cl>rm -<span class=o>{</span>option<span class=o>}</span>r <span class=o>{</span>foldername<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>&ldquo;rm -f&rdquo; 强行删除，忽略不存在的文件，不提示确认。(force)
+&ldquo;rm -i&rdquo; 进行交互式删除，即删除时会提示确认。(interactive)
+&ldquo;rm -r&rdquo; 将参数中列出的全部目录和子目录进行递归删除。(recursive)
+&ldquo;rm -v&rdquo; 详细显示删除操作进行的步骤。(verbose)</p></blockquote><p>删除文件夹中的文件，但是不删除文件夹</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>rm -rf <span class=o>{</span>folder<span class=o>}</span>/*
+</span></span></code></pre></td></tr></table></div></div><h3 id=mv-移动><code>mv</code> 移动<a hidden class=anchor aria-hidden=true href=#mv-移动>#</a></h3><p>mv 主要承担了以下两个职责：重命名、移动</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>mv <span class=o>{</span>fileA<span class=o>}</span> <span class=o>{</span>nameB<span class=o>}</span>
+</span></span><span class=line><span class=cl>mv files dir/
+</span></span></code></pre></td></tr></table></div></div><p>实际上name就代表了在系统中的position，所以当nameB可为地址，可以在移动的同时重命名。</p><p>建议使用<code>-i</code>参数强制执行提示功能， 避免意外覆盖文件。</p><h3 id=cp-拷贝><code>cp</code> 拷贝<a hidden class=anchor aria-hidden=true href=#cp-拷贝>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># using cp to copy file</span>
+</span></span><span class=line><span class=cl>cp dir1/filea dir2/filea.bak -i
+</span></span></code></pre></td></tr></table></div></div><ul><li>使用cp -i 强制询问是否覆盖，避免不必要的版本损失</li><li>-R 递归复制目录</li></ul><h3 id=ln-软连接><code>ln</code> 软连接<a hidden class=anchor aria-hidden=true href=#ln-软连接>#</a></h3><p>Linux 软连接，类似windows系统中做快捷方式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 在target地址建立一个名为linkname的软连接，链接到source_dir</span>
+</span></span><span class=line><span class=cl>ln -s source_dir/ target_dir/linkname
+</span></span></code></pre></td></tr></table></div></div><p>删除快捷方式只需要<code>rm</code>即可，切记！！不要-f -v -r。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>rm linkname <span class=c1># 删除软连接(注意后面千万不能有/)</span>
+</span></span><span class=line><span class=cl>mv linknamea linknameb <span class=c1># 同理换名也是一样的</span>
+</span></span></code></pre></td></tr></table></div></div><p>切换软连接连接的对象</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>ln -snf <span class=o>{</span>new source<span class=o>}</span> <span class=o>{</span>linkname<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=search-搜索命令>Search 搜索命令<a hidden class=anchor aria-hidden=true href=#search-搜索命令>#</a></h2><h3 id=filetype-文件类型查看><code>FileType</code> 文件类型查看<a hidden class=anchor aria-hidden=true href=#filetype-文件类型查看>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>file my_file
+</span></span></code></pre></td></tr></table></div></div><p>可以查看符号连接的源目录</p><h3 id=list-files-列出文件><code>List</code> Files 列出文件<a hidden class=anchor aria-hidden=true href=#list-files-列出文件>#</a></h3><p><code>ls</code>: list directory contents.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ls -l -r -t -h -s
+</span></span></code></pre></td></tr></table></div></div><ul><li><code>-l</code>: use a long listing format</li><li><code>-s</code>: print the allocated size of each file, in blocks</li><li><code>-t</code>: sort by time(modify, newest first)</li><li><code>-h</code>: human-readable</li><li><code>-r</code>: reverse order</li><li><code>-a</code>: show all files include those hide</li></ul><p>If we want to find file by &ldquo;pattern&rdquo;, we donot need <code>grep</code> we can do like this:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ls *.md
+</span></span><span class=line><span class=cl>ls *todo*
+</span></span></code></pre></td></tr></table></div></div><p>列出文件，也可以使用<code>tree dir/</code>列出文件夹的层级结构。</p><p><strong>查看某个文件夹下文件或者文件夹的个数</strong>：<a href=https://blog.csdn.net/niguang09/article/details/6445778 target=_blank rel=noopener>参考资料</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ls <span class=o>[</span>dirname<span class=o>]</span> -l<span class=p>|</span> grep <span class=s2>&#34;^-&#34;</span> <span class=p>|</span> wc -l  <span class=c1># 1.查看某文件夹下文件的个数</span>
+</span></span><span class=line><span class=cl>ls <span class=o>[</span>dirname<span class=o>]</span> -lR<span class=p>|</span> grep <span class=s2>&#34;^-&#34;</span><span class=p>|</span> wc -l  <span class=c1># 2.包括子文件夹下的文件</span>
+</span></span><span class=line><span class=cl>ls <span class=o>[</span>dirname<span class=o>]</span> -l<span class=p>|</span> grep <span class=s2>&#34;^d&#34;</span> <span class=p>|</span> wc -l  <span class=c1># 3.只查看文件夹 </span>
+</span></span><span class=line><span class=cl>ls <span class=o>[</span>dirname<span class=o>]</span> -lR<span class=p>|</span> grep <span class=s2>&#34;^d&#34;</span><span class=p>|</span> wc -l  <span class=c1># 4. 包括子文件夹中的文件夹</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 通过管道查看</span>
+</span></span><span class=line><span class=cl>ll <span class=p>|</span> wc -l
+</span></span></code></pre></td></tr></table></div></div><h3 id=find-files-文件查找><code>Find</code> Files 文件查找<a hidden class=anchor aria-hidden=true href=#find-files-文件查找>#</a></h3><p><code>find</code>: search for files in a directory hierarchy</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>find <span class=o>[</span>path...<span class=o>]</span> -name &lt;pattern&gt;
+</span></span><span class=line><span class=cl><span class=c1># find file in this path by pattern</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=grep-content-格式匹配><code>Grep</code> Content 格式匹配<a hidden class=anchor aria-hidden=true href=#grep-content-格式匹配>#</a></h3><p>Linux grep 命令用于查找文件里符合条件的字符串。</p><p>grep 指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设 grep 指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为 <strong>-</strong>，则 grep 指令会从标准输入设备读取数据。</p><p>通过grep在命令行中筛选输出显示，只显示grep指定的部分。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 只显示其中包括str的部分</span>
+</span></span><span class=line><span class=cl> <span class=nb>command</span> <span class=p>|</span> grep <span class=s1>&#39;str&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><p>直接使用Grep搜索文档中的字符数据，</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>grep <span class=o>[</span>option<span class=o>]</span> pattern <span class=o>[</span>file<span class=o>]</span>
+</span></span><span class=line><span class=cl><span class=c1># 该命令会在输入或指定的文件中搜索包含匹配指定模式的支付的行。</span>
+</span></span></code></pre></td></tr></table></div></div><p>Option:</p><blockquote><p>-v 反向搜索，搜索不匹配该模式的行
+-n 显示所在的行的行号
+-c 显示有多少匹配到了
+-e 来指定多个匹配模式 <code>grep -e p1 -e p2file1</code>
+-r 递归搜索
+-i 忽略大小写
+-I 忽略二进制文件
+-w, word-regexp</p></blockquote><p><strong>&ldquo;或&rdquo;</strong> 搜索：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>grep -E <span class=s2>&#34;optionA | optionB&#34;</span> *
+</span></span></code></pre></td></tr></table></div></div><h3 id=history-command-历史命令查询><code>History</code> Command 历史命令查询<a hidden class=anchor aria-hidden=true href=#history-command-历史命令查询>#</a></h3><p>HISTORY主要针对如何找到历史指令，如何重复执行某一行指令；</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># show the history command idx</span>
+</span></span><span class=line><span class=cl><span class=nb>history</span>
+</span></span><span class=line><span class=cl> <span class=m>1262</span> btm
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># resume this command idx, it&#39;ll get command by the idx</span>
+</span></span><span class=line><span class=cl>!1262
+</span></span><span class=line><span class=cl> btm
+</span></span></code></pre></td></tr></table></div></div><p><strong>CTRL+r</strong> : Reverse Cmd Searching</p><p>命令行反向搜索模式，方便输入重复的指令和地址，其会根据当前的键入内容去匹配历史指令。</p><h2 id=check-系统状态查看>Check 系统状态查看<a hidden class=anchor aria-hidden=true href=#check-系统状态查看>#</a></h2><h3 id=系统时间显示>系统时间显示<a hidden class=anchor aria-hidden=true href=#系统时间显示>#</a></h3><p><code>date "+format"</code> 通过在＋号的后面指定 format 来约束输出时间的样式，具体格式可以<a href=https://www.runoob.com/linux/linux-comm-date.html target=_blank rel=noopener>参考网站</a></p><h3 id=网络状态>网络状态<a hidden class=anchor aria-hidden=true href=#网络状态>#</a></h3><p>ifconfig 命令需要先安装 net-tools，直接使用 <code>sudo apt-get install net-tools</code> 安装</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ifconfig
+</span></span></code></pre></td></tr></table></div></div><p><code>netstat</code> 命令用于显示网络连接、路由表、接口状态等网络信息。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>netstat
+</span></span></code></pre></td></tr></table></div></div><p>-i 显示网卡列表信息
+-r 显示路由表信息
+-l 列出正在监听的服务
+-a 所有连接中的socket</p><h3 id=系统磁盘占用>系统磁盘占用<a hidden class=anchor aria-hidden=true href=#系统磁盘占用>#</a></h3><p><strong>查看文件夹和磁盘的空间占用</strong>：<a href=https://www.explainshell.com/explain/1/du target=_blank rel=noopener>explain_shell du</a></p><p><code>df</code> 命令可以显示目前所有文件系统的可用空间和使用情形</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 参数 -h 表示使用「Human-readable」的输出，也就是在档案系统大小使用 GB、MB 等易读的格式。</span>
+</span></span><span class=line><span class=cl> df -h
+</span></span></code></pre></td></tr></table></div></div><p><code>du</code> 查询文件或者当前文件夹的磁盘使用</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查询当前文件夹下面各个文件夹的大小：</span>
+</span></span><span class=line><span class=cl><span class=c1># 将深度改成n应该可以改变递归到子文件夹下的深度</span>
+</span></span><span class=line><span class=cl>du -h --max-depth<span class=o>=</span><span class=m>1</span> *
+</span></span><span class=line><span class=cl><span class=c1># *代表的是当前文件目录</span>
+</span></span><span class=line><span class=cl>du -h --max-depth<span class=o>=</span><span class=m>1</span> <span class=o>[</span>path<span class=o>]</span>
+</span></span></code></pre></td></tr></table></div></div><p>查看当前目录下文件和文件夹的大小（定位哪里占用空间最大）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 查看当前文件夹下所有文件夹的占用空间</span>
+</span></span><span class=line><span class=cl>du -sh *
+</span></span><span class=line><span class=cl><span class=c1># 对应的查看指定文件夹大小的方式为：</span>
+</span></span><span class=line><span class=cl>du -sh dir
+</span></span></code></pre></td></tr></table></div></div><h3 id=系统内存占用>系统内存占用<a hidden class=anchor aria-hidden=true href=#系统内存占用>#</a></h3><p><code>free</code> 命令用于显示当前系统中的内存使用信息，使用 <code>free -h</code> 即可查看。</p><h3 id=watch-监控><code>Watch</code> 监控<a hidden class=anchor aria-hidden=true href=#watch-监控>#</a></h3><p>将watch加在前面可以监控一些信息的实时变化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>watch ps -aux
+</span></span><span class=line><span class=cl>watch nvidia-smi
+</span></span></code></pre></td></tr></table></div></div><h3 id=cat-filemorelessnl><code>Cat</code> File（more、less、nl）<a hidden class=anchor aria-hidden=true href=#cat-filemorelessnl>#</a></h3><p>cat是显示文本文件中所有数据的得力工具，但是文件的文本会在显示器上一晃而过，难以控制后面的操作。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>cat file1
+</span></span></code></pre></td></tr></table></div></div><ul><li>-n 给所有的行加上行号</li><li>-b 给非空行加上行号</li><li>-T 不显示制表符</li></ul><p><strong>more</strong>会显示文本文件的内容，但是会在每页数据之后停下来，使用spc/enter翻页，q退出</p><p><strong>less</strong>来自 less is more，是 more 的升级版，可以实现文件的前后移动和高级搜索功能。</p><p><strong>nl</strong> 命令式再 linux 中用来计算文件的行号，其会计算出每一个非空行（可以控制是否忽视）的行号，加在改行的前面输出改行，参考：<a href=https://www.cnblogs.com/peida/archive/2012/11/01/2749048.html target=_blank rel=noopener>每天一个linux命令(11)：nl命令</a></p><h3 id=head-doctail><code>Head</code> Doc（Tail）<a hidden class=anchor aria-hidden=true href=#head-doctail>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tail -n <span class=m>2</span> log_file
+</span></span><span class=line><span class=cl>tail -2 log_file
+</span></span><span class=line><span class=cl><span class=c1># -n &lt;N&gt; 显示文件的后面N行</span>
+</span></span><span class=line><span class=cl>head -5 log_file
+</span></span></code></pre></td></tr></table></div></div><p>只显示命令行输出的前几条或者后面几条</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>history</span> <span class=p>|</span> head -i
+</span></span><span class=line><span class=cl>histo <span class=p>|</span> tail -i
+</span></span></code></pre></td></tr></table></div></div><p>实时查看正在写入的文件 -f</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tail -f file_inprocess.log
+</span></span></code></pre></td></tr></table></div></div><h2 id=ps-进程操作><code>ps</code> 进程操作<a hidden class=anchor aria-hidden=true href=#ps-进程操作>#</a></h2><p>ps 的英文全称为：process，主要用来查看系统中的进程状态，参数的主要参考资料：<a href=https://www.explainshell.com/explain/1/ps target=_blank rel=noopener>explain ps</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>ps -aux <span class=p>|</span> grep <span class=o>{</span>content<span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=nb>kill</span> <span class=o>{</span>PID<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><code>-a</code> 显示所有进程（-e同上）</li><li><code>-N</code> 显示与指定参数不符的所有进程</li><li><code>-u</code> 显示用户即 其他详细信息</li><li><code>-x</code> 显示没有控制终端的进程</li></ul><h3 id=其他进程操作命令>其他进程操作命令<a hidden class=anchor aria-hidden=true href=#其他进程操作命令>#</a></h3><ul><li><code>pstree</code> 命令则可以结合 <code>ps</code> 命令，可用树状图的形式显示进程之间的关系。</li><li><code>top</code> 命令用于动态地监视进程的活动以及系统的负载</li><li><code>pidof</code> 命令可以查看<strong>指定服务</strong>进程的 PID 号码</li><li><code>killall</code> 复杂的服务进程可能会有多个 pid 进程号，killall 可以批量的终结指令</li></ul><h2 id=sleep-暂停>Sleep 暂停<a hidden class=anchor aria-hidden=true href=#sleep-暂停>#</a></h2><p><code>sleep t</code>引入一段时间的暂停</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://aikenh.cn/hugotest/tags/linux/>Linux</a></li><li><a href=https://aikenh.cn/hugotest/tags/manual/>Manual</a></li></ul><nav class=paginav><a class=prev href=https://aikenh.cn/hugotest/posts/macos/><span class=title>« Prev</span><br><span>Macos Configuration00 软件安装和基础配置</span>
+</a><a class=next href=https://aikenh.cn/hugotest/posts/vimscript_5minus/><span class=title>Next »</span><br><span>转）vimscript in 5 minus</span></a></nav></footer><div id=disqus_thread></div><script>function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://aiken-hugo.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url=window.location.href,this.page.identifier=window.location.href.substring(18)}}var runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){if(!isBot&&supportsIntersectionObserver){var e=new IntersectionObserver(function(t){t[0].isIntersecting&&(loadDisqus(),e.disconnect())},{threshold:[0]});e.observe(document.getElementById("disqus_thread"))}else loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by
+Disqus.</a></noscript></article></main><footer class=footer><span>&copy; 2024 <a href=https://aikenh.cn/hugotest/>aiken's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span id=busuanzi_container>Visitors: <span id=busuanzi_value_site_uv></span>
+Views: <span id=busuanzi_value_site_pv></span></span></footer><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),o=13863,i=16993;if(!e||!t){console.error("Busuanzi elements not found.");return}const n=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+o;break}}),s=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){s.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+i;break}});n.observe(e,{childList:!0}),s.observe(t,{childList:!0})})</script><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><span class=topInner><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+<span id=read_progress></span>
+</span></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))}),document.getElementById("theme-toggle-nav").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script>document.addEventListener("scroll",function(){const t=document.getElementById("read_progress"),n=document.documentElement.scrollHeight,s=document.documentElement.clientHeight,o=document.documentElement.scrollTop||document.body.scrollTop;t.innerText=((o/(n-s)).toFixed(2)*100).toFixed(0)})</script><script>(function(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(e)}),i.parentNode.insertBefore(n,i)})("/js/pangu.js",function(){pangu.spacingPage()})</script></body></html>

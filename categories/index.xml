@@ -2,52 +2,381 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on aiken&#39;s blog</title>
-    <link>https://metisy.cool/categories/</link>
+    <link>https://aikenh.cn/hugotest/categories/</link>
     <description>Recent content in Categories on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 Nov 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="https://metisy.cool/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aikenh.cn/hugotest/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo</title>
-      <link>https://metisy.cool/categories/hugo/</link>
+      <link>https://aikenh.cn/hugotest/categories/hugo/</link>
       <pubDate>Sat, 23 Nov 2024 11:30:03 +0000</pubDate>
-      <guid>https://metisy.cool/categories/hugo/</guid>
+      <guid>https://aikenh.cn/hugotest/categories/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Util</title>
-      <link>https://metisy.cool/categories/util/</link>
+      <link>https://aikenh.cn/hugotest/categories/util/</link>
       <pubDate>Sat, 23 Nov 2024 11:30:03 +0000</pubDate>
-      <guid>https://metisy.cool/categories/util/</guid>
+      <guid>https://aikenh.cn/hugotest/categories/util/</guid>
       <description></description>
     </item>
     <item>
-      <title>NAS</title>
-      <link>https://metisy.cool/categories/nas/</link>
-      <pubDate>Wed, 20 Dec 2023 08:24:36 +0000</pubDate>
-      <guid>https://metisy.cool/categories/nas/</guid>
+      <title>Cpp</title>
+      <link>https://aikenh.cn/hugotest/categories/cpp/</link>
+      <pubDate>Tue, 22 Oct 2024 17:05:32 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/cpp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langs</title>
+      <link>https://aikenh.cn/hugotest/categories/langs/</link>
+      <pubDate>Tue, 22 Oct 2024 17:05:32 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/langs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JS</title>
+      <link>https://aikenh.cn/hugotest/categories/js/</link>
+      <pubDate>Tue, 30 Apr 2024 14:44:51 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://aikenh.cn/hugotest/categories/web/</link>
+      <pubDate>Tue, 30 Apr 2024 14:44:51 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/web/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Investment</title>
+      <link>https://aikenh.cn/hugotest/categories/investment/</link>
+      <pubDate>Tue, 12 Mar 2024 23:05:46 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/investment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CSS</title>
+      <link>https://aikenh.cn/hugotest/categories/css/</link>
+      <pubDate>Thu, 08 Feb 2024 17:53:55 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/css/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HTML</title>
+      <link>https://aikenh.cn/hugotest/categories/html/</link>
+      <pubDate>Sun, 04 Feb 2024 16:30:09 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/html/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Powershell</title>
+      <link>https://aikenh.cn/hugotest/categories/powershell/</link>
+      <pubDate>Sun, 28 Jan 2024 15:44:25 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/powershell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://aikenh.cn/hugotest/categories/windows/</link>
+      <pubDate>Sun, 28 Jan 2024 15:44:25 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/windows/</guid>
       <description></description>
     </item>
     <item>
       <title>AIGC</title>
-      <link>https://metisy.cool/categories/aigc/</link>
-      <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
-      <guid>https://metisy.cool/categories/aigc/</guid>
+      <link>https://aikenh.cn/hugotest/categories/aigc/</link>
+      <pubDate>Sat, 27 Jan 2024 15:42:36 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/aigc/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>https://metisy.cool/categories/machine-learning/</link>
-      <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
-      <guid>https://metisy.cool/categories/machine-learning/</guid>
+      <link>https://aikenh.cn/hugotest/categories/machine-learning/</link>
+      <pubDate>Sat, 27 Jan 2024 15:42:36 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/machine-learning/</guid>
       <description></description>
     </item>
     <item>
-      <title>Latex</title>
-      <link>https://metisy.cool/categories/latex/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      <guid>https://metisy.cool/categories/latex/</guid>
+      <title>NAS</title>
+      <link>https://aikenh.cn/hugotest/categories/nas/</link>
+      <pubDate>Fri, 29 Dec 2023 08:04:06 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/nas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>家庭NAS部署</title>
+      <link>https://aikenh.cn/hugotest/categories/%E5%AE%B6%E5%BA%ADnas%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Wed, 20 Dec 2023 08:24:36 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/%E5%AE%B6%E5%BA%ADnas%E9%83%A8%E7%BD%B2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dev</title>
+      <link>https://aikenh.cn/hugotest/categories/dev/</link>
+      <pubDate>Sat, 11 Nov 2023 12:08:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/dev/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry-Pie</title>
+      <link>https://aikenh.cn/hugotest/categories/raspberry-pie/</link>
+      <pubDate>Sat, 11 Nov 2023 12:08:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/raspberry-pie/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Editor</title>
+      <link>https://aikenh.cn/hugotest/categories/editor/</link>
+      <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/editor/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Obsidian</title>
+      <link>https://aikenh.cn/hugotest/categories/obsidian/</link>
+      <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/obsidian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vscode</title>
+      <link>https://aikenh.cn/hugotest/categories/vscode/</link>
+      <pubDate>Thu, 19 Oct 2023 16:53:03 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/vscode/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Photography</title>
+      <link>https://aikenh.cn/hugotest/categories/photography/</link>
+      <pubDate>Thu, 05 Oct 2023 00:41:43 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/photography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CLI</title>
+      <link>https://aikenh.cn/hugotest/categories/cli/</link>
+      <pubDate>Fri, 07 Jul 2023 22:10:52 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://aikenh.cn/hugotest/categories/linux/</link>
+      <pubDate>Fri, 07 Jul 2023 22:10:52 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://aikenh.cn/hugotest/categories/python/</link>
+      <pubDate>Sun, 02 Jul 2023 10:52:26 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://aikenh.cn/hugotest/categories/docker/</link>
+      <pubDate>Thu, 22 Jun 2023 09:25:29 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Containers</title>
+      <link>https://aikenh.cn/hugotest/categories/containers/</link>
+      <pubDate>Mon, 01 May 2023 09:12:04 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/containers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>APPs</title>
+      <link>https://aikenh.cn/hugotest/categories/apps/</link>
+      <pubDate>Sun, 30 Apr 2023 22:42:58 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/apps/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NAT</title>
+      <link>https://aikenh.cn/hugotest/categories/nat/</link>
+      <pubDate>Tue, 04 Apr 2023 14:40:12 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/nat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>https://aikenh.cn/hugotest/categories/macos/</link>
+      <pubDate>Sun, 02 Apr 2023 19:28:48 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://aikenh.cn/hugotest/categories/devops/</link>
+      <pubDate>Sat, 25 Mar 2023 09:55:32 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>https://aikenh.cn/hugotest/categories/blog/</link>
+      <pubDate>Sat, 11 Mar 2023 23:46:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hexo</title>
+      <link>https://aikenh.cn/hugotest/categories/hexo/</link>
+      <pubDate>Sat, 11 Mar 2023 23:46:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/hexo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithm</title>
+      <link>https://aikenh.cn/hugotest/categories/algorithm/</link>
+      <pubDate>Fri, 10 Mar 2023 13:12:20 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bash</title>
+      <link>https://aikenh.cn/hugotest/categories/bash/</link>
+      <pubDate>Wed, 25 Jan 2023 22:04:15 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/bash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dual System</title>
+      <link>https://aikenh.cn/hugotest/categories/dual-system/</link>
+      <pubDate>Sun, 22 Jan 2023 16:25:27 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/dual-system/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>https://aikenh.cn/hugotest/categories/github/</link>
+      <pubDate>Sat, 21 Jan 2023 21:25:24 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nodejs</title>
+      <link>https://aikenh.cn/hugotest/categories/nodejs/</link>
+      <pubDate>Sun, 09 Oct 2022 13:33:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/nodejs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frontend</title>
+      <link>https://aikenh.cn/hugotest/categories/frontend/</link>
+      <pubDate>Sun, 02 Oct 2022 18:00:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/frontend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vue</title>
+      <link>https://aikenh.cn/hugotest/categories/vue/</link>
+      <pubDate>Wed, 14 Sep 2022 10:34:08 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/vue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>https://aikenh.cn/hugotest/categories/vim/</link>
+      <pubDate>Thu, 01 Sep 2022 01:01:01 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/vim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>https://aikenh.cn/hugotest/categories/sql/</link>
+      <pubDate>Fri, 05 Aug 2022 17:30:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terminal Emulator</title>
+      <link>https://aikenh.cn/hugotest/categories/terminal-emulator/</link>
+      <pubDate>Sat, 30 Jul 2022 10:03:26 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/terminal-emulator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Game Generate</title>
+      <link>https://aikenh.cn/hugotest/categories/game-generate/</link>
+      <pubDate>Sun, 10 Jul 2022 11:26:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/game-generate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux-CLI</title>
+      <link>https://aikenh.cn/hugotest/categories/linux-cli/</link>
+      <pubDate>Fri, 20 May 2022 21:22:53 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/linux-cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://aikenh.cn/hugotest/categories/git/</link>
+      <pubDate>Tue, 01 Feb 2022 12:19:34 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pytorch</title>
+      <link>https://aikenh.cn/hugotest/categories/pytorch/</link>
+      <pubDate>Wed, 15 Dec 2021 08:00:57 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/pytorch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>WSL2 Configuration</title>
+      <link>https://aikenh.cn/hugotest/categories/wsl2-configuration/</link>
+      <pubDate>Tue, 28 Sep 2021 02:17:39 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/wsl2-configuration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gitbook</title>
+      <link>https://aikenh.cn/hugotest/categories/gitbook/</link>
+      <pubDate>Sun, 26 Sep 2021 15:36:25 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/gitbook/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Leetcode</title>
+      <link>https://aikenh.cn/hugotest/categories/leetcode/</link>
+      <pubDate>Tue, 29 Jun 2021 10:18:47 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/leetcode/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSH</title>
+      <link>https://aikenh.cn/hugotest/categories/ssh/</link>
+      <pubDate>Mon, 22 Feb 2021 01:45:43 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CV</title>
+      <link>https://aikenh.cn/hugotest/categories/cv/</link>
+      <pubDate>Sun, 26 Jul 2020 13:16:40 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/cv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>https://aikenh.cn/hugotest/categories/markdown/</link>
+      <pubDate>Sat, 18 Apr 2020 02:21:22 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dataset</title>
+      <link>https://aikenh.cn/hugotest/categories/dataset/</link>
+      <pubDate>Tue, 14 Jan 2020 02:13:25 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/categories/dataset/</guid>
       <description></description>
     </item>
   </channel>

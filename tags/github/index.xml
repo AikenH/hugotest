@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Github on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/github/</link>
+    <description>Recent content in Github on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Jan 2023 21:25:24 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Profile 个人主页</title>
+      <link>https://aikenh.cn/hugotest/posts/githubprofile/</link>
+      <pubDate>Sat, 21 Jan 2023 21:25:24 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/githubprofile/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文介绍如何配置自己的 Github 的个人资料界面，同时会介绍相关美化个人资料的一些资源网站和项目，并简单介绍其用法。最终结果如下（还有许多优化的空间）：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230122113307.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230122113307.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230122113307.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;创建同名仓库&#34;&gt;创建同名仓库&lt;/h2&gt;
+&lt;p&gt;Github 中创建用户名的同名仓库，该仓库的 README.md 将会在个人的资料页进行展示。(附上官方的说明如下)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AikenH/AikenH is a special repository. Its &lt;code&gt;README.md&lt;/code&gt; will appear on your public profile.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;创建该仓库之后，我们对 Readme 的改动将会实时的同步到我们的个人界面，后续我们就只需要专注于编写和修改该 Readme 即可。&lt;/p&gt;
+&lt;h2 id=&#34;相关资源推荐&#34;&gt;相关资源推荐&lt;/h2&gt;
+&lt;p&gt;由于大家的审美和风格不同，这里不做设计上的推荐，仅推荐一些用于美化个人界面的资源和部分项目的用法（以本人的 blog 为例）。&lt;/p&gt;
+&lt;p&gt;名字部分，简单文字转图片随便找一个&lt;a href=&#34;http://www.atoolbox.net/Tool.php?Id=723&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;工具箱&lt;/a&gt;
+或者网站生成即可，不在赘述；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这里是一个工具和推荐仓库的大全集&lt;/strong&gt;：&lt;a href=&#34;https://github.com/abhisheknaiidu/awesome-github-profile-readme#tools&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abhisheknaiidu/awesome-github-profile-readme&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;这里是一些优秀的 &lt;a href=&#34;https://zzetao.github.io/awesome-github-profile/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;readme profile&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;动态字幕&#34;&gt;动态字幕&lt;/h2&gt;
+&lt;p&gt;介绍使用的动态字幕效果实现：&lt;a href=&#34;https://github.com/DenverCoder1/readme-typing-svg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DenverCoder1/readme-typing-svg&lt;/a&gt;
+，进入其 &lt;a href=&#34;https://readme-typing-svg.demolab.com/demo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Demo Site&lt;/a&gt;
+，设定想要的样式和文字即可生成对应的 markdown 和 html 代码。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git 01 入门与常用操作</title>
+      <link>https://aikenh.cn/hugotest/posts/git_manual1/</link>
+      <pubDate>Tue, 01 Feb 2022 12:19:34 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/git_manual1/</guid>
+      <description>&lt;p&gt;参考文献：&lt;a href=&#34;https://juejin.cn/post/7131713973572861966&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;稀土掘金&lt;/a&gt;
+ | ProGit2&lt;/p&gt;
+&lt;h2 id=&#34;git-与-svn-的区别&#34;&gt;GIT 与 SVN 的区别&lt;/h2&gt;
+&lt;p&gt;SVN 是集中式版本控制系统，其所有的版本管理都是集中在某个中央服务器，因此，在干活的时候，首先都需要从中央服务器中获取最新的版本，修改后将版本推送到中央服务器，因此大多数场景下需要进行联网使用。可能会更依托于相应的图形化客户端来进行同步和版本管理，便于管理美术资源等等。&lt;/p&gt;
+&lt;p&gt;GIT 是分布式版本管理系统，每个人的电脑就是一个完整的版本库，可以进行独立的版本管理，多人协作可能依托于 github 之类的中继节点，将修改同步给对方，解决冲突。&lt;/p&gt;
+&lt;h2 id=&#34;init-初始化&#34;&gt;Init 初始化&lt;/h2&gt;
+&lt;p&gt;包含 ssh 的详细指令在 ssh 的文档中，这边只介绍设置完这一系列操作之后的 git 初始化，主要是初始化 ssh，并将私钥放到 github 或者 gitee 的账户中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourName&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourEmailAdress&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看相关的配置信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 设置CRLF和LF的相关转换 第一条在提交的时候自动抓换位LF，迁出转换为CRLF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 第二条拒绝混合换行符的提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global core.autocrlf &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global core.safecrlf &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;github-设置&#34;&gt;Github 设置&lt;/h3&gt;
+&lt;p&gt;官方文档介绍的一些权限错误的地址：&amp;lt; &lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/error-permission-denied-publickey%3e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.github.com/en/github/authenticating-to-github/error-permission-denied-publickey&gt;&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,1654 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Web on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/web/</link>
+    <description>Recent content in Web on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Apr 2024 14:44:51 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LearnWeb20-JS05-JSON使用</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb20-js05-json%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 30 Apr 2024 14:44:51 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb20-js05-json%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;本篇是 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/JSON&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mdn 使用 JSON&lt;/a&gt;
+ 一文的阅读笔记，对 web 开发中的 JSON 进行了介绍&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;json-简介&#34;&gt;JSON 简介&lt;/h2&gt;
+&lt;p&gt;JavaScript Object Notation(JSON)是将结构化数据表示为 JavaScript 对象的标准格式，通常用于网页上的表示和传输数据（服务端，客户端），熟悉 JSON 对象的创建，传输，解析，对于 JS 来说也是一门基本功了。&lt;/p&gt;
+&lt;p&gt;JSON 可以存在单独的文件中，后缀为 &lt;code&gt;.json&lt;/code&gt;，同时在进行网络传输时，&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Glossary/MIME_type&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIME 类型&lt;/a&gt;
+为 &lt;code&gt;application/json&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;基本操作介绍&#34;&gt;基本操作介绍&lt;/h3&gt;
+&lt;p&gt;对 JSON 这类标记语言进行的操作通常就是下面的两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将字符串转换为原生对象的过程称为反序列化(deserialization)&lt;/li&gt;
+&lt;li&gt;将原生对象转换为字符串进行网络传输的字符串的过程则成为序列化(serialization)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此可以理解为这就是一个 object-string 的相互转换过程，因此在一个语言中如何使用 json 这种标记语言，最核心的就是上述的这两个操作，随着后续的发展，JSON 在除了 js 的其他语言中也被广泛的使用到。&lt;/p&gt;
+&lt;h3 id=&#34;json-结构和语法&#34;&gt;JSON 结构和“语法”&lt;/h3&gt;
+&lt;p&gt;整个 JSON 是一个字符串，其非常类似于 JS 对象字面量的写法（无需命名对象名），且其中&lt;strong&gt;仅包含要传输的数据（属性）而不包含方法&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;一般而言有两种方法来编写 JSON 文件，一种是类似对象字面量（字典），存储一个单体对象的方式；另一种则是 JSON 数组，最外层用数组的形式，在数组里面可以存储多个单独对象。下面分别给出示例：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;单对象形式&lt;/strong&gt;，对象字面量（like 字典），js 中反序列化获取之后就会得到一个对象，使用对象的方法去调用其中的属性即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nt&#34;&gt;&amp;#34;squadName&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Super hero squad&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	&lt;span class=&#34;nt&#34;&gt;&amp;#34;homeTown&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Metro City&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	&lt;span class=&#34;nt&#34;&gt;&amp;#34;formed&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2016&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	&lt;span class=&#34;nt&#34;&gt;&amp;#34;menbers&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 	&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 		&lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Molecule Man&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	      	&lt;span class=&#34;nt&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	      	&lt;span class=&#34;nt&#34;&gt;&amp;#34;secretIdentity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Dan Jukes&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	      	&lt;span class=&#34;nt&#34;&gt;&amp;#34;powers&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	      		&lt;span class=&#34;s2&#34;&gt;&amp;#34;Radiation resistance&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Turning tiny&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Radiation blast&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	      	&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 	&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 	&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 		&lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Madame Uppercut&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   		&lt;span class=&#34;nt&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   		&lt;span class=&#34;nt&#34;&gt;&amp;#34;secretIdentity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Jane Wilson&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   		&lt;span class=&#34;nt&#34;&gt;&amp;#34;powers&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     		&lt;span class=&#34;s2&#34;&gt;&amp;#34;Million tonne punch&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Damage resistance&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Superhuman reflexes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	  		&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;数组多对象形式&lt;/strong&gt;,下面这种写法也是一种合法的 JSON，js 中反序列化获取后则会得到一个数组对象，使用下标去索引即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Molecule Man&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;secretIdentity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Dan Jukes&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;powers&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Radiation resistance&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Turning tiny&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Radiation blast&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Madame Uppercut&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;secretIdentity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Jane Wilson&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;nt&#34;&gt;&amp;#34;powers&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     &lt;span class=&#34;s2&#34;&gt;&amp;#34;Million tonne punch&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     &lt;span class=&#34;s2&#34;&gt;&amp;#34;Damage resistance&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     &lt;span class=&#34;s2&#34;&gt;&amp;#34;Superhuman reflexes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;同时 JSON 还有以下的一些编写规范：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;纯数据，只包含属性不包含方法；&lt;/li&gt;
+&lt;li&gt;要求字符串和属性名称使用双引号，单引号无效；&lt;/li&gt;
+&lt;li&gt;错位的 &lt;code&gt;,&lt;/code&gt; 和 &lt;code&gt;;&lt;/code&gt; 都可能导致 json 文件出错，要做好检查，可以使用&lt;a href=&#34;https://jsonlint.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;JSONLint&lt;/a&gt;
+  这样的程序来验证；&lt;/li&gt;
+&lt;li&gt;JSON 实际上可以使任何可以有效包含在 JSON 中的数据类型的形式，例如，单个字符串或者单个数字也是一个有效的 JSON 对象；&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb19-JS04-类与对象</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb19-js04-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Sun, 28 Apr 2024 16:46:21 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb19-js04-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;JS 中的一切变量皆为对象，可以将对象理解为一个包含相关数据和方法的集合（变量 &amp;amp; 函数）我们也将其称之为属性和方法，就像我们在 python 里做的那样，本篇为 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Basics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mdn_JS对象基础&lt;/a&gt;
+，&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mdn_JS对象原型&lt;/a&gt;
+ 的阅读笔记&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;如果 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object-oriented_programming&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;面向对象编程基本概念&lt;/a&gt;
+ 不太清楚的话，可以看一下这个链接，了解一下下面这些基本概念：derive 派生 | oriented 面向 | polymorphism 多态 | override 重写/重载 | encapsulation 封装 | private 私有 | delegation 委派 |&lt;/p&gt;
+&lt;h2 id=&#34;从声明对象开始&#34;&gt;从声明对象开始&lt;/h2&gt;
+&lt;h3 id=&#34;手动声明对象字面量&#34;&gt;手动声明对象（字面量）&lt;/h3&gt;
+&lt;p&gt;在 JS 中声明一个对象实际上和声明一个字典一样，使用 &lt;code&gt;{}&lt;/code&gt; 就可以声明一个对象，{}中可以包含属性甚至函数，下面给出一个例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;person&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;aiken&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;metis&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;bio&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt; now is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt; years old`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;introduce&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`hello! i&amp;#39;m &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;.`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以看出该声明的对象中，不仅包含属性: name, age, 还包含方法 bio, introduce,可以看出方法存在两种不同的写法，更常用的是第二种简写。&lt;/p&gt;
+&lt;p&gt;这种手动写出对象的内容来创建的特定对象叫做对象字面量(object literal)，与从定义好的类实例化出来的对象不同。&lt;/p&gt;
+&lt;h3 id=&#34;基于函数来批量声明对象&#34;&gt;基于函数来批量声明对象&lt;/h3&gt;
+&lt;p&gt;当我们需要批量创建多个同类对象的时候，按照上面的方法来定义就会显得十分麻烦，这个时候我们可以使用函数来批量声明对象。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createPerson&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;obj&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;obj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;obj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;obj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;bio&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt; now is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt; years old`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;obj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;aiken&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createPerson&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;aiken&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;26&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;metisy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createPerson&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;metis&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;25&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;通过函数来声明对象的时候：用首先定义一个空对象，然后去修改对象属性和对象的方法，实现批量处理。&lt;/p&gt;
+&lt;h3 id=&#34;this-使用和含义&#34;&gt;&amp;ldquo;this&amp;rdquo; 使用和含义&lt;/h3&gt;
+&lt;p&gt;this 指代代码运行时调用 this 的对象本身，这在定义单个对象字面量的时候可能没什么用，但是当我们有多个对象，这样这种时候通过使用 this，就可以使得函数定义是更通用的，就像上面的例子中，&lt;code&gt;aiken.bio&lt;/code&gt; 和 &lt;code&gt;metisy.bio&lt;/code&gt; 都能正确的打印出其年纪和名称。&lt;/p&gt;
+&lt;h3 id=&#34;使用类构造函数来声明对象&#34;&gt;使用类(构造函数)来声明对象&lt;/h3&gt;
+&lt;p&gt;使用类来声明对象是各种编程语言中最通用的一种声明对象的方式，JS 一切皆为对象的设计思想，使得 JS 中定义类的方式和定义函数的方式实际上是十分相似的，这里主要的区分在于用构造函数声明新对象的时候，我们使用 &lt;code&gt;new&lt;/code&gt; 关键字。下面给出一个例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;// 命名类的时候和其他语言一样，使用大写字母开头。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;bio&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt; now is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt; years old`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;aiken&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;aiken&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;metis&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;metis&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以看出，使用构造函数的方式的时候，我们无需指定返回值，但需要使用 new 关键词去声明新的对象。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb18-JS03-事件</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Wed, 17 Apr 2024 09:31:23 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;web-js 中主要的编程方式就是需要结合browser 的事件和属性来实现对页面的动态控制，事件章节可以说是web 动态编程中的核心部分了，了解主要存在和需要被控制的事件是相当重要的。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;常见的浏览器事件&#34;&gt;常见的浏览器事件&lt;/h2&gt;
+&lt;p&gt;下面列出一些常见的事件类型和具体事件，更多的事件可以&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/Events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;参考Mdn&lt;/a&gt;
+，在设计页面的时候可以考虑我们希望获得什么效果来找寻是否有对应的事件来构建对应的动态响应。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;事件类型&lt;/th&gt;
+          &lt;th&gt;具体事件&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;鼠标事件&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;点击、选择、悬停、拖拽、滚轮、焦点(focus, blur)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;键盘事件&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;按键、剪切板、文本输入&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;窗口事件&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;调整大小、窗口关闭&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;页面事件&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;加载结束、错误发生、CSS 变换、DOM 事件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;自定义事件&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;点击按钮，表单提交&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;多媒体事件&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;视频播放、暂停、结束&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;在确定了事件之后，就需要对事件附加一个&lt;strong&gt;事件处理器（监听器）&lt;/strong&gt;，当事件触发的时候，运行指定的js 代码对该事件做出相应。&lt;/p&gt;
+&lt;h2 id=&#34;事件处理器&#34;&gt;事件处理器&lt;/h2&gt;
+
+
+
+  
+  
+
+&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;通常而言，我们使用特定的 &lt;code&gt;element&lt;/code&gt; 调用 &lt;code&gt;addEventListener(event, function)&lt;/code&gt; 添加一个事件监听器，当参数中指定的事件 &lt;code&gt;event&lt;/code&gt; 在对应元素上发生，就调用对应的 &lt;code&gt;function&lt;/code&gt; 执行相应的变动，如果不是通用的函数，这里经常可以看到使用匿名函数去定义对应的操作。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;添加事件处理器&#34;&gt;添加事件处理器&lt;/h3&gt;
+&lt;p&gt;因此对于一个事件而言，实际上包含的操作有以下的几个：找到 DOM 中要操作的对应元素、添加事件监听器、选择对应的事件、定义对应的操作函数；&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;btn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;querySelector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;button&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;floor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;changeBackground&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rndCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`rgb(&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;)`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;backgroundColor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rndCol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;btn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;addEventListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;click&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;changeBackground&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以为同一个事件设置多个处理器，也就是添加多个 function，对于添加事件来说其中 &lt;code&gt;addEventListener&lt;/code&gt; 是最为通用的，可以绑定多种事件，不过除了 &lt;code&gt;addEventListener&lt;/code&gt; 之外，还有一些特殊事件的添加监听的方法，例如 click 事件有一个内联的监听器：&lt;code&gt;onclick&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;btn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;onlick&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;changeBackground&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;虽然有一些示例在 html 中绑定事件内联，但是最好还是分开在 js 中绑定更好。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb17-JS02-Intro</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb17-js02-intro/</link>
+      <pubDate>Fri, 29 Mar 2024 23:59:08 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb17-js02-intro/</guid>
+      <description>&lt;h2 id=&#34;js-基础语法&#34;&gt;JS 基础语法&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;该部分的学习除了 MDN 的相关知识，会结合数据结构的内容来进行学。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;语言的第一印象和 python 有许多相似的地方。语法上可能大差不差，在循环和其他一些变量上又有一些和 C#,CPP 相似的地方。&lt;/p&gt;
+&lt;h3 id=&#34;basic-rules-基础规则简介&#34;&gt;Basic Rules 基础规则简介&lt;/h3&gt;
+&lt;p&gt;首先介绍基本的编写规则:如注释、缩进规则、变量规则等&amp;hellip;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;注释&lt;/strong&gt;：CPP 相同使用 &lt;code&gt;//&lt;/code&gt; 和 &lt;code&gt;/*  */&lt;/code&gt; 进行行/块注释。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;句尾&lt;/strong&gt; &lt;code&gt;;&lt;/code&gt; ：单行单条语句结束可以无需 &lt;code&gt;;&lt;/code&gt; (但为了规范和明确可以加上)，同行多个语句可以用 &lt;code&gt;;&lt;/code&gt; 进行语句的区分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;变量&#34;&gt;变量&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;声明变量使用：&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/var&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;var&lt;/code&gt;&lt;/a&gt;
+, &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;let&lt;/code&gt;&lt;/a&gt;
+, &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;const&lt;/code&gt;&lt;/a&gt;
+ 三个关键词；其中 &lt;code&gt;let&lt;/code&gt; 和 &lt;code&gt;const&lt;/code&gt; 是相似的，用于声明块级作用域的局部变量，只有在声明的位置之后才能使用，唯一的区别在于 &lt;code&gt;const&lt;/code&gt; 声明的常量不能用赋值运算符直接更改，（但如果是个对象，它的属性可以被添加、更新、删除）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;变量定义：&lt;/strong&gt;(另起一个 Paragraph 表示尊重) JS 为非强类型语言(即类似 python 而非 cpp)，为&lt;strong&gt;动态类型语言&lt;/strong&gt;，变量声明&lt;strong&gt;无需指定类型&lt;/strong&gt;。但有以下几个注意的事项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;（不推荐）不带关键字的变量声明会默认为全局变量。&lt;/li&gt;
+&lt;li&gt;（推荐）可以使用 &lt;code&gt;let&lt;/code&gt; 或 &lt;code&gt;var&lt;/code&gt; 关键字定义变量。&lt;/li&gt;
+&lt;li&gt;（最推荐）最推荐使用 &lt;code&gt;let&lt;/code&gt; 进行变量的声明，var 对变量定义位置的要求更低，使用 var 编写可能会方便，但是在后续维护和阅读中可能会体验很差。使用 &lt;code&gt;let&lt;/code&gt; 然后和别的语言一样声明和使用变量。&lt;/li&gt;
+&lt;li&gt;可以使用 &lt;code&gt;typeof&lt;/code&gt; 来检查变量类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中对于变量的定义上，Var 和 let 的详细差别可以参考 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables#var_%E4%B8%8E_let_%E7%9A%84%E5%8C%BA%E5%88%AB&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;var与let的区别&lt;/a&gt;
+，&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/var#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;var变量提升&lt;/a&gt;
+，简单的讲 var 的定义会先于所有的语句执行，声明一个全局的变量。下面简单介绍一下各种不同的数据类型：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对象&lt;/strong&gt;：JavaScript 里一切皆对象，一切皆可储存在变量里。这一点要牢记于心，字典也是一种对象，定义方式和 Python 一致：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;dog&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Spot&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;breed&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Dalmatian&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;dog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 访问name属性。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;数值：&lt;/strong&gt; JS 只有一种数值类型 Number，不需要像 cpp 执行 int 和 float 之类的转换，说到数值类型，就需要对基本的运算符进行说明，这里简单列一下支持的一些运算符类型&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;Idx&lt;/th&gt;
+          &lt;th&gt;Col1&lt;/th&gt;
+          &lt;th&gt;Col2&lt;/th&gt;
+          &lt;th&gt;Col3&lt;/th&gt;
+          &lt;th&gt;Col4&lt;/th&gt;
+          &lt;th&gt;Col5&lt;/th&gt;
+          &lt;th&gt;Colo6&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;基础&lt;/td&gt;
+          &lt;td&gt;+&lt;/td&gt;
+          &lt;td&gt;-&lt;/td&gt;
+          &lt;td&gt;*&lt;/td&gt;
+          &lt;td&gt;/&lt;/td&gt;
+          &lt;td&gt;%&lt;/td&gt;
+          &lt;td&gt;**&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;自增自减&lt;/td&gt;
+          &lt;td&gt;*=&lt;/td&gt;
+          &lt;td&gt;(var)++&lt;/td&gt;
+          &lt;td&gt;(var)&amp;ndash;&lt;/td&gt;
+          &lt;td&gt;+=&lt;/td&gt;
+          &lt;td&gt;-=&lt;/td&gt;
+          &lt;td&gt;/=&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;比较&lt;/td&gt;
+          &lt;td&gt;!==&lt;/td&gt;
+          &lt;td&gt;===&lt;/td&gt;
+          &lt;td&gt;&amp;lt;&lt;/td&gt;
+          &lt;td&gt;&amp;gt;&lt;/td&gt;
+          &lt;td&gt;&amp;lt;=&lt;/td&gt;
+          &lt;td&gt;&amp;gt;=&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;基本运算符&lt;/strong&gt;：和大多数语言的基本运算符保持一致，这里需要特殊说明的只有&lt;strong&gt;相等的判断符&lt;/strong&gt;，区别于其他语言，JS 中使用三个等号来判断相等；&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;a is equal to b&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;a is equal to b&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;这里的函数定义和条件判断都更接近 cpp，使用{}将代码块来区分，而非单纯使用缩进。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb15-Web实战01-首页设计</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sat, 17 Feb 2024 08:28:28 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;设计个人首页作为 HTML 和 CSS 的实战，主要设计以下的几个部分，导航栏，侧边栏，logo，页脚，背景，以及一个简单的个人介绍页面，首先不考虑使用框架和库，仅对整体流程做熟悉，使用纯 HTML 和 CSS 进行基础实现。后续考虑使用框架和组件库进行重写。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.checklist.design/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CheckList for Web Design&lt;/a&gt;
+ : Using this website to checkout those element u missed in your design. Prepare for those elements. Get Ready and Start.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240219134111.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240219134111.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240219134111.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;nav-bar-页眉的导航栏设计&#34;&gt;Nav-Bar 页眉的导航栏设计&lt;/h2&gt;
+&lt;h3 id=&#34;buger-下拉菜单侧边菜单&#34;&gt;Buger 下拉菜单(侧边菜单)&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://alvarotrigo.com/blog/hamburger-menu-css/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://alvarotrigo.com/blog/hamburger-menu-css/&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;flex-布局设计&#34;&gt;flex 布局设计&lt;/h3&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240221035525.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240221035525.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240221035525.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;使用 html css 进行布局时，如果计划使用 flex 等布局，避免无谓的划分子集的 div 等 box，避免多余的额外对齐工作，原型和草稿确认布局是很重要的。例如上述的导航栏，分成左右两个 div 即可，如果将搜索框等独立出来，在后续对齐和确认间距的时候会多出很多麻烦。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以缩减为仅使用一个 div，使用 flex 的布局技巧来使得元素一半左对齐一半右对齐即可，下面时具体说明。可以参考文献 1 的《使用自动的外边距在主轴上对齐》章节。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果希望让 flex 子元素靠右显示，可以在子元素中定义 &lt;code&gt;margin-left: auto;&lt;/code&gt; (auto 也可使用其他数值单位替代)，参考 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;👍MDN弹性盒子容器中的对齐方式&lt;/a&gt;
+ |  &lt;a href=&#34;http://m.tnblog.net/notebook/article/details/7906&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;flex子元素靠右&lt;/a&gt;
+ | &lt;a href=&#34;https://blog.51cto.com/mouday/4373479&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Flex的最后一个元素靠右&lt;/a&gt;
+ | &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Glossary/Flexbox&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Flexbox&lt;/a&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;align-items 如果没有设置正确的话，所有的元素会按照撑满 flex 容器的高度去对齐。&lt;/li&gt;
+&lt;li&gt;使用 margin:auto 可以实现元素的居中&lt;/li&gt;
+&lt;li&gt;使用 align-self 可以实现单个 flex 子项的不同对齐方式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可能接着阅读更多布局相关的资料，加深对布局的认识，以及正确选择合适的布局：&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mdn Layout Cookbook&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb15-CSS09-媒体查询与响应式设计</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Thu, 08 Feb 2024 17:53:55 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Responsive_Design&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;响应式设计的历史和思路：&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Media_queries&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;媒介查询的入门 与或非等语句&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;传统的布局方法&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;尽可能使用现代的布局方法，我们可能不需要媒介查询的方式去实现响应式设计了，当然我们也可以结合媒介查询去对现代布局方式做优化。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb14-CSS08-CSS布局</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Wed, 07 Feb 2024 17:09:44 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;这里 CSS 的布局指的是通过控制元素的属性：宽度，高度，块（不同类型），内联等来实现在 HTML 的基础上对整体页面的布局进行调整。将其排布在页面上。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CSS 页面布局技术允许我们拾取网页中的元素，并且控制它们相对正常布局流、周边元素、父容器或者主视口/窗口的位置。在这个模块中将涉及更多关于页面&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Layout_mode&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;布局技术&lt;/a&gt;
+的细节：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;布局模式介绍&#34;&gt;布局模式介绍&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Normal_Flow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;正常布局流&lt;/strong&gt;&lt;/a&gt;
+：指的是不对页面进行任何布局控制的时候，浏览器默认的 HTML 布局方式，实际上就是按照源码中的先后次序依次出现，在 HTML 布局的过程中，最为重要的就是元素的块和内联两种布局方式。这里需要注意的就是，块的方向和元素的书写方向的关系。&lt;/p&gt;
+&lt;p&gt;而当我们希望使用 CSS 来改变正常的布局形式的时候，通常会使用以下的一些属性，或者说布局技术，来覆盖掉默认的 HTML 布局行为。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/display&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;display&lt;/code&gt;&lt;/a&gt;
+&lt;/strong&gt; 属性：改变元素在 HTML 中的渲染形式，如 &lt;code&gt;block&lt;/code&gt; &lt;code&gt;inline&lt;/code&gt; &lt;code&gt;inline-block&lt;/code&gt; 还有 CSS 引入的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Grids&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSS Grid&lt;/a&gt;
+ 和 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Flexbox&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Flexbox&lt;/a&gt;
+.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/float&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;float&lt;/code&gt;&lt;/a&gt;
+&lt;/strong&gt; 属性：使用 float 属性能改变块级元素换行的特性，实现类似换行的效果，其值指定其他元素围绕块级元素的哪一边。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/position&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;position&lt;/code&gt;&lt;/a&gt;
+&lt;/strong&gt; 属性：利用 position 来设置盒子在盒子中的位置，在嵌套的情况下就可以产生多样的排布&lt;/li&gt;
+&lt;li&gt;表格布局：表格的布局方式可以用在非表格内容上，可以使用&lt;code&gt;display: table&lt;/code&gt;和相关属性在非表元素上使用&lt;/li&gt;
+&lt;li&gt;多列布局： &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_multicol_layout&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Multi-column layout&lt;/a&gt;
+ 属性可以让块按列布局，比如报纸的内容就是一列一列排布的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在讨论布局时，&lt;code&gt;display&lt;/code&gt; 最多用到的属性为 &lt;code&gt;flex&lt;/code&gt; 和 &lt;code&gt;grid&lt;/code&gt; 属性，利用这两个属性值来改变布局。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb13-CSS07-CSS开发流程</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Wed, 07 Feb 2024 15:54:33 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;这一章节主要是涵盖开发 css 的各部分，有一些需要掌握的技能的 TODO 还有一些代码风格之类的东西&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb12-CSS06-表格样式处理</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 07 Feb 2024 15:06:05 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;表格的部分主要还是要实操，&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Styling_tables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MDN&lt;/a&gt;
+ 中给了一个例子，这里给我的启示是要更多的去阅读&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_table&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;表格的相关属性&lt;/a&gt;
+，或者去阅读别人对表格设计中用到的元素，才能更好的掌握一些设计的思路，这里就给出本文中给出的一些常见的属性和设置方法，后续在具体实践中慢慢补充。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;table-layout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;fixed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;border-collapse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;collapse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;border&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;solid&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;purple&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;thead&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;nth-child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;th&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;td&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;当为表格设置初始样式的时候，使用 layout 为 fixed 会使得表格的行为更好预测，避免由于内容产生的畸变导致难以设置或者出现一些奇怪对齐情况，使用 fixed 然后设置每一列的宽度，在对内容进行处理可能更好。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;nth-child&lt;/code&gt; 设置每一列的宽度，最终相加为 100%，使得在不同分辨率下比较好控制。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;border-collapse: collapse;&lt;/code&gt; 原本两个格子之间会有两条边线，这样的话可以合并重叠的边线，让表格更符合我们的预期。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;text-align&lt;/code&gt; 设置对齐方式&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;thead&lt;/code&gt;，&lt;code&gt;tfoot&lt;/code&gt;，&lt;code&gt;tbody&lt;/code&gt; 来分别设置样式，可以做出类似三线表之类的东西&lt;/li&gt;
+&lt;li&gt;为标题 &lt;code&gt;caption&lt;/code&gt; 设置对应的样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;后续可能会找一些比较常见的表之类的来整理，&amp;amp; 查看一下组件库。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb11-CSS05-部分常见样式设置</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Tue, 06 Feb 2024 16:24:17 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;该篇章主要收集一些常见的样式设置的参考页和一些需要记住的重要设置内容，由于不可能记住所有的属性和设置，善用查询可能才是唯一的王道。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;css-中的值与单位&#34;&gt;CSS 中的值与单位&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Values_and_units&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSS 中的值与单位&lt;/a&gt;
+ 这里介绍常见的一些值和单位，有一些新的可能会有所缺失，但是大部分都有了，这里可以列举几个常见但是之前不理解的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;em&lt;/code&gt; 相对字体大小&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vw&lt;/code&gt; 视窗宽度，值为百分比的含义&lt;/li&gt;
+&lt;li&gt;百分比：与父辈容器的百分比&lt;/li&gt;
+&lt;li&gt;rgba 或者 rgb 的第四个值代表透明度，十六进制想设置透明度的话，就在后面再加两位 16 进制表示透明度的百分比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里倒是提示我们需要有个比较好的取色器或者像 vscode 中的色盘来编写 css，颜色搭配网站在 css 中也是很重要的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb10-CSS04-盒子模型</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Tue, 06 Feb 2024 15:08:50 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;HTML 和 CSS 中，所有的元素都是基于一个个的 Box 去渲染的，理解盒子模型的设计，才能知道如何进行布局，从而使的页面按照希望的样子呈现，该定义实际上和 HTML 的块级元素和内联元素使完全相对应的。需要注意两者之间的关联性。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;块级盒子block-box和内联盒子inline-box&#34;&gt;块级盒子(Block Box)和内联盒子(Inline Box)&lt;/h2&gt;
+&lt;p&gt;块级盒子和 HTML 中的块级元素使相互对应的，例如 &lt;code&gt;h&lt;/code&gt; 和 &lt;code&gt;p&lt;/code&gt; 有以下的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;与其他元素之间会换行&lt;/li&gt;
+&lt;li&gt;因为换行，在内联的方向上（也就是行）会占据所有可用空间，即绝大多数情况下和父容器一样宽。&lt;/li&gt;
+&lt;li&gt;width 和 height 属性均可发挥总用&lt;/li&gt;
+&lt;li&gt;内边距（padding）, 外边距（margin）和边框（border）会将其他元素从当前盒子周围“推开”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;内联盒子和 HTML 中的内联元素相互对应，例如 &lt;code&gt;span&lt;/code&gt;, &lt;code&gt;em&lt;/code&gt;, &lt;code&gt;strong&lt;/code&gt; 等，有以下的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不会换行&lt;/li&gt;
+&lt;li&gt;width 和 height 属性不起作用&lt;/li&gt;
+&lt;li&gt;垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 &lt;code&gt;inline&lt;/code&gt; 状态的盒子推开。&lt;/li&gt;
+&lt;li&gt;水平方向的内边距、外边距以及边框会被应用且会把其他处于 &lt;code&gt;inline&lt;/code&gt; 状态的盒子推开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果希望切换元素的内联或者块级属性，可以通过对盒子的 display 属性设置进行切换，对应的属性值为 &lt;code&gt;inline&lt;/code&gt; 和 &lt;code&gt;block&lt;/code&gt;，而更有趣的，如果我们希望不换行，但是内联中的 &lt;code&gt;width&lt;/code&gt; 和 &lt;code&gt;height&lt;/code&gt; 属性起到作用，可以使用 &lt;code&gt;inline-box&lt;/code&gt; 属性。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Inline-box 属性在导航栏/链接元素中很常见，我们通过增大内容区域来使得链接存在更大的命中区域，同时不影响别的元素的呈现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在这里还会看到片一个十分常见的盒子属性 &lt;code&gt;flex&lt;/code&gt; 其通常会将外部的显示类型转换为 block，但是内部的显示类型设置为 flex，对其内部的各个子元素，都将转换为 flex 元素，并基于 flex 即&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Flexbox&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;弹性盒子的规则&lt;/a&gt;
+进行布局，可以生成更灵活的界面，这个后面在排版部分针对性的了解，这里简单介绍如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;flex 会将内部的元素默认沿着行的方向均分切成几个 box，但是具体的切分可以根据后续的属性进行定义。&lt;/li&gt;
+&lt;li&gt;如果希望 flex 的外部为内联的，则使用 inline-flex 属性。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb09-CSS03-层叠层</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</link>
+      <pubDate>Tue, 06 Feb 2024 10:48:11 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;本章节是额外对于优先级的补充章节，在使用上可能会没有明显的感知，但是从概念上理解 CSS 的优先级和后续复杂项目的开发中还是起到了比较大的作用，该章节介绍层叠层的概念，在原先的优先级判定上添加了层的概念。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;层叠概念回顾&#34;&gt;层叠概念回顾&lt;/h2&gt;
+&lt;p&gt;该 Section 内容完全摘录自 MDN CSS 教程，也算是对于整体重要性和优先级的一个很好的总结。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;相关声明&lt;/strong&gt;：找到所有具有匹配每个元素的选择器的声明代码块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重要性&lt;/strong&gt;：根据规则是普通还是重要对规则进行排序。重要的样式是指设置了 &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/important&#34; title=&#34;Currently only available in English (US)&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;!important&lt;/code&gt; (en-US)&lt;/a&gt;
+ 标志的样式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;来源&lt;/strong&gt;：在两个按重要性划分的分组内，按作者、用户或用户代理这几个来源对规则进行排序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;层&lt;/strong&gt;：在六个按重要性和来源划分的分组内，按层叠层进行排序。普通声明的层顺序是从创建的第一个到最后一个，然后是未分层的普通样式。对于重要的样式，这个顺序是反转的，但保持未分层的重要样式优先权最低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优先级&lt;/strong&gt;：对于来源层中优先权相同的竞争样式，按&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;优先级&lt;/a&gt;
+对声明进行排序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;出现顺序&lt;/strong&gt;：当两个来源层的优先权相同的选择器具有相同的优先级时，最后声明的具有最高优先级的选择器的属性值获胜。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CSS 渲染过程中会逐步往下选择，如果在中间已经决出了胜负就不会继续往下，例如对一个元素在每个来源中只有一个定义，那么在来源层就可以决出胜负，无需往下了，而若获胜的来源中有多个层定义了同个属性，那么就会对比各个层的优先级，诸如此类。&lt;/p&gt;
+&lt;p&gt;其他的部分前文已经基本提到了，接下来补充来源和层的两个概念。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;![note]+
+三个来源中的：&amp;lsquo;用户代理&amp;rsquo;指的是浏览器，用户指的是网站访问者，作者指的是网站开发者，浏览器内部将来自这三个来源的样式表进行来源的排序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;来源的优先级排序&#34;&gt;来源的优先级排序&lt;/h3&gt;
+&lt;p&gt;有三种&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Cascade#origin_types&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;层叠来源类型&lt;/a&gt;
+：用户代理样式表、用户样式表和作者样式表。浏览器根据来源和重要性将每个声明分为六个来源分组。有八个优先权级别：六个来源分组、正在过渡的属性和正在动画的属性。优先权的顺序是从具有最低优先权的普通用户代理样式，到当前应用的动画中的样式，到具有最高优先权的重要用户代理样式，再到正在过渡的样式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户代理普通样式&lt;/li&gt;
+&lt;li&gt;用户普通样式&lt;/li&gt;
+&lt;li&gt;作者普通样式&lt;/li&gt;
+&lt;li&gt;正在动画的样式&lt;/li&gt;
+&lt;li&gt;作者重要样式&lt;/li&gt;
+&lt;li&gt;用户重要样式&lt;/li&gt;
+&lt;li&gt;用户代理重要样式&lt;/li&gt;
+&lt;li&gt;正在过渡的样式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;用 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/style&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt;&lt;/a&gt;
+ 元素直接在元素上声明的样式是作者样式。不包括动画和过渡样式，用户代理普通样式具有最低优先权；用户代理重要样式具有最高优先权。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb08-CSS02-CSS入门</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 04 Feb 2024 17:05:12 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-note&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Note&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;&lt;ol&gt;
+&lt;li&gt;你永远无法记住所有的 CSS 属性，善用参考资料：&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MDN CSS reference&lt;/a&gt;
+ 和 GPT&lt;/li&gt;
+&lt;li&gt;善用浏览器的开发者面板在页面上及时编辑 CSS。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;css-运行逻辑&#34;&gt;CSS 运行逻辑&lt;/h2&gt;
+&lt;p&gt;前面在 &lt;a href=&#34;LearnWeb00-Web%e5%85%a5%e9%97%a8.md&#34;&gt;LearnWeb00-Web入门&lt;/a&gt;
+ 中简单提及了浏览器以及 CSS 起了什么作用，这里则是对于 CSS 是如何具体参与进页面的渲染的讲解，包括早该知道的 DOM 的定义也会在这里介绍，是 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/How_CSS_works&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSS 是如何运行&lt;/a&gt;
+的读书笔记。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240205140358.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240205140358.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240205140358.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;浏览器获取了 HTML 之后：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;会拉取其所依赖的所有 CSS，JS 和静态资源（Parser HTML）&lt;/li&gt;
+&lt;li&gt;解析 HTML 代码，根据其中的 Tag、Class、ID 和相互之间的关系将 HTML 解析成 DOM ，每个元素作为其中的一个节点放进相对应的桶中。（元素桶、ID 桶之类）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;紧接着，在拉取完 CSS 之后，浏览器开始解析 CSS，基于 CSS 中的选择器找到每个样式所属的 DOM 节点，并将其添加进去。&lt;/p&gt;
+&lt;p&gt;最后基于最终的 DOM(Document Object Model) 渲染出完整的页面，这里对 DOM 进行一个简单的解释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个 DOM 有一个树形结构，标记语言中的每一个元素、属性以及每一段文字都对应着结构树中的一个节点（Node/DOM 或 DOM node）。节点由节点本身和其他 DOM 节点的关系定义，有些节点有父节点，有些节点有兄弟节点（同级节点）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此外浏览器在渲染过程中如果遇到了位置的 CSS 会直接跳过相应的 CSS ，然后渲染下一个规则。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb07-HTML04-表格基础</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 04 Feb 2024 16:30:09 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;HTML 中需要使用 CSS 进行样式组合才能得到一个阅读体验较好的表格，目前还是先专注在 HTML 的部分，后面到 CSS 部分的时候再合起来一起看。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb06-HTML03-多媒体元素</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Sat, 03 Feb 2024 09:51:08 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;接下来主要探讨 HTML 中的多媒体元素，图片、视频、音频以及 iframe 等等。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;图片元素-image&#34;&gt;图片元素 Image&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;lt;img_url or location&amp;gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;src &lt;/code&gt;：最基本的图片元素仅需一个 &lt;strong&gt;src&lt;/strong&gt; 属性来指向图片资源，这样就可以将图片导入页面中，其中关于 Location 这里有一个 SEO Tips(Google Recommand)：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本地存储推荐存储于 &lt;code&gt;images&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;图片的命名更加具备描述性。&lt;/li&gt;
+&lt;li&gt;不要将自己的 SRC 属性指向他人网页上的照片（这种行为为&amp;quot;盗链&amp;quot;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如图像元素和视频元素这类嵌入的元素，有时候也被成为&lt;strong&gt;替换元素&lt;/strong&gt;：元素的内容和原始尺寸由外部资源所定义，而非元素本身。（可以使用属性或者 CSS 进行控制）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;alt&lt;/code&gt;：alt 为了视障，节省带宽，浏览器支持问题等原因设置的代替图片出现的描述性文本，推荐根据图片内容进行编写：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;装饰需求 &lt;/code&gt;: 使用空的 &lt;code&gt;alt=&amp;quot;&amp;quot;&lt;/code&gt; 避免输出多余信息，同时推荐将装饰性图片在 CSS 文件中定义而非 html，下文会详细讲解 CSS 设置装饰图片&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;内容需求&lt;/code&gt;：如果正文中没有描述，则 alt 对图片进行描述，否则设置为空。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;width&lt;/code&gt; 与 &lt;code&gt;height&lt;/code&gt; ：上文中提到图片的 size 由外部资源决定，单位了适应页面的大小，可以使用 img 标签中的 width 和 height 属性来实现对图片的缩放，同时也会&lt;strong&gt;在页面尚未加载完成时预留空间，避免页面结构混乱&lt;/strong&gt;。（因此无需缩放也建议，获取图片的 size 写入属性。）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;title&lt;/code&gt;：类似超链接中的 title 属性，可以给照片添加悬停提示，当空间不够时可以通过这种方式来添加部分信息，但不推荐。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;figure&lt;/code&gt; 与 &lt;code&gt;figcaption&lt;/code&gt;：创建一个容器（box），可以为图片在图片下方添加说明，像论文中的那种，对于无障碍用户来说起到和 alt 一样的作用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;https://the-network-photo&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;alt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;key img&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;200&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;figcaption&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;通过为网络添加一个低纬嵌入来实现用最小的空间代价控制网路行为&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;figcaption&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;figure 中可以存放几张图片、一段代码、音视频、方程、或者任何其他的内容，而不只是单张照片，类似的补充说明的场景都可以使用 figure 元素呈现。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb05-HTML02-要素察觉</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</link>
+      <pubDate>Fri, 02 Feb 2024 14:09:15 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;本章节在 HTML01 的基础上加深对于一些基础概念，标签等的认知，还是以 HTML 编写的基础知识为主。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;块级元素和内联元素&#34;&gt;块级元素和内联元素&lt;/h2&gt;
+&lt;p&gt;块级元素和内联元素就像 Markdown 的内联代码和代码块两种写法，一个需要另起一行且会占据行，下一个元素必须另起一行，如 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 段落等。而内联元素就是可以嵌入行内，内联元素前后都无需换行，一般如强调，高亮，超链接一类。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;正是由于这种结构，&lt;strong&gt;块级元素&lt;/strong&gt;在使用的时候除了内容，往往还承担着&lt;strong&gt;网页的结构&lt;/strong&gt;相关的工作，如页眉，页脚, 列表，导航栏等等；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;块级元素&lt;/strong&gt;不会嵌套在内联元素中，但是可能嵌套在另一个块级元素中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内联元素&lt;/strong&gt;则通常在块级元素中和文本一起使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;需要注意的是这类元素分类是过时的，HTML 定义了更加详细具体的分类，为了便于理解暂时使用旧的定义来做简单的区分。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;布尔属性&#34;&gt;布尔属性&lt;/h2&gt;
+&lt;p&gt;前文提到过，属性通常以 k-v 键值对的形式呈现，但是有部分属性是没有值的，其 key 通常与值有着相同的含义，如 &lt;code&gt;disabled&lt;/code&gt;，该布尔属性本身就代表着禁用，例如输入框 &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; 禁用就会阻止用户的输入。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;disabled&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样就会创建一个无法输入的输入框，通常会以灰色呈现，type 则限制了输入框的输入类型。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb04-JS01-基础webJS编写</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb04-js01-%E5%9F%BA%E7%A1%80webjs%E7%BC%96%E5%86%99/</link>
+      <pubDate>Wed, 31 Jan 2024 21:42:46 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb04-js01-%E5%9F%BA%E7%A1%80webjs%E7%BC%96%E5%86%99/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;JS 除了 WEB 在现代还有很多 NodeJS 的应用也会使用 JS，这里只介绍 web 相关的 JS 代码编写的部分。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;ref:&lt;/strong&gt; &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mdn JS 快速入门&lt;/a&gt;
+ | 《数据结构与算法 JavaScript 描述》&lt;/p&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;JavaScript 是一门完备的动态编程语言，可以借由诸多开发者编写的大量工具，为网站提供动态交互的特性（结合浏览器应用程序接口 API）主要用到的包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;浏览器应用程序接口（API）&lt;/strong&gt;：浏览器内置的 API 提供了丰富的功能，比如：动态创建 HTML 和设置 CSS 样式、从用户的摄像头采集处理视频流、生成 3D 图像与音频样本等等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第三方 API&lt;/strong&gt;：让开发者可以在自己的站点中整合其他内容提供者（Twitter、Facebook 等）提供的功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第三方框架和库&lt;/strong&gt;：用来快速构建网站和应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;html-引入-js-代码&#34;&gt;HTML 引入 JS 代码&lt;/h3&gt;
+&lt;p&gt;为了使得代码更清晰且好组织，本文依然使用引入外部 JS 的办法进行代码结构组织，HTML 中引入相关 JS 的方法和 CSS 的方法类似但略有不同。具体代码如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;scripts/main.js&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这一段代码可以加在 Head 部分，其中的 defer 属性，及 deferred 延迟，是为了让元素都加载完成后再加载 JS 部分代码，否则最好将 JS 的引入放在 &lt;a href=&#34;https://www.freecodecamp.org/chinese/news/link-javascript-to-html-with-the-src/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HTML 快要结束的部分&lt;/a&gt;
+（&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt; 的前一行）。避免 JS 元素对 HTML 提前进行修改导致 HTML 加载失效。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://juejin.cn/post/6992371218481414152&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;async-defer&lt;/a&gt;
+ | &lt;a href=&#34;https://realdennis.medium.com/html-script-%E4%B8%ADdefer%E8%B7%9Fasync%E6%98%AF%E4%BB%80%E9%BA%BC-1166ee88d18&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Medium&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb03-CSS01-基础CSS规则</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</link>
+      <pubDate>Wed, 31 Jan 2024 15:58:10 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;在前文 web 入门中已经简单介绍了 CSS 是如何起作用，如何与 HTML 进行相互合作的，本篇主要简单介绍如何编写 CSS 文件中的各种样式。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mdn css入门&lt;/a&gt;
+ | &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MDN css属性大全&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;在本文及后续的尝试中，都使用单独 CSS 文件外挂的格式，该种格式的结构会更清晰，即将下述代码放入 HTML 文件的 Head 部分。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;styles/style.css&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;href 部分需要替换为自己实际存放 css 文件的地址即可，此外也简单重复一下剩下的两种使用 CSS 的方式：内部样式表和内联样式表&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;内部样式表&lt;/strong&gt;即在 HTML 的 Head 部分添加 &lt;code&gt;&amp;lt;style&amp;gt;your css code&amp;lt;/style&amp;gt;&lt;/code&gt; 将 CSS 代码都包裹起来&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内联样式表&lt;/strong&gt;即在特定元素中定义 style 属性，&lt;code&gt;&amp;lt;p style=&amp;quot;your css code&amp;quot;&amp;gt;&lt;/code&gt; 在 style 属性中填充需要的 CSS 代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来进入正文，讲解 css 部分的组成和编写规则。&lt;/p&gt;
+&lt;h2 id=&#34;pattern-基础范式&#34;&gt;Pattern 基础范式&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Principle to Write Css.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131161211.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131161211.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131161211.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;这是一个最基本的 CSS 结构，更为专业的名称是 &lt;strong&gt;CSS 规则集&lt;/strong&gt;（简称为规则），其组成分成一下几个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;选择器 Selector&lt;/strong&gt;：类似表格中的筛选，筛选这个规则使用的范围，针对 Class、ID、Tag 等不同类型有不同的选择器写法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;属性 Property&lt;/strong&gt;: 选择要修改的属性，如颜色，大小，位置灯多重类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;属性值 Property value&lt;/strong&gt;: 各种对应属性的取值，如具体的哪个颜色，字体多大等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;声明 Declaration&lt;/strong&gt;：由属性和属性值组成的一条单独的规则，指定一种特定的样式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上述结构称为规则&lt;strong&gt;集&lt;/strong&gt;，因为其可以同时包含多个规则（即声明），编写时有以下约定：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个规则使用 &lt;code&gt;;&lt;/code&gt; 作为结尾的分割&lt;/li&gt;
+&lt;li&gt;同一个规则集的规则需要编写在 &lt;code&gt;{}&lt;/code&gt; 之中&lt;/li&gt;
+&lt;li&gt;属性和属性值为 K-V 对，声明时使用 &lt;code&gt;:&lt;/code&gt; 作为分割符，且属性和值均不区分大小写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;注释方法&#34;&gt;注释方法&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;all between those two symbol is comment.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb02-HTML01-基础的标签</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Wed, 31 Jan 2024 15:00:58 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-intro&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Intro&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;在 Web 入门，How HTML Work 部分已经简单介绍过，HTML 是一种定义内容结构的标记语言，通过一系列标记（确定其表现形式）和对应内容组成的元素，嵌套，排列，构成完整的页面。本文主要是整理和熟悉一下基础的标记元素&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131110224.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131110224.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240131110224.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;REF: &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HTML 入门&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;从上述图像可以看到一个基本的 HTML 元素的构成，元素的 Tag 可以包含属性，&lt;strong&gt;多个属性之间用空格隔开&lt;/strong&gt;，Class 属性可以为元素标识名称，进而为其指定 Style 等。&lt;/p&gt;
+&lt;p&gt;属性通常为 K-V 键值对，attr=&amp;ldquo;value&amp;rdquo; 的形式呈现，这里引号可以是单或者双，甚至可以没有，但是没有引号有时候会导致问题，所以建议保持使用引号的风格去编写。&lt;/p&gt;
+&lt;h2 id=&#34;headoverview-部分&#34;&gt;Head/Overview 部分&lt;/h2&gt;
+&lt;p&gt;参考网站中的范例如下，一个基本的 HTML 文件有以下这些可以注意的地方：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;en-US&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;charset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;viewport&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;width=device-width&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;My test page&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;images/firefox-icon.png&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;alt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;My test image&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 就如 cpp 中的 head 文件，定义一些不用于向用户显示的内容，给浏览器的关键词，字符集声明，页面描述等内容&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;&lt;/code&gt; 定义文档使用的字符串编码类型，utf-8 支持世界上大部分语言的渲染，避免因为中文等出现乱码的情况。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width&amp;quot;&amp;gt;&lt;/code&gt; 视口元素，可以确保页面以视口宽度进行渲染，避免移动端浏览器上因页面过宽导致缩放。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt; 对当前网页的描述和注解，显示在标签栏中，以及收藏时显示的文字&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 部分则是包含网站的全部需要显示的内容。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb01-DevPipeline</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb01-devpipeline/</link>
+      <pubDate>Tue, 30 Jan 2024 10:40:23 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb01-devpipeline/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;Familiar with the pipeline of how to build a website, how to organize the files, etc&amp;hellip;&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;start-design&#34;&gt;Start Design&lt;/h2&gt;
+&lt;p&gt;开始设计一个网站的时候，可以从以下三个方面入手来启动整个开发设计过程：网站的主题-&amp;gt;基础的一些内容-&amp;gt;整体的外观设计（草稿）&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240130115132.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240130115132.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20240130115132.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;更具体一些：确定完要制作的网页，可以绘制草图有一个粗浅的整体效果，然后指定文本、图像、色彩、字体等资源，就可以开始制作了。&lt;/p&gt;
+&lt;h2 id=&#34;file-structure&#34;&gt;File Structure&lt;/h2&gt;
+&lt;p&gt;关于项目中的文件命名，需要注意的是以下的三点，建议养成这样的规范去建立网页文件夹。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;建议使用完全小写来命名文件&lt;/strong&gt;，webserver 是大小写敏感的，所以复杂的大小写关系容易导致访问不到文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;尽量不要使用空格&lt;/strong&gt;，空格可能会破坏链接被视为两个文件等，如果没有被区分很多服务器也需要使用 %20 对空格进行替换&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;尽量使用连字符代替下划线进行文件命名&lt;/strong&gt;，google 搜索引擎将连字符作为单词的分割符，而不会识别下划线&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而文件存储结构部分，通常而言，有以下的关键文件和文件夹结构，在很多场景下也会将 image 等文件夹放到 static 文件夹中。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;index.html&lt;/li&gt;
+&lt;li&gt;styles: 存放 css 文件&lt;/li&gt;
+&lt;li&gt;images: 存放图片等媒体资源文件&lt;/li&gt;
+&lt;li&gt;scripts: 存放 js 等脚本代码文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;资源的文件路径一般而言以 html 为 Basepath，然后根据上下级关系确认索引地址即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LearnWeb00-Web入门</title>
+      <link>https://aikenh.cn/hugotest/posts/learnweb00-web%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 28 Jan 2024 21:25:30 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/learnweb00-web%E5%85%A5%E9%97%A8/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;Web 前端开发者路线学习，基本的目的是能够为自己想做的项目搭建前端界面，从 web 开始再到各个移动设备的前端 UI，基于 Mdn 课程，Roadmap 具体项目逐步推进对各个知识点的学习。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;根据下面的课程、Roadmap、搭建自己的知识架构，在搭建过程中结合具体的项目，包括自己部署的界面去逐步实践，完善和熟悉整个知识体系和技术栈，并通过和现代 AI 辅助工具的合作，建立自己独立的前端开发流。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://metisy.cool/library/library/46/series/398/manga/1714?incognitoMode=false&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Roadmap For Beginner&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://metisy.cool/library/library/46/series/397/pdf/1712?incognitoMode=false&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Roadmap For All&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/Front-end_web_developer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mdn Web Tutor&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;be-ready-准备以及基础了解&#34;&gt;Be Ready 准备以及基础了解&lt;/h2&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240128213825.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240128213825.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240128213825.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基础：开发环境准备、页面设计、文件架构规划（由于网站需要包含多种代码、文本、素材、因此如何组织文件是相当重要的）&lt;/li&gt;
+&lt;li&gt;语言：HTML 、CSS、JS 三驾马车为一个网页必不可少的要素，通过结合各自不同的功能来实现多样化的页面设计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;whats-web&#34;&gt;What&amp;rsquo;s WEB&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=O_GWbkXIqEY&amp;amp;list=PLo3w8EB99pqLEopnunz-dOOBJ8t-Wgt2g&amp;amp;index=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;What&amp;rsquo;s WEB?&lt;/a&gt;
+ 通过 URL 统一资源定位符向服务器请求 HTML，HTML 通过包含的信息告诉 Browse 需要额外的信息来呈现该页面，因此基于 HTML 提供的信息 web browser 继续请求资源、CSS、JS 等文件，并将这些文件按照 HTML 的描述进行组合最终呈现完整的页面。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>StableDiffusionWebUI鉴权设计</title>
+      <link>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sat, 27 Jan 2024 15:42:36 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
+      <description>&lt;p&gt;[&amp;gt; [!summary]+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;this article purpose is to build an authority page for stable diffusion webui using nginx &amp;amp; python/js. Which can publish my personal stable diffusion server. Wrote by GPT(try).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240127161828.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240127161828.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240127161828.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;In the digital age, the security and user-friendliness of web services are not just conveniences; they are necessities. Balancing robust security protocols with an engaging user experience is key to maintaining both the integrity and popularity of any online service. This blog post dives into the intricacies of securing web services using Nginx for authentication, coupled with designing an appealing frontend. Our journey begins with a practical scenario:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;publishing a stable diffusion webUI service, accessible only to an authenticated audience.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;setting-up-nginx-for-secure-authentication&#34;&gt;Setting Up Nginx for Secure Authentication&lt;/h3&gt;
+&lt;p&gt;Nginx excels in serving web pages and as a reverse proxy, providing enhanced security through authentication mechanisms. Let’s explore a typical Nginx configuration for secure authentication:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/verify_token&lt;/strong&gt;: This block forwards authentication requests to a dedicated server. By excluding the request body and focusing on essential headers, it ensures that only valid, authenticated requests proceed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location = /verify_token {
+    proxy_pass http://{your_auth_server}:2424;
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length &amp;#34;&amp;#34;;
+    proxy_set_header X-Original-URI $request_uri;
+    proxy_set_header X-Original-Remote-Addr $remote_addr;
+    proxy_set_header X-Original-Host $host;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/login&lt;/strong&gt;: Catering to login requests, this configuration forwards the necessary details to the authentication server, preserving crucial information about the request&amp;rsquo;s origin.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location /login {
+    proxy_pass http://{your_auth_server}:2424;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Error Handling (@error401)&lt;/strong&gt;: A clever redirect mechanism that guides unauthenticated users to the login page, keeping the original URL intact.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location @error401 {
+    return 302 {your_domain}/login;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Root Location (/)&lt;/strong&gt;: The gateway to your service, which rigorously checks each request for authentication, granting access only to verified users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location / {
+    auth_request /verify_token;
+    error_page 401 = @error401;
+    proxy_pass http://{your_server}:2323/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &amp;#39;upgrade&amp;#39;;
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This setup not only fortifies your service against unauthorized access but also maintains a seamless user experience, redirecting unauthenticated users without hassle.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>破解本地自托管Emby服务</title>
+      <link>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</link>
+      <pubDate>Fri, 10 Nov 2023 14:05:15 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</guid>
+      <description>&lt;h2 id=&#34;intro-问题描述&#34;&gt;Intro 问题描述&lt;/h2&gt;
+&lt;p&gt;以 emby 为例，学习如何对这种自托管的服务，请求验证网站的软件进行破解，破解的整体思路分为以下的两类：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一种是改客户端，一种是改服务端。两种方式的最终原理一样，都是搭建仿冒认证服务器，客户端访问伪服务器拿到授权信息；【3】&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因此无论是那种方法我们都需要搭建伪验证服务器：所以以下的操作是必须的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;抓取定位到验证服务器的地址，并获取验证服务器返回的验证信息格式；&lt;/li&gt;
+&lt;li&gt;使用 Nginx 搭建虚拟的验证服务器，使其返回激活/验证信息；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果是&lt;strong&gt;修改客户端&lt;/strong&gt;，则在搭建完验证站后需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改 Host 文件，将请求验证服务器的请求劫持到本地搭建的服务上；&lt;/li&gt;
+&lt;li&gt;需要伪服务器和客户端都要安装自签名证书&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果是&lt;strong&gt;修改服务端&lt;/strong&gt;，则后续需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改服务端源文件，将默认的认证服务器 mb3admin.com 地址直接改成伪服务器&lt;/li&gt;
+&lt;li&gt;这样就&lt;strong&gt;不需要安装自签名证书&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果是使用 Docker 进行部署的 emby 可以使用别人修改好的服务端的镜像进行部署安装（like 开心版）&lt;/p&gt;
+&lt;p&gt;本文主要介绍验证服务器的搭建、修改客户端的方法，以及一些其他的注意事项；&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务03 DDNS-go 动态域名解析</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</link>
+      <pubDate>Tue, 07 Nov 2023 13:40:13 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第三篇，以 DDNS-go 开源项目为例，部署动态域名解析服务，自动更新主机记录值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jeessy2/ddns-go&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;jeessy2/ddns-go: 简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾讯云、Dnspod、Cloudflare、Callback、华为云、百度云、Porkbun、GoDaddy、Google Domain) (github.com)&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;该工具使用起来非常简单，推荐需要动态域名解析的可以尝试使用该工具，简单介绍工具的使用如下：&lt;/p&gt;
+&lt;h2 id=&#34;配置-ddns-go&#34;&gt;配置 DDNS-GO&lt;/h2&gt;
+&lt;p&gt;前往 &lt;a href=&#34;https://github.com/jeessy2/ddns-go/releases/tag/v5.6.6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;release&lt;/a&gt;
+ 页面下载对应系统的版本：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083156.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;解压后双击打开 ddns-go.exe 会自动弹出配置的界面：locahost:9876,选择需要解析域名的 DNS 服务商，选择创建密钥并填入对应的密钥。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231108083447.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务02 Nginx和Https</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</link>
+      <pubDate>Mon, 06 Nov 2023 20:49:16 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第二篇，以腾讯云和 Nginx 为例，介绍如何将服务部署到 https://域名 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;需要以下的事前准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;腾讯云/阿里云/Cloudflare 等随便一个地方购买一个自己的域名&lt;/li&gt;
+&lt;li&gt;公网 ipv4/ipv6 地址&lt;/li&gt;
+&lt;li&gt;本地部署一个服务以供测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;nginxdocker-安装&#34;&gt;Nginx(Docker) 安装&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里选择 Docker 来分离安装 Nginx 服务，Docker 部署的优势这里就不再赘述，这里建议使用 portainer 进行容器管理和运行状态查看。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先创建存放 Nginx 配置文件和证书文件的目录，后续挂载给 Nginx Contrainer 使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /home/username/docker-file/nginx/conf.d
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /home/username/docker-file/nginx/cert
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;配置文件存放到 &lt;code&gt;conf.d&lt;/code&gt; 中，&lt;strong&gt;各种 SSL 证书则存放到&lt;/strong&gt; &lt;code&gt;cert&lt;/code&gt; 文件夹中；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接着部署 Nginx，这次先不挂载目录，将 Nginx 中一些默认配置拷贝出来，以供后续使用和修改：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# run会自己执行镜像拉取，pull可以不执行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker pull nginx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run --name nginx -p 80:80 -d nginx 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;将配置文件复制出来：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/conf.d/default.conf /home/username/docker-file/nginx/conf.d/default.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/nginx.conf /home/username/docker-file/nginx/conf.d/nginx.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/mime.types /home/username/docker-file/nginx/conf.d/mime.types
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;基于原始的配置文件挂载后查看 nginx 是否正常运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker rm -f nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run --name nginx -p 80:80 -p 443:443 -v /home/username/docker-file/nginx/conf.d/nginx.conf:/etc/nginx/nginx.conf -v /home/username/docker-file/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /home/username/docker-file/nginx/conf.d/mime.types:/etc/nginx/mime.types -v /home/username/docker-file/nginx/cert:/etc/nginx/cert -d nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考资料：&lt;a href=&#34;https://www.cnblogs.com/Aamir-Ye/p/16823739.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;使用docker部署nginx并配置https - 逊老头 - 博客园 (cnblogs.com)&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Ipv6部署服务01 IPV6开启和设置</title>
+      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</link>
+      <pubDate>Sun, 05 Nov 2023 19:23:17 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第一篇，以电信宽带为例，说明如何开启 ipv6 服务和外网访问放行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;开启 IPV6 服务主要需要修改两个地方的配置：**光猫开启桥接模式和 IPV6 **、&lt;strong&gt;路由器修改为 pppoe 拨号模式以及防火墙设置&lt;/strong&gt;；这里以本人的电信光猫和小米路由器为例：&lt;/p&gt;
+&lt;h2 id=&#34;背景介绍&#34;&gt;背景介绍&lt;/h2&gt;
+&lt;p&gt;需要在外网访问部署于家庭内网的一些服务，考虑了以下的几个方案，决定使用 ipv6作为核心&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;方案&lt;/th&gt;
+          &lt;th&gt;简要说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;Zerotier&lt;/td&gt;
+          &lt;td&gt;免费，需要注册账户，支持移动端，国内速度极慢，且不稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;Tailscale（备用）&lt;/td&gt;
+          &lt;td&gt;免费，需要注册账号，支持移动端，国内速度一版，稳定性相 Zetotier 较好，但仍不够稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内网穿透&lt;/td&gt;
+          &lt;td&gt;frp&lt;/td&gt;
+          &lt;td&gt;申请一个有公网的服务器，使用 frp 自己作为内网穿透的中转，贵，较为麻烦&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;公网 IP&lt;/td&gt;
+          &lt;td&gt;Ipv4&lt;/td&gt;
+          &lt;td&gt;难以申请，其他都好&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;公网 IP&lt;/td&gt;
+          &lt;td&gt;Ipv6（主力）&lt;/td&gt;
+          &lt;td&gt;获取简单，需要配置一下光猫使用，一劳永逸，快，稳定，多，有暴露公网的危险，需要设置防火墙&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;其他&lt;/td&gt;
+          &lt;td&gt;Cloudflare Zerotrust&lt;/td&gt;
+          &lt;td&gt;简单，免费，可以绑定域名，但是网站根本登不进去配置页面，速度不快&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;光猫设置&#34;&gt;光猫设置&lt;/h2&gt;
+&lt;p&gt;查看光猫背面的管理员 url，进入光猫管理界面，登录&lt;strong&gt;超级管理员账户&lt;/strong&gt;（非普通账户，会跳转到更详细的管理页面，大部分同地区的超级管理员账户应该是一致的，不对可以询问下宽带师傅）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;管理地址通常为：192.168.1.1&lt;/li&gt;
+&lt;li&gt;超级管理员账号：useradmin&lt;/li&gt;
+&lt;li&gt;超级管理员密码：nE7jA%5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;开始之前准备 PPPoe 拨号的帐号和密码，不知道的话等询问好了再开始操作。&lt;/p&gt;
+&lt;p&gt;在天翼网关-&amp;gt;网络-&amp;gt;网络设置中进行如下的操作：（这里可以尝试改成 pppoe 并通过开发者模式查看密码，不知道密码不要轻易进行后续操作）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;连接名称选择 &lt;code&gt;+++INTERENT_R_VID_41&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;连接模式从路由改为桥接&lt;/li&gt;
+&lt;li&gt;IP 模式确认为 &lt;code&gt;IPv4&amp;amp;IPv6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;点击保存/应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215512.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;在天翼网关-&amp;gt;状态-&amp;gt;网络侧信息中检查 IPv4 和 IPv6 是否都开启成功：&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231105215637.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://cloud.tencent.com/developer/article/1894991&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;个人宽带如何开启IPv6网络访问&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

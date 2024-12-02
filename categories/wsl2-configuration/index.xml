@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>WSL2 Configuration on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/wsl2-configuration/</link>
+    <description>Recent content in WSL2 Configuration on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Sep 2021 02:17:39 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/wsl2-configuration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Configuration01 WSL2</title>
+      <link>https://aikenh.cn/hugotest/posts/windows-wsl2/</link>
+      <pubDate>Tue, 28 Sep 2021 02:17:39 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/windows-wsl2/</guid>
+      <description>&lt;p&gt;WSL（Windows Subsystem Linux） 将 Linux 环境部署在 Windows 中，Linux 环境在补全了 Windows 开发上的不足之外（Bash 等），还有以下的几个特性极大的便利开发和日常使用，因此强烈推荐启用并安装。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;win11 中 wsl2 已经支持相应主机的 cuda，便利了机器学习的开发；&lt;/li&gt;
+&lt;li&gt;子系统中通过/mnt 挂载了 windows 的磁盘，可以通过子系统访问和管理 windows 环境；&lt;/li&gt;
+&lt;li&gt;windows 资源管理器可访问和管理子系统中的文件&lt;/li&gt;
+&lt;li&gt;支持 windows 打开子系统中的 GUI 应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;无论是将 windows 和 linux 分别作为日常和开发的环境来隔离，还是两个协同去做开发和日常，都是一个比较不错的选择，下面就介绍一下如何安装和使用 WSL2。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开始之前可以参考 &lt;a href=&#34;&#34;&gt;windows terminal&lt;/a&gt;
+ 安装一下这个官方的终端模拟器，在 windows 上的表现是比较优秀的&lt;/li&gt;
+&lt;li&gt;如果是考虑在 windows 环境开发的话，也可以参考这个[windows]，里面有我个人推荐的一些应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;启用并安装-wsl2&#34;&gt;启用并安装 WSL2&lt;/h2&gt;
+&lt;p&gt;安装和启用 WSL2 需要在 windows 的服务中勾选 Hyper-V 和 Windows Subsystem Linux 支持两个选项，具体操作如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Win + S 搜索 &amp;ldquo;功能&amp;rdquo;，打开启用或关闭 windows 功能&lt;/li&gt;
+&lt;li&gt;启用对应功能，功能安装完毕后即可
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230305091044.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230305091044.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230305091044.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230305091150.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230305091150.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20230305091150.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/li&gt;
+&lt;li&gt;安装 linux 发行版可以在 windows store 安装，也可以通过如下的命令进行安装：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 列出对应的发行版&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-l&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-o&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 选择相应的发行版进行安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-install&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Distribution&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 如果当前的WSL是1版本，更新到2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-l&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-v&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wsl&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-set-default-version&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- more --&gt;
+&lt;p&gt;安装完发行版之后，WindowsTerminal 中应该会自动出现其配置文件，如果没有出现也不要紧，可以先迁移其存储位置后再添加配置文件。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

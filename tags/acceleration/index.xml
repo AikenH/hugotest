@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Acceleration on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/acceleration/</link>
+    <description>Recent content in Acceleration on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Dec 2021 08:34:44 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/acceleration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Training Strategy</title>
+      <link>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</link>
+      <pubDate>Thu, 16 Dec 2021 08:34:44 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</guid>
+      <description>&lt;p&gt;@Aiken 2020，&lt;/p&gt;
+&lt;p&gt;主要针对神经网络的训练过程中的一些基础策略的调整，比如当训练的曲线出现一定的问题的时候，我们应该怎么去调整我们训练过程中的策略。&lt;/p&gt;
+&lt;p&gt;参数调整过程中最重要的就是优化器（优化或者说是下降算法）和学习率（优化算法的核心参数），此外像是数据增强策略还是Normalization策略，都能极大的影响一个模型的好坏。&lt;/p&gt;
+&lt;h2 id=&#34;优化器&#34;&gt;优化器&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://wizardforcel.gitbooks.io/learn-dl-with-pytorch-liaoxingyu/content/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Some Material&lt;/a&gt;
+
+实际上虽然有很多的优化算法，但是到最后最常用的还是 SGD+Mon 和 Adam两种：&lt;/p&gt;
+&lt;p&gt;Adam主要的有事在于自适应学习率，他对我们设计的学习率实际上没有那么敏感，但是在具体实验中往往不会有调的好的SGD那么好，只是在SGD的参数调整中会比较费劲。&lt;/p&gt;
+&lt;p&gt;但是有了根据patient调整lr的scheduler后，我们基本上可以使用SGD做一个较为简单的调整，只要设计好初始的lr的实验以及用来调整学习率的参数值。&lt;/p&gt;
+&lt;h2 id=&#34;学习率&#34;&gt;学习率&lt;/h2&gt;
+&lt;p&gt;$\omega^{n} \leftarrow \omega^{n}-\eta \frac{\partial L}{\partial \omega^{n}}$ 其中的权重就是学习率lr，&lt;/p&gt;
+&lt;p&gt;==Basic==&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;学习率大&lt;/th&gt;
+          &lt;th&gt;学习率小&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;学习速度&lt;/td&gt;
+          &lt;td&gt;快&lt;/td&gt;
+          &lt;td&gt;慢&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;使用情景&lt;/td&gt;
+          &lt;td&gt;刚开始训练时&lt;/td&gt;
+          &lt;td&gt;一定的次数过后&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;副作用&lt;/td&gt;
+          &lt;td&gt;1. Loss爆炸 2.振荡&lt;/td&gt;
+          &lt;td&gt;1.过拟合 2.收敛速度慢&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;学习率的基本设置&#34;&gt;学习率的基本设置&lt;/h3&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;在训练过程中，一般根据训练轮数设置动态变化的学习率。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;刚开始训练时：学习率以 0.01 ~ 0.001 为宜。&lt;/li&gt;
+&lt;li&gt;一定轮数过后：逐渐减缓。&lt;/li&gt;
+&lt;li&gt;接近训练结束：学习速率的衰减应该在100倍以上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note：&lt;/strong&gt;
+如果是 &lt;strong&gt;迁移学习&lt;/strong&gt; ，由于模型已在原始数据上收敛，此时应设置较小学习率 (≤10−4) 在新数据上进行 &lt;strong&gt;微调&lt;/strong&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;学习率变化方法&#34;&gt;学习率变化方法&lt;/h3&gt;
+&lt;p&gt;==warm up==&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/338066667/answer/771252708&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;warm up为什么有用&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;warm up衰减策略与上述的策略有些不同，它是先从一个极低的学习率开始增加，增加到某一个值后再逐渐减少, 这点上倒是和Cosine Anneal LR有一定的相似之处，将这两种结合起来是一种常见的训练策略：&lt;/p&gt;
+&lt;p&gt;这样训练模型更加稳定，因为在刚开始时模型的参数都是随机初始化的，此时如果学习率应该取小一点，这样就不会使模型一下子跑偏。&lt;/p&gt;
+&lt;p&gt;而这样的跑偏对于&lt;strong&gt;大模型&lt;/strong&gt;而言，可能是导致很严重的影响，后面收敛了也可能不会达到最佳的效果，一开始的跑偏，可能会造成准确率在后面的严重结果。
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211216001833.png&#34;&gt;
+    &lt;img alt=&#34;warmup&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211216001833.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211216001833.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;warmup&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

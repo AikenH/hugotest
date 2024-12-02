@@ -2,17 +2,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AI on aiken&#39;s blog</title>
-    <link>https://metisy.cool/tags/ai/</link>
+    <link>https://aikenh.cn/hugotest/tags/ai/</link>
     <description>Recent content in AI on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Apr 2023 21:22:38 +0000</lastBuildDate>
-    <atom:link href="https://metisy.cool/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 15:42:36 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StableDiffusionWebUI鉴权设计</title>
+      <link>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sat, 27 Jan 2024 15:42:36 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
+      <description>&lt;p&gt;[&amp;gt; [!summary]+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;this article purpose is to build an authority page for stable diffusion webui using nginx &amp;amp; python/js. Which can publish my personal stable diffusion server. Wrote by GPT(try).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240127161828.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240127161828.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20240127161828.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;In the digital age, the security and user-friendliness of web services are not just conveniences; they are necessities. Balancing robust security protocols with an engaging user experience is key to maintaining both the integrity and popularity of any online service. This blog post dives into the intricacies of securing web services using Nginx for authentication, coupled with designing an appealing frontend. Our journey begins with a practical scenario:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;publishing a stable diffusion webUI service, accessible only to an authenticated audience.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;setting-up-nginx-for-secure-authentication&#34;&gt;Setting Up Nginx for Secure Authentication&lt;/h3&gt;
+&lt;p&gt;Nginx excels in serving web pages and as a reverse proxy, providing enhanced security through authentication mechanisms. Let’s explore a typical Nginx configuration for secure authentication:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/verify_token&lt;/strong&gt;: This block forwards authentication requests to a dedicated server. By excluding the request body and focusing on essential headers, it ensures that only valid, authenticated requests proceed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location = /verify_token {
+    proxy_pass http://{your_auth_server}:2424;
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length &amp;#34;&amp;#34;;
+    proxy_set_header X-Original-URI $request_uri;
+    proxy_set_header X-Original-Remote-Addr $remote_addr;
+    proxy_set_header X-Original-Host $host;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/login&lt;/strong&gt;: Catering to login requests, this configuration forwards the necessary details to the authentication server, preserving crucial information about the request&amp;rsquo;s origin.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location /login {
+    proxy_pass http://{your_auth_server}:2424;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Error Handling (@error401)&lt;/strong&gt;: A clever redirect mechanism that guides unauthenticated users to the login page, keeping the original URL intact.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location @error401 {
+    return 302 {your_domain}/login;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Root Location (/)&lt;/strong&gt;: The gateway to your service, which rigorously checks each request for authentication, granting access only to verified users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;location / {
+    auth_request /verify_token;
+    error_page 401 = @error401;
+    proxy_pass http://{your_server}:2323/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &amp;#39;upgrade&amp;#39;;
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This setup not only fortifies your service against unauthorized access but also maintains a seamless user experience, redirecting unauthenticated users without hassle.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AIGC05 Stable Diffusion Model Training</title>
+      <link>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</link>
+      <pubDate>Sat, 06 May 2023 23:43:41 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;该章节主要介绍 Stable-Diffusion 中模型的训练，考虑到硬件条件的限制，实际上这里介绍的训练，都是针对大模型的各种微调技术（Lora，Dreambooth，HyperNetwork, &amp;hellip;），这里会以 LoRA 模型的训练为主。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考文献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.gamelook.com.cn/2023/04/514936&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AIGC教程：Stable Diffusion精进，如何训练特定画风LoRA模型？ | 游戏大观 | GameLook.com.cn&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/wangiqngpei557/p/17301360.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;stable diffusion打造自己专属的LORA模型 - 王清培 - 博客园 (cnblogs.com)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kohya-ss/sd-scripts/blob/main/train_README-zh.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sd-scripts/train_README-zh.md at main · kohya-ss/sd-scripts · GitHub&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;train-lora&#34;&gt;Train LoRA&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;LoRA 的优势就是其模型更小，且更加模块化；也就是说其的训练成本和要求都更低，同时使用代价小，可以作为某种风格插件或者角色插件来使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://huggingface.co/blog/zh/lora&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;使用 LoRA 进行 Stable Diffusion 的高效参数微调 (huggingface.co)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/2106.09685&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[2106.09685] LoRA: Low-Rank Adaptation of Large Language Models (arxiv.org)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230706171541.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230706171541.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230706171541.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;其中蓝色的是预训练好的源网络，而橙色的是新加的网络，通过控制 R 的宽度（文章主要论证了大模型的参数可能存在较低维度的秩，因此可以使用较小的 R 来对大模型的参数造成有效的影响），可以有效的减少需要训练的网络的 Size。&lt;/p&gt;
+&lt;h3 id=&#34;事前准备&#34;&gt;事前准备&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里只介绍本地训练，训练也可以在 Colab Notebook 等在线训练集群中进行，这里就不进行介绍了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;WebUI + 想训练的基础 SD 模型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.txt&lt;/code&gt; 带说明的文本文件&lt;/li&gt;
+&lt;li&gt;Training Repo（&lt;a href=&#34;https://github.com/kohya-ss/sd-scripts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sd-script&lt;/a&gt;
+、&lt;a href=&#34;https://github.com/Akegarasu/lora-scripts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;lora-script&lt;/a&gt;
+）&lt;/li&gt;
+&lt;li&gt;数据集准备（准备好训练图像）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;训练包准备&#34;&gt;训练包准备&lt;/h3&gt;
+&lt;p&gt;这里我们使用 lora-script 来进行模型训练，lora-script 实际上是 sd-script 之外在包了一层，新增了一些可视化的功能和一些其他的脚本，让 sd-script 更加易用，它调用 sd 中的脚本来实现训练，但是封装了一些注释和整理，此外还支持的 tensorboard 可视化。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sd-script 本身包含了训练 lora、dreambooth、text-embedding、UNet、Text Encoder、图像生成、模型转换等多种功能。lora-script 还是主要专注于 LoRA 训练&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;查看 repo 也能知道 lora-script 中包含了 sd-script，所以我们部署的时候只需&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;即可将需要的库安装下来，然后安装环境和相关以来只需要执行 &lt;code&gt;.\install.ps1&lt;/code&gt; 即可（该脚本有 cn 版本，但是可能会出现问题），其会安装 sd-scripts 和 lora-scripts 需要的库。具体的可以参考相关 repo（sd-script 详细说明，lora-script 有简化版说明）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;安装的时候可能会出现虚拟环境未激活的问题，我们可以提前在改目录执行一次 python -m venv venv 一次即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Finish.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AIGC04 Stable Diffusion Write Prompt Better</title>
-      <link>https://metisy.cool/posts/stablediffusionprompt/</link>
+      <link>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</link>
       <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
-      <guid>https://metisy.cool/posts/stablediffusionprompt/</guid>
+      <guid>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该章节主要包括 Promot 生成和部分工作流的分析，旨在了解如何写出更好的关键词，如何生成更好的图片，当我们不知道怎么描述的时候也可以将该工作交给 ChatGPT，让其为我们攥写一般基础的提示词&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -34,6 +188,108 @@
 &lt;p&gt;各个括号的默认系数如下: () -&amp;gt; 1.1 ; {} -&amp;gt; 1.05 ; &lt;code&gt;[]&lt;/code&gt; -&amp;gt; 0.952
 可以通过(())进行叠加即 1.1*1.1&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>AIGC03 Stable Diffusion Control Net</title>
+      <link>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</link>
+      <pubDate>Wed, 26 Apr 2023 21:19:41 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;ControlNet 是 Stable Diffusion 最强力的插件之一，它能够控制 SD 的整个扩散过程，包括让 AI 参考动作/骨架/线条/景深，从而更精准的生成图片。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ivonblog.com/posts/stable-diffusion-webui-manuals/extensions/controlnet/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ControlNet 按照骨架動作繪圖 | Stable Diffusion WebUI使用手冊&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ivonblog.com/posts/stable-diffusion-webui-manuals/extensions/posex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;骨架人偶 PoseX | Stable Diffusion WebUI 使用手冊&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ivonblog.com/posts/stable-diffusion-webui-manuals/extensions/latent-couple/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;生成多個人物 Latent Couple | Stable Diffusion WebUI使用手冊&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;拓展地址：&lt;a href=&#34;https://github.com/Mikubill/sd-webui-controlnet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mikubill/sd-webui-controlnet: WebUI extension for ControlNet (github.com)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;ControlNet 地址：&lt;a href=&#34;https://github.com/lllyasviel/ControlNet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;lllyasviel/ControlNet: Let us control diffusion models! (github.com)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;模型地址：&lt;a href=&#34;https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;lllyasviel/ControlNet-v1-1 at main (huggingface.co)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>AIGC02 Stable Diffusion 基础功能介绍</title>
+      <link>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 26 Apr 2023 11:03:56 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本篇章介绍关于 Stable DIffusion 的一些基础概念和 WebUI 的基本功能元素，同时介绍一些启动项和模型加载的东西。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;启动项设置局域网&#34;&gt;启动项设置（局域网）&lt;/h2&gt;
+&lt;p&gt;最常用的启动项是 &lt;code&gt;--listen&lt;/code&gt;，通过该启动项允许局域网内的其他设备通过 ip 和端口访问部署好的 Stable Diffusion 服务。而设置启动项的方式有以下几种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;命令行执行启动脚本的时候携带&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;webui&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;bat&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-listen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./webui.sh --listen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;修改主入口脚本中的启动选项 &lt;code&gt;vim launch.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 修改下面这一行的参数, 将&amp;#34; &amp;#34;中填入需要的参数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# commandline_args = os.environ.get(&amp;#39;COMMANDLINE_ARGS&amp;#39;, &amp;#34;&amp;#34;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;commandline_args&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;environ&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;COMMANDLINE_ARGS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;--listen&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;其他的启动项介绍可以参考：&lt;a href=&#34;https://ivonblog.com/posts/stable-diffusion-webui-manuals/installation/command-line-arguments-and-settings/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;2.3. 命令列引數 | Stable Diffusion WebUI使用手冊(正體中文)｜Ivon的部落格 (ivonblog.com)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>AIGC01 Stable Diffusion and midjourney Setup</title>
+      <link>https://aikenh.cn/hugotest/posts/stable-diffusion/</link>
+      <pubDate>Wed, 19 Apr 2023 16:00:00 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This Chapter introduce how to set up stable diffusion and mid-journey, and record some problem I meet when I deploy it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;deprecated-midjourney&#34;&gt;(Deprecated) midjourney&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于 midjourney 现需要付费使用，同时没有开源，因此我们讲一笔带过该部分内容，该部分内容大多转载于  &lt;a href=&#34;https://www.uisdc.com/midjourney&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;超详细！AI 绘画神器 Midjourney 基础使用手册&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://midjourney.com/home/?callbackUrl=%2Fapp%2F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;midjourney&lt;/a&gt;
+ 的安装步骤主要分成以下的几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击 Join the Beta 注册账号，注册完会跳转到；&lt;/li&gt;
+&lt;li&gt;Discord 首页，亲自创建自己的服务器，仅供我和我的朋友使用；&lt;/li&gt;
+&lt;li&gt;下载客户端，在默认对话界面讯在或开始新的对话，输入 Midjourney Bot，添加到服务器&lt;/li&gt;
+&lt;li&gt;付费开启体验。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;deprecated-dreamstudio&#34;&gt;(Deprecated) DreamStudio&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;说是可以本地部署，但是实际体验非常不好，应该只是部署了 Webui，然后调用官方提供的免费 API；所以有时候生成不出来，但是又不报错，不知道是不是使用姿势有问题，反正很屎。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Stability-AI/StableStudio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Stability-AI/StableStudio&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;装好 npm 和 yarn&lt;/li&gt;
+&lt;li&gt;参考 quick start，git clone -&amp;gt; (cd) yarn 安装 -&amp;gt; yarn dev 部署在本地端口上。&lt;/li&gt;
+&lt;li&gt;官网注册账号-&amp;gt; 获取 API -&amp;gt; 填入并在最上方转到 Generate 页面即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;stable-diffusion-部署专题&#34;&gt;Stable Diffusion 部署专题&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;该部分作为 Intro，仅介绍 Stable Diffusion 的安装和部署，以及一些启用参数等，具体的使用在后面的文章进行进一步的讲解。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Spacevim on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/spacevim/</link>
+    <description>Recent content in Spacevim on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Oct 2021 12:15:41 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/spacevim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim Configuration 03 Spacevim Setup</title>
+      <link>https://aikenh.cn/hugotest/posts/spacevim/</link>
+      <pubDate>Sat, 09 Oct 2021 12:15:41 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/spacevim/</guid>
+      <description>&lt;p&gt;@Aiken 2021 this file is use to record how to config out vim&amp;rsquo; by spacevim.&lt;br&gt;
+I&amp;rsquo;ll write this doc with three Parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install and envs, Plugins(including the LSP), KeyShort&lt;/li&gt;
+&lt;li&gt;Attention: we have much to do if we want to install some other plugins.
+maybe it not a good way to set the vim.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- vim-markdown-toc GFM --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-spacevim-and-config-it&#34;&gt;INSTALL SPACEVIM AND CONFIG IT&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-langs&#34;&gt;INSTALL LANGs&amp;rsquo;&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#cocnvim&#34;&gt;COCNVIM&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#keyshort-and-special-usage&#34;&gt;KEYSHORT and special USAGE&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#split-windows-and-checkout&#34;&gt;SPLIT WINDOWS and CHECKOUT&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#plugins&#34;&gt;Plugins&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- vim-markdown-toc --&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;install-spacevim-and-config-it&#34;&gt;INSTALL SPACEVIM AND CONFIG IT&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Install:&lt;/strong&gt; SpaceVim via the offical websize:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

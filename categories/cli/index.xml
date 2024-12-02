@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CLI on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/cli/</link>
+    <description>Recent content in CLI on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Jul 2023 22:10:52 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/cli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux下载命令之Wget和Curl</title>
+      <link>https://aikenh.cn/hugotest/posts/linuxcli_download/</link>
+      <pubDate>Fri, 07 Jul 2023 22:10:52 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linuxcli_download/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;想要通过命令行直接下载文件，通常想到的就是下面的两个工具：wget 和 curl，下面简单介绍一下两者的使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;wget&#34;&gt;Wget&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;wget&lt;/code&gt; 全称为 &lt;code&gt;web get&lt;/code&gt; ，其基本用法为：&lt;code&gt;wget [-para] url &lt;/code&gt; ，常用的参数有以下几种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-O 指定下载文件的保存名称&lt;/li&gt;
+&lt;li&gt;-b 为后台下载模式&lt;/li&gt;
+&lt;li&gt;-P 下载到指定目录&lt;/li&gt;
+&lt;li&gt;-c 支持断电续传&lt;/li&gt;
+&lt;li&gt;-p 下载页面内的所有资源、包括图片视频等&lt;/li&gt;
+&lt;li&gt;-r 递归下载&lt;/li&gt;
+&lt;li&gt;-t 最大尝试次数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 默认无需参数的情况下即会将文件下载到当前文件夹下。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 也是最常见的用法，可以加入-c避免下载中断&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget url
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -O file.tgz url
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考 Man Page 或者 &lt;a href=&#34;https://www.explainshell.com/explain/1/wget&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ExplainShell&lt;/a&gt;
+ 可以找到完整的参数列表；支持从文件中读取 url ；将 log 写入指定的文件等等功能；&lt;/p&gt;
+&lt;p&gt;可以看出 wget 是一个简单，专职的下载利器，无论是用来下载安装包还是 pdf 之类的东西是一个相当方便的下载工具。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terminal multiplexer Zellij</title>
+      <link>https://aikenh.cn/hugotest/posts/linuxzellij/</link>
+      <pubDate>Sat, 20 May 2023 16:40:19 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linuxzellij/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Tmux 作为一款优秀的终端复用器，前面已经介绍过，这里在介绍一款有着相同功能的平替，个人认为 zellij 的 UI 各方面的设计，使得其相比于 Tmux 有着更低的入门难度，也避免了需要记大量快捷键，因此这里介绍一下该工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://zellij.dev/documentation/installation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Zellij&lt;/a&gt;
+ 是一款终端复用器，有什么功能可以完全参考 Tmux ，还支持了许多有趣的特性和自定义 Layout 等功能（可能后续用到的话会完善该部分笔记），详细的可以参考官网的介绍，接下来就简单的介绍一下安装和一些自定义的 Alias。&lt;/p&gt;
+&lt;h2 id=&#34;install-安装&#34;&gt;Install 安装&lt;/h2&gt;
+&lt;p&gt;Zellij 是基于 Rust 编写，因此在安装之前需要安装 rust 和 cargo（类似 rust 的包管理器），安装可以参考 &lt;a href=&#34;https://www.rust-lang.org/tools/install&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rust 官方网站（推荐）&lt;/a&gt;
+ |  &lt;a href=&#34;https://doc.rust-lang.org/cargo/getting-started/installation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Cargo Book&lt;/a&gt;
+  | &lt;a href=&#34;https://rustwiki.org/zh-CN/cargo/getting-started/installation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rust Wiki CN&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;官方网站中介绍了 WSL 的安装指令如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl --proto &lt;span class=&#34;s1&#34;&gt;&amp;#39;=https&amp;#39;&lt;/span&gt; --tlsv1.2 -sSf https://sh.rustup.rs &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#--proto以及--tlsvl在Linux或者Macos安装的时候可以忽略&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完成后可以使用如下命令，基于 Cargo 安装 zellij：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cargo install --locked zellij
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果出现了问题也可以尝试先更新 rust&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rustup update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

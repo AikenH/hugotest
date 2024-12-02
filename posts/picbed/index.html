@@ -1,0 +1,221 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>PicBed Setting for note and blog | aiken's blog</title>
+<meta name=keywords content="Blog,Cloud"><meta name=description content='@Aiken 2020 first write，2021 modify
+Mainly using picgo-core(command line) to setting picbed，and we can update the setting method
+Github
+
+使用PicGo-Core（command line）设置github图床，自动转义url
+
+插入自动复制图片，使用git上传github
+
+
+基本部署
+
+在偏好设置中的图像，进行如下设置👇： 下载或更新PicGo-Cord(command line)
+
+
+
+  
+    
+  
+
+
+
+
+
+
+
+接着去Github中建立一个Repo：UserName/RepoName，用以存放图片（Public），简单的用readme初始建立即可。
+
+
+在Github的setting - developer setting-personal access tokens中新建token，指定简单的repo权限，并记录个人的token（只显示一次）
+Attention： 忘记记录的话，在token中也是通过update token（好像是这个名，获取新的值的）
+
+
+用Typora打开配置文件设置，或者使用命令行进行配置
+
+
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+
+
+   {
+       "picBed": {
+           "github": {
+             "repo": "UserName/RepoName",
+             "token": "your github token here",
+             "path": "img/",
+             "customUrl": "https://raw.githubusercontent.com/UserName/RepoName/master",
+             "branch": "master"
+           },
+           "current": "github",
+           "uploader": "github"
+         },
+         "picgoPlugins": {}
+   }
+
+
+
+
+点击验证图片上传选项，进行测试，成功即可
+
+存在问题
+用Github做图床的话，上传不是十分的稳定（可能需要依赖科学上网技术。请八仙过海，各显神通）。可以用其他的服务器作图床，大体过程应该也差不多，后续个人有更换的话在进行补充。'><meta name=author content="aikenhong"><link rel=canonical href=https://aikenh.cn/hugotest/posts/picbed/><link crossorigin=anonymous href=/hugotest/assets/css/stylesheet.2f85ca17c12c62fa86b1e474b8a51aca4856f0d645debfe4922a4d5ddc6aa978.css integrity="sha256-L4XKF8EsYvqGseR0uKUaykhW8NZF3r/kkipNXdxqqXg=" rel="preload stylesheet" as=style><link rel=icon href=https://aikenh.cn/favicon/ghost.ico><link rel=icon type=image/png sizes=16x16 href=https://aikenh.cn/favicon/ghost-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aikenh.cn/favicon/ghost-32x32.png><link rel=apple-touch-icon href=https://aikenh.cn/favicon/ghost-apple-touch-icon.png><link rel=mask-icon href=https://aikenh.cn/favicon/ghost-192x192.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aikenh.cn/hugotest/posts/picbed/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel=stylesheet><meta property="og:url" content="https://aikenh.cn/hugotest/posts/picbed/"><meta property="og:site_name" content="aiken's blog"><meta property="og:title" content="PicBed Setting for note and blog"><meta property="og:description" content='@Aiken 2020 first write，2021 modify
+Mainly using picgo-core(command line) to setting picbed，and we can update the setting method
+Github 使用PicGo-Core（command line）设置github图床，自动转义url 插入自动复制图片，使用git上传github 基本部署 在偏好设置中的图像，进行如下设置👇： 下载或更新PicGo-Cord(command line) 接着去Github中建立一个Repo：UserName/RepoName，用以存放图片（Public），简单的用readme初始建立即可。
+在Github的setting - developer setting-personal access tokens中新建token，指定简单的repo权限，并记录个人的token（只显示一次） Attention： 忘记记录的话，在token中也是通过update token（好像是这个名，获取新的值的）
+用Typora打开配置文件设置，或者使用命令行进行配置
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 { "picBed": { "github": { "repo": "UserName/RepoName", "token": "your github token here", "path": "img/", "customUrl": "https://raw.githubusercontent.com/UserName/RepoName/master", "branch": "master" }, "current": "github", "uploader": "github" }, "picgoPlugins": {} } 点击验证图片上传选项，进行测试，成功即可 存在问题 用Github做图床的话，上传不是十分的稳定（可能需要依赖科学上网技术。请八仙过海，各显神通）。可以用其他的服务器作图床，大体过程应该也差不多，后续个人有更换的话在进行补充。'><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-03-27T09:19:23+00:00"><meta property="article:modified_time" content="2022-03-27T09:19:23+00:00"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Cloud"><meta property="og:image" content="https://aikenh.cn/cover/cover15.jpeg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aikenh.cn/cover/cover15.jpeg"><meta name=twitter:title content="PicBed Setting for note and blog"><meta name=twitter:description content='@Aiken 2020 first write，2021 modify
+Mainly using picgo-core(command line) to setting picbed，and we can update the setting method
+Github
+
+使用PicGo-Core（command line）设置github图床，自动转义url
+
+插入自动复制图片，使用git上传github
+
+
+基本部署
+
+在偏好设置中的图像，进行如下设置👇： 下载或更新PicGo-Cord(command line)
+
+
+
+  
+    
+  
+
+
+
+
+
+
+
+接着去Github中建立一个Repo：UserName/RepoName，用以存放图片（Public），简单的用readme初始建立即可。
+
+
+在Github的setting - developer setting-personal access tokens中新建token，指定简单的repo权限，并记录个人的token（只显示一次）
+Attention： 忘记记录的话，在token中也是通过update token（好像是这个名，获取新的值的）
+
+
+用Typora打开配置文件设置，或者使用命令行进行配置
+
+
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+
+
+   {
+       "picBed": {
+           "github": {
+             "repo": "UserName/RepoName",
+             "token": "your github token here",
+             "path": "img/",
+             "customUrl": "https://raw.githubusercontent.com/UserName/RepoName/master",
+             "branch": "master"
+           },
+           "current": "github",
+           "uploader": "github"
+         },
+         "picgoPlugins": {}
+   }
+
+
+
+
+点击验证图片上传选项，进行测试，成功即可
+
+存在问题
+用Github做图床的话，上传不是十分的稳定（可能需要依赖科学上网技术。请八仙过海，各显神通）。可以用其他的服务器作图床，大体过程应该也差不多，后续个人有更换的话在进行补充。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aikenh.cn/hugotest/posts/"},{"@type":"ListItem","position":2,"name":"PicBed Setting for note and blog","item":"https://aikenh.cn/hugotest/posts/picbed/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PicBed Setting for note and blog","name":"PicBed Setting for note and blog","description":"@Aiken 2020 first write，2021 modify\nMainly using picgo-core(command line) to setting picbed，and we can update the setting method\nGithub 使用PicGo-Core（command line）设置github图床，自动转义url 插入自动复制图片，使用git上传github 基本部署 在偏好设置中的图像，进行如下设置👇： 下载或更新PicGo-Cord(command line) 接着去Github中建立一个Repo：UserName/RepoName，用以存放图片（Public），简单的用readme初始建立即可。\n在Github的setting - developer setting-personal access tokens中新建token，指定简单的repo权限，并记录个人的token（只显示一次） Attention： 忘记记录的话，在token中也是通过update token（好像是这个名，获取新的值的）\n用Typora打开配置文件设置，或者使用命令行进行配置\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 { \u0026#34;picBed\u0026#34;: { \u0026#34;github\u0026#34;: { \u0026#34;repo\u0026#34;: \u0026#34;UserName/RepoName\u0026#34;, \u0026#34;token\u0026#34;: \u0026#34;your github token here\u0026#34;, \u0026#34;path\u0026#34;: \u0026#34;img/\u0026#34;, \u0026#34;customUrl\u0026#34;: \u0026#34;https://raw.githubusercontent.com/UserName/RepoName/master\u0026#34;, \u0026#34;branch\u0026#34;: \u0026#34;master\u0026#34; }, \u0026#34;current\u0026#34;: \u0026#34;github\u0026#34;, \u0026#34;uploader\u0026#34;: \u0026#34;github\u0026#34; }, \u0026#34;picgoPlugins\u0026#34;: {} } 点击验证图片上传选项，进行测试，成功即可 存在问题 用Github做图床的话，上传不是十分的稳定（可能需要依赖科学上网技术。请八仙过海，各显神通）。可以用其他的服务器作图床，大体过程应该也差不多，后续个人有更换的话在进行补充。\n","keywords":["Blog","Cloud"],"articleBody":"@Aiken 2020 first write，2021 modify\nMainly using picgo-core(command line) to setting picbed，and we can update the setting method\nGithub 使用PicGo-Core（command line）设置github图床，自动转义url 插入自动复制图片，使用git上传github 基本部署 在偏好设置中的图像，进行如下设置👇： 下载或更新PicGo-Cord(command line) 接着去Github中建立一个Repo：UserName/RepoName，用以存放图片（Public），简单的用readme初始建立即可。\n在Github的setting - developer setting-personal access tokens中新建token，指定简单的repo权限，并记录个人的token（只显示一次） Attention： 忘记记录的话，在token中也是通过update token（好像是这个名，获取新的值的）\n用Typora打开配置文件设置，或者使用命令行进行配置\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 { \"picBed\": { \"github\": { \"repo\": \"UserName/RepoName\", \"token\": \"your github token here\", \"path\": \"img/\", \"customUrl\": \"https://raw.githubusercontent.com/UserName/RepoName/master\", \"branch\": \"master\" }, \"current\": \"github\", \"uploader\": \"github\" }, \"picgoPlugins\": {} } 点击验证图片上传选项，进行测试，成功即可 存在问题 用Github做图床的话，上传不是十分的稳定（可能需要依赖科学上网技术。请八仙过海，各显神通）。可以用其他的服务器作图床，大体过程应该也差不多，后续个人有更换的话在进行补充。\n在其他的pc上可以使用相同的token进行复用，但是在进行测试的时候要记得将repo中的两张测试图片删除，不然可能会导致验证失败的问题。 PicGo With Obsidian etc. 这种方法可能是最稳健的泛化能力也最强，再很多编辑器类似的地方都能用，但是前提就是我们进行笔记撰写的时候要把picgo的客户端打开。\n安装picgo客户端，（在其中安装你对应图床的插件） 和上述描述的一样再gitee或者github中设置相应的图床token等，并在软件中填写对应的token picgo设置中，打开server即可 再Obsidian中安装插件 image auto upload plugin 并在其中设置本地ip:port即可 COS in tencent-cloud 相关网站：Tencent-Cloud-Cos 参考资料：Create-Tencent-Cloud-Cos , Setting-Your-PicGoApp 创建存储桶 Create Store-Bucket(Private write Public read) -\u003e\nCreate A sub-User(which only got access for the cos R/W) -\u003e\nQcloudCOSFullAccess, Pic Below to add the access\ngenerate a private_token -\u003e\ntoken manage\ncp SecretID,SecretKey,Main_Account_ID,name_of_bucket to PicGo\nthe area in the second figure\nPicgo 设置 进入腾讯云的对象存储页面： 存储桶列表中可以看到存储桶名称，即Bucket 所属地域，也就是设定存储区域如：ap-guangzhou 右上角的用户信息中点击访问管理进入到用户界面 用户-\u003e 子用户可以看到账号 ID：即Appid 点击子账户进入详情页-\u003eAPI 密钥 SecretId SecretKey 设置完成即可。 Gitee（防盗链事件后抛弃） 因为gitee是国内的github，服务器比较稳定，所以我们也可以使用gitee作为我们更为稳定的图床；\n两个链接合起来才是好用的，都有一些冗余：\nTypora+picgo-core+gitee PicGo-core+Gitee+Typora gitee基本部署 安装Node，npm；\n安装picgo-core的命令行命令：\n1 npm install picgo -g 安装gitee的插件： 1 2 picgo install super-prefix picgo install gitee-uploader 配置Gitee Repo 初始化一个repo，保存URL中的User/repo，不要轻信标题，因为有昵称机制。\n在个人资料中初始化个人的Token，勾选projects选项即可;\n设置配置文件 基于picgo的命令，会自动的更新Json文件，我们不许需要\n1 2 3 4 5 6 7 8 9 10 picgo set uploader # up to the command hint, we input those messages 1.按上下键找到gitee，回车 2.repo：用户名/仓库名 （打开自己的仓库，浏览器里的网址username/reponame） 3.token：刚才生成的token 4.path:路径，写仓库的名字就是reponame 5.custompath:不用填，回车 6.customURL:不用填，回车 # finish setting process picgo use uploader ","wordCount":"223","inLanguage":"en","image":"https://aikenh.cn/cover/cover15.jpeg","datePublished":"2022-03-27T09:19:23Z","dateModified":"2022-03-27T09:19:23Z","author":[{"@type":"Person","name":"aikenhong"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://aikenh.cn/hugotest/posts/picbed/"},"publisher":{"@type":"Organization","name":"aiken's blog","logo":{"@type":"ImageObject","url":"https://aikenh.cn/favicon/ghost.ico"}}}</script></head><body id=top><script type=module src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js defer></script><script nomodule src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js defer></script><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aikenh.cn/hugotest/ accesskey=h title="aiken's blog (Alt + H)">aiken's blog</a><div class=logo-switches><button id=theme-toggle-nav accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aikenh.cn/hugotest/ title=home><span>home</span></a></li><li><a href=https://aikenh.cn/hugotest/posts/ title=posts><span>posts</span></a></li><li><a href=https://aikenh.cn/hugotest/tags/ title=tags><span>tags</span></a></li><li><a href=https://aikenh.cn/hugotest/categories/ title=categories><span>categories</span></a></li><li><a href=https://aikenh.cn/hugotest/archives/ title=archives><span>archives</span></a></li><li><a href=https://aikenh.cn/hugotest/about/ title=about><span>about</span></a></li><li><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><span>search</span></a></li></ul></nav></header><div class=sidebar><ul><li class=logo style=--bg:#333><a href=#><div class=logo-icon><img src=/logo/logo.png></div><div class=logo-text>Aiken's Blog</div></a></li><div class=menulist><li style=--bg:#f44336><a href=https://aikenh.cn/hugotest/ title=home><div class=logo-icon><ion-icon name=home-outline></ion-icon></div><div class=logo-text>home</div></a></li><li style=--bg:#b145e9><a href=https://aikenh.cn/hugotest/posts/ title=posts><div class=logo-icon><ion-icon name=newspaper-outline></ion-icon></div><div class=logo-text>posts</div></a></li><li style=--bg:#0f93c7><a href=https://aikenh.cn/hugotest/tags/ title=tags><div class=logo-icon><ion-icon name=pricetags-outline></ion-icon></div><div class=logo-text>tags</div></a></li><li style=--bg:#ffa117><a href=https://aikenh.cn/hugotest/categories/ title=categories><div class=logo-icon><ion-icon name=grid-outline></ion-icon></div><div class=logo-text>categories</div></a></li><li style=--bg:#0fc70f><a href=https://aikenh.cn/hugotest/archives/ title=archives><div class=logo-icon><ion-icon name=folder-outline></ion-icon></div><div class=logo-text>archives</div></a></li><li style=--bg:#d16111><a href=https://aikenh.cn/hugotest/about/ title=about><div class=logo-icon><ion-icon name=person></ion-icon></div><div class=logo-text>about</div></a></li><li style=--bg:#15c095><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><div class=logo-icon><ion-icon name=search></ion-icon></div><div class=logo-text>search</div></a></li></div><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt +T)"><li><div class=logo-icon id=moon><ion-icon name=moon-outline></ion-icon></div><div class=logo-icon id=sun><ion-icon name=sunny-outline></ion-icon></div></li></button></div></ul></div><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://aikenh.cn/hugotest/>Home</a>&nbsp;»&nbsp;<a href=https://aikenh.cn/hugotest/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">PicBed Setting for note and blog</h1><div class=post-meta><span title='2022-03-27 09:19:23 +0000 UTC'>March 27, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;223 words&nbsp;·&nbsp;aikenhong&nbsp;·&nbsp;<a href=/tags/blog> Blog</a>&nbsp;·&nbsp;<a href=/tags/cloud> Cloud</a>&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/PicBed.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://aikenh.cn/cover/cover15.jpeg alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#github aria-label=Github>Github</a><ul class=header-level-2><li><a href=#%e5%9f%ba%e6%9c%ac%e9%83%a8%e7%bd%b2 aria-label=基本部署>基本部署</a></li><li><a href=#%e5%ad%98%e5%9c%a8%e9%97%ae%e9%a2%98 aria-label=存在问题>存在问题</a></li></ul></li><li><a href=#picgo-with-obsidian-etc aria-label="PicGo With Obsidian etc.">PicGo With Obsidian etc.</a></li><li><a href=#cos-in-tencent-cloud aria-label="COS in tencent-cloud">COS in tencent-cloud</a><ul class=header-level-2><li><a href=#%e5%88%9b%e5%bb%ba%e5%ad%98%e5%82%a8%e6%a1%b6 aria-label=创建存储桶>创建存储桶</a></li><li><a href=#picgo-%e8%ae%be%e7%bd%ae aria-label="Picgo 设置">Picgo 设置</a></li></ul></li><li><a href=#gitee%e9%98%b2%e7%9b%97%e9%93%be%e4%ba%8b%e4%bb%b6%e5%90%8e%e6%8a%9b%e5%bc%83 aria-label=Gitee（防盗链事件后抛弃）>Gitee（防盗链事件后抛弃）</a><ul class=header-level-2><li><a href=#gitee%e5%9f%ba%e6%9c%ac%e9%83%a8%e7%bd%b2 aria-label=gitee基本部署>gitee基本部署</a></li><li><a href=#%e9%85%8d%e7%bd%aegitee-repo aria-label="配置Gitee Repo">配置Gitee Repo</a></li><li><a href=#%e8%ae%be%e7%bd%ae%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6 aria-label=设置配置文件>设置配置文件</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;document.addEventListener("DOMContentLoaded",function(){if(checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),elements.length>0){activeElement=elements[0];const e=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${e}"]`).classList.add("active")}const t=document.getElementById("top-link");t&&t.addEventListener("click",e=>{e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})})},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{const e=window.pageYOffset||document.documentElement.scrollTop;if(e===0)return;elements&&elements.length>0&&(elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase(),n=document.querySelector(`.inner ul li a[href="#${t}"]`);n.classList.remove("read")}),activeElement=Array.from(elements).find(t=>{if(getOffsetTop(t)-e>0&&getOffsetTop(t)-e<window.innerHeight/2)return t})||activeElement,elements.forEach((t)=>{const o=encodeURI(t.getAttribute("id")).toLowerCase(),s=document.querySelector(`.inner ul li a[href="#${o}"]`);if(t===activeElement){s.classList.add("active");const e=document.querySelector(".toc .inner"),t=s.offsetTop,n=e.clientHeight,o=s.clientHeight,i=t-n/2+o/2;e.scrollTo({top:i,behavior:"smooth"})}else getOffsetTop(t)<e&&s.classList.add("read"),s.classList.remove("active")}))},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return!document.querySelector(".hugo-encryptor-prompt")&&elements.length!=0&&(elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),console.log("Elements re-queried:",elements)),0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><p>@Aiken 2020 first write，2021 modify</p><p>Mainly using picgo-core(command line) to setting picbed，and we can update the setting method</p><h2 id=github>Github<a hidden class=anchor aria-hidden=true href=#github>#</a></h2><ul><li><a href=#Pic-Bed>使用PicGo-Core（command line）设置github图床，自动转义url</a></li><li><a href=#Git>插入自动复制图片，使用git上传github</a></li></ul><h3 id=基本部署>基本部署<a hidden class=anchor aria-hidden=true href=#基本部署>#</a></h3><ol><li>在偏好设置中的图像，进行如下设置👇： 下载或更新PicGo-Cord(command line)</li></ol><p><div class=post-img-view><a data-fancybox=gallery href=https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200512160643588.png><img alt=image-20200512160643588 loading=lazy src=https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200512160643588.png class=responsive-image src=https://raw.githubusercontent.com/AikenH/md-image/master/img/image-20200512160643588.png style="display:block;margin:0 auto" alt=image-20200512160643588></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><ol start=2><li><p>接着去Github中建立一个Repo：UserName/RepoName，用以存放图片（Public），简单的用readme初始建立即可。</p></li><li><p>在Github的setting - developer setting-personal access tokens中新建token，指定简单的repo权限，并记录个人的token（只显示一次）
+<strong>Attention：</strong> 忘记记录的话，在token中也是通过update token（好像是这个名，获取新的值的）</p></li><li><p>用Typora打开配置文件设置，或者使用命令行进行配置</p></li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl>   <span class=p>{</span>
+</span></span><span class=line><span class=cl>       <span class=nt>&#34;picBed&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>           <span class=nt>&#34;github&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>             <span class=nt>&#34;repo&#34;</span><span class=p>:</span> <span class=s2>&#34;UserName/RepoName&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=nt>&#34;token&#34;</span><span class=p>:</span> <span class=s2>&#34;your github token here&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;img/&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=nt>&#34;customUrl&#34;</span><span class=p>:</span> <span class=s2>&#34;https://raw.githubusercontent.com/UserName/RepoName/master&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=nt>&#34;branch&#34;</span><span class=p>:</span> <span class=s2>&#34;master&#34;</span>
+</span></span><span class=line><span class=cl>           <span class=p>},</span>
+</span></span><span class=line><span class=cl>           <span class=nt>&#34;current&#34;</span><span class=p>:</span> <span class=s2>&#34;github&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>           <span class=nt>&#34;uploader&#34;</span><span class=p>:</span> <span class=s2>&#34;github&#34;</span>
+</span></span><span class=line><span class=cl>         <span class=p>},</span>
+</span></span><span class=line><span class=cl>         <span class=nt>&#34;picgoPlugins&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>   <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=5><li>点击验证图片上传选项，进行测试，成功即可</li></ol><h3 id=存在问题>存在问题<a hidden class=anchor aria-hidden=true href=#存在问题>#</a></h3><p>用Github做图床的话，上传不是十分的稳定（可能需要依赖科学上网技术。请八仙过海，各显神通）。可以用其他的服务器作图床，大体过程应该也差不多，后续个人有更换的话在进行补充。</p><ol><li>在其他的pc上可以使用相同的token进行复用，但是在进行测试的时候要记得将repo中的两张测试图片删除，不然可能会导致验证失败的问题。</li></ol><h2 id=picgo-with-obsidian-etc>PicGo With Obsidian etc.<a hidden class=anchor aria-hidden=true href=#picgo-with-obsidian-etc>#</a></h2><p>这种方法可能是最稳健的泛化能力也最强，再很多编辑器类似的地方都能用，但是前提就是我们进行笔记撰写的时候要把picgo的客户端打开。</p><ol><li>安装<code>picgo</code>客户端，（在其中安装你对应图床的插件）</li></ol><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211227165330.png><img alt=gitee loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211227165330.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/3070imgs/20211227165330.png style="display:block;margin:0 auto" alt=gitee></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><ol start=2><li>和上述描述的一样再gitee或者github中设置相应的图床token等，并在软件中填写对应的token</li><li>picgo设置中，打开server即可</li><li>再Obsidian中安装插件 <code>image auto upload plugin</code> 并在其中设置本地<code>ip:port</code>即可</li></ol><h2 id=cos-in-tencent-cloud>COS in tencent-cloud<a hidden class=anchor aria-hidden=true href=#cos-in-tencent-cloud>#</a></h2><p>相关网站：<a href=https://console.cloud.tencent.com/cos target=_blank rel=noopener>Tencent-Cloud-Cos</a>
+参考资料：<a href=https://sspai.com/post/64169 target=_blank rel=noopener>Create-Tencent-Cloud-Cos</a>
+, <a href=https://jy741.github.io/2020/05/14/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%9B%BE%E5%BA%8A/ target=_blank rel=noopener>Setting-Your-PicGoApp</a></p><h3 id=创建存储桶>创建存储桶<a hidden class=anchor aria-hidden=true href=#创建存储桶>#</a></h3><ol><li><p>Create Store-Bucket(Private write Public read) -></p></li><li><p>Create A sub-User(which only got access for the cos R/W) -></p><blockquote><p>QcloudCOSFullAccess, Pic Below to add the access</p></blockquote></li><li><p>generate a private_token -></p><blockquote><p>token manage</p></blockquote></li><li><p>cp SecretID,SecretKey,Main_Account_ID,name_of_bucket to PicGo</p><blockquote><p>the area in the second figure</p></blockquote></li></ol><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220327174117.png><img loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220327174117.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220327174117.png style="display:block;margin:0 auto" alt></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220327174402.png><img loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220327174402.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/20220327174402.png style="display:block;margin:0 auto" alt></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><h3 id=picgo-设置>Picgo 设置<a hidden class=anchor aria-hidden=true href=#picgo-设置>#</a></h3><ul><li>进入腾讯云的对象存储页面：<ul><li>存储桶列表中可以看到存储桶名称，即Bucket</li><li>所属地域，也就是设定存储区域如：ap-guangzhou</li></ul></li><li>右上角的用户信息中点击访问管理进入到用户界面<ul><li>用户-> 子用户可以看到账号 ID：即Appid</li><li>点击子账户进入详情页->API 密钥<ul><li>SecretId</li><li>SecretKey</li></ul></li></ul></li><li>设置完成即可。</li></ul><h2 id=gitee防盗链事件后抛弃>Gitee（防盗链事件后抛弃）<a hidden class=anchor aria-hidden=true href=#gitee防盗链事件后抛弃>#</a></h2><p>因为gitee是国内的github，服务器比较稳定，所以我们也可以使用gitee作为我们更为稳定的图床；</p><p>两个链接合起来才是好用的，都有一些冗余：</p><ul><li><a href=https://zhuanlan.zhihu.com/p/145960692 target=_blank rel=noopener>Typora+picgo-core+gitee</a></li><li><a href=https://blog.csdn.net/weixin_42230956/article/details/111349889 target=_blank rel=noopener>PicGo-core+Gitee+Typora</a></li></ul><h3 id=gitee基本部署>gitee基本部署<a hidden class=anchor aria-hidden=true href=#gitee基本部署>#</a></h3><ul><li><p>安装Node，npm；</p></li><li><p>安装picgo-core的命令行命令：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>  npm install picgo -g
+</span></span></code></pre></td></tr></table></div></div><ul><li>安装gitee的插件：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>  picgo install super-prefix
+</span></span><span class=line><span class=cl>  picgo install gitee-uploader
+</span></span></code></pre></td></tr></table></div></div><h3 id=配置gitee-repo>配置Gitee Repo<a hidden class=anchor aria-hidden=true href=#配置gitee-repo>#</a></h3><ul><li><p>初始化一个repo，保存URL中的User/repo，不要轻信标题，因为有昵称机制。</p></li><li><p>在个人资料中初始化个人的Token，勾选<code>projects</code>选项即可;</p></li></ul><h3 id=设置配置文件>设置配置文件<a hidden class=anchor aria-hidden=true href=#设置配置文件>#</a></h3><p>基于picgo的命令，会自动的更新Json文件，我们不许需要</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>picgo <span class=nb>set</span> uploader
+</span></span><span class=line><span class=cl><span class=c1># up to the command hint, we input those messages</span>
+</span></span><span class=line><span class=cl>1.按上下键找到gitee，回车    
+</span></span><span class=line><span class=cl>2.repo：用户名/仓库名 （打开自己的仓库，浏览器里的网址username/reponame）    
+</span></span><span class=line><span class=cl>3.token：刚才生成的token    
+</span></span><span class=line><span class=cl>4.path:路径，写仓库的名字就是reponame    
+</span></span><span class=line><span class=cl>5.custompath:不用填，回车   
+</span></span><span class=line><span class=cl>6.customURL:不用填，回车    
+</span></span><span class=line><span class=cl><span class=c1># finish setting process</span>
+</span></span><span class=line><span class=cl>picgo use uploader
+</span></span></code></pre></td></tr></table></div></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://aikenh.cn/hugotest/tags/blog/>Blog</a></li><li><a href=https://aikenh.cn/hugotest/tags/cloud/>Cloud</a></li></ul><nav class=paginav><a class=prev href=https://aikenh.cn/hugotest/posts/vimoperation/><span class=title>« Prev</span><br><span>Vim 01 Recorder</span>
+</a><a class=next href=https://aikenh.cn/hugotest/posts/finetune/><span class=title>Next »</span><br><span>Fine Tuning</span></a></nav></footer><div id=disqus_thread></div><script>function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://aiken-hugo.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url=window.location.href,this.page.identifier=window.location.href.substring(18)}}var runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){if(!isBot&&supportsIntersectionObserver){var e=new IntersectionObserver(function(t){t[0].isIntersecting&&(loadDisqus(),e.disconnect())},{threshold:[0]});e.observe(document.getElementById("disqus_thread"))}else loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by
+Disqus.</a></noscript></article></main><footer class=footer><span>&copy; 2024 <a href=https://aikenh.cn/hugotest/>aiken's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span id=busuanzi_container>Visitors: <span id=busuanzi_value_site_uv></span>
+Views: <span id=busuanzi_value_site_pv></span></span></footer><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),o=13863,i=16993;if(!e||!t){console.error("Busuanzi elements not found.");return}const n=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+o;break}}),s=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){s.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+i;break}});n.observe(e,{childList:!0}),s.observe(t,{childList:!0})})</script><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><span class=topInner><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+<span id=read_progress></span>
+</span></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))}),document.getElementById("theme-toggle-nav").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script>document.addEventListener("scroll",function(){const t=document.getElementById("read_progress"),n=document.documentElement.scrollHeight,s=document.documentElement.clientHeight,o=document.documentElement.scrollTop||document.body.scrollTop;t.innerText=((o/(n-s)).toFixed(2)*100).toFixed(0)})</script><script>(function(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(e)}),i.parentNode.insertBefore(n,i)})("/js/pangu.js",function(){pangu.spacingPage()})</script></body></html>

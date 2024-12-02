@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Augmentation on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/augmentation/</link>
+    <description>Recent content in Augmentation on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Nov 2021 06:24:20 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/augmentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Augmentation</title>
+      <link>https://aikenh.cn/hugotest/posts/dataaugmentation/</link>
+      <pubDate>Sun, 28 Nov 2021 06:24:20 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/dataaugmentation/</guid>
+      <description>&lt;p&gt;intergrate with those augmentation method.&lt;/p&gt;
+&lt;p&gt;this doc will&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Record those theory and the effect after transformation&lt;/li&gt;
+&lt;li&gt;Show the codes for ez use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And the complete &lt;code&gt;.py&lt;/code&gt; will be intergrate in my classification pipeline&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;reference&lt;/strong&gt; below:arrow_down_small:, if use them,start it for respect for his work.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aleju/imgaug#documentation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aleju/imgaug&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;:star:&lt;a href=&#34;https://github.com/albumentations-team/albumentations&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;albumentations-team/albumentations: &lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pytorch.org/vision/stable/transforms.html#transforms-on-pil-image-and-torch-tensor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;torchvision&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pillow.readthedocs.io/en/stable/reference/ImageEnhance.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PIL/ImageEnhance CCBS&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;opencv&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;principle&#34;&gt;Principle&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Principle 1&lt;/strong&gt; of coding: Don’t reinvent the wheel unless it’s needed&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;具体而言，仅在函数的拓展性较差，无法对其定制化，满足我们的日常需求的时候，我们会自行编写函数从而满足我们的需求，否则我们直接引用已知的库，提升我们的实现效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;strong&gt;Principle 2&lt;/strong&gt; of coding 图像增强的两种使用方式：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

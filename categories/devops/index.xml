@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Devops on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/categories/devops/</link>
+    <description>Recent content in Devops on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Mar 2023 09:55:32 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Whats DevOps?</title>
+      <link>https://aikenh.cn/hugotest/posts/devops/</link>
+      <pubDate>Sat, 25 Mar 2023 09:55:32 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/devops/</guid>
+      <description>&lt;p&gt;在一个庞大的组织架构中，CI/CD 和 Devops 的概念是避不开的，了解它的工作原理和概念能帮助我们更好的与他人进行协作。&lt;/p&gt;
+&lt;h2 id=&#34;cicd-介绍&#34;&gt;CI/CD 介绍&lt;/h2&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;
+    &lt;img src= https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230403173436.png title=&#34;devops&#34;&gt;
+&lt;/div&gt;
+&lt;p&gt;这是一个用来描绘 CI/CD 的示意图，其描绘了 CI/CD 的工作流和各自的一些职责，接下来本文分别对两者进行介绍。&lt;/p&gt;
+&lt;h3 id=&#34;ci-continuous-integration-持续集成&#34;&gt;CI (Continuous integration) 持续集成&lt;/h3&gt;
+&lt;p&gt;持续集成是面向开发者（Developer）的环节。从上述的图也可以看出，整体的流程如下：&lt;/p&gt;
+&lt;p&gt;Developer 基于给出的需求进行&lt;strong&gt;编码（code）&lt;/strong&gt;，完成 Feature 或者 Bug 修复后，&lt;strong&gt;提交（Commit）代码&lt;/strong&gt;，然后平台会对这些需要（Merge Request）代码进行&lt;strong&gt;编译（Build）&lt;/strong&gt;，编译通过后，执行自动化的&lt;strong&gt;持续测试（Continuous Test）&lt;/strong&gt;，待测试通过后才会正式合并入主干。&lt;/p&gt;
+&lt;p&gt;也就是说，CI 工具在检测到代码变更后，自动对其执行编译和单元测试，验证其代码的正确性和可用性，以及是否适合与源代码进行集成，然后进行自动集成。&lt;/p&gt;
+&lt;p&gt;该流程有以下的优势：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;能够避免不同开发环境带来的不一致问题&lt;/li&gt;
+&lt;li&gt;减少手动操作&lt;/li&gt;
+&lt;li&gt;清晰的版本管理和控制&lt;/li&gt;
+&lt;li&gt;降低人为操作的风险&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

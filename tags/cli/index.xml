@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CLI on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/cli/</link>
+    <description>Recent content in CLI on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Dec 2023 08:04:06 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>家庭服务器的备份工具选择</title>
+      <link>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</link>
+      <pubDate>Fri, 29 Dec 2023 08:04:06 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;在搭建了 Immich 服务之后，考虑到数据本身的重要性，又对硬盘本身的寿命和各种数据安全的场景有所顾虑，对加密备份的需求就浮出水面了，希望能有一个备份的预案来对抗各种数据风险，因此有本篇文章，对各种备份工具做简单调研和选择。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231229113137.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;intro-调研对象介绍&#34;&gt;👾Intro 调研对象介绍&lt;/h2&gt;
+&lt;p&gt;👍出场选手介绍，节选来自以下网站的备份方案：&lt;a href=&#34;https://github.com/awesome-foss/awesome-sysadmin#backups&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;awesome-sysadmin-backup&lt;/a&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kopia.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kopia&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.urbackup.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;urBackUp&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://restic.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;restic&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rclone.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rclone&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://duplicity.gitlab.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;duplicity&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.duplicati.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Duplicati&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://duplicacy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Duplicacy&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;脚本实现简单的备份和上传：Crontab+自动 tar 加密+Webdav 接口进行上传&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了备份大量包含隐私的图像信息，这里最基础的需求有以下几点：&lt;strong&gt;加密&lt;/strong&gt;，&lt;strong&gt;支持云端存储&lt;/strong&gt;服务/Webdav，&lt;strong&gt;增量备份&lt;/strong&gt;，&lt;strong&gt;免费&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;额外如果能够支持以下的需求则额外加分：&lt;strong&gt;压缩&lt;/strong&gt;，&lt;strong&gt;去重&lt;/strong&gt;，&lt;strong&gt;平台一致性&lt;/strong&gt;，&lt;strong&gt;用户界面友好&lt;/strong&gt;（备份状态检查等）&lt;/p&gt;
+&lt;h2 id=&#34;compare-特性对比&#34;&gt;🏓Compare 特性对比&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Name&lt;/th&gt;
+          &lt;th&gt;PSWD&lt;/th&gt;
+          &lt;th&gt;Zip&lt;/th&gt;
+          &lt;th&gt;Webdav&lt;/th&gt;
+          &lt;th&gt;Add&lt;/th&gt;
+          &lt;th&gt;Type&lt;/th&gt;
+          &lt;th&gt;ui&lt;/th&gt;
+          &lt;th&gt;Consis&lt;/th&gt;
+          &lt;th&gt;free&lt;/th&gt;
+          &lt;th&gt;rate&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;kopia&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;urbackup&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;C/S&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;restic&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;r/o&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;CLI&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicity&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;CLI&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicati&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;duplicacy&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;Full&lt;/td&gt;
+          &lt;td&gt;y-&lt;/td&gt;
+          &lt;td&gt;y&lt;/td&gt;
+          &lt;td&gt;y-&lt;/td&gt;
+          &lt;td&gt;🔥🔥🔥🔥🔥&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title>linux下载命令之Wget和Curl</title>
+      <link>https://aikenh.cn/hugotest/posts/linuxcli_download/</link>
+      <pubDate>Fri, 07 Jul 2023 22:10:52 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linuxcli_download/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;想要通过命令行直接下载文件，通常想到的就是下面的两个工具：wget 和 curl，下面简单介绍一下两者的使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;wget&#34;&gt;Wget&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;wget&lt;/code&gt; 全称为 &lt;code&gt;web get&lt;/code&gt; ，其基本用法为：&lt;code&gt;wget [-para] url &lt;/code&gt; ，常用的参数有以下几种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-O 指定下载文件的保存名称&lt;/li&gt;
+&lt;li&gt;-b 为后台下载模式&lt;/li&gt;
+&lt;li&gt;-P 下载到指定目录&lt;/li&gt;
+&lt;li&gt;-c 支持断电续传&lt;/li&gt;
+&lt;li&gt;-p 下载页面内的所有资源、包括图片视频等&lt;/li&gt;
+&lt;li&gt;-r 递归下载&lt;/li&gt;
+&lt;li&gt;-t 最大尝试次数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 默认无需参数的情况下即会将文件下载到当前文件夹下。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 也是最常见的用法，可以加入-c避免下载中断&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget url
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -O file.tgz url
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考 Man Page 或者 &lt;a href=&#34;https://www.explainshell.com/explain/1/wget&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ExplainShell&lt;/a&gt;
+ 可以找到完整的参数列表；支持从文件中读取 url ；将 log 写入指定的文件等等功能；&lt;/p&gt;
+&lt;p&gt;可以看出 wget 是一个简单，专职的下载利器，无论是用来下载安装包还是 pdf 之类的东西是一个相当方便的下载工具。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terminal multiplexer Zellij</title>
+      <link>https://aikenh.cn/hugotest/posts/linuxzellij/</link>
+      <pubDate>Sat, 20 May 2023 16:40:19 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linuxzellij/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Tmux 作为一款优秀的终端复用器，前面已经介绍过，这里在介绍一款有着相同功能的平替，个人认为 zellij 的 UI 各方面的设计，使得其相比于 Tmux 有着更低的入门难度，也避免了需要记大量快捷键，因此这里介绍一下该工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://zellij.dev/documentation/installation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Zellij&lt;/a&gt;
+ 是一款终端复用器，有什么功能可以完全参考 Tmux ，还支持了许多有趣的特性和自定义 Layout 等功能（可能后续用到的话会完善该部分笔记），详细的可以参考官网的介绍，接下来就简单的介绍一下安装和一些自定义的 Alias。&lt;/p&gt;
+&lt;h2 id=&#34;install-安装&#34;&gt;Install 安装&lt;/h2&gt;
+&lt;p&gt;Zellij 是基于 Rust 编写，因此在安装之前需要安装 rust 和 cargo（类似 rust 的包管理器），安装可以参考 &lt;a href=&#34;https://www.rust-lang.org/tools/install&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rust 官方网站（推荐）&lt;/a&gt;
+ |  &lt;a href=&#34;https://doc.rust-lang.org/cargo/getting-started/installation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Cargo Book&lt;/a&gt;
+  | &lt;a href=&#34;https://rustwiki.org/zh-CN/cargo/getting-started/installation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rust Wiki CN&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;官方网站中介绍了 WSL 的安装指令如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl --proto &lt;span class=&#34;s1&#34;&gt;&amp;#39;=https&amp;#39;&lt;/span&gt; --tlsv1.2 -sSf https://sh.rustup.rs &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#--proto以及--tlsvl在Linux或者Macos安装的时候可以忽略&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完成后可以使用如下命令，基于 Cargo 安装 zellij：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cargo install --locked zellij
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果出现了问题也可以尝试先更新 rust&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rustup update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

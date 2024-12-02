@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Semi-Supervised Learning on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/semi-supervised-learning/</link>
+    <description>Recent content in Semi-Supervised Learning on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Oct 2021 02:30:08 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/semi-supervised-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SS_OD_SoftTeacher</title>
+      <link>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</link>
+      <pubDate>Sat, 09 Oct 2021 02:30:08 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</guid>
+      <description>&lt;p&gt;@ Article: ICML from Microsoft &amp;amp; Huazhong Keda
+@ Code: &lt;a href=&#34;https://github.com/microsoft/SoftTeacher&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;
+
+@ Noteby: Aikenhong
+@ Time: 20210914&lt;/p&gt;
+&lt;h2 id=&#34;abstrast-and-intro&#34;&gt;Abstrast and Intro&lt;/h2&gt;
+&lt;p&gt;in the session we will using describe the main idea of this article.&lt;/p&gt;
+&lt;p&gt;这篇文章的重点在于Soft Teacher，也就是用pseudo label做为弱标注，逐步提高伪标签的可靠性。&lt;/p&gt;
+&lt;p&gt;不同于多阶段的方法，端到端的方法再训练中逐步的提升伪标签的质量从而再去benifit目标检测的质量。
+这样E2E的框架主要依赖于两部分技术:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;soft teacher: 每个未标记边界框的分类损失由教师网络产生的分类分数进行加权&lt;/li&gt;
+&lt;li&gt;box jitter 窗口抖动: 选择可靠的伪框来学习框回归&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在目标检测上获得SOTA的效果;&lt;/p&gt;
+&lt;h3 id=&#34;multi-stage&#34;&gt;Multi-Stage&lt;/h3&gt;
+&lt;p&gt;在半监督的情况下，关注的主要是基于伪标签的方法，是目前的SOTA，以往的方法采用多阶段的方式。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用标记数据训练初始检测器&lt;/li&gt;
+&lt;li&gt;未标记数据的伪标记，同时基于伪标签进行重新训练&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;局限&lt;/strong&gt;：初始少量标注的局限，初始的检测器的伪标签质量&lt;/p&gt;
+&lt;h3 id=&#34;end-to-end&#34;&gt;End to End&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Soft Teacher&lt;/strong&gt;基本思路：对未标记的图像进行标记，然后通过标记的几个伪标签训练检测器.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;具体而言：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;采样标注和未标注图片形成Batch&lt;/li&gt;
+&lt;li&gt;双模型：检测（student）、标记（teacher）&lt;/li&gt;
+&lt;li&gt;EMA：T模型是S模型的EMA&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这种方式避免了多阶段方案实现上的复杂，同时实现了飞轮效应==S、T相互加强;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;此外Soft Teacher&lt;/strong&gt;直接对学生模型生成的所有候选框进行评估，而不是使用伪框来为这些候选框进行分类回归。
+这样能使用更多的直接监督信息&lt;/p&gt;
+&lt;p&gt;具体而言：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用高阈值来分割前景，确保不会错误的将背景分类成前景，确保正伪标签的高精度；&lt;/li&gt;
+&lt;li&gt;使用可靠性度量来加权背景候选的损失；&lt;/li&gt;
+&lt;li&gt;教师模型产生的检测分数可以很好的作为可靠性度量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Box Jitter&lt;/strong&gt;为了更可靠的训练学生网络的本地分支，指的是：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

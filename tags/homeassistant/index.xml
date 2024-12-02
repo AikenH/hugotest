@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HomeAssistant on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/homeassistant/</link>
+    <description>Recent content in HomeAssistant on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Aug 2023 17:24:50 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HomeAssistant01 入门基础篇</title>
+      <link>https://aikenh.cn/hugotest/posts/homeassistant_init/</link>
+      <pubDate>Sat, 12 Aug 2023 17:24:50 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/homeassistant_init/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;接下来本文安装的是 Container 版本的 HA，并非 Supervised 的版本，所以其中是不包含 Add-on 的，如果需要特定的 Add-on 的版本请注意。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;基于本篇流程安装 HA 的前置条件是系统上已经安装好了可用的 Docker，该文会介绍 HA 和 HACS 的安装以及一些基础的配置。&lt;/p&gt;
+&lt;h2 id=&#34;ha--hacs-安装&#34;&gt;HA &amp;amp; HACS 安装&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文安装于 Raspberry pi 4B，与其他操作环境可能会存在一些差异，要注意甄别。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;ha&#34;&gt;HA&lt;/h3&gt;
+&lt;p&gt;安装过程主要参考 &lt;a href=&#34;https://www.home-assistant.io/installation/raspberrypi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspberry Pi - Home Assistant &lt;/a&gt;
+ 中 Install Home Assistant Container 的章节，如果为其他的 OS 也可以在官网找到类似的指引，不过 docker 版本的差异应该不会特别的大，个人的 Docker Compose File 也已经上传到 &lt;a href=&#34;https://github.com/AikenH/aikenh-DockerComposeYML/blob/master/HomeAssistant/docker-compose.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB&lt;/a&gt;
+ 可自行取用。&lt;/p&gt;
+&lt;p&gt;修改完 &lt;code&gt;-v&lt;/code&gt; 的挂载目录以后（将数据保存在本地的目录）和 &lt;code&gt;-e&lt;/code&gt; 的时区后，即可执行拉取和安装 docker，这里-v 挂载的本地目录要记得，后面有用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker compose up -d 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完后基于 Host 模式的 HA 会运行在 http://localhost:8123 中，localhost 也可以用 ip 替代。安装完后随着&lt;a href=&#34;https://www.home-assistant.io/getting-started/onboarding/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;指引&lt;/a&gt;
+完成一些基础的设置，设置好默认的账号密码即可重启 docker 进入 HA 的界面；&lt;/p&gt;
+&lt;p&gt;到这里已经可以做一些基础的使用了，但是为了支持更多智能家具产品，往往需要安装第三方用户商店 HACS ，从中去下载对于其他智能家具产品的支持。&lt;/p&gt;
+&lt;h3 id=&#34;hacs&#34;&gt;HACS&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Home Assistant Community Store 第三方用户商店，便于下载各种各样的集成实现对于各个不同智能家具品牌和产品的支持。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;各种不同版本的安装方式可以参考&lt;a href=&#34;https://hacs.xyz/docs/setup/download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方网页&lt;/a&gt;
+，以下只介绍基于 Container 的安装方式，官方提供了安装脚本，因此现在下载已经相对简单，具体如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入挂载的本地目录，执行下面命令，即包含了下载和执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -O - https://get.hacs.xyz &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; bash -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;如果下不下来也可以直接打开网页复制进.Sh 脚本中；也可以去我的仓库中拉下来&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装完重启 HA，在集成页面添加集成，搜索 HACS，搜索到直接进行安装，跟随配置进行安装，并打开 GITHUB 进行登录和授权即可。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

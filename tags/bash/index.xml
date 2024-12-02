@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bash on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/bash/</link>
+    <description>Recent content in Bash on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Apr 2023 16:00:07 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grep、Sed、Awk 03 Awk</title>
+      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</link>
+      <pubDate>Tue, 18 Apr 2023 16:00:07 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Linux 三剑客之 Awk (由三个创始人的姓氏首字母组成)，相比于 Grep 和 Sed 而言更为特殊一些，它是一种模式匹配的编程语言，其主要的作用匹配文本进行处理，其擅长实现对文本的格式化输出，而作为一门编程语言：支持函数，变量，循环，运算，但相对简单。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;AWK 的执行逻辑是：搜索文件的每一行，如果&lt;strong&gt;发现匹配内容，就执行下一个编程步骤，如果没发现，就继续处理下一行&lt;/strong&gt;的内容。&lt;/p&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于 AWK 实际上是一个编程语言，本篇主要只介绍其命令行用法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先介绍 AWK 命令，其主要用于匹配文本并格式化输出，适用于对&lt;strong&gt;表格&lt;/strong&gt;化的数据机型处理。其使用模板大致如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;awk &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;options&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;program&amp;#39;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;var&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;value file...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;awk &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;options&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;pattern {action1; action2; ...}&amp;#39;&lt;/span&gt; file ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;awk &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;options&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; -f programfile &lt;span class=&#34;nv&#34;&gt;var&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;value file...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;awk &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;options&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;BEGIN{ action;... } pattern{ action;... } END { action;... }&amp;#39;&lt;/span&gt; file ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-f&lt;/strong&gt; scriptfile: 从脚本文件中读取 awk 命令&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-v&lt;/strong&gt; var=value: 赋值一个用户定义变量，也可用这种方式修改内置变量&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-F&lt;/strong&gt; fs: fs 可为任意字符串或者正则表达式，用于指定分隔符（也可以通过-v 的方式修改内置的分隔符变量来实现）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每个 action 或者说 statement 之间用 &lt;code&gt;；&lt;/code&gt; 分割&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://zh.wikipedia.org/wiki/AWK&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWK wikipedia&lt;/a&gt;
+ | &lt;a href=&#34;https://github.com/EZLippi/practical-programming-books/blob/master/src/awk.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;practical-programming-books/awk.md &lt;/a&gt;
+ | &lt;a href=&#34;https://awk.readthedocs.io/en/latest/chapter-one.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;一. AWK入门指南 — AWK程序设计语言&lt;/a&gt;
+ | &lt;a href=&#34;https://www.cnblogs.com/along21/p/10366886.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux文本三剑客超详细教程&amp;mdash;grep、sed、awk - alonghub&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Grep、Sed、Awk 02 Sed</title>
+      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</link>
+      <pubDate>Sat, 15 Apr 2023 23:22:56 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Linux 三剑客之 Sed，相比于擅长数据查找定位的 Grep，Sed（Stream Editor）擅长做的是数据修改，做的主要是做一些增删改的功能。&lt;a href=&#34;https://www.zhihu.com/question/297858714&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; sed 和 awk 的区别是什么？&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;首先介绍 Sed 命令，Stream Editor 流编辑器，针对字符流来进行文件编辑，同样，其核心也在于正则匹配式，其用法如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sed &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;option&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;script&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;input-file&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中{script}可以理解为三者的组合：&lt;strong&gt;sed 动作指令+Reg 用正则&amp;amp;行号确定修改位置+修改的内容&lt;/strong&gt;：Script 是 Sed 的核心，分别对应着：操作的行为，操作的位置和操作的内容。&lt;/p&gt;
+&lt;p&gt;Sed 的用法也可以按照这个来记：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sed &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-hnV&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-e &amp;lt;script&amp;gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-f &amp;lt;script文件&amp;gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;文本文件&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;h 显示 helo ；-n 表示静默输出，-V 显示版本；参考第一种用法，-e 可以指定多个 script 对输入的文件进行处理，-f 则可以将多个 script 写在文件中，通过读取文件中的 scripts 来对文本文件进行处理。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作为文本&lt;strong&gt;流&lt;/strong&gt;编辑器，Sed 是一行一行的处理文件内容，将正在处理的每一行内容放在缓冲区中按照约定进行修改，处理后按照约定修改文件或输出，接着在处理下一行，直到整个文件处理内容。&lt;/p&gt;
+&lt;p&gt;其主要用来编辑和处理一个或者多个文件，简化对于文件的重复操作。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://www.zhihu.com/question/297858714&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sed 和 awk 的区别-知乎&lt;/a&gt;
+ | Man | &lt;a href=&#34;https://coolshell.cn/articles/9104.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sed 简明教程 | CoolShell&lt;/a&gt;
+ | &lt;a href=&#34;https://www.runoob.com/linux/linux-comm-sed.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux sed 命令 | 菜鸟教程 &lt;/a&gt;
+ |  &lt;a href=&#34;https://www.cnblogs.com/along21/p/10366886.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux文本三剑客超详细教程&amp;mdash;grep、sed、awk &lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Grep、Sed、Awk 01-Grep</title>
+      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
+      <pubDate>Wed, 12 Apr 2023 13:22:58 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Linux 三剑客之 Grep。Grep 估计会是大部分 Linux 用户最常用的文本搜索命令了，在三剑客中的使用场景也是最广泛的。在对正则有了基本了解之后，就可以更好的使用 Grep，同时也可以通过 Grep 的使用来更好的掌握常用的正则表达式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;首先介绍 Grep 命令，&lt;strong&gt;Global Regular Expression Print&lt;/strong&gt; 全局正则表达式输出，使用正则表达式搜索文本内容输出。其使用模板如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;grep &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;option&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; pattern file
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;option 指定 grep 的搜索模式&lt;/li&gt;
+&lt;li&gt;pattern 需要搜索的内容，可以用&lt;strong&gt;正则表达式&lt;/strong&gt;指定一个模式来做匹配&lt;/li&gt;
+&lt;li&gt;file 可以是文件夹等路径，用来确定搜索的范围（仅支持&lt;strong&gt;通配符&lt;/strong&gt;）[[Linux三剑客之正则]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来分别对两个部分进行简单的说明，file 的范围指定参考正则文章中对通配符的介绍即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Grep、Sed、Awk 00 RegExp</title>
+      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</link>
+      <pubDate>Tue, 11 Apr 2023 22:57:40 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“awk、grep、sed 是 linux 操作文本的三大利器，合称文本三剑客，也是必须掌握的 linux 命令之一。三者的功能都是处理文本，但侧重点各不相同，其中属 awk 功能最强大，但也最复杂。grep 更适合单纯的查找或匹配文本，sed 更适合编辑匹配到的文本，awk 更适合格式化文本，对文本进行较复杂格式处理。“&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/along21/p/10366886.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux文本三剑客超详细教程&amp;mdash;grep、sed、awk&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;在介绍这三个命令之前，需要对正则表达式有所了解，结合正则表达式来使用，才能发挥这 linux 三剑客的的全部能力。&lt;/p&gt;
+&lt;h2 id=&#34;正则表达式-regexp&#34;&gt;正则表达式 RegExp&lt;/h2&gt;
+&lt;p&gt;正则表达式： Regual Expression 为一类特殊字符和文本符号共通约定的一种 pattern，其中的一些字符并不表示其本身的含义，而是用来做通配符号。&lt;/p&gt;
+&lt;p&gt;其中基本正则表达式 BRE 是普遍支持的，而拓展正则表达式 ERE 通常则是需要特殊的参数来启用的。通过正则表达式中特殊符号的辅助，能够更快的过滤，查找，替换，处理字符流等。&lt;/p&gt;
+&lt;p&gt;除了在 grep、sed、awk 的 linux 三剑客中，在各个语言和各种搜索函数的地方，正则表达式都被普遍支持，应用相当广泛。&lt;/p&gt;
+&lt;p&gt;基础正则表达式对应的元字符主要有以下几个：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;^ $ . &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;而拓展正则表达式在上述元字符的基础上增加了：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; ? + &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;等字符，接下来我们将逐一展开各个元字符的作用。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash Notebook 01</title>
+      <link>https://aikenh.cn/hugotest/posts/shell/</link>
+      <pubDate>Wed, 25 Jan 2023 22:04:15 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/shell/</guid>
+      <description>&lt;p&gt;整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。&lt;/p&gt;
+&lt;h2 id=&#34;语句注释&#34;&gt;语句注释&lt;/h2&gt;
+&lt;p&gt;单行注释：&lt;code&gt;#&lt;/code&gt; ，多行注释：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:&lt;span class=&#34;s1&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;多行注释用冒号加单引号即可
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;legal&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;命令行参数传递&#34;&gt;命令行参数传递&lt;/h2&gt;
+&lt;p&gt;命令行传递参数的方式极其简单，&lt;code&gt; $1&lt;/code&gt; &amp;hellip; &lt;code&gt;$ 9&lt;/code&gt; 可分别代表输入的 9 个参数，第 10 个参数则使用 &lt;code&gt;${10}&lt;/code&gt; 表示，可以将其赋予变量后便于使用。&lt;/p&gt;
+&lt;p&gt;一些特殊参数：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;$0&lt;/code&gt; 脚本本身的名称&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$#&lt;/code&gt; 输入参数的数量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$$&lt;/code&gt; 进程 ID&lt;/li&gt;
+&lt;li&gt;&lt;code&gt; $*&lt;/code&gt; | &lt;code&gt;$ @&lt;/code&gt; 所有参数（从第一个开始&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(PWD)&lt;/code&gt; | `pwd` 都能输出当前的工作路径&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;举个脚本例子如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# we accept args from commandline and print it to the screen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# define&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;args1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;args2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# print&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;using &lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt; { } to get the value of val, what we receive is : &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;args1&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;args2&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt; can also show : &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$args1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$args2&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# we can make those statement in a string, which may transfer to its value&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;using &lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt; / {} in a string can also get the value like &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$args1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$args2&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;using $ / {} in a string single quotes cannot get the value like $args1 and $args2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

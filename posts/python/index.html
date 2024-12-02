@@ -1,0 +1,996 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Python01 数据模型和常用数据结构 | aiken's blog</title>
+<meta name=keywords content="Python,Langs"><meta name=description content="个人的《Python Cookbook》 && 《Fluent Python》阅读笔记。
+数据模型（Python结构的通用范式）
+（Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:
+
+
+__len__()后可以支持len()，获得结构的长度
+
+
+__getitem__()后可以支持data[index]来获取相应的元素，切片，等等数组的操作；
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+
+
+# 也可以支持类似如下的一些操作
+# 从数据结构中随机选出一个items
+from random import choice
+choice(datas)
+# 也可以支持迭代方法和反迭代方法
+for data in datas:
+    ...
+for data in reversed(datas):
+    ...
+# 也可以支持sort函数
+
+
+
+
+到这里也就说明了，只要我们在数据结构（class）中定义了相应的dunder method，该class就能支持相应的一系列操作，getitems就可以类比为列表，相应的操作都能够在python解释器下自动的赋予支持。
+还有一些好用但不常用的方法：
+
+__contain__实现的是in ，当没有实现contain的方法的时候会按照顺序在list中进行搜索
+__abs__
+__repr__实现的是输出的format设置，也就是print的时候的输出形式
+__eq__ 实现的是  == 命令，同时in调用的是__eq__
+
+下面附上一张特殊方法表：
+
+基本命名规范
+相关的文件和函数等命名规则。
+命名样例表
+
+变量赋值传递时的引用和拷贝
+Python 变量的传递类型：（赋值过程）
+https://www.runoob.com/w3cnote/python-variable-references-and-copies.html
+
+Python 赋值过程中不明确区分拷贝和引用，一般对静态变量的传递为拷贝，对动态变量的传递为引用。（注，对静态变量首次传递时也是引用，当需要修改静态变量时，因为静态变量不能改变，所以需要生成一个新的空间存储数据）。
+•  字符串，数值，元组 均为静态变量
+• 列表，字典为动态变量。
+可以用id（）查看指向的地址"><meta name=author content="aikenhong"><link rel=canonical href=https://aikenh.cn/hugotest/posts/python/><link crossorigin=anonymous href=/hugotest/assets/css/stylesheet.2f85ca17c12c62fa86b1e474b8a51aca4856f0d645debfe4922a4d5ddc6aa978.css integrity="sha256-L4XKF8EsYvqGseR0uKUaykhW8NZF3r/kkipNXdxqqXg=" rel="preload stylesheet" as=style><link rel=icon href=https://aikenh.cn/favicon/ghost.ico><link rel=icon type=image/png sizes=16x16 href=https://aikenh.cn/favicon/ghost-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aikenh.cn/favicon/ghost-32x32.png><link rel=apple-touch-icon href=https://aikenh.cn/favicon/ghost-apple-touch-icon.png><link rel=mask-icon href=https://aikenh.cn/favicon/ghost-192x192.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aikenh.cn/hugotest/posts/python/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel=stylesheet><meta property="og:url" content="https://aikenh.cn/hugotest/posts/python/"><meta property="og:site_name" content="aiken's blog"><meta property="og:title" content="Python01 数据模型和常用数据结构"><meta property="og:description" content="个人的《Python Cookbook》 && 《Fluent Python》阅读笔记。
+数据模型（Python结构的通用范式） （Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:
+__len__()后可以支持len()，获得结构的长度
+__getitem__()后可以支持data[index]来获取相应的元素，切片，等等数组的操作；
+1 2 3 4 5 6 7 8 9 10 # 也可以支持类似如下的一些操作 # 从数据结构中随机选出一个items from random import choice choice(datas) # 也可以支持迭代方法和反迭代方法 for data in datas: ... for data in reversed(datas): ... # 也可以支持sort函数 到这里也就说明了，只要我们在数据结构（class）中定义了相应的dunder method，该class就能支持相应的一系列操作，getitems就可以类比为列表，相应的操作都能够在python解释器下自动的赋予支持。
+还有一些好用但不常用的方法：
+__contain__实现的是in ，当没有实现contain的方法的时候会按照顺序在list中进行搜索 __abs__ __repr__实现的是输出的format设置，也就是print的时候的输出形式 __eq__ 实现的是 == 命令，同时in调用的是__eq__ 下面附上一张特殊方法表：
+基本命名规范 相关的文件和函数等命名规则。
+命名样例表 变量赋值传递时的引用和拷贝 Python 变量的传递类型：（赋值过程） https://www.runoob.com/w3cnote/python-variable-references-and-copies.html Python 赋值过程中不明确区分拷贝和引用，一般对静态变量的传递为拷贝，对动态变量的传递为引用。（注，对静态变量首次传递时也是引用，当需要修改静态变量时，因为静态变量不能改变，所以需要生成一个新的空间存储数据）。
+• 字符串，数值，元组 均为静态变量• 列表，字典为动态变量。 可以用id（）查看指向的地址"><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-10-27T14:19:13+00:00"><meta property="article:modified_time" content="2021-10-27T14:19:13+00:00"><meta property="article:tag" content="Python"><meta property="article:tag" content="Langs"><meta property="og:image" content="https://aikenh.cn/cover/cover21.jpeg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aikenh.cn/cover/cover21.jpeg"><meta name=twitter:title content="Python01 数据模型和常用数据结构"><meta name=twitter:description content="个人的《Python Cookbook》 && 《Fluent Python》阅读笔记。
+数据模型（Python结构的通用范式）
+（Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:
+
+
+__len__()后可以支持len()，获得结构的长度
+
+
+__getitem__()后可以支持data[index]来获取相应的元素，切片，等等数组的操作；
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+
+
+# 也可以支持类似如下的一些操作
+# 从数据结构中随机选出一个items
+from random import choice
+choice(datas)
+# 也可以支持迭代方法和反迭代方法
+for data in datas:
+    ...
+for data in reversed(datas):
+    ...
+# 也可以支持sort函数
+
+
+
+
+到这里也就说明了，只要我们在数据结构（class）中定义了相应的dunder method，该class就能支持相应的一系列操作，getitems就可以类比为列表，相应的操作都能够在python解释器下自动的赋予支持。
+还有一些好用但不常用的方法：
+
+__contain__实现的是in ，当没有实现contain的方法的时候会按照顺序在list中进行搜索
+__abs__
+__repr__实现的是输出的format设置，也就是print的时候的输出形式
+__eq__ 实现的是  == 命令，同时in调用的是__eq__
+
+下面附上一张特殊方法表：
+
+基本命名规范
+相关的文件和函数等命名规则。
+命名样例表
+
+变量赋值传递时的引用和拷贝
+Python 变量的传递类型：（赋值过程）
+https://www.runoob.com/w3cnote/python-variable-references-and-copies.html
+
+Python 赋值过程中不明确区分拷贝和引用，一般对静态变量的传递为拷贝，对动态变量的传递为引用。（注，对静态变量首次传递时也是引用，当需要修改静态变量时，因为静态变量不能改变，所以需要生成一个新的空间存储数据）。
+•  字符串，数值，元组 均为静态变量
+• 列表，字典为动态变量。
+可以用id（）查看指向的地址"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aikenh.cn/hugotest/posts/"},{"@type":"ListItem","position":2,"name":"Python01 数据模型和常用数据结构","item":"https://aikenh.cn/hugotest/posts/python/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python01 数据模型和常用数据结构","name":"Python01 数据模型和常用数据结构","description":"个人的《Python Cookbook》 \u0026amp;\u0026amp; 《Fluent Python》阅读笔记。\n数据模型（Python结构的通用范式） （Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:\n__len__()后可以支持len()，获得结构的长度\n__getitem__()后可以支持data[index]来获取相应的元素，切片，等等数组的操作；\n1 2 3 4 5 6 7 8 9 10 # 也可以支持类似如下的一些操作 # 从数据结构中随机选出一个items from random import choice choice(datas) # 也可以支持迭代方法和反迭代方法 for data in datas: ... for data in reversed(datas): ... # 也可以支持sort函数 到这里也就说明了，只要我们在数据结构（class）中定义了相应的dunder method，该class就能支持相应的一系列操作，getitems就可以类比为列表，相应的操作都能够在python解释器下自动的赋予支持。\n还有一些好用但不常用的方法：\n__contain__实现的是in ，当没有实现contain的方法的时候会按照顺序在list中进行搜索 __abs__ __repr__实现的是输出的format设置，也就是print的时候的输出形式 __eq__ 实现的是 == 命令，同时in调用的是__eq__ 下面附上一张特殊方法表：\n基本命名规范 相关的文件和函数等命名规则。\n命名样例表 变量赋值传递时的引用和拷贝 Python 变量的传递类型：（赋值过程） https://www.runoob.com/w3cnote/python-variable-references-and-copies.html Python 赋值过程中不明确区分拷贝和引用，一般对静态变量的传递为拷贝，对动态变量的传递为引用。（注，对静态变量首次传递时也是引用，当需要修改静态变量时，因为静态变量不能改变，所以需要生成一个新的空间存储数据）。\n• 字符串，数值，元组 均为静态变量\r• 列表，字典为动态变量。 可以用id（）查看指向的地址\n","keywords":["Python","Langs"],"articleBody":"个人的《Python Cookbook》 \u0026\u0026 《Fluent Python》阅读笔记。\n数据模型（Python结构的通用范式） （Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:\n__len__()后可以支持len()，获得结构的长度\n__getitem__()后可以支持data[index]来获取相应的元素，切片，等等数组的操作；\n1 2 3 4 5 6 7 8 9 10 # 也可以支持类似如下的一些操作 # 从数据结构中随机选出一个items from random import choice choice(datas) # 也可以支持迭代方法和反迭代方法 for data in datas: ... for data in reversed(datas): ... # 也可以支持sort函数 到这里也就说明了，只要我们在数据结构（class）中定义了相应的dunder method，该class就能支持相应的一系列操作，getitems就可以类比为列表，相应的操作都能够在python解释器下自动的赋予支持。\n还有一些好用但不常用的方法：\n__contain__实现的是in ，当没有实现contain的方法的时候会按照顺序在list中进行搜索 __abs__ __repr__实现的是输出的format设置，也就是print的时候的输出形式 __eq__ 实现的是 == 命令，同时in调用的是__eq__ 下面附上一张特殊方法表：\n基本命名规范 相关的文件和函数等命名规则。\n命名样例表 变量赋值传递时的引用和拷贝 Python 变量的传递类型：（赋值过程） https://www.runoob.com/w3cnote/python-variable-references-and-copies.html Python 赋值过程中不明确区分拷贝和引用，一般对静态变量的传递为拷贝，对动态变量的传递为引用。（注，对静态变量首次传递时也是引用，当需要修改静态变量时，因为静态变量不能改变，所以需要生成一个新的空间存储数据）。\n• 字符串，数值，元组 均为静态变量\r• 列表，字典为动态变量。 可以用id（）查看指向的地址\n在修改列表值之类的时候要注意这一点，不然可能会影响到源列表，可能要使用深拷贝的方法， copy.deepcopy()\npython 定义方法时候指定参数，返回值和变量的类型 ：\n1 2 3 4 5 6 def test(a:int, b:str) -\u003e str: print(a, b) return 1000 if __name__ == '__main__': test('test', 'abc') 类与函数 args，kwargs的用法和解包，主要将字典作为参数整体传入的这种方法值得学习\n1 可以用*，**定义和解包 id()可以获取变量的地址，type（）查看数据类型，isinstance判断类型\nlocals().keys() 获得当前已经声明的变量列表\nsys.argv[0] 可获取当前工作区的地址\n匿名函数 单下划线 定义的函数，属性，或者方法 这表明这个member是受保护的：\n是用来指定私有变量和方法的方式（只是一种约定习惯）,不希望被下游的程序员直接访问的函数。 如果使用from a_module import导入时，这部分变量和函数不会被导入 但是如果使用 import a_module这样导入模块，仍然可以用a_module._pythonPoint这样的形式访问到这样的对象。 Bool and or not 基本的就不用daaaaaaaaaaaaaaaaaaa说了，主要是一些特殊的用法举例\n1 2 # not 会先于 and 执行 if not flag1 and flag2 == True 用逻辑运算符做参数选择\n1 judge = index == 0 and num1 or num2 Argparse 基本的用法：参考universal framework即可，主要是bool类型无法通过命令行传入\n1 2 3 4 # 使用store_true属性，就可以执行默认的True or False parser.add_argument(\"--bool_chose\",default=False ,action='store_true',help='a switch of bool variable') # 👇选择上与原本完全是相反的 parser.add_argument(\"--bool_chose\",default=True ,action='store_true',help='a switch of bool variable') Random 使用sample不重复的选取字典或者列表中的指定项\n1 2 list = [1,2,3,4,5] choose = random.sample(list,2) 使用choice进行可重复的选取\n1 2 3 4 c_r = np.arange(20) for i in range(10): c_i = random.choice(c_r) print(c_i) 打乱列表排序\n1 2 3 4 5 6 A = [1,2,3,4,5,6] # 得到index的列表 B = np.arange(len(A)) # 对该列表进行打乱，通过打乱的列表进行索引 random.shuffle(B) print(B) Logging System 日志 HOWTO — Python 3.9.4 文档 ；日志操作手册 — Python 3.9.4 文档 Python logging模块 ；logging模块的简单使用 基础使用 从一个非常简单的例子开始，默认的命令行输出等级是warning\n1 2 3 4 5 import logging logging.debug('this message should only show up in log file') logging.info('so do this one ') logging.warning('this one will also show up in the console') logging.error('And non-ASCII stuff, too, like resund and Malm') 假如我们设置log文件的存储以及输出的格式（包括算法运行的时间）\n但是注意这个config是一次性设置，只有第一次设置是有效的 1 2 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s ', datefmt='%Y-%m-%d %I:%M:%S %p', filename=\"exampleFile.log\",level=logging.DEBUG) # 这里设置了文件的输出名称和输出的格式，以及相应的记录到文件中的等级 也可以从命令行设置日志等级,可以获取当前的等级\n1 2 --log = INFO # getattr 这个方法目前好像还有点问题， 进阶使用 通过4个module的组合来实现record log的功能，通过Logger载入多个Handler，可以通过不同的标准和方式在多个File以及控制台输出不同Level的东西，这就是主要的功能。\nUntitled 具体的实现样例如下：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 import logging # create logger to record log messages logger = logging.getLogger('textlogger') # 避免等级c logger.propagate = 0 logger.setLevel(logging.DEBUG) # create file handler which logs even debug messages fh = logging.FileHandler('exampleFile.log') fh.setLevel(logging.WARNING) # creatr console handler... ch = logging.StreamHandler() ch.setLevel(logging.DEBUG) # create output format for all the handler formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s ', datefmt='%Y-%m-%d %I:%M:%S %p') ch.setFormatter(formatter) fh.setFormatter(formatter) # add handler to logger logger.addHandler(ch) logger.addHandler(fh) # record logs logger.debug('this message should only show up in log file {}'.format('test is')) logger.info('so do this one ') logger.warning('this one will also show up in the console') logger.error('show up twice') 但是这种格式的时候怎么实现跨文件传输呢？\n1 再同个文件中我们只需要进行getlogger使用同一个名字即可获得同一个logger，但是跨文件的话可能还是需要传递logger把。 我认为应该传递该logger,然后通过该Logger进行统一的输出，遇到不同的输出要求的时候，我们可以对handler进行不一样的处理从而能够得到多样化的logger输出\nLogger与装饰器的组合使用 参见后续的装饰器解读模块\nFIles System Import manage init.py 文件的作用 init.py 文件使用 其实主要就是控制着包的导入功能，使用__all__来对应from package import *的功能，我们可以在init中批量的导入我们需要的模块，这样我们就不在需要一个个的进行导入了，基于这种特性，我们也可以编写一个manage fuction，通过config来进行选择性的导入。\n主要的左右是python中package的标识，不能删除 定义__all__用来进行模糊导入 编写python代码，会在import package的时候同时import，但是推荐在包中创建另外的模块来写，尽量保证该文件简单 Path Manage 路径切分 将路径切分成地址和文件：\n1 2 3 4 import os p,f = os.path.split(origin) print(\"path == \",p) print(\"file == \",f) 切分出文件的盘符和文件名\n1 dev,left = os.path.splitdrive(origin) 切分出文件和拓展名\n1 f,ext = os.path.splittext(origin) 文件遍历 os.walk() 简单好用的目录遍历器用于在目录树中游走输出目录中的文件名，向上或者向下。\n1 os.walk(top,topdown,onerror,followlinks) top：遍历的目录地址 （option）topdown：True的话优先遍历top目录，否则会优先遍历子目录 （option）onerror：当需要异常的时候，会调用 （option）followlinks：是否要跳转到快捷方式（或者软连接遍历） RETURN：（root，dirs，files）\nroot：根目录 dirs：文件夹中所有目录的名字（子文件夹） files：目录中所有文件的名字 层序遍历每次是该层的所有文件和目录的名字\nGlob.glob() 文件遍历方法\n文件读写 Data Structural 位运算 位运算判断奇偶一致性\n1 2 # T：奇偶性不一致 F：奇偶性一致 (a ^ b) \u0026 1 二进制操作 与或非就不用多说，主要是介绍一个module bitarray\n序列构成的数组 这一部分主要有几个重点：列表推导式的使用、元组特性和使用\n列表推导式的使用 1 2 3 4 5 # 将字符串变成Unicode码位 symbols = 'sdac@#' codes = [ord(symbol) for symbol in symbols if ord(symbol) \u003e127] # 与map和filter的比较 lists(filter(lambda c:c\u003e127, map(ord,symbols))) 可以看出列表推导式的表达更为简洁易懂，而且实际上运行的效率也不低\n使用列表推导式生成笛卡尔积 举例：每个size有不同的颜色\n1 2 3 4 colors = ['black','blue','red'] sizes = ['S','M','L'] # 先按颜色循环再按size循环，内外层循环的关系 tshirts = [(color,size) for color in colors for size in sizes] 生成器表达式 我们可以使用列表推导来初始化元组、数组、或者其他的数据类型，但是生成器表达式符合了迭代器的协议，可以逐个的产出元素，而不是先建立一个完整的列表，能够节省内存\n语法上和列表推导差不多，只不过把方括号换成圆括号而已\n1 2 3 tuple(ord(symbol) for symbol in symbols) import array array.array('I',ord(symbol) for symbol in symbols) 利用生成器表达式来计算笛卡尔积\n1 2 3 4 # 这样可以更好的体现逐个生成的特性？但是实际上列表推导式也可以把？ # 但是总之是由这样的特性的，能够避免额外的内存占用 for tshirt in ('%s %s' %(c,s) for c in colors for s in sizes): print(tshirt) 元组不仅是不可变的列表 列表的基本操作 列表的条件加和 有不少类似和条件语句相关的操作，列举一些基本实例如下：\n1 2 3 4 5 6 7 # np.random.randint? A = np.random.randint(0,3,5) B = np.random.randint(0,3,5) print('origin A　is {} \\n And B is {}'.format(A,B)) # style 1 相当于转换成一个ToF的list，然后对这样的list直接进行sum same = (A == B).sum() print('\\nthe num of same element in same posi is', same) 1 2 '''列表的+=，也就是简单拼接操作''' [1,2,3]+[2,3,4] 列表的数乘 列表的数乘是对列表的项数进行一个重复性的扩充，但是注意这种重复不能针对那种特殊类型（也就是赋值会直接基于地址的：引用？） 所以这是对于项数的操作而不是对列表中数值的直接操作，参考变量赋值的部分\n1 2 3 4 value = 5 unlist = [value] outlist = unlist * 5 print('the output is like that : {}'.format(outlist)) range函数常用操作 https://docs.python.org/zh-cn/3.7/library/stdtypes.html?highlight=range#range range生成的并不是列表，而是一个range组而已 1 2 3 4 reallist = list(range(20)) # range的步长设置 for i in range(0,20,5): print(i) Universal Method Sort（）对列表进行排序 sort用于对源列表进行排序，如果指定参数，则使用指定的比较函数 参考资料：https://www.runoob.com/python/att-list-sort.html\n1 2 3 4 5 6 # 纯数字的情况就按基本方式进行排列 list1 = [1,2,4,5,6,23,4] list1.sort() list1 # 类似的string就按找字母表进行逐项排序吧，我是这样理解的 队列queue \u0026 deque SET集合 https://www.runoob.com/python3/python3-set.html {}可以定义字典，也可以用于创建集合 但是空的集合只能用set()定义（因为{}定义的是空字典） 基本的method：\nadd、remove、discard（也是移除，但是假如元素不存在的话也不会报错） len，clear 主要是可以利用其中不会重复的元素的特性来进行特殊的操作\n1 2 3 basker = {'apple', 'organge', 'apple', 'pear'} print('basker:', basker) 'orange' in basker 1 2 a = set('go straight forward') # 可以在集合中做交并等等集合的操作 利用set进行去重 如何利用set对unhashable的data structure进行去重，这里采取的方式是使用tuple对数组进行变换；\n实际上unhashable的原因在于对象是可变对象：比如np.array，所以我们将其转换为不可变的tuple之后就可以进行hash的计算从而进行去重了。\n1 2 3 4 5 6 7 8 9 # 二维数组为例 array1 = np.random.rand(3,4) array1_t = tuple(map(tuple,array1)) resume = np.array(array1_t) # 进行转换的时候注意不要进行过度的拆分，上述的方法只适用于二维数组的情况， text = ['abcsd','dsdc','cdsda'] text = tuple(text) # 即可，不然可能会将其中的文本全部拆分出来 # 后续补充一下map的其他用法。[func,iterator?] Dict，Hashmap 实际上python中的字典就是hashmap的具体实现，是一个无序的结构\n判断字典中的key是否存在的方法 首先如果我们调用的key不存在的话： keyerror\n1 2 \u003e\u003e\u003e 'key1' in dict1 false 或者使用get方法，能给不存在的key赋予默认的value,在这个时候出现的则是nameerror\n1 2 3 \u003e\u003e\u003e d.get('key1') \u003e\u003e\u003e d.get('key1', -1) -1 字典中的常用方法 …\ncollections.defaultdict 指定dict中未定义key的value 通过指定的默认值，在一些使用场景下可以对dict进行简化的定义 同时也能针对一些特殊的情况，比如说未见数据的情况，进行定义 1 2 3 4 5 6 7 8 9 # 指定list类型用于未定义类别的填充 from collections import defaultdict dict1 = {} dict2 = defaultdict(list) try: print(dict1['a']) except: print('dict1 print key error') print('dict2 is like ', dict2['a']) dict1 print key error\rdict2 is like [] 1 2 3 4 5 6 7 8 # 用法2，避免keyerror更容易对其进行赋值 from collections import defaultdict bags = ['apple', 'orange', 'cherry', 'apple','apple', 'cherry', 'blueberry'] count = defaultdict(int) for fruit in bags: count[fruit] += 1 print('the count output is like \\n', count) # print(locals().keys()) the count output is like\rdefaultdict(","wordCount":"2268","inLanguage":"en","image":"https://aikenh.cn/cover/cover21.jpeg","datePublished":"2021-10-27T14:19:13Z","dateModified":"2021-10-27T14:19:13Z","author":[{"@type":"Person","name":"aikenhong"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://aikenh.cn/hugotest/posts/python/"},"publisher":{"@type":"Organization","name":"aiken's blog","logo":{"@type":"ImageObject","url":"https://aikenh.cn/favicon/ghost.ico"}}}</script></head><body id=top><script type=module src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js defer></script><script nomodule src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js defer></script><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aikenh.cn/hugotest/ accesskey=h title="aiken's blog (Alt + H)">aiken's blog</a><div class=logo-switches><button id=theme-toggle-nav accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aikenh.cn/hugotest/ title=home><span>home</span></a></li><li><a href=https://aikenh.cn/hugotest/posts/ title=posts><span>posts</span></a></li><li><a href=https://aikenh.cn/hugotest/tags/ title=tags><span>tags</span></a></li><li><a href=https://aikenh.cn/hugotest/categories/ title=categories><span>categories</span></a></li><li><a href=https://aikenh.cn/hugotest/archives/ title=archives><span>archives</span></a></li><li><a href=https://aikenh.cn/hugotest/about/ title=about><span>about</span></a></li><li><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><span>search</span></a></li></ul></nav></header><div class=sidebar><ul><li class=logo style=--bg:#333><a href=#><div class=logo-icon><img src=/logo/logo.png></div><div class=logo-text>Aiken's Blog</div></a></li><div class=menulist><li style=--bg:#f44336><a href=https://aikenh.cn/hugotest/ title=home><div class=logo-icon><ion-icon name=home-outline></ion-icon></div><div class=logo-text>home</div></a></li><li style=--bg:#b145e9><a href=https://aikenh.cn/hugotest/posts/ title=posts><div class=logo-icon><ion-icon name=newspaper-outline></ion-icon></div><div class=logo-text>posts</div></a></li><li style=--bg:#0f93c7><a href=https://aikenh.cn/hugotest/tags/ title=tags><div class=logo-icon><ion-icon name=pricetags-outline></ion-icon></div><div class=logo-text>tags</div></a></li><li style=--bg:#ffa117><a href=https://aikenh.cn/hugotest/categories/ title=categories><div class=logo-icon><ion-icon name=grid-outline></ion-icon></div><div class=logo-text>categories</div></a></li><li style=--bg:#0fc70f><a href=https://aikenh.cn/hugotest/archives/ title=archives><div class=logo-icon><ion-icon name=folder-outline></ion-icon></div><div class=logo-text>archives</div></a></li><li style=--bg:#d16111><a href=https://aikenh.cn/hugotest/about/ title=about><div class=logo-icon><ion-icon name=person></ion-icon></div><div class=logo-text>about</div></a></li><li style=--bg:#15c095><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><div class=logo-icon><ion-icon name=search></ion-icon></div><div class=logo-text>search</div></a></li></div><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt +T)"><li><div class=logo-icon id=moon><ion-icon name=moon-outline></ion-icon></div><div class=logo-icon id=sun><ion-icon name=sunny-outline></ion-icon></div></li></button></div></ul></div><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://aikenh.cn/hugotest/>Home</a>&nbsp;»&nbsp;<a href=https://aikenh.cn/hugotest/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Python01 数据模型和常用数据结构</h1><div class=post-meta><span title='2021-10-27 14:19:13 +0000 UTC'>October 27, 2021</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2268 words&nbsp;·&nbsp;aikenhong&nbsp;·&nbsp;<a href=/tags/python> Python</a>&nbsp;·&nbsp;<a href=/tags/langs> Langs</a>&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/Python.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://aikenh.cn/cover/cover21.jpeg alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8bpython%e7%bb%93%e6%9e%84%e7%9a%84%e9%80%9a%e7%94%a8%e8%8c%83%e5%bc%8f aria-label=数据模型（Python结构的通用范式）>数据模型（Python结构的通用范式）</a><ul class=header-level-2><ul class=header-level-2><li><a href=#%e5%9f%ba%e6%9c%ac%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83 aria-label=基本命名规范>基本命名规范</a></li></ul></ul></li><li><a href=#%e5%8f%98%e9%87%8f%e8%b5%8b%e5%80%bc%e4%bc%a0%e9%80%92%e6%97%b6%e7%9a%84%e5%bc%95%e7%94%a8%e5%92%8c%e6%8b%b7%e8%b4%9d aria-label=变量赋值传递时的引用和拷贝>变量赋值传递时的引用和拷贝</a></li><li><a href=#%e7%b1%bb%e4%b8%8e%e5%87%bd%e6%95%b0 aria-label=类与函数>类与函数</a><ul class=header-level-1><li><a href=#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0 aria-label=匿名函数>匿名函数</a></li><li><a href=#%e5%8d%95%e4%b8%8b%e5%88%92%e7%ba%bf aria-label=单下划线>单下划线</a></li><li><a href=#bool-and-or-not aria-label="Bool and or not">Bool and or not</a></li><li><a href=#argparse aria-label=Argparse>Argparse</a></li><li><a href=#random aria-label=Random>Random</a></li></ul></li><li><a href=#logging-system aria-label="Logging System">Logging System</a><ul class=header-level-1><li><a href=#%e5%9f%ba%e7%a1%80%e4%bd%bf%e7%94%a8 aria-label=基础使用>基础使用</a></li><li><a href=#%e8%bf%9b%e9%98%b6%e4%bd%bf%e7%94%a8 aria-label=进阶使用>进阶使用</a></li><li><a href=#logger%e4%b8%8e%e8%a3%85%e9%a5%b0%e5%99%a8%e7%9a%84%e7%bb%84%e5%90%88%e4%bd%bf%e7%94%a8 aria-label=Logger与装饰器的组合使用>Logger与装饰器的组合使用</a></li></ul></li><li><a href=#files-system aria-label="FIles System">FIles System</a><ul class=header-level-1><li><a href=#import-manage aria-label="Import manage">Import manage</a><ul class=header-level-2><li><a href=#__init__py-%e6%96%87%e4%bb%b6%e7%9a%84%e4%bd%9c%e7%94%a8 aria-label="init.py 文件的作用"><strong>init</strong>.py 文件的作用</a></li></ul></li><li><a href=#path-manage aria-label="Path Manage">Path Manage</a><ul class=header-level-2><li><a href=#%e8%b7%af%e5%be%84%e5%88%87%e5%88%86 aria-label=路径切分>路径切分</a></li></ul></li><li><a href=#%e6%96%87%e4%bb%b6%e9%81%8d%e5%8e%86 aria-label=文件遍历>文件遍历</a><ul class=header-level-2><li><a href=#oswalk aria-label=os.walk()>os.walk()</a></li><li><a href=#globglob aria-label=Glob.glob()>Glob.glob()</a></li></ul></li><li><a href=#%e6%96%87%e4%bb%b6%e8%af%bb%e5%86%99 aria-label=文件读写>文件读写</a></li></ul></li><li><a href=#data-structural aria-label="Data Structural">Data Structural</a><ul class=header-level-1><li><a href=#%e4%bd%8d%e8%bf%90%e7%ae%97 aria-label=位运算>位运算</a></li><li><a href=#%e4%ba%8c%e8%bf%9b%e5%88%b6%e6%93%8d%e4%bd%9c aria-label=二进制操作>二进制操作</a></li><li><a href=#%e5%ba%8f%e5%88%97%e6%9e%84%e6%88%90%e7%9a%84%e6%95%b0%e7%bb%84 aria-label=序列构成的数组>序列构成的数组</a><ul class=header-level-2><li><a href=#%e5%88%97%e8%a1%a8%e6%8e%a8%e5%af%bc%e5%bc%8f%e7%9a%84%e4%bd%bf%e7%94%a8 aria-label=列表推导式的使用>列表推导式的使用</a></li><li><a href=#%e4%bd%bf%e7%94%a8%e5%88%97%e8%a1%a8%e6%8e%a8%e5%af%bc%e5%bc%8f%e7%94%9f%e6%88%90%e7%ac%9b%e5%8d%a1%e5%b0%94%e7%a7%af aria-label=使用列表推导式生成笛卡尔积>使用列表推导式生成笛卡尔积</a></li><li><a href=#%e7%94%9f%e6%88%90%e5%99%a8%e8%a1%a8%e8%be%be%e5%bc%8f aria-label=生成器表达式>生成器表达式</a></li><li><a href=#%e5%85%83%e7%bb%84%e4%b8%8d%e4%bb%85%e6%98%af%e4%b8%8d%e5%8f%af%e5%8f%98%e7%9a%84%e5%88%97%e8%a1%a8 aria-label=元组不仅是不可变的列表>元组不仅是不可变的列表</a></li></ul></li><li><a href=#%e5%88%97%e8%a1%a8%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c aria-label=列表的基本操作>列表的基本操作</a><ul class=header-level-2><li><a href=#%e5%88%97%e8%a1%a8%e7%9a%84%e6%9d%a1%e4%bb%b6%e5%8a%a0%e5%92%8c aria-label=列表的条件加和>列表的条件加和</a></li><li><a href=#%e5%88%97%e8%a1%a8%e7%9a%84%e6%95%b0%e4%b9%98 aria-label=列表的数乘>列表的数乘</a></li><li><a href=#range%e5%87%bd%e6%95%b0%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c aria-label=range函数常用操作>range函数常用操作</a></li></ul></li><li><a href=#universal-method aria-label="Universal Method">Universal Method</a><ul class=header-level-2><li><a href=#sort%e5%af%b9%e5%88%97%e8%a1%a8%e8%bf%9b%e8%a1%8c%e6%8e%92%e5%ba%8f aria-label=Sort（）对列表进行排序>Sort（）对列表进行排序</a></li></ul></li><li><a href=#%e9%98%9f%e5%88%97queue--deque aria-label="队列queue & deque">队列queue & deque</a></li><li><a href=#set%e9%9b%86%e5%90%88 aria-label=SET集合>SET集合</a><ul class=header-level-2><li><a href=#%e5%88%a9%e7%94%a8set%e8%bf%9b%e8%a1%8c%e5%8e%bb%e9%87%8d aria-label=利用set进行去重>利用set进行去重</a></li></ul></li><li><a href=#dicthashmap aria-label=Dict，Hashmap>Dict，Hashmap</a><ul class=header-level-2><li><a href=#%e5%88%a4%e6%96%ad%e5%ad%97%e5%85%b8%e4%b8%ad%e7%9a%84key%e6%98%af%e5%90%a6%e5%ad%98%e5%9c%a8%e7%9a%84%e6%96%b9%e6%b3%95 aria-label=判断字典中的key是否存在的方法>判断字典中的key是否存在的方法</a></li><li><a href=#%e5%ad%97%e5%85%b8%e4%b8%ad%e7%9a%84%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95 aria-label=字典中的常用方法>字典中的常用方法</a></li><li><a href=#collectionsdefaultdict-%e6%8c%87%e5%ae%9adict%e4%b8%ad%e6%9c%aa%e5%ae%9a%e4%b9%89key%e7%9a%84value aria-label="collections.defaultdict 指定dict中未定义key的value">collections.defaultdict 指定dict中未定义key的value</a></li></ul></li><li><a href=#vars aria-label=Vars（）>Vars（）</a></li><li><a href=#python%e4%b8%ad%e7%9a%84%e6%95%b0%e5%ad%97%e6%97%a5%e6%9c%9f%e6%97%b6%e9%97%b4%e8%ae%a1%e7%ae%97 aria-label=Python中的数字日期时间计算>Python中的数字日期时间计算</a><ul class=header-level-2><li><a href=#%e8%8e%b7%e5%8f%96%e6%9c%ac%e6%9c%ba%e6%97%b6%e9%97%b4%e7%9a%84%e5%87%a0%e7%a7%8d%e6%96%b9%e6%b3%95 aria-label=获取本机时间的几种方法>获取本机时间的几种方法</a></li><li><a href=#%e7%b2%be%e7%a1%ae%e6%95%b0%e5%ad%97%e8%bf%90%e7%ae%97 aria-label=精确数字运算>精确数字运算</a></li><li><a href=#%e6%95%b0%e5%ad%97%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e8%be%93%e5%87%ba aria-label=数字的格式化输出>数字的格式化输出</a></li></ul></li></ul></li><li><a href=#%e8%bf%ad%e4%bb%a3%e5%99%a8 aria-label=迭代器>迭代器</a><ul class=header-level-2><ul class=header-level-2><li><a href=#enumerate-itemszip aria-label="enumerate 、items、zip">enumerate 、items、zip</a></li></ul></ul></li><li><a href=#%e5%85%83%e7%bc%96%e7%a8%8b aria-label=元编程>元编程</a><ul class=header-level-1><li><a href=#some-rules aria-label="Some Rules">Some Rules</a></li><li><a href=#%e8%a3%85%e9%a5%b0%e5%99%a8%e6%a8%a1%e5%9d%97 aria-label=装饰器模块>装饰器模块</a><ul class=header-level-2><li><a href=#basic-type aria-label="Basic Type">Basic Type</a></li><li><a href=#%e6%8e%a5%e5%8f%97%e5%8f%82%e6%95%b0%e4%bc%a0%e9%80%92 aria-label=接受参数传递>接受参数传递</a></li><li><a href=#%e4%bf%ae%e6%94%b9%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8f%82%e6%95%b0 aria-label=修改装饰器参数>修改装饰器参数</a></li><li><a href=#%e5%b8%a6%e5%8f%af%e9%80%89%e5%8f%82%e6%95%b0%e7%9a%84%e4%bf%ae%e9%a5%b0%e5%99%a8 aria-label=带可选参数的修饰器>带可选参数的修饰器</a></li><li><a href=#property%e7%9a%84%e7%94%a8%e6%b3%95 aria-label=@property的用法>@property的用法</a></li></ul></li></ul></li><li><a href=#exception aria-label=Exception>Exception</a><ul class=header-level-1><li><a href=#python3-%e9%94%99%e8%af%af%e5%92%8c%e5%bc%82%e5%b8%b8 aria-label="Python3 错误和异常">Python3 错误和异常</a></li><li><a href=#%e5%bc%82%e5%b8%b8%e6%8d%95%e6%8d%89try-except aria-label="异常捕捉try except">异常捕捉try except</a><ul class=header-level-2><li><a href=#exception%e7%9a%84%e5%a4%9a%e7%a7%8d%e5%86%99%e6%b3%95%e5%92%8c%e5%a4%9a%e5%bc%82%e5%b8%b8%e5%88%86%e6%94%af aria-label=exception的多种写法和多异常分支>exception的多种写法和多异常分支</a></li></ul></li><li><a href=#%e6%8a%9b%e5%87%ba%e5%bc%82%e5%b8%b8-raise-exception aria-label="抛出异常 Raise Exception">抛出异常 Raise Exception</a></li></ul></li><li><a href=#numpy-tips aria-label="Numpy Tips">Numpy Tips</a><ul class=header-level-1><li><a href=#reshape aria-label=reshape>reshape</a></li><li><a href=#tolist aria-label=tolist>tolist</a></li><li><a href=#%e7%94%a8array%e7%bb%99list%e4%b8%ad%e7%9a%84%e5%85%83%e7%b4%a0%e8%b5%8b%e5%80%bc aria-label=用array给list中的元素赋值>用array给list中的元素赋值</a></li><li><a href=#flatten--flat-operation aria-label="flatten & flat operation">flatten & flat operation</a></li><li><a href=#numpypad aria-label=Numpy.pad>Numpy.pad</a></li><li><a href=#-numpy-%e7%b4%a2%e5%bc%95%e4%b8%ad%e5%8f%8c%e5%86%92%e5%8f%b7%e7%9a%84%e5%ae%9e%e9%99%85%e7%94%a8%e9%80%94 aria-label=":: Numpy 索引中双冒号的实际用途">:: Numpy 索引中双冒号的实际用途</a></li><li><a href=#argpartition aria-label=Argpartition()>Argpartition()</a></li><li><a href=#allclose aria-label=Allclose()>Allclose()</a></li><li><a href=#clip aria-label=Clip()>Clip()</a></li><li><a href=#extract aria-label=extract()>extract()</a></li><li><a href=#where aria-label=where()>where()</a></li></ul></li><li><a href=#debug aria-label=DEBUG>DEBUG</a><ul class=header-level-1><li><a href=#%e9%81%bf%e5%85%8d%e9%87%8d%e5%a4%8d%e5%86%b2%e7%aa%81%e7%9a%84import aria-label=避免重复/冲突的import>避免重复/冲突的import</a></li><li><a href=#%e5%86%85%e5%ad%98%e8%b0%83%e7%94%a8%e4%b8%8emethod%e7%9a%84%e5%ae%9a%e4%b9%89 aria-label=内存调用与Method的定义>内存调用与Method的定义</a></li><li><a href=#typeerror aria-label=TypeError：>TypeError：</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;document.addEventListener("DOMContentLoaded",function(){if(checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),elements.length>0){activeElement=elements[0];const e=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${e}"]`).classList.add("active")}const t=document.getElementById("top-link");t&&t.addEventListener("click",e=>{e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})})},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{const e=window.pageYOffset||document.documentElement.scrollTop;if(e===0)return;elements&&elements.length>0&&(elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase(),n=document.querySelector(`.inner ul li a[href="#${t}"]`);n.classList.remove("read")}),activeElement=Array.from(elements).find(t=>{if(getOffsetTop(t)-e>0&&getOffsetTop(t)-e<window.innerHeight/2)return t})||activeElement,elements.forEach((t)=>{const o=encodeURI(t.getAttribute("id")).toLowerCase(),s=document.querySelector(`.inner ul li a[href="#${o}"]`);if(t===activeElement){s.classList.add("active");const e=document.querySelector(".toc .inner"),t=s.offsetTop,n=e.clientHeight,o=s.clientHeight,i=t-n/2+o/2;e.scrollTo({top:i,behavior:"smooth"})}else getOffsetTop(t)<e&&s.classList.add("read"),s.classList.remove("active")}))},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return!document.querySelector(".hugo-encryptor-prompt")&&elements.length!=0&&(elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),console.log("Elements re-queried:",elements)),0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><p>个人的《Python Cookbook》 && 《Fluent Python》阅读笔记。</p><h1 id=数据模型python结构的通用范式>数据模型（Python结构的通用范式）<a hidden class=anchor aria-hidden=true href=#数据模型python结构的通用范式>#</a></h1><p>（Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:</p><ul><li><p><code>__len__()</code>后可以支持<code>len()</code>，获得结构的长度</p></li><li><p><code>__getitem__()</code>后可以支持<code>data[index]</code>来获取相应的元素，切片，等等数组的操作；</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 也可以支持类似如下的一些操作</span>
+</span></span><span class=line><span class=cl><span class=c1># 从数据结构中随机选出一个items</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>random</span> <span class=kn>import</span> <span class=n>choice</span>
+</span></span><span class=line><span class=cl><span class=n>choice</span><span class=p>(</span><span class=n>datas</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 也可以支持迭代方法和反迭代方法</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>data</span> <span class=ow>in</span> <span class=n>datas</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>data</span> <span class=ow>in</span> <span class=nb>reversed</span><span class=p>(</span><span class=n>datas</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=c1># 也可以支持sort函数</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p>到这里也就说明了，只要我们在数据结构（class）中定义了相应的dunder method，该class就能支持相应的一系列操作，getitems就可以类比为列表，相应的操作都能够在python解释器下自动的赋予支持。</p><p>还有一些好用但不常用的方法：</p><ul><li><code>__contain__</code>实现的是<code>in</code> ，当没有实现contain的方法的时候会按照顺序在list中进行搜索</li><li><code>__abs__</code></li><li><code>__repr__</code>实现的是输出的format设置，也就是print的时候的输出形式</li><li><code>__eq__</code> 实现的是 == 命令，同时in调用的是__eq__</li></ul><p>下面附上一张特殊方法表：</p><h3 id=基本命名规范>基本命名规范<a hidden class=anchor aria-hidden=true href=#基本命名规范>#</a></h3><p>相关的文件和函数等命名规则。</p><p><a href=Python%20Notebook%20ad3f0aafe5a54942bdcc3694a9a88976/%E5%91%BD%E5%90%8D%E6%A0%B7%E4%BE%8B%E8%A1%A8%2039d2a928f8bf4624afc2e0006ffcd528.csv>命名样例表</a></p><h1 id=变量赋值传递时的引用和拷贝>变量赋值传递时的引用和拷贝<a hidden class=anchor aria-hidden=true href=#变量赋值传递时的引用和拷贝>#</a></h1><p>Python 变量的传递类型：（赋值过程）
+<a href=https://www.runoob.com/w3cnote/python-variable-references-and-copies.html target=_blank rel=noopener>https://www.runoob.com/w3cnote/python-variable-references-and-copies.html</a></p><p>Python 赋值过程中不明确区分拷贝和引用，一般对静态变量的传递为拷贝，对动态变量的传递为引用。（注，对静态变量首次传递时也是引用，当需要修改静态变量时，因为静态变量不能改变，所以需要生成一个新的空间存储数据）。</p><pre tabindex=0><code>•  字符串，数值，元组 均为静态变量
+• 列表，字典为动态变量。
+</code></pre><p>可以用id（）查看指向的地址</p><p>在修改列表值之类的时候要注意这一点，不然可能会影响到源列表，可能要使用深拷贝的方法，
+copy.deepcopy()</p><p>python 定义方法时候指定<a href=https://www.cnblogs.com/xxpythonxx/p/12198876.html target=_blank rel=noopener>参数，返回值和变量的类型</a>
+：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>test</span><span class=p>(</span><span class=n>a</span><span class=p>:</span><span class=nb>int</span><span class=p>,</span> <span class=n>b</span><span class=p>:</span><span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>1000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>test</span><span class=p>(</span><span class=s1>&#39;test&#39;</span><span class=p>,</span> <span class=s1>&#39;abc&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=类与函数>类与函数<a hidden class=anchor aria-hidden=true href=#类与函数>#</a></h1><p>args，kwargs的用法和解包，主要将字典作为参数整体传入的这种方法值得学习</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>可以用</span><span class=o>*</span><span class=err>，</span><span class=o>**</span><span class=n>定义和解包</span>
+</span></span></code></pre></td></tr></table></div></div><p>id()可以获取变量的地址，type（）查看数据类型，isinstance判断类型</p><p>locals().keys() 获得当前已经声明的变量列表</p><p>sys.argv[0] 可获取当前工作区的地址</p><h2 id=匿名函数>匿名函数<a hidden class=anchor aria-hidden=true href=#匿名函数>#</a></h2><h2 id=单下划线>单下划线<a hidden class=anchor aria-hidden=true href=#单下划线>#</a></h2><p>定义的函数，属性，或者方法 这表明这个member是受保护的：</p><ul><li>是用来指定私有变量和方法的方式（只是一种约定习惯）,不希望被下游的程序员直接访问的函数。</li><li>如果使用<code>from a_module import</code>导入时，这部分变量和函数不会被导入</li><li>但是如果使用 <code>import a_module</code>这样导入模块，仍然可以用<code>a_module._pythonPoint</code>这样的形式访问到这样的对象。</li></ul><h2 id=bool-and-or-not>Bool and or not<a hidden class=anchor aria-hidden=true href=#bool-and-or-not>#</a></h2><p>基本的就不用daaaaaaaaaaaaaaaaaaa说了，主要是一些特殊的用法举例</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># not 会先于 and 执行</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=ow>not</span> <span class=n>flag1</span> <span class=ow>and</span> <span class=n>flag2</span> <span class=o>==</span> <span class=kc>True</span>
+</span></span></code></pre></td></tr></table></div></div><p>用逻辑运算符做参数选择</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>judge</span> <span class=o>=</span> <span class=n>index</span> <span class=o>==</span> <span class=mi>0</span> <span class=ow>and</span> <span class=n>num1</span> <span class=ow>or</span> <span class=n>num2</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=argparse>Argparse<a hidden class=anchor aria-hidden=true href=#argparse>#</a></h2><p>基本的用法：参考universal framework即可，主要是bool类型无法通过命令行传入</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 使用store_true属性，就可以执行默认的True or False</span>
+</span></span><span class=line><span class=cl><span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--bool_chose&#34;</span><span class=p>,</span><span class=n>default</span><span class=o>=</span><span class=kc>False</span> <span class=p>,</span><span class=n>action</span><span class=o>=</span><span class=s1>&#39;store_true&#39;</span><span class=p>,</span><span class=n>help</span><span class=o>=</span><span class=s1>&#39;a switch of bool variable&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 👇选择上与原本完全是相反的</span>
+</span></span><span class=line><span class=cl><span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--bool_chose&#34;</span><span class=p>,</span><span class=n>default</span><span class=o>=</span><span class=kc>True</span> <span class=p>,</span><span class=n>action</span><span class=o>=</span><span class=s1>&#39;store_true&#39;</span><span class=p>,</span><span class=n>help</span><span class=o>=</span><span class=s1>&#39;a switch of bool variable&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=random>Random<a hidden class=anchor aria-hidden=true href=#random>#</a></h2><p>使用<strong>sample</strong>不重复的选取字典或者列表中的指定项</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>list</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>choose</span> <span class=o>=</span> <span class=n>random</span><span class=o>.</span><span class=n>sample</span><span class=p>(</span><span class=nb>list</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>使用<strong>choice</strong>进行可重复的选取</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>c_r</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=mi>20</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>c_i</span> <span class=o>=</span> <span class=n>random</span><span class=o>.</span><span class=n>choice</span><span class=p>(</span><span class=n>c_r</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>c_i</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>打乱列表排序</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>A</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=c1># 得到index的列表</span>
+</span></span><span class=line><span class=cl><span class=n>B</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># 对该列表进行打乱，通过打乱的列表进行索引</span>
+</span></span><span class=line><span class=cl><span class=n>random</span><span class=o>.</span><span class=n>shuffle</span><span class=p>(</span><span class=n>B</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>B</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=logging-system>Logging System<a hidden class=anchor aria-hidden=true href=#logging-system>#</a></h1><p><a href=https://docs.python.org/zh-cn/3.9/howto/logging.html#logging-basic-tutorial target=_blank rel=noopener>日志 HOWTO — Python 3.9.4 文档</a>
+；<a href=https://docs.python.org/zh-cn/3.9/howto/logging-cookbook.html#logging-cookbook target=_blank rel=noopener>日志操作手册 — Python 3.9.4 文档</a></p><p><a href=https://www.cnblogs.com/yyds/p/6901864.html target=_blank rel=noopener>Python logging模块</a>
+；<a href=https://blog.csdn.net/hunt_ing/article/details/82080923 target=_blank rel=noopener>logging模块的简单使用</a></p><h2 id=基础使用>基础使用<a hidden class=anchor aria-hidden=true href=#基础使用>#</a></h2><p>从一个非常简单的例子开始，默认的命令行输出等级是warning</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl><span class=n>logging</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=s1>&#39;this message should only show up in log file&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;so do this one &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>logging</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s1>&#39;this one will also show up in the console&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>logging</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=s1>&#39;And non-ASCII stuff, too, like resund and Malm&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>假如我们设置log文件的存储以及输出的格式（包括算法运行的时间）</p><ul><li>但是注意这个config是一次性设置，只有第一次设置是有效的</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>logging</span><span class=o>.</span><span class=n>basicConfig</span><span class=p>(</span><span class=nb>format</span><span class=o>=</span><span class=s1>&#39;</span><span class=si>%(asctime)s</span><span class=s1> </span><span class=si>%(levelname)s</span><span class=s1> </span><span class=si>%(message)s</span><span class=s1> &#39;</span><span class=p>,</span> <span class=n>datefmt</span><span class=o>=</span><span class=s1>&#39;%Y-%m-</span><span class=si>%d</span><span class=s1> %I:%M:%S %p&#39;</span><span class=p>,</span>   <span class=n>filename</span><span class=o>=</span><span class=s2>&#34;exampleFile.log&#34;</span><span class=p>,</span><span class=n>level</span><span class=o>=</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 这里设置了文件的输出名称和输出的格式，以及相应的记录到文件中的等级</span>
+</span></span></code></pre></td></tr></table></div></div><p>也可以从命令行设置日志等级,可以获取当前的等级</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>--log <span class=o>=</span> INFO
+</span></span><span class=line><span class=cl><span class=c1># getattr 这个方法目前好像还有点问题，</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=进阶使用>进阶使用<a hidden class=anchor aria-hidden=true href=#进阶使用>#</a></h2><p>通过4个module的组合来实现record log的功能，通过Logger载入多个Handler，可以通过不同的标准和方式在多个File以及控制台输出不同Level的东西，这就是主要的功能。</p><p><a href=Python%20Notebook%20ad3f0aafe5a54942bdcc3694a9a88976/Untitled%20Database%209ccf70326eeb44a0b8e876f6a26ea12c.csv>Untitled</a></p><p>具体的实现样例如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># create logger to record log messages</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=s1>&#39;textlogger&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 避免等级c</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>propagate</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># create file handler which logs even debug messages</span>
+</span></span><span class=line><span class=cl><span class=n>fh</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>FileHandler</span><span class=p>(</span><span class=s1>&#39;exampleFile.log&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>fh</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>WARNING</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># creatr console handler...</span>
+</span></span><span class=line><span class=cl><span class=n>ch</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>StreamHandler</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>ch</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># create output format  for all the handler</span>
+</span></span><span class=line><span class=cl><span class=n>formatter</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>Formatter</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%(asctime)s</span><span class=s1> </span><span class=si>%(levelname)s</span><span class=s1> </span><span class=si>%(message)s</span><span class=s1> &#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                    <span class=n>datefmt</span><span class=o>=</span><span class=s1>&#39;%Y-%m-</span><span class=si>%d</span><span class=s1> %I:%M:%S %p&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>ch</span><span class=o>.</span><span class=n>setFormatter</span><span class=p>(</span><span class=n>formatter</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>fh</span><span class=o>.</span><span class=n>setFormatter</span><span class=p>(</span><span class=n>formatter</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># add handler to logger</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>addHandler</span><span class=p>(</span><span class=n>ch</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>addHandler</span><span class=p>(</span><span class=n>fh</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># record logs</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=s1>&#39;this message should only show up in log file </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=s1>&#39;test is&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;so do this one &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s1>&#39;this one will also show up in the console&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=s1>&#39;show up twice&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>但是这种格式的时候怎么实现跨文件传输呢？</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>再同个文件中我们只需要进行getlogger使用同一个名字即可获得同一个logger</span><span class=err>，</span><span class=n>但是跨文件的话可能还是需要传递logger把</span><span class=err>。</span>
+</span></span></code></pre></td></tr></table></div></div><p>我认为应该传递该<code>logger</code>,然后通过该Logger进行统一的输出，遇到不同的输出要求的时候，我们可以对handler进行不一样的处理从而能够得到多样化的logger输出</p><h2 id=logger与装饰器的组合使用>Logger与装饰器的组合使用<a hidden class=anchor aria-hidden=true href=#logger与装饰器的组合使用>#</a></h2><p>参见后续的装饰器解读模块</p><h1 id=files-system>FIles System<a hidden class=anchor aria-hidden=true href=#files-system>#</a></h1><h2 id=import-manage>Import manage<a hidden class=anchor aria-hidden=true href=#import-manage>#</a></h2><h3 id=__init__py-文件的作用><strong>init</strong>.py 文件的作用<a hidden class=anchor aria-hidden=true href=#__init__py-文件的作用>#</a></h3><p><a href=https://www.cnblogs.com/BlueSkyyj/p/9415087.html target=_blank rel=noopener><strong>init</strong>.py 文件使用</a></p><p>其实主要就是控制着包的导入功能，使用<code>__all__</code>来对应<code>from package import *</code>的功能，我们可以在<code>init</code>中批量的导入我们需要的模块，这样我们就不在需要一个个的进行导入了，基于这种特性，我们也可以编写一个manage fuction，通过config来进行选择性的导入。</p><ul><li>主要的左右是python中package的标识，不能删除</li><li>定义<code>__all__</code>用来进行模糊导入</li><li>编写python代码，会在import package的时候同时import，但是推荐在包中创建另外的模块来写，尽量保证该文件简单</li></ul><h2 id=path-manage>Path Manage<a hidden class=anchor aria-hidden=true href=#path-manage>#</a></h2><h3 id=路径切分>路径切分<a hidden class=anchor aria-hidden=true href=#路径切分>#</a></h3><p>将路径切分成地址和文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=n>p</span><span class=p>,</span><span class=n>f</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=n>origin</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;path == &#34;</span><span class=p>,</span><span class=n>p</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;file == &#34;</span><span class=p>,</span><span class=n>f</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>切分出文件的盘符和文件名</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>dev</span><span class=p>,</span><span class=n>left</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>splitdrive</span><span class=p>(</span><span class=n>origin</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>切分出文件和拓展名</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>f</span><span class=p>,</span><span class=n>ext</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>splittext</span><span class=p>(</span><span class=n>origin</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=文件遍历>文件遍历<a hidden class=anchor aria-hidden=true href=#文件遍历>#</a></h2><h3 id=oswalk>os.walk()<a hidden class=anchor aria-hidden=true href=#oswalk>#</a></h3><p>简单好用的<strong>目录遍历器</strong>用于在目录树中游走输出目录中的文件名，向上或者向下。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>os</span><span class=o>.</span><span class=n>walk</span><span class=p>(</span><span class=n>top</span><span class=p>,</span><span class=n>topdown</span><span class=p>,</span><span class=n>onerror</span><span class=p>,</span><span class=n>followlinks</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>top：遍历的目录地址</li><li>（option）topdown：True的话优先遍历top目录，否则会优先遍历子目录</li><li>（option）onerror：当需要异常的时候，会调用</li><li>（option）followlinks：是否要跳转到快捷方式（或者软连接遍历）</li></ul><p><strong>RETURN：（root，dirs，files）</strong></p><ol><li>root：根目录</li><li>dirs：文件夹中所有目录的名字（子文件夹）</li><li>files：目录中所有文件的名字</li></ol><p><strong>层序遍历每次是该层的所有文件和目录的名字</strong></p><h3 id=globglob>Glob.glob()<a hidden class=anchor aria-hidden=true href=#globglob>#</a></h3><p>文件遍历方法</p><h2 id=文件读写>文件读写<a hidden class=anchor aria-hidden=true href=#文件读写>#</a></h2><h1 id=data-structural>Data Structural<a hidden class=anchor aria-hidden=true href=#data-structural>#</a></h1><h2 id=位运算>位运算<a hidden class=anchor aria-hidden=true href=#位运算>#</a></h2><p>位运算判断奇偶一致性</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># T：奇偶性不一致 F：奇偶性一致</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>a ^ b<span class=o>)</span> <span class=p>&amp;</span> <span class=m>1</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=二进制操作>二进制操作<a hidden class=anchor aria-hidden=true href=#二进制操作>#</a></h2><p>与或非就不用多说，主要是介绍一个module bitarray</p><h2 id=序列构成的数组>序列构成的数组<a hidden class=anchor aria-hidden=true href=#序列构成的数组>#</a></h2><p>这一部分主要有几个重点：<strong>列表推导式的使用</strong>、<strong>元组特性和使用</strong></p><h3 id=列表推导式的使用>列表推导式的使用<a hidden class=anchor aria-hidden=true href=#列表推导式的使用>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 将字符串变成Unicode码位</span>
+</span></span><span class=line><span class=cl><span class=n>symbols</span> <span class=o>=</span> <span class=s1>&#39;sdac@#&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>codes</span> <span class=o>=</span> <span class=p>[</span><span class=nb>ord</span><span class=p>(</span><span class=n>symbol</span><span class=p>)</span> <span class=k>for</span> <span class=n>symbol</span> <span class=ow>in</span> <span class=n>symbols</span> <span class=k>if</span> <span class=nb>ord</span><span class=p>(</span><span class=n>symbol</span><span class=p>)</span> <span class=o>&gt;</span><span class=mi>127</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=c1># 与map和filter的比较</span>
+</span></span><span class=line><span class=cl><span class=n>lists</span><span class=p>(</span><span class=nb>filter</span><span class=p>(</span><span class=k>lambda</span> <span class=n>c</span><span class=p>:</span><span class=n>c</span><span class=o>&gt;</span><span class=mi>127</span><span class=p>,</span> <span class=nb>map</span><span class=p>(</span><span class=nb>ord</span><span class=p>,</span><span class=n>symbols</span><span class=p>)))</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以看出列表推导式的表达更为简洁易懂，而且实际上运行的效率也不低</p><h3 id=使用列表推导式生成笛卡尔积>使用列表推导式生成笛卡尔积<a hidden class=anchor aria-hidden=true href=#使用列表推导式生成笛卡尔积>#</a></h3><p>举例：每个size有不同的颜色</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>colors</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;black&#39;</span><span class=p>,</span><span class=s1>&#39;blue&#39;</span><span class=p>,</span><span class=s1>&#39;red&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>sizes</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;S&#39;</span><span class=p>,</span><span class=s1>&#39;M&#39;</span><span class=p>,</span><span class=s1>&#39;L&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=c1># 先按颜色循环再按size循环，内外层循环的关系</span>
+</span></span><span class=line><span class=cl><span class=n>tshirts</span> <span class=o>=</span> <span class=p>[(</span><span class=n>color</span><span class=p>,</span><span class=n>size</span><span class=p>)</span> <span class=k>for</span> <span class=n>color</span> <span class=ow>in</span> <span class=n>colors</span> <span class=k>for</span> <span class=n>size</span> <span class=ow>in</span> <span class=n>sizes</span><span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=生成器表达式>生成器表达式<a hidden class=anchor aria-hidden=true href=#生成器表达式>#</a></h3><p>我们可以使用列表推导来初始化元组、数组、或者其他的数据类型，但是生成器表达式符合了迭代器的协议，可以逐个的产出元素，而不是先建立一个完整的列表，能够节省内存</p><p><strong>语法上和列表推导差不多，只不过把方括号换成圆括号而已</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>tuple</span><span class=p>(</span><span class=nb>ord</span><span class=p>(</span><span class=n>symbol</span><span class=p>)</span> <span class=k>for</span> <span class=n>symbol</span> <span class=ow>in</span> <span class=n>symbols</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>array</span>
+</span></span><span class=line><span class=cl><span class=n>array</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=s1>&#39;I&#39;</span><span class=p>,</span><span class=nb>ord</span><span class=p>(</span><span class=n>symbol</span><span class=p>)</span> <span class=k>for</span> <span class=n>symbol</span> <span class=ow>in</span> <span class=n>symbols</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>利用生成器表达式来计算笛卡尔积</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 这样可以更好的体现逐个生成的特性？但是实际上列表推导式也可以把？</span>
+</span></span><span class=line><span class=cl><span class=c1># 但是总之是由这样的特性的，能够避免额外的内存占用</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>tshirt</span> <span class=ow>in</span> <span class=p>(</span><span class=s1>&#39;</span><span class=si>%s</span><span class=s1> </span><span class=si>%s</span><span class=s1>&#39;</span> <span class=o>%</span><span class=p>(</span><span class=n>c</span><span class=p>,</span><span class=n>s</span><span class=p>)</span> <span class=k>for</span> <span class=n>c</span> <span class=ow>in</span> <span class=n>colors</span> <span class=k>for</span> <span class=n>s</span> <span class=ow>in</span> <span class=n>sizes</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>tshirt</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=元组不仅是不可变的列表>元组不仅是不可变的列表<a hidden class=anchor aria-hidden=true href=#元组不仅是不可变的列表>#</a></h3><h2 id=列表的基本操作>列表的基本操作<a hidden class=anchor aria-hidden=true href=#列表的基本操作>#</a></h2><h3 id=列表的条件加和>列表的条件加和<a hidden class=anchor aria-hidden=true href=#列表的条件加和>#</a></h3><p>有不少类似和条件语句相关的操作，列举一些基本实例如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># np.random.randint?</span>
+</span></span><span class=line><span class=cl><span class=n>A</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>B</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;origin A　is </span><span class=si>{}</span><span class=s1> </span><span class=se>\n</span><span class=s1> And B is </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>A</span><span class=p>,</span><span class=n>B</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># style 1 相当于转换成一个ToF的list，然后对这样的list直接进行sum</span>
+</span></span><span class=line><span class=cl><span class=n>same</span> <span class=o>=</span> <span class=p>(</span><span class=n>A</span> <span class=o>==</span> <span class=n>B</span><span class=p>)</span><span class=o>.</span><span class=n>sum</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>the num of same element in same posi is&#39;</span><span class=p>,</span> <span class=n>same</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s1>&#39;&#39;&#39;列表的+=，也就是简单拼接操作&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>]</span><span class=o>+</span><span class=p>[</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=列表的数乘>列表的数乘<a hidden class=anchor aria-hidden=true href=#列表的数乘>#</a></h3><p>列表的数乘是对列表的项数进行一个重复性的扩充，但是注意这种重复不能针对那种特殊类型（也就是赋值会直接基于地址的：引用？）
+所以这是对于<strong>项数的操作</strong>而不是对列表中数值的直接操作，参考变量赋值的部分</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>value</span> <span class=o>=</span> <span class=mi>5</span>
+</span></span><span class=line><span class=cl><span class=n>unlist</span> <span class=o>=</span> <span class=p>[</span><span class=n>value</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>outlist</span> <span class=o>=</span> <span class=n>unlist</span> <span class=o>*</span> <span class=mi>5</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;the output is like that : </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>outlist</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=range函数常用操作>range函数常用操作<a hidden class=anchor aria-hidden=true href=#range函数常用操作>#</a></h3><ul><li><a href="https://docs.python.org/zh-cn/3.7/library/stdtypes.html?highlight=range#range" target=_blank rel=noopener>https://docs.python.org/zh-cn/3.7/library/stdtypes.html?highlight=range#range</a></li><li>range生成的并不是列表，而是一个range组而已</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>reallist</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=nb>range</span><span class=p>(</span><span class=mi>20</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># range的步长设置</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mi>20</span><span class=p>,</span><span class=mi>5</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>i</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=universal-method>Universal Method<a hidden class=anchor aria-hidden=true href=#universal-method>#</a></h2><h3 id=sort对列表进行排序>Sort（）对列表进行排序<a hidden class=anchor aria-hidden=true href=#sort对列表进行排序>#</a></h3><p>sort用于对源列表进行排序，如果指定参数，则使用指定的比较函数
+参考资料：https://www.runoob.com/python/att-list-sort.html</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 纯数字的情况就按基本方式进行排列</span>
+</span></span><span class=line><span class=cl><span class=n>list1</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>23</span><span class=p>,</span><span class=mi>4</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>list1</span><span class=o>.</span><span class=n>sort</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>list1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 类似的string就按找字母表进行逐项排序吧，我是这样理解的</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=队列queue--deque>队列queue & deque<a hidden class=anchor aria-hidden=true href=#队列queue--deque>#</a></h2><h2 id=set集合>SET集合<a hidden class=anchor aria-hidden=true href=#set集合>#</a></h2><p><a href=https://www.runoob.com/python3/python3-set.html target=_blank rel=noopener>https://www.runoob.com/python3/python3-set.html</a></p><p>{}可以定义字典，也可以用于创建集合
+但是空的集合只能用set()定义（因为{}定义的是空字典）
+基本的method：</p><ol><li>add、remove、discard（也是移除，但是假如元素不存在的话也不会报错）</li><li>len，clear</li></ol><p>主要是可以利用其中不会重复的元素的特性来进行特殊的操作</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>basker</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;apple&#39;</span><span class=p>,</span> <span class=s1>&#39;organge&#39;</span><span class=p>,</span> <span class=s1>&#39;apple&#39;</span><span class=p>,</span> <span class=s1>&#39;pear&#39;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;basker:&#39;</span><span class=p>,</span> <span class=n>basker</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=s1>&#39;orange&#39;</span> <span class=ow>in</span> <span class=n>basker</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=nb>set</span><span class=p>(</span><span class=s1>&#39;go straight forward&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 可以在集合中做交并等等集合的操作</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=利用set进行去重>利用set进行去重<a hidden class=anchor aria-hidden=true href=#利用set进行去重>#</a></h3><p>如何利用set对unhashable的data structure进行去重，这里采取的方式是使用tuple对数组进行变换；</p><p>实际上unhashable的原因在于对象是可变对象：比如np.array，所以我们将其转换为不可变的tuple之后就可以进行hash的计算从而进行去重了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 二维数组为例</span>
+</span></span><span class=line><span class=cl><span class=n>array1</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>rand</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>array1_t</span> <span class=o>=</span> <span class=nb>tuple</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=nb>tuple</span><span class=p>,</span><span class=n>array1</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>resume</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>array1_t</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 进行转换的时候注意不要进行过度的拆分，上述的方法只适用于二维数组的情况，</span>
+</span></span><span class=line><span class=cl><span class=n>text</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;abcsd&#39;</span><span class=p>,</span><span class=s1>&#39;dsdc&#39;</span><span class=p>,</span><span class=s1>&#39;cdsda&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>text</span> <span class=o>=</span> <span class=nb>tuple</span><span class=p>(</span><span class=n>text</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 即可，不然可能会将其中的文本全部拆分出来</span>
+</span></span><span class=line><span class=cl><span class=c1># 后续补充一下map的其他用法。[func,iterator?]</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=dicthashmap>Dict，Hashmap<a hidden class=anchor aria-hidden=true href=#dicthashmap>#</a></h2><p>实际上python中的字典就是hashmap的具体实现，是一个无序的结构</p><h3 id=判断字典中的key是否存在的方法>判断字典中的key是否存在的方法<a hidden class=anchor aria-hidden=true href=#判断字典中的key是否存在的方法>#</a></h3><p><strong>首先如果我们调用的key不存在的话</strong>： <code>keyerror</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=o>&gt;&gt;&gt;</span> <span class=s1>&#39;key1&#39;</span> <span class=ow>in</span> <span class=n>dict1</span>
+</span></span><span class=line><span class=cl><span class=n>false</span>
+</span></span></code></pre></td></tr></table></div></div><p>或者使用get方法，能给不存在的key赋予默认的value,在这个时候出现的则是<code>nameerror</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=o>&gt;&gt;&gt;</span> <span class=n>d</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;key1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;&gt;&gt;</span> <span class=n>d</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;key1&#39;</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span><span class=mi>1</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=字典中的常用方法>字典中的常用方法<a hidden class=anchor aria-hidden=true href=#字典中的常用方法>#</a></h3><p>…</p><h3 id=collectionsdefaultdict-指定dict中未定义key的value>collections.defaultdict 指定dict中未定义key的value<a hidden class=anchor aria-hidden=true href=#collectionsdefaultdict-指定dict中未定义key的value>#</a></h3><ul><li>通过指定的默认值，在一些使用场景下可以对dict进行简化的定义</li><li>同时也能针对一些特殊的情况，比如说未见数据的情况，进行定义</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 指定list类型用于未定义类别的填充</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>defaultdict</span>
+</span></span><span class=line><span class=cl><span class=n>dict1</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl><span class=n>dict2</span> <span class=o>=</span> <span class=n>defaultdict</span><span class=p>(</span><span class=nb>list</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>dict1</span><span class=p>[</span><span class=s1>&#39;a&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=k>except</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;dict1 print key error&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;dict2 is like &#39;</span><span class=p>,</span> <span class=n>dict2</span><span class=p>[</span><span class=s1>&#39;a&#39;</span><span class=p>])</span>
+</span></span></code></pre></td></tr></table></div></div><pre tabindex=0><code>dict1 print key error
+dict2 is like  []
+</code></pre><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 用法2，避免keyerror更容易对其进行赋值</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>defaultdict</span>
+</span></span><span class=line><span class=cl><span class=n>bags</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;apple&#39;</span><span class=p>,</span> <span class=s1>&#39;orange&#39;</span><span class=p>,</span> <span class=s1>&#39;cherry&#39;</span><span class=p>,</span> <span class=s1>&#39;apple&#39;</span><span class=p>,</span><span class=s1>&#39;apple&#39;</span><span class=p>,</span> <span class=s1>&#39;cherry&#39;</span><span class=p>,</span> <span class=s1>&#39;blueberry&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>count</span> <span class=o>=</span> <span class=n>defaultdict</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>fruit</span> <span class=ow>in</span> <span class=n>bags</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>count</span><span class=p>[</span><span class=n>fruit</span><span class=p>]</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;the count output is like </span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>count</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># print(locals().keys())</span>
+</span></span></code></pre></td></tr></table></div></div><pre tabindex=0><code>the count output is like
+ defaultdict(&lt;class &#39;int&#39;&gt;, {&#39;apple&#39;: 3, &#39;orange&#39;: 1, &#39;cherry&#39;: 2, &#39;blueberry&#39;: 1})
+</code></pre><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 用法3：可以自定义函数作为初始化的函数参数</span>
+</span></span><span class=line><span class=cl><span class=c1># 基于这样的方法我们可以定义各种各样的默认值</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>defaultdict</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>defaultvalue</span><span class=p>(</span><span class=n>value</span><span class=o>=</span><span class=mi>2</span><span class=p>):</span> <span class=k>return</span> <span class=n>value</span>
+</span></span><span class=line><span class=cl><span class=n>dict3</span> <span class=o>=</span> <span class=n>defaultdict</span><span class=p>(</span><span class=n>defaultvalue</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>dict3</span><span class=p>[</span><span class=s1>&#39;hello&#39;</span><span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=vars>Vars（）<a hidden class=anchor aria-hidden=true href=#vars>#</a></h2><p><strong>vars()</strong> 函数返回对象object的属性和属性值的字典对象。</p><h2 id=python中的数字日期时间计算>Python中的数字日期时间计算<a hidden class=anchor aria-hidden=true href=#python中的数字日期时间计算>#</a></h2><p>@Aiken 2020</p><p>@Source：《Python Cookbook》 Chapter3 数字日期和时间</p><p>主要针对Python中的数字数字运算的运算做一个笔记</p><h3 id=获取本机时间的几种方法>获取本机时间的几种方法<a hidden class=anchor aria-hidden=true href=#获取本机时间的几种方法>#</a></h3><p>主要为了<strong>方便格式化时间</strong>输出，我们需要将机器时间转换成指定的年月日之类的。
+分别来自于time 和 datatime，这两种方式的时间复杂度好像实际上并没有太大的差别，姑且用着把暂时。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>datetime</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_time</span><span class=p>(</span><span class=nb>type</span><span class=o>=</span><span class=mi>1</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>type</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span> <span class=n>now</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s1>&#39;%m/</span><span class=si>%d</span><span class=s1>:%H:%M&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span> <span class=n>now</span> <span class=o>=</span> <span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>()</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s1>&#39;%m/</span><span class=si>%d</span><span class=s1>:%H:%M&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>now</span>
+</span></span><span class=line><span class=cl><span class=n>get_time</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=精确数字运算>精确数字运算<a hidden class=anchor aria-hidden=true href=#精确数字运算>#</a></h3><p>我们知道python中的计算不是绝对精准的， 浮点的精度是有限的，但是当我们需要进行金融领域或者数学领域的一些高精度要求的计算，可以为其牺牲一定的复杂度的时候👉decimal模块</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>decimal</span> <span class=kn>import</span> <span class=n>Decimal</span>
+</span></span><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=s1>&#39;4.2&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>b</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=s1>&#39;2.1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>a</span> <span class=o>+</span> <span class=n>b</span><span class=p>,</span> <span class=n>a</span><span class=o>+</span><span class=n>b</span><span class=o>==</span><span class=n>Decimal</span><span class=p>(</span><span class=s1>&#39;6.3&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># 注意数据的类型实际上也是Decimal</span>
+</span></span><span class=line><span class=cl><span class=c1># 能控制计算的每一方面，包括数字位数和四舍五入之类的，需要创建一个本地的上下文</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>decimal</span> <span class=kn>import</span> <span class=n>localcontext</span>
+</span></span><span class=line><span class=cl><span class=c1># 精确度控制</span>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=n>localcontext</span><span class=p>()</span> <span class=k>as</span> <span class=n>ctx</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>ctx</span><span class=o>.</span><span class=n>prec</span> <span class=o>=</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>a</span><span class=o>/</span><span class=n>b</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>计算方法中的大数吃小数的情况</strong></p><p>(运算中的量纲差异超过17位的浮点数精度的情况)使用math.fsum()函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>math</span>
+</span></span><span class=line><span class=cl><span class=n>nums</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.23e+18</span><span class=err>，</span><span class=mi>1</span><span class=err>，</span><span class=o>-</span><span class=mf>1.23e+18</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=k>assert</span> <span class=nb>sum</span><span class=p>(</span><span class=n>nums</span><span class=p>)</span> <span class=o>!=</span> <span class=n>math</span><span class=o>.</span><span class=n>fsum</span><span class=p>(</span><span class=n>nums</span><span class=p>),</span> <span class=s1>&#39;the correct ans is fsum </span><span class=si>{}</span><span class=s1>, error ans is sum </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>math</span><span class=o>.</span><span class=n>fsum</span><span class=p>(</span><span class=n>nums</span><span class=p>),</span><span class=nb>sum</span><span class=p>(</span><span class=n>nums</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># we can find it what we meet and waht we want.</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=数字的格式化输出>数字的格式化输出<a hidden class=anchor aria-hidden=true href=#数字的格式化输出>#</a></h3><p>控制输出的格式（精确度，对齐，千分位分割符）<code>format</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=mf>1234.56789</span>
+</span></span><span class=line><span class=cl><span class=n>anslist</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl><span class=n>value</span> <span class=o>=</span> <span class=nb>format</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=s1>&#39;0.2f&#39;</span><span class=p>)</span>   <span class=c1># 👈 两位小数</span>
+</span></span><span class=line><span class=cl><span class=n>anslist</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><a href=Python%20Notebook%20ad3f0aafe5a54942bdcc3694a9a88976/Untitled%20Database%20400b9d461cf240e18dd2268ce561adf1.csv>Untitled</a></p><p><strong>进制转换：</strong></p><blockquote><p>2,8,16 -> bin（） oct（） hex（） OR format(x, ‘b’) format(x, ‘o’) format(x, ‘h’)</p></blockquote><p><strong>复数运算</strong></p><blockquote><p><code>complex(real, imag)``numpy</code>好像能处理复数<code>cmath</code>一些math无法处理的复数运算</p></blockquote><p><strong>正负无穷于NaN（非数字）</strong></p><blockquote><p>inf，-inf，nan， 可以使用float(‘inf’)创建验证 <code>math.isinf()</code></p></blockquote><p><strong>分数运算</strong></p><blockquote><p>Fractions（5，4）==5/4.numerator 分子 .denominator 分母</p></blockquote><h1 id=迭代器>迭代器<a hidden class=anchor aria-hidden=true href=#迭代器>#</a></h1><p>主要包括迭代的模块和解包的一些相关操作：</p><h3 id=enumerate-itemszip>enumerate 、items、zip<a hidden class=anchor aria-hidden=true href=#enumerate-itemszip>#</a></h3><ol><li><p><code>enumerate</code>可以将可迭代对象，除了dict，解压出来，并自带序号（多加入一个维度）。</p></li><li><p>字典的解包主要靠<code>items（）</code></p></li><li><p><code>zip</code>将可迭代对象作为参数，把每一项可迭代对象中取出一个值，组合成一个个元组，，然后返回。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>for</span> <span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>,</span><span class=n>c</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=n>A</span><span class=p>,</span><span class=n>B</span><span class=p>,</span><span class=n>C</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=o>...</span>
+</span></span></code></pre></td></tr></table></div></div></li></ol><h1 id=元编程>元编程<a hidden class=anchor aria-hidden=true href=#元编程>#</a></h1><h2 id=some-rules>Some Rules<a hidden class=anchor aria-hidden=true href=#some-rules>#</a></h2><ul><li><p><code>-></code>in python: 常常出现在python函数定义的函数名后面，为函数添加元数据，描述函数的返回类型，从而方面开发人员使用。</p></li><li><p>拓展：进行函数内的参数定义的时候也可以用冒号指定类型，以及默认值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>func</span><span class=p>(</span><span class=n>isPre</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=kc>True</span><span class=p>):</span> <span class=k>pass</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p>-</p><h2 id=装饰器模块>装饰器模块<a hidden class=anchor aria-hidden=true href=#装饰器模块>#</a></h2><p>装饰器在我个人的理解里面更像是一个嵌套的函数结构，编写装饰器实际上是为了给函数<strong>套壳</strong>，最根本的目的仍然是为了repeat coding，而这样的写法最直接适用的有以下的几种情况：</p><ul><li>Timing or Logging</li><li>当成函数指针进行函数的传递（但是这点上实际上用类传递的方式可能会更常见一点）</li></ul><h3 id=basic-type>Basic Type<a hidden class=anchor aria-hidden=true href=#basic-type>#</a></h3><p>最基本的编写样例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>functional</span> <span class=kn>import</span> <span class=n>wraps</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>timethis</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;Decorator that report the execution time.
+</span></span></span><span class=line><span class=cl><span class=s1>    this Decorator can not accept parameters&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 通过下面这个内置的装饰器来保留func的元信息 __name__ __doc___之类的</span>
+</span></span><span class=line><span class=cl>    <span class=nd>@wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># * ** 来保证可以对func传入各种参数</span>
+</span></span><span class=line><span class=cl>        <span class=n>start</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>result</span> <span class=o>=</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>end</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=p>,</span> <span class=n>end</span> <span class=o>-</span> <span class=n>start</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>wrapper</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=接受参数传递>接受参数传递<a hidden class=anchor aria-hidden=true href=#接受参数传递>#</a></h3><p>但是这个装饰器实际上不满足我们的需求，我们希望装饰器能<strong>接受传入的参数</strong>，这样的话，我们才能更好的进行print或者是使用logging这个模块。</p><p>Then we can write it like this :</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 实际上直观的理解的话，就是在外面再多嵌套一层函数，通过这个函数来对我们的decorator传递需要的参数</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>functional</span> <span class=kn>import</span> <span class=n>wraps</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 实现对装饰器的参数传递，同时和</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>logged</span><span class=p>(</span><span class=n>level</span><span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span><span class=n>message</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;通过最外层接受参数并将其传递到内层的装饰器中&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>decorate</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># setting paramter we passing here</span>
+</span></span><span class=line><span class=cl>        <span class=n>logname</span> <span class=o>=</span> <span class=n>name</span> <span class=k>if</span> <span class=n>name</span> <span class=k>else</span> <span class=n>func</span><span class=o>.</span><span class=n>__moudule__</span>
+</span></span><span class=line><span class=cl>        <span class=n>log</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=n>logname</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>logmsg</span> <span class=o>=</span> <span class=n>message</span> <span class=k>if</span> <span class=n>message</span> <span class=k>else</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nd>@wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>log</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>level</span><span class=p>,</span><span class=n>logmsg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span><span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>wrapper</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>decorate</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 但是实际上我们要传递的就是一些输出结果，所以我们不需要用到这一点，只要再内部赋予logging就行了，所以这里我们设定的就是基本的level和logger_nanme</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=修改装饰器参数>修改装饰器参数<a hidden class=anchor aria-hidden=true href=#修改装饰器参数>#</a></h3><p>对上面这个装饰器模块进行简单的改进，<strong>就能使得用包装器包装的函数，能够调用附加函数来修改装饰器的参数</strong></p><p>（相当于赋予被装饰方法一个对装饰器的类外访问函数）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 这里有个模块就比较猎奇了，以前倒是没见过</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>functional</span> <span class=kn>import</span> <span class=n>wraps</span><span class=p>,</span><span class=n>partial</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># utility decorator to attach a functional as an attribute of obj</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>attach_wrapper</span><span class=p>(</span><span class=n>obj</span><span class=p>,</span> <span class=n>func</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>func</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>partial</span><span class=p>(</span><span class=n>attach_wrapper</span><span class=p>,</span> <span class=n>obj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>setattr</span><span class=p>(</span><span class=n>obj</span><span class=p>,</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=p>,</span><span class=n>func</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>func</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#原有装饰器上面添加东西即可</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>logged</span><span class=p>(</span><span class=n>level</span><span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span><span class=n>message</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;通过最外层接受参数并将其传递到内层的装饰器中&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>decorate</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># setting paramter we passing here</span>
+</span></span><span class=line><span class=cl>        <span class=n>logname</span> <span class=o>=</span> <span class=n>name</span> <span class=k>if</span> <span class=n>name</span> <span class=k>else</span> <span class=n>func</span><span class=o>.</span><span class=n>__moudule__</span>
+</span></span><span class=line><span class=cl>        <span class=n>log</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=n>logname</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>logmsg</span> <span class=o>=</span> <span class=n>message</span> <span class=k>if</span> <span class=n>message</span> <span class=k>else</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nd>@wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>log</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>level</span><span class=p>,</span><span class=n>logmsg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span><span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;使用nonlocal添加属性修改的模块&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nd>@attach_wrapper</span><span class=p>(</span><span class=n>wrapper</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>set_level</span><span class=p>(</span><span class=n>newlevel</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=k>nonlocal</span> <span class=n>level</span>
+</span></span><span class=line><span class=cl>            <span class=n>level</span> <span class=o>=</span> <span class=n>newlevel</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nd>@attach_wrapper</span><span class=p>(</span><span class=n>wrapper</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>set_message</span><span class=p>(</span><span class=n>newmsg</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=k>nonlocal</span> <span class=n>logmsg</span>
+</span></span><span class=line><span class=cl>            <span class=n>logmsg</span> <span class=o>=</span> <span class=n>newmsg</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>wrapper</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>decorate</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@logged</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>add</span><span class=p>(</span><span class=n>x</span><span class=p>,</span><span class=n>y</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@logged</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>CRITICAL</span><span class=p>,</span><span class=s1>&#39;example&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>spam</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Spam&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 使用范例:可以再类外调用内内的属性设置了</span>
+</span></span><span class=line><span class=cl><span class=n>add</span><span class=o>.</span><span class=n>set_message</span><span class=p>(</span><span class=s1>&#39;add called&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>add</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>add</span><span class=o>.</span><span class=n>set_level</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>WARNING</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>add</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=带可选参数的修饰器>带可选参数的修饰器<a hidden class=anchor aria-hidden=true href=#带可选参数的修饰器>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 感觉没太理解这个文章中说到的不带参数的意思，难道可以不传入函数吗</span>
+</span></span><span class=line><span class=cl><span class=c1># 先把模板放在这</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>logged</span><span class=p>(</span><span class=n>func</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>level</span><span class=o>=</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>,</span><span class=n>name</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>message</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>func</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>partial</span><span class=p>(</span><span class=n>logged</span><span class=p>,</span><span class=n>level</span><span class=o>=</span><span class=n>level</span><span class=p>,</span><span class=n>name</span><span class=o>=</span><span class=n>name</span><span class=p>,</span><span class=n>message</span><span class=o>=</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>logname</span> <span class=o>=</span> <span class=n>name</span> <span class=k>if</span> <span class=n>name</span> <span class=k>else</span> <span class=n>func</span><span class=o>.</span><span class=n>__moudule__</span>
+</span></span><span class=line><span class=cl>    <span class=n>log</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=n>logname</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>logmsg</span> <span class=o>=</span> <span class=n>message</span> <span class=k>if</span> <span class=n>message</span> <span class=k>else</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span><span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>log</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>level</span><span class=p>,</span><span class=n>logmsg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span><span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>wrapper</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=property的用法>@property的用法<a hidden class=anchor aria-hidden=true href=#property的用法>#</a></h3><p>将类别方法转换为类别属性，可以直接用.获取属性值或者对属性进行赋值。</p><p><strong>具体的实现和要求在后面再看看</strong></p><h1 id=exception>Exception<a hidden class=anchor aria-hidden=true href=#exception>#</a></h1><p>@Aiken 2020</p><p>Python的异常处理操作：主要内容包括捕捉异常，抛出异常，基于异常进行判断处理等。
+基本原理:</p><p>参考资料： <a href=https://www.runoob.com/python3/python3-errors-execptions.html target=_blank rel=noopener>python3_错误和异常</a>
+、 <a href=https://www.runoob.com/python/python-exceptions.html target=_blank rel=noopener>python3_错误和异常2</a></p><h2 id=python3-错误和异常>Python3 错误和异常<a hidden class=anchor aria-hidden=true href=#python3-错误和异常>#</a></h2><p>**错误：**一般语法解析器的解析错误，换句话说也就是基本的语法错误。
+**异常：**语法正确，但是运行期间出现的错误，</p><p>异常有很多种类：未定义，类型异常，除数0异常，etc.
+&mldr;在附录附加常用常见的错误类型</p><h2 id=异常捕捉try-except>异常捕捉try except<a hidden class=anchor aria-hidden=true href=#异常捕捉try-except>#</a></h2><p>通过try exception 捕捉可能会出现的异常，然后用except，指定当该异常出现时候要执行的命令，可以指定多种异常。</p><p>基本的算法流程是：</p><ul><li>首先，执行 try 子句（在关键字 try 和关键字 except 之间的语句）。</li><li>如果没有异常发生，忽略 except 子句，try 子句执行后结束。</li><li>如果在执行 try 子句的过程中发生了异常，那么 try 子句余下的部分将被忽略。如果异常的类型和 except 之后的名称相符，那么对应的 except 子句将被执行。</li></ul><p>如果一个异常没有与任何的 except 匹配，那么这个异常将会传递给上层的 try 中。
+完整的算法逻辑如图所示👇，通常可以指使用t-e部分即可</p><p><div class=post-img-view><a data-fancybox=gallery href=https://raw.githubusercontent.com/AikenH/md-image/master/img/try_except_else_finally.png><img alt=https://raw.githubusercontent.com/AikenH/md-image/master/img/try_except_else_finally.png loading=lazy src=https://raw.githubusercontent.com/AikenH/md-image/master/img/try_except_else_finally.png class=responsive-image src=https://raw.githubusercontent.com/AikenH/md-image/master/img/try_except_else_finally.png style="display:block;margin:0 auto" alt=https://raw.githubusercontent.com/AikenH/md-image/master/img/try_except_else_finally.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><p>Image1</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1>#主要依赖模块</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>sys</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>写法的优点</strong></p><ul><li>在可预见的Exception出现的时候不会中断程序的进行， 可以以指定的方式进行规避，或者针对该情况进行特定的异常处理。</li></ul><p><strong>else的优势</strong></p><ul><li>如果try中出现了多个异常，我们可能会忽视其中的一些异常。</li><li>可以针对性的进行异常算法设计，这样会使得可读性和便于分析。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 用try except的方式最好的一点在于，他不会终端程序的执行。</span>
+</span></span><span class=line><span class=cl><span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s2>&#34;please type in NUMBER &#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=k>except</span> <span class=ne>ValueError</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;your input is not NUMBER&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># if we donot use t-e</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s2>&#34;repeat you input&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 通过对比，我们可以知道这样执行的好处，在一些无关紧要的地方，</span>
+</span></span><span class=line><span class=cl><span class=c1># 可以让程序继续运行而不必因为这些而中断。</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=exception的多种写法和多异常分支>exception的多种写法和多异常分支<a hidden class=anchor aria-hidden=true href=#exception的多种写法和多异常分支>#</a></h3><p>try中的语句可能有<strong>多种异常抛出</strong>的情况：</p><ol><li>针对不同的异常进行处理。</li><li>统一处理不同异常。</li><li>统一处理所有类型</li></ol><p>以上面的代码为例：</p><ol><li>try except except &mldr;</li><li>EXCEPT (TUPLE)</li><li>except不带任何参数</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># type 1</span>
+</span></span><span class=line><span class=cl><span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=mi>123</span>
+</span></span><span class=line><span class=cl><span class=k>except</span> <span class=ne>ValueError</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>t</span> <span class=o>=</span> <span class=mi>123</span>
+</span></span><span class=line><span class=cl><span class=k>except</span> <span class=ne>TypeError</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>y</span> <span class=o>=</span> <span class=mi>123</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># type 2</span>
+</span></span><span class=line><span class=cl><span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s2>&#34;please type in NUMBER &#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=k>except</span> <span class=p>(</span><span class=ne>ValueError</span><span class=p>,</span><span class=ne>TypeError</span><span class=p>,</span><span class=ne>NameError</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;your input is not NUMBER&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>Try Import</strong> 使用try的结构来避免import过程中出现的问题：</p><p><a href="https://www.programcreek.com/python/?CodeExample=try+import" target=_blank rel=noopener>Python try import (programcreek.com)</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>try_import</span><span class=p>(</span><span class=n>package</span><span class=p>,</span> <span class=n>message</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>__import__</span><span class=p>(</span><span class=n>package</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>except</span> <span class=ne>ImportError</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>message</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>raise</span> <span class=n>e</span>
+</span></span><span class=line><span class=cl>        <span class=k>raise</span> <span class=ne>ImportError</span><span class=p>(</span><span class=n>m</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=抛出异常-raise-exception>抛出异常 Raise Exception<a hidden class=anchor aria-hidden=true href=#抛出异常-raise-exception>#</a></h2><p>使用raise 语句能够抛出指定类型的异常，从而终止程序的运行，和assert断言起到相似的作用。</p><p>**关键用法：**设置异常抛出，然后用try except捕捉，然后进行指定的分支操作。
+<code>raise [Exception [, args [, traceback]]]</code></p><p><div class=post-img-view><a data-fancybox=gallery href=https://raw.githubusercontent.com/AikenH/md-image/master/img/raise.png><img alt=https://raw.githubusercontent.com/AikenH/md-image/master/img/raise.png loading=lazy src=https://raw.githubusercontent.com/AikenH/md-image/master/img/raise.png class=responsive-image src=https://raw.githubusercontent.com/AikenH/md-image/master/img/raise.png style="display:block;margin:0 auto" alt=https://raw.githubusercontent.com/AikenH/md-image/master/img/raise.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><p>raise_exception</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>x</span> <span class=o>&gt;=</span> <span class=mi>5</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>raise</span> <span class=ne>Exception</span><span class=p>(</span><span class=s1>&#39;x 不能大于5，当前值为 </span><span class=si>{}</span><span class=s1> &#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=numpy-tips>Numpy Tips<a hidden class=anchor aria-hidden=true href=#numpy-tips>#</a></h1><h2 id=reshape>reshape<a hidden class=anchor aria-hidden=true href=#reshape>#</a></h2><p>和numpy格式的reshape的相关内容整合</p><ol><li>基本reshape的使用</li><li>reshape不改变原数据</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>bk1_a</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>8</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>bk1_b</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([[</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>],[</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>]])</span>
+</span></span><span class=line><span class=cl><span class=n>bk1_c</span> <span class=o>=</span> <span class=n>bk1_a</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=n>bk1_b</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;b&#39;s datashpe is </span><span class=si>{}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>bk1_b</span><span class=o>.</span><span class=n>shape</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;reshape by b。shape is ↓ </span><span class=se>\n</span><span class=s2> </span><span class=si>{}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>bk1_c</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># 测试是否改变原数据</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;b&#39;s shape is </span><span class=si>{}</span><span class=s2> &#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>bk1_b</span><span class=o>.</span><span class=n>shape</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=k>assert</span> <span class=n>bk1_a</span> <span class=o>==</span>  <span class=n>bk1_c</span><span class=p>,</span> <span class=s1>&#39;do not change the origin data, a is like </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>bk1_a</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=tolist>tolist<a hidden class=anchor aria-hidden=true href=#tolist>#</a></h2><p>numpy array 和list之间的互相转换，在大规模编程中有比较广泛的应用场景。</p><ul><li>**有^次方的意思</li><li>arange 包含下限，不包含上线</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>bk2_a</span><span class=o>=</span> <span class=p>(</span><span class=mi>2</span> <span class=o>**</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span><span class=mi>6</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># bk2_a</span>
+</span></span><span class=line><span class=cl><span class=n>bk2_b</span> <span class=o>=</span> <span class=n>bk2_a</span><span class=o>.</span><span class=n>tolist</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=c1># bk2_b</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=用array给list中的元素赋值>用array给list中的元素赋值<a hidden class=anchor aria-hidden=true href=#用array给list中的元素赋值>#</a></h2><p>以下是这种方式建立一个类似one-hot的函数介绍
+可以很容易的从输出看出规律，而且最外层仍然是列表，也就是其中的元素是array</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>list1</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>12</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>list1</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>    <span class=n>temp</span> <span class=o>=</span> <span class=n>list1</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>-</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl>    <span class=n>list1</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=mi>13</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>list1</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>temp</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=n>list1</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=flatten--flat-operation>flatten & flat operation<a hidden class=anchor aria-hidden=true href=#flatten--flat-operation>#</a></h2><p>flatten：将数据摊开降维成一维的数组/矩阵，以副本形式生成，不影响原数据
+flat，生成一个迭代器，按行的形式迭代</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># A:flatten function B:flat function</span>
+</span></span><span class=line><span class=cl><span class=n>bk3_a</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>rand</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;A is just like</span><span class=se>\n</span><span class=s1> </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>bk3_a</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>bk3_a2</span> <span class=o>=</span> <span class=n>bk3_a</span><span class=o>.</span><span class=n>flatten</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;A2 is just like</span><span class=se>\n</span><span class=s1> </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>bk3_a2</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>printz</span><span class=p>(</span><span class=s1>&#39;********************clip*************************&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>bk3_b</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>rand</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;B is just like </span><span class=se>\n</span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>bk3_b</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>bk3_b</span><span class=o>.</span><span class=n>flat</span><span class=p>,</span> <span class=s1>&#39;as we can see, this is a iter&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>bk3_b</span><span class=o>.</span><span class=n>flat</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>i</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=numpypad>Numpy.pad<a hidden class=anchor aria-hidden=true href=#numpypad>#</a></h2><p>pad，就是拓展原本数据的维度，方便后面机器学习中的其他步骤，主要用处包括：</p><ol><li>维度保持</li><li>增加对图像边界的重视</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1>## numpy.pad</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mi>5</span><span class=p>,(</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>4</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>pad</span><span class=p>(</span><span class=n>x</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>h</span><span class=p>,</span><span class=n>w</span> <span class=o>=</span> <span class=n>x</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>1</span><span class=p>:]</span>
+</span></span><span class=line><span class=cl><span class=n>new_h</span><span class=p>,</span><span class=n>new_w</span> <span class=o>=</span> <span class=mi>3</span><span class=p>,</span><span class=mi>3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>top</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=n>h</span><span class=o>-</span><span class=n>new_h</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>left</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=n>w</span><span class=o>-</span><span class=n>new_w</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>x</span><span class=p>[:,</span><span class=n>top</span><span class=p>:</span> <span class=n>top</span><span class=o>+</span><span class=n>new_h</span><span class=p>,</span><span class=n>left</span><span class=p>:</span><span class=n>left</span><span class=o>+</span><span class=n>new_w</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>x</span><span class=o>.</span><span class=n>shape</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=-numpy-索引中双冒号的实际用途>:: Numpy 索引中双冒号的实际用途<a hidden class=anchor aria-hidden=true href=#-numpy-索引中双冒号的实际用途>#</a></h2><p>参照该文章进行分析，主要用途包括：对图像进行反转等操作
+<a href=https://blog.csdn.net/GracePro/article/details/102079331 target=_blank rel=noopener>https://blog.csdn.net/GracePro/article/details/102079331</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>rand</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>a</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;----------------------------&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=n>a</span><span class=p>[:,::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>a</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=argpartition>Argpartition()<a hidden class=anchor aria-hidden=true href=#argpartition>#</a></h2><p>借助于 argpartition()，Numpy 可以找出 N 个最大数值的索引，也会将找到的这些索引输出。<br>然后我们根据需要对数值进行排序。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>12</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>16</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>0</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>index_val</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>argpartition</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=o>-</span><span class=mi>5</span><span class=p>)[</span><span class=o>-</span><span class=mi>5</span><span class=p>:]</span>
+</span></span><span class=line><span class=cl><span class=n>index2</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>argmin</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>index2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>index_val</span>
+</span></span></code></pre></td></tr></table></div></div><p>基于numpy的sort函数，输出找出的最大的几个数，要全体排序的话，还是考sort</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>np</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=n>index_val</span><span class=p>])</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=allclose>Allclose()<a hidden class=anchor aria-hidden=true href=#allclose>#</a></h2><p>allclose() 用于匹配两个数组，并得到布尔值表示的输出。如果在一个公差范围内（within a tolerance）两个数组不等同，<br>则 allclose() 返回 False。该函数对于检查两个数组是否相似非常有用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>array1</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.12</span><span class=p>,</span><span class=mf>0.17</span><span class=p>,</span><span class=mf>0.24</span><span class=p>,</span><span class=mf>0.29</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>array2</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.13</span><span class=p>,</span><span class=mf>0.19</span><span class=p>,</span><span class=mf>0.26</span><span class=p>,</span><span class=mf>0.31</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=c1># with a tolerance of 0.1, it should return False:</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>allclose</span><span class=p>(</span><span class=n>array1</span><span class=p>,</span><span class=n>array2</span><span class=p>,</span><span class=mf>0.1</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># with a tolerance of 0.2, it should return True:</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>allclose</span><span class=p>(</span><span class=n>array1</span><span class=p>,</span><span class=n>array2</span><span class=p>,</span><span class=mf>0.2</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=clip>Clip()<a hidden class=anchor aria-hidden=true href=#clip>#</a></h2><p>使得一个数组中的数值保持在一个区间内。有时，我们需要保证数值在上下限范围内。为此，我们可以借助 Numpy 的 clip()<br>函数实现该目的。给定一个区间，则区间外的数值被剪切至区间上下限（interval edge）。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>3</span><span class=p>,</span> <span class=mi>17</span><span class=p>,</span> <span class=mi>14</span><span class=p>,</span> <span class=mi>23</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>16</span><span class=p>,</span> <span class=mi>0</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>np</span><span class=o>.</span><span class=n>clip</span><span class=p>(</span><span class=n>x</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>5</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=extract>extract()<a hidden class=anchor aria-hidden=true href=#extract>#</a></h2><p>顾名思义，extract() 是在特定条件下从一个数组中提取特定元素。
+借助于 extract()，我们还可以使用 and 和 or 等条件。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>array</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>20</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=mi>12</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;basic array is </span><span class=si>{}</span><span class=s1> &#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>array</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1>#  Divide by 2 and check if remainder is 1</span>
+</span></span><span class=line><span class=cl><span class=n>cond</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>mod</span><span class=p>(</span><span class=n>array</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span><span class=o>==</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;是否符合条件的list，条件list</span><span class=se>\n</span><span class=s1>  </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>cond</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># Use extract to get the values</span>
+</span></span><span class=line><span class=cl><span class=c1># 提取出表现为True的哪些元素</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;按照条件提取出元素:</span><span class=se>\n</span><span class=s1> </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>extract</span><span class=p>(</span><span class=n>cond</span><span class=p>,</span> <span class=n>array</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Apply condition on extract directly</span>
+</span></span><span class=line><span class=cl><span class=c1># 更直接的指定条件</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;复杂条件下的表现情况&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>extract</span><span class=p>(((</span><span class=n>array</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>)</span> <span class=o>|</span> <span class=p>(</span><span class=n>array</span> <span class=o>&gt;</span> <span class=mi>15</span><span class=p>)),</span> <span class=n>array</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=where>where()<a hidden class=anchor aria-hidden=true href=#where>#</a></h2><p>Where() 用于从一个数组中返回满足特定条件的元素。比如，它会返回满足特定条件的数值的索引位
+Where() 与 SQL 中使用的 where condition 类似，如以下示例所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>9</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=c1># Where y is greater than 5, returns index position</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>where</span><span class=p>(</span><span class=n>y</span><span class=o>&gt;</span><span class=mi>5</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># First will replace the values that match the condition,</span>
+</span></span><span class=line><span class=cl><span class=c1># second will replace the values that does not</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>where</span><span class=p>(</span><span class=n>y</span><span class=o>&gt;</span><span class=mi>5</span><span class=p>,</span> <span class=s2>&#34;Hit&#34;</span><span class=p>,</span> <span class=s2>&#34;Miss&#34;</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=debug>DEBUG<a hidden class=anchor aria-hidden=true href=#debug>#</a></h1><p>记录一些典型错误，便于后续Debug的时候查找原因</p><h2 id=避免重复冲突的import>避免重复/冲突的import<a hidden class=anchor aria-hidden=true href=#避免重复冲突的import>#</a></h2><p>在工程实现中，对于同一个module。最好能做到<strong>不需要重复的import</strong>，但是在跨文件的工程项目中，或者说是一些跨文件调用的情况下，可能有一些基本的module会需要这样的时候，那我们最好做到<strong>不冲突</strong>，以同样的形式来进行import，不然有时候这样的重定义方式会出现一定的问题或者bug。
+for example <code>from time import time</code> 和 <code>import time</code>同时出现的情况。</p><h2 id=内存调用与method的定义>内存调用与Method的定义<a hidden class=anchor aria-hidden=true href=#内存调用与method的定义>#</a></h2><p>在较为复杂的工程项目中，应该使用Method（Function）模块化的解决问题；这样做的优势可以从一下几点来看：</p><ol><li>易于阅读分析，写好相关method的Doc，然后做好注释，方便阅读和后续修改</li><li>能够在迭代过程中有效的释放暂态的变量，节约在主进程中无效的参数存储空间，节省内存或者显存。</li></ol><h2 id=typeerror>TypeError：<a hidden class=anchor aria-hidden=true href=#typeerror>#</a></h2><p>一：<strong>cannnot unpack not-iterable NoneType object</strong>（无法解包非迭代类型的NoneType对象）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>test</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>value</span> <span class=o>==</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>a</span><span class=o>=</span><span class=n>b</span><span class=o>=</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl><span class=n>a</span><span class=p>,</span><span class=n>b</span> <span class=o>=</span> <span class=n>test</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>原因分析</strong>，当python函数没有确定的return的时候默认的返回值是None，这样在进行检查的时候，就会到导致编译的错误</p><p><strong>解决</strong>：指定默认的return，或者使用else方法完善所有情况下的return值的个数是一致的</p><p>二：<strong>missing 1 required positional argument： “self”</strong></p><p>对象的声明需要括号，我们可能在调用类内函数的时候，用错了变量，用了<strong>类而不是类的实例</strong>去调用这个函数，导致执行出现了错误。</p><p>三：<strong>builtin_function_or_method error</strong></p><p>很多时候都是由于前面的数据操作少加了<code>()</code>导致的问题</p><p>四：<strong>bad operand type for unary -: ‘NoneType’</strong></p><p>输入的数据存在着值为空的情况，可能没定义之类的，问题要根据后面的具体报错来进行分析。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://aikenh.cn/hugotest/tags/python/>Python</a></li><li><a href=https://aikenh.cn/hugotest/tags/langs/>Langs</a></li></ul><nav class=paginav><a class=prev href=https://aikenh.cn/hugotest/posts/fluent_python/><span class=title>« Prev</span><br><span>Fluent Python 01 数据模型与结构</span>
+</a><a class=next href=https://aikenh.cn/hugotest/posts/vscode/><span class=title>Next »</span><br><span>VsCode's Configuration</span></a></nav></footer><div id=disqus_thread></div><script>function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://aiken-hugo.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url=window.location.href,this.page.identifier=window.location.href.substring(18)}}var runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){if(!isBot&&supportsIntersectionObserver){var e=new IntersectionObserver(function(t){t[0].isIntersecting&&(loadDisqus(),e.disconnect())},{threshold:[0]});e.observe(document.getElementById("disqus_thread"))}else loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by
+Disqus.</a></noscript></article></main><footer class=footer><span>&copy; 2024 <a href=https://aikenh.cn/hugotest/>aiken's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span id=busuanzi_container>Visitors: <span id=busuanzi_value_site_uv></span>
+Views: <span id=busuanzi_value_site_pv></span></span></footer><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),o=13863,i=16993;if(!e||!t){console.error("Busuanzi elements not found.");return}const n=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+o;break}}),s=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){s.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+i;break}});n.observe(e,{childList:!0}),s.observe(t,{childList:!0})})</script><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><span class=topInner><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+<span id=read_progress></span>
+</span></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))}),document.getElementById("theme-toggle-nav").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script>document.addEventListener("scroll",function(){const t=document.getElementById("read_progress"),n=document.documentElement.scrollHeight,s=document.documentElement.clientHeight,o=document.documentElement.scrollTop||document.body.scrollTop;t.innerText=((o/(n-s)).toFixed(2)*100).toFixed(0)})</script><script>(function(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(e)}),i.parentNode.insertBefore(n,i)})("/js/pangu.js",function(){pangu.spacingPage()})</script></body></html>

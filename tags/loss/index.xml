@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Loss on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/loss/</link>
+    <description>Recent content in Loss on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Dec 2021 13:39:55 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/loss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Loss-NCE</title>
+      <link>https://aikenh.cn/hugotest/posts/loss-nce/</link>
+      <pubDate>Wed, 22 Dec 2021 13:39:55 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/loss-nce/</guid>
+      <description>&lt;p&gt;@AikenHong 2021&lt;/p&gt;
+&lt;p&gt;Noise Contrastive Estimation Loss = NCE Loss 噪声对比估计损失，这里的Noise实际上就是Negative Samples.
+该损失被广泛的用于对比学习的任务，而对比学习广泛的作为自监督学习的无监督子任务用来训练一个良好的特征提取器，于是对于对比学习的目标和效用的理解十分关键。&lt;/p&gt;
+&lt;h2 id=&#34;whats-nce-loss&#34;&gt;What&amp;rsquo;s NCE Loss&lt;/h2&gt;
+&lt;p&gt;在介绍NCE之前我们可以将其和CE进行一个简单的对比，虽然名称上不是同一个CE，但是在数学表达上却有很相近的地方（softmax-kind of loss）&lt;/p&gt;
+&lt;p&gt;首先softmax，他保证所有的值加起来为一，结合onehot的ce，实际上&lt;code&gt;j==gt&lt;/code&gt;的情况下外层+log也就是ceLoss，也就是 $logSoftmax$&lt;/p&gt;
+&lt;div&gt;
+$$ 
+S_j = \frac{e^{a_j}}{\sum_{k=1}^N e^{a_k}}
+ $$
+&lt;/div&gt;
+&lt;p&gt;然后看infoNCE，基础的对比学习损失可以写成：&lt;/p&gt;
+&lt;div&gt;
+$$ 
+L_{contrast} = \mathbb{E}[-\log\frac{e^{f_x^T f_y/T}}{e^{f_x^T f_y/T} + \sum_i e^{f_x^T f_{y_-^i}/T}}]
+ $$
+&lt;/div&gt;
+&lt;p&gt;其中 $f_x^T f_y^T$ 为 $sim(x,y)$ 时即转化为带 $T$ 的NCE，即InforNCE.&lt;/p&gt;
+&lt;p&gt;分子是正例对的相似度，分母是正例对+所有负例对的相似度，最小化infoNCE loss，就是去最大化分子的同时最小化分母，也就是最大化正例对的相似度，最小化负例对的相似度。&lt;/p&gt;
+&lt;p&gt;从该形式上看，和soft的CE形式上是统一的，当我们把分母看作概率和自身以及和其他的相似性，这样和NCE在形式上和简化后的CE实现了统一。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但是我不认为这和label smooth 后的CE有相关性，而是和原始的CE经由One-hot简化后结构上有相似性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it Works&lt;/h2&gt;
+&lt;p&gt;NCE的思想是&lt;strong&gt;拉近相似的样本，推开不相近的样本&lt;/strong&gt;，从而学习到一个好的&lt;strong&gt;语义表示空间&lt;/strong&gt;，这一点上实际上和度量学习的思想是一样的，只是对比学习通常作用在无监督或者自监督的语境中，度量学习这是有监督的。&lt;/p&gt;
+&lt;p&gt;考虑之前人脸匹配的研究，使用 &amp;ldquo;Alignment and Uniformity on the Hypersphere&amp;quot;中的Alignment and Uniformity，就是一个更好理解他的角度&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div&gt;
+$$ 
+\begin{gathered}
+L_{\text {contrast }}=\mathbb{E}\left[-\log \frac{e^{f_{x}^{T} f_{y} / \tau}}{e^{f_{x}^{T} f_{y} / \tau}+\sum_{i} e^{T_{x}^{T} f_{y_{i}}^{-} / \tau}}\right] \\
+=\mathbb{E}\left[-f_{x}^{T} f_{y} / \tau\right]+\mathbb{E}\left[\log \left(e^{f_{x}^{T} f_{y} / \tau}+\sum_{i} e^{f_{x}^{T} f_{y_{i}^{-} / \tau}}\right)\right] \\
+\mathbb{P}\left[\left(f_{x}=f_{y}\right)\right]=1 \underbrace{\mathbb{E}\left[-f_{x}^{T} f_{y} / \tau\right]}_{\text {positive alignment }}+\underbrace{\mathbb{E}\left[\log \left(e^{1 / \tau}+\sum_{i} e^{f_{x}^{T} f_{y_{i}}-/ \tau}\right)\right]}_{\text {uniformity }}
+\end{gathered}
+ $$
+&lt;/div&gt;
+&lt;p&gt;公式经过上面的推导就可以看成下的两个部分，其中&lt;strong&gt;alignment&lt;/strong&gt;只与&lt;strong&gt;positive pair&lt;/strong&gt;有关，相反&lt;strong&gt;Uniformity&lt;/strong&gt;只与&lt;strong&gt;negative pair&lt;/strong&gt;相关，希望所有的点都能尽可能的分布在uni hypersphere上。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Loss-Smooth(Sharpen)</title>
+      <link>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</link>
+      <pubDate>Fri, 17 Dec 2021 03:35:27 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</guid>
+      <description>&lt;p&gt;@AikenHong 2021
+@topic&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;smooth label (inception v2)&lt;/li&gt;
+&lt;li&gt;when does label smoothing help (nips 2019)&lt;/li&gt;
+&lt;li&gt;sharpen in semi-supervised in the future&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/seominseok0429/label-smoothing-visualization-pytorch?utm_source=catalyzex.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;offical code github&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不是一个通用的方法，在很多的任务上反而会导致掉点的现象，可以简单分析一下，汲取一下思想和Sharpen做对比，在这篇文章中，我们可以结合之前的人脸对比损失来进行分析。&lt;/p&gt;
+&lt;h2 id=&#34;whats-the-smooth-label&#34;&gt;What&amp;rsquo;s the smooth label&lt;/h2&gt;
+&lt;p&gt;首先介绍在图像分类任务中对logits和Hard label做ce得到我们的损失，可以表现为如下的形式：&lt;/p&gt;
+&lt;div&gt;
+$$ 
+Loss = -\sum^{K}_{i=1}p_i \log(q_i)
+ $$
+&lt;/div&gt;
+&lt;p&gt;由于我们的标签是一个hard label，实际上可以转化成一个one-hot，即&lt;/p&gt;
+&lt;div&gt;
+$$ 
+\begin{equation}
+p_i = \left\{
+\begin{array}{c1}
+1 &amp; i==gt \\
+0 &amp; i!=gt \\
+\end{array} \right.
+\end{equation}
+ $$
+&lt;/div&gt;
+&lt;p&gt;而soft label实际上做的是将 1的位置变为 $1-\alpha$ ，其他位置设置为 $\alpha/(K-1)$ ，然后再去求CE，&lt;/p&gt;
+&lt;p&gt;Hinton论文中给出该损失对特征分布的作用测试图：
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/20211216194040.png&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/20211216194040.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/labimg/20211216194040.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Loss-WhyZero</title>
+      <link>https://aikenh.cn/hugotest/posts/loss-whyzero/</link>
+      <pubDate>Fri, 10 Dec 2021 08:24:46 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/loss-whyzero/</guid>
+      <description>&lt;h1 id=&#34;loss-why-zero-loss&#34;&gt;Loss :Why Zero Loss？&lt;/h1&gt;
+&lt;p&gt;@Comments: ICML2020 《Do We Need Zero Training Loss After Achieving Zero Training Error》&lt;/p&gt;
+&lt;p&gt;@Noteby：AikenHong2021&lt;/p&gt;
+&lt;p&gt;如何解决训练损失下降，但是验证损失上升的问题（过拟合like）的问题，该文章实际上可以作为我们损失设计中的一个trick，只需要简单的一行代码，来提升代码的泛化能力；&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211026211602.png&#34;&gt;
+    &lt;img alt=&#34;img&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211026211602.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211026211602.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;img&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;这张图体现了本文的灵魂（思路），主要体现在我们在算法趋于稳定后继续训练可能验证损失会反而上升；&lt;/p&gt;
+&lt;p&gt;所以本文提出了一种flooding方法，当我们training loss 大于阈值的时候我们使其正常下降，当低于阈值的时候，flooding的设计会反过来使得梯度上升，让训练损失保持在flooding附近，让模型持续进行random walk，希望模型最终能优化到一个平坦的损失区域，这样发现test loss进一步的进行下降。&lt;/p&gt;
+&lt;p&gt;理解：&lt;/p&gt;
+&lt;p&gt;当我们的训练损失低到一定的程度，然后随着lr的下降，模型会很难跳出当前的极小值，这种情况下我们的泛化能力也会被限制住，采用这种方法在牺牲测试精度的同时能提升算法的泛化能力。&lt;/p&gt;
+&lt;p&gt;损失公式表示如下&lt;/p&gt;
+&lt;div&gt;
+$$ 
+\widetilde{J}(\theta) = |J(\theta) - b| +b
+ $$
+&lt;/div&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211027104636.jpg&#34;&gt;
+    &lt;img alt=&#34;v2-084a8f00d7349a94540fc7ad3a9433b0_r&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211027104636.jpg&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/imgs/img/20211027104636.jpg&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;v2-084a8f00d7349a94540fc7ad3a9433b0_r&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HyperResolution on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/hyperresolution/</link>
+    <description>Recent content in HyperResolution on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2020 14:55:02 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/hyperresolution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hyper-Resolution</title>
+      <link>https://aikenh.cn/hugotest/posts/hyper_resolution/</link>
+      <pubDate>Fri, 06 Mar 2020 14:55:02 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/hyper_resolution/</guid>
+      <description>&lt;p&gt;说明：重点针对&lt;strong&gt;超分辨率&lt;/strong&gt;技术&lt;/p&gt;
+&lt;p&gt;备注：
+超分辨率在人脸识别上的多，但是表情识别上的确实不多，不过很多都会引用一波&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;超分辨率在表情识别中的应用&#34;&gt;超分辨率在表情识别中的应用&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;KEY WORDs ：
+
+1. (&amp;#34;super resolution&amp;#34; OR &amp;#34;image restore&amp;#34;) AND (&amp;#34;facial expression recognition&amp;#34; OR &amp;#34;emotion recognition&amp;#34;)   
+2. (&amp;#34;super resolution&amp;#34;) AND  (&amp;#34;expression recognition&amp;#34;)   
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/pdf/1709.03126.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;lt; Robust Emotion Recognition from Low Quality and Low Bit Rate Video: A Deep Learning Approach &amp;gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;针对于低带宽传输的分辨率不足和比率低的应用场景&lt;/li&gt;
+&lt;li&gt;基于facial expression recognition 的 emotion recognition&lt;/li&gt;
+&lt;li&gt;在解码器进行视频下采样的时候，&lt;strong&gt;联合SR和识别&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sciencedirect.com/science/article/abs/pii/S0925231219312974&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;lt; Effective image super resolution via hierarchical convolutional neural network &amp;gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;通过层次卷积神经网络(HCNN)来实现有校的SR&lt;/li&gt;
+&lt;li&gt;在facial expression recognition 中案例研究发现增强后的图像有助于提高识别性能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.springer.com/chapter/10.1007/978-3-319-56687-0_13&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;lt; Spatio-temporal Pain Recognition in CNN-Based Super-Resolved Facial Images &amp;gt;&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

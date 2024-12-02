@@ -1,0 +1,452 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Bash Notebook 01 | aiken's blog</title>
+<meta name=keywords content="Langs,Bash"><meta name=description content="整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。
+语句注释
+单行注释：# ，多行注释：
+
+
+1
+2
+3
+4
+
+
+:'
+多行注释用冒号加单引号即可
+'
+echo 'legal'
+
+
+命令行参数传递
+命令行传递参数的方式极其简单， $1 &mldr; $ 9 可分别代表输入的 9 个参数，第 10 个参数则使用 ${10} 表示，可以将其赋予变量后便于使用。
+一些特殊参数：
+
+$0 脚本本身的名称
+$# 输入参数的数量
+$$ 进程 ID
+ $* | $ @ 所有参数（从第一个开始
+$(PWD) | `pwd` 都能输出当前的工作路径
+
+举个脚本例子如下：
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+
+
+# we accept args from commandline and print it to the screen
+# define
+args1=$1
+args2=$2
+
+# print
+echo &#34;using $ { } to get the value of val, what we receive is : ${args1} and ${args2}&#34;
+echo &#34;$ can also show : $args1 and $args2&#34;
+
+# we can make those statement in a string, which may transfer to its value
+echo &#34;using $ / {} in a string can also get the value like $args1 and $args2&#34;
+echo 'using $ / {} in a string single quotes cannot get the value like $args1 and $args2'
+
+
+"><meta name=author content="aikenhong"><link rel=canonical href=https://aikenh.cn/hugotest/posts/shell/><link crossorigin=anonymous href=/hugotest/assets/css/stylesheet.2f85ca17c12c62fa86b1e474b8a51aca4856f0d645debfe4922a4d5ddc6aa978.css integrity="sha256-L4XKF8EsYvqGseR0uKUaykhW8NZF3r/kkipNXdxqqXg=" rel="preload stylesheet" as=style><link rel=icon href=https://aikenh.cn/favicon/ghost.ico><link rel=icon type=image/png sizes=16x16 href=https://aikenh.cn/favicon/ghost-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aikenh.cn/favicon/ghost-32x32.png><link rel=apple-touch-icon href=https://aikenh.cn/favicon/ghost-apple-touch-icon.png><link rel=mask-icon href=https://aikenh.cn/favicon/ghost-192x192.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aikenh.cn/hugotest/posts/shell/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel=stylesheet><meta property="og:url" content="https://aikenh.cn/hugotest/posts/shell/"><meta property="og:site_name" content="aiken's blog"><meta property="og:title" content="Bash Notebook 01"><meta property="og:description" content="整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。
+语句注释 单行注释：# ，多行注释：
+1 2 3 4 :' 多行注释用冒号加单引号即可 ' echo 'legal' 命令行参数传递 命令行传递参数的方式极其简单， $1 … $ 9 可分别代表输入的 9 个参数，第 10 个参数则使用 ${10} 表示，可以将其赋予变量后便于使用。
+一些特殊参数：
+$0 脚本本身的名称 $# 输入参数的数量 $$ 进程 ID $* | $ @ 所有参数（从第一个开始 $(PWD) | `pwd` 都能输出当前的工作路径 举个脚本例子如下：
+1 2 3 4 5 6 7 8 9 10 11 12 # we accept args from commandline and print it to the screen # define args1=$1 args2=$2 # print echo &#34;using $ { } to get the value of val, what we receive is : ${args1} and ${args2}&#34; echo &#34;$ can also show : $args1 and $args2&#34; # we can make those statement in a string, which may transfer to its value echo &#34;using $ / {} in a string can also get the value like $args1 and $args2&#34; echo 'using $ / {} in a string single quotes cannot get the value like $args1 and $args2' "><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-01-25T22:04:15+00:00"><meta property="article:modified_time" content="2023-01-25T22:04:15+00:00"><meta property="article:tag" content="Langs"><meta property="article:tag" content="Bash"><meta property="og:image" content="https://aikenh.cn/cover/cover6.jpeg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aikenh.cn/cover/cover6.jpeg"><meta name=twitter:title content="Bash Notebook 01"><meta name=twitter:description content="整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。
+语句注释
+单行注释：# ，多行注释：
+
+
+1
+2
+3
+4
+
+
+:'
+多行注释用冒号加单引号即可
+'
+echo 'legal'
+
+
+命令行参数传递
+命令行传递参数的方式极其简单， $1 &mldr; $ 9 可分别代表输入的 9 个参数，第 10 个参数则使用 ${10} 表示，可以将其赋予变量后便于使用。
+一些特殊参数：
+
+$0 脚本本身的名称
+$# 输入参数的数量
+$$ 进程 ID
+ $* | $ @ 所有参数（从第一个开始
+$(PWD) | `pwd` 都能输出当前的工作路径
+
+举个脚本例子如下：
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+
+
+# we accept args from commandline and print it to the screen
+# define
+args1=$1
+args2=$2
+
+# print
+echo &#34;using $ { } to get the value of val, what we receive is : ${args1} and ${args2}&#34;
+echo &#34;$ can also show : $args1 and $args2&#34;
+
+# we can make those statement in a string, which may transfer to its value
+echo &#34;using $ / {} in a string can also get the value like $args1 and $args2&#34;
+echo 'using $ / {} in a string single quotes cannot get the value like $args1 and $args2'
+
+
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aikenh.cn/hugotest/posts/"},{"@type":"ListItem","position":2,"name":"Bash Notebook 01","item":"https://aikenh.cn/hugotest/posts/shell/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bash Notebook 01","name":"Bash Notebook 01","description":"整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。\n语句注释 单行注释：# ，多行注释：\n1 2 3 4 :\u0026#39; 多行注释用冒号加单引号即可 \u0026#39; echo \u0026#39;legal\u0026#39; 命令行参数传递 命令行传递参数的方式极其简单， $1 \u0026hellip; $ 9 可分别代表输入的 9 个参数，第 10 个参数则使用 ${10} 表示，可以将其赋予变量后便于使用。\n一些特殊参数：\n$0 脚本本身的名称 $# 输入参数的数量 $$ 进程 ID $* | $ @ 所有参数（从第一个开始 $(PWD) | `pwd` 都能输出当前的工作路径 举个脚本例子如下：\n1 2 3 4 5 6 7 8 9 10 11 12 # we accept args from commandline and print it to the screen # define args1=$1 args2=$2 # print echo \u0026#34;using $ { } to get the value of val, what we receive is : ${args1} and ${args2}\u0026#34; echo \u0026#34;$ can also show : $args1 and $args2\u0026#34; # we can make those statement in a string, which may transfer to its value echo \u0026#34;using $ / {} in a string can also get the value like $args1 and $args2\u0026#34; echo \u0026#39;using $ / {} in a string single quotes cannot get the value like $args1 and $args2\u0026#39; ","keywords":["Langs","Bash"],"articleBody":"整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。\n语句注释 单行注释：# ，多行注释：\n1 2 3 4 :' 多行注释用冒号加单引号即可 ' echo 'legal' 命令行参数传递 命令行传递参数的方式极其简单， $1 … $ 9 可分别代表输入的 9 个参数，第 10 个参数则使用 ${10} 表示，可以将其赋予变量后便于使用。\n一些特殊参数：\n$0 脚本本身的名称 $# 输入参数的数量 $$ 进程 ID $* | $ @ 所有参数（从第一个开始 $(PWD) | `pwd` 都能输出当前的工作路径 举个脚本例子如下：\n1 2 3 4 5 6 7 8 9 10 11 12 # we accept args from commandline and print it to the screen # define args1=$1 args2=$2 # print echo \"using $ { } to get the value of val, what we receive is : ${args1} and ${args2}\" echo \"$ can also show : $args1 and $args2\" # we can make those statement in a string, which may transfer to its value echo \"using $ / {} in a string can also get the value like $args1 and $args2\" echo 'using $ / {} in a string single quotes cannot get the value like $args1 and $args2' 一些特殊的参数，用来描述基础信息如下：\n1 2 3 4 5 6 7 8 9 10 11 12 13 # basic infomation of script. name_of_script=$0 num_of_args=$# PID=$$ args_list=$* echo \"the name of this script is ${name_of_script}\" echo \"we have ${num_of_args} args\" echo \"and this process' ID is $PID\" echo \"$args_list\" echo \"$@\" echo \"${PWD}\" echo \"`pwd`\" 基本数据类型 数组和字符串的通用操作：切片方法${name:位置:长度}，位置可以取负值，0的话也可以省略成冒号\n数组 数组的定义基本规则是：用（）定义数组，用 SPC 区分元素。\n1 2 Fruits_Array=('apple' 'banana' 'ogange') Array1=({A..D}) # =\u003e A B C D 还可以使用声明 的方式构造数组：\nBash 的变量定义可以不需要指定类型，但是声明的方式，可以在定义的同时指定变量的类型，其中参数列表可以参考跳转链接。\n1 2 declare -a Numbers=(1 2 3) # 不支持{}的方式构造，会只剩下最后一个元素，这个问题还需要深究。 数组的调用和大部分语言一样使用 [] 结合索引来调用其中的元素，元素的索引从 0 开始，同时在使用 echo 等特殊情况下，调用数组的时候，由于 [] 的存在所以要使用 ${} 来引用。不能只是用 $ 1 echo ${Array1[0]} Append 操作支持使用 += 实现数组的延伸，如下所示：\n1 Array1+=(2 3) 数组的拼接、添加、删除等操作，其中拼接，添加等操作存在一致性，从文件中获取数组的方式更是一个比较实用的命令，但是注意能不能自动识别其中的分隔符，或者自定义呢？\n1 2 3 4 5 6 7 8 9 Array2=(\"${Array1[@]}\" \"New Element\") # 如果不添加的话也可以用作赋值，同样也可以用这样的方式连接两个数组。 Array1+=(\"new element\") # 通过正则表达式删除的方法暂时还没掌握，占位。 unser Array1[2] # 删除一项 # 从文件中获取数组 Lines=(`cat \"logfile\"`) 数组的快速索引列表：便于调用或者分析数组的状态，其中范围的用法暂时比较不明确，暂时不使用，后续进行补充。\n字符串 在大多语言中，对字符串的操作和数组的操作都会有很多的共通性，同样在bash中也是如此，例如切片之类的行为都和数组是一致的，在这里我们基于独有的共通的来描述。\n字符串定义\n1 name=\"AikenHong.bash\" 字符串操作\n删除第一个匹配(前缀)的字符串\"suffix\" 1 echo ${name%bash} # 会输出AikenHong. 删除最后一个匹配（后缀）的字符串\"prefix\" 1 echo ${name#AikenHong} # 会输出.bash 删除（长后缀）%%，和删除（长前缀）##和非长版本的区别如下，实际上可以理解为删除第一个匹配到的或者最后一个匹配到的，长的版本最好是使用通配符来使用比较好理解。 1 2 3 4 5 name2=\"aikenhong.github.bash.aikenhong\" echo ${name2%%.*} # 输出aikenhong echo ${name2%.*} # 输出aikenhong.github.bash echo ${name2# *.} # 输出github.bash.aikenhong echo ${name2## *.} # 输出 aikenhong 只要记住前缀后缀删除的关键命令分别是#和%即可，同理，替换的关键词是/from/to和//from(all)/to一个代表替换第一个，一个代表替换所有。\n替换命令 1 echo ${name/AikenHong/Metis} # 会输出metis.bash 全部替换的话\n1 echo ${name//n/i} # 会输出aikeihoig.bash 大小写切换，切换大写使用^，切换小写使用,，全部切换使用,,或^^，或使用foo[@],和foo[@]^^ 字符串的路径处理\n1 2 3 4 5 6 SRC=\"/path/to/foo.cpp\" BASEPATH=${SRC##*/} echo $BASEPATH # =\u003e \"foo.cpp\" DIRPATH=${SRC%$BASEPATH} echo $DIRPATH # =\u003e \"/path/to/\" 字典 bash 对字典的支持是后续引入的，如果 bash 在旧的版本可能会出现 declare -A 参数无效的问题。\n字典类型有点像是原生之外拓展的类型，只能用 declare 来进行声明，声明后的定义方式借助数组，下面举个例子：\n1 declare -A myDict 接着给字典赋值，一种是用来赋初值，另一种是动态赋值方法：\n1 2 myDict=([key1]=\"value1\" [key2]=\"value2\" [key3]=\"value3\") myDict['key']=value 调用变量进行打印的时候参照定义数组的方式：\n1 echo ${myDict[key1]} 其他的一些常见索引，和数组是类似的，但是注意的是！输出的是 key，默认的输出的是 value：\n字典的拼接好像没有很方便，建议是使用循环来进行复制实现复制。\n基础运算符 这里还需要搞清楚两个括号和一个括号的区别 Shell 中test 单中括号[] 双中括号的区别 与或非 [[ ! EXPR ]] ：Not [[ X \u0026\u0026 Y ]] | [ -a ] ：And [[ X || Y ]] | [-o ] ：Or 1 2 3 4 5 6 7 if [ \"$1\" = 'y' -a $2 -gt 0 ]; then echo \"yes\" fi if [[ X \u0026\u0026 Y ]]; then ... fi 数字比较运算符 用于 [[]] 的比较运算符如下\n-eq | -ne ：（equal）等于 \u0026 不等于 -lt | -le ：（less than）小于 \u0026 小于等于（less or equal） -gt | -ge ：（greater than）大于 \u0026 大于等于 1 [[ NUM -eq NUM ]] 用于 (()) 情况下的比较运算符\n\u003c | \u003c= | \u003e | \u003e= 1 ( NUM \u003c NUM ) 字符串比较运算符 [[ -z STR ]] ：空字符串 [[ -n STR ]] ：非空字符串 [[ STR == STR ]] | [[ STR = STR ]] | [[ STR != STR]] ：相等 | 不相等 [[ STR \u003c STR ]] | [[ STR \u003e STR ]] ：基于 ASCII 的大于小于 [[ STR =~ re ]] ：正则表达式（re） 1 2 3 4 5 6 7 if [[ -z \"$string\" ]]; then echo \"String is empty\" elif [[ -n \"$string\" ]]; then echo \"String is not empty\" else echo \"This never happens\" fi 文件比较运算符 循环语句 Shell 中的循环语句主要分为以下的几种，for | while | until 模式，以循环输出数字给出例子。for 和 while 和其他语言中的一致，until 为当条件不满足的时候一直进入循环，直到满足条件的时候退出循环（和 while 相反）\n在描述循环之前，先解释一下生成序列的一些方法(下面都能生成 1 到 n 的序列)，就像range:\n1 2 3 4 seq 1 n | seq 1 step n {1..n} | {1..n..step} \"a b c d\" # 会产生 a b c d 的序列 ‘word1’ ‘word2’ # 也会产生相应的序列 break 和 Continue 的用法和其他语言中的是一致的，这里不再赘述。 for 循环 for … in … 模式： 和 python 类似，针对任何类型的列表进行循环，可以结合上述的序列生成方法进行循环。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 echo 'using seq to generate list' for i in `seq 1 3`; do echo $i done for i in $(seq 1 3); do echo $i done echo 'using {...} to generate list' for i in {1..3}; do echo $i done c 模式：类似 c 语言系列的 for 循环，相比于 list 相对灵活一些，较好构造。\n1 2 3 4 for ((i=0;i\u003c3;i+=2)); do echo $i done 利用 for 循环遍历文件：和*一起使用可以方便的遍历文件，算是 for 循环的一个优势。\n1 2 3 4 5 6 7 for i in *.sh; do echo $i done for i in /etc/rc.*; do echo $i done 需要注意的事：如果 do 和循环同行的话就需要分号，如果执行了换行就不需要分号了。\nwhile 循环 当条件满足的时候进入循环，用法如下：\n1 2 3 4 5 i=3 while [[ $i -gt 0 ]]; do echo \"Number: $i\" ((i--)) done 典型的用法就是用来读取文件，这种时候可以通过管道命令来使用 while；\n1 2 3 cat file.txt | while read line; do echo $line done until 循环 until 是当条件不满足的时候进入循环，用法如下：\n1 2 3 4 5 count=0 until [ $count -gt 10]; don echo \"$count\" ((count++)) done 基本函数定义和使用 函数定义\n1 2 3 4 5 get_name() { echo \"Aikenhong\" } echo \"you are $(get_name)\" 也可以使用 function 的关键字来替换\n1 2 3 4 5 function get_name() { echo \"Aikenhong\" } echo \"you are $(get_name)\" 函数的参数传递：函数相当于另一个命名空间，所以其中的传入的函数参数列表和函数的参数列表本身是互不影响独立的。\n1 2 3 4 5 6 7 8 9 # 假设此时的脚本的参数输入$1=Aikenhong print_string(){ echo $1 echo $2 } echo \"author is $1\" print_string hello world # 最终会输出author is Aikenhong hello world 传入参数的方式也如上面的例子所示。\n函数的返回值： https://www.runoob.com/linux/linux-shell-func.html 1 2 3 4 5 myfunc() { local myresult='some value' echo $myresult } result=\"$(myfunc)\" 函数用于抛出错误：\n1 2 3 4 5 6 7 8 9 myfunc() { return 1 } if myfunc; then echo \"success\" else echo \"failure\" fi Reference The Art of Command Line Quick Reference Man Page CN Linux-shell 中 $(( ))、$ ( )与${ } In Addition 1 2 g++ helloworld.cpp -o a ./a output 更新 Mac 的 bash 版本 安装新版 bash 版本 brew install bash 查看安装完的 bash 路径 which -a bash 并通过 bash --version 确认新bash 注册新 bash：sudo vim /etc/shells，将新路径加在最后一样，重启终端即可。 Zsh 不需要操作，重启后会自动使用新的这个 bash。 但是注意执行的时候可能需要改成 bash 而不是 sh，sh 我们并没有更新。 ","wordCount":"978","inLanguage":"en","image":"https://aikenh.cn/cover/cover6.jpeg","datePublished":"2023-01-25T22:04:15Z","dateModified":"2023-01-25T22:04:15Z","author":[{"@type":"Person","name":"aikenhong"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://aikenh.cn/hugotest/posts/shell/"},"publisher":{"@type":"Organization","name":"aiken's blog","logo":{"@type":"ImageObject","url":"https://aikenh.cn/favicon/ghost.ico"}}}</script></head><body id=top><script type=module src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js defer></script><script nomodule src=https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js defer></script><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aikenh.cn/hugotest/ accesskey=h title="aiken's blog (Alt + H)">aiken's blog</a><div class=logo-switches><button id=theme-toggle-nav accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aikenh.cn/hugotest/ title=home><span>home</span></a></li><li><a href=https://aikenh.cn/hugotest/posts/ title=posts><span>posts</span></a></li><li><a href=https://aikenh.cn/hugotest/tags/ title=tags><span>tags</span></a></li><li><a href=https://aikenh.cn/hugotest/categories/ title=categories><span>categories</span></a></li><li><a href=https://aikenh.cn/hugotest/archives/ title=archives><span>archives</span></a></li><li><a href=https://aikenh.cn/hugotest/about/ title=about><span>about</span></a></li><li><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><span>search</span></a></li></ul></nav></header><div class=sidebar><ul><li class=logo style=--bg:#333><a href=#><div class=logo-icon><img src=/logo/logo.png></div><div class=logo-text>Aiken's Blog</div></a></li><div class=menulist><li style=--bg:#f44336><a href=https://aikenh.cn/hugotest/ title=home><div class=logo-icon><ion-icon name=home-outline></ion-icon></div><div class=logo-text>home</div></a></li><li style=--bg:#b145e9><a href=https://aikenh.cn/hugotest/posts/ title=posts><div class=logo-icon><ion-icon name=newspaper-outline></ion-icon></div><div class=logo-text>posts</div></a></li><li style=--bg:#0f93c7><a href=https://aikenh.cn/hugotest/tags/ title=tags><div class=logo-icon><ion-icon name=pricetags-outline></ion-icon></div><div class=logo-text>tags</div></a></li><li style=--bg:#ffa117><a href=https://aikenh.cn/hugotest/categories/ title=categories><div class=logo-icon><ion-icon name=grid-outline></ion-icon></div><div class=logo-text>categories</div></a></li><li style=--bg:#0fc70f><a href=https://aikenh.cn/hugotest/archives/ title=archives><div class=logo-icon><ion-icon name=folder-outline></ion-icon></div><div class=logo-text>archives</div></a></li><li style=--bg:#d16111><a href=https://aikenh.cn/hugotest/about/ title=about><div class=logo-icon><ion-icon name=person></ion-icon></div><div class=logo-text>about</div></a></li><li style=--bg:#15c095><a href=https://aikenh.cn/hugotest/search title="search (Alt + /)" accesskey=/><div class=logo-icon><ion-icon name=search></ion-icon></div><div class=logo-text>search</div></a></li></div><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt +T)"><li><div class=logo-icon id=moon><ion-icon name=moon-outline></ion-icon></div><div class=logo-icon id=sun><ion-icon name=sunny-outline></ion-icon></div></li></button></div></ul></div><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://aikenh.cn/hugotest/>Home</a>&nbsp;»&nbsp;<a href=https://aikenh.cn/hugotest/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Bash Notebook 01</h1><div class=post-meta><span title='2023-01-25 22:04:15 +0000 UTC'>January 25, 2023</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;978 words&nbsp;·&nbsp;aikenhong&nbsp;·&nbsp;<a href=/tags/langs> Langs</a>&nbsp;·&nbsp;<a href=/tags/bash> Bash</a>&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/Shell.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://aikenh.cn/cover/cover6.jpeg alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e8%af%ad%e5%8f%a5%e6%b3%a8%e9%87%8a aria-label=语句注释>语句注释</a></li><li><a href=#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%8f%82%e6%95%b0%e4%bc%a0%e9%80%92 aria-label=命令行参数传递>命令行参数传递</a></li><li><a href=#%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b aria-label=基本数据类型>基本数据类型</a><ul class=header-level-2><li><a href=#%e6%95%b0%e7%bb%84 aria-label=数组>数组</a></li><li><a href=#%e5%ad%97%e7%ac%a6%e4%b8%b2 aria-label=字符串>字符串</a></li><li><a href=#%e5%ad%97%e5%85%b8 aria-label=字典>字典</a></li></ul></li><li><a href=#%e5%9f%ba%e7%a1%80%e8%bf%90%e7%ae%97%e7%ac%a6 aria-label=基础运算符>基础运算符</a><ul class=header-level-2><li><a href=#%e4%b8%8e%e6%88%96%e9%9d%9e aria-label=与或非>与或非</a></li><li><a href=#%e6%95%b0%e5%ad%97%e6%af%94%e8%be%83%e8%bf%90%e7%ae%97%e7%ac%a6 aria-label=数字比较运算符>数字比较运算符</a></li><li><a href=#%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%af%94%e8%be%83%e8%bf%90%e7%ae%97%e7%ac%a6 aria-label=字符串比较运算符>字符串比较运算符</a></li><li><a href=#%e6%96%87%e4%bb%b6%e6%af%94%e8%be%83%e8%bf%90%e7%ae%97%e7%ac%a6 aria-label=文件比较运算符>文件比较运算符</a></li></ul></li><li><a href=#%e5%be%aa%e7%8e%af%e8%af%ad%e5%8f%a5 aria-label=循环语句>循环语句</a><ul class=header-level-2><li><a href=#for-%e5%be%aa%e7%8e%af aria-label="for 循环">for 循环</a></li><li><a href=#while-%e5%be%aa%e7%8e%af aria-label="while 循环">while 循环</a></li><li><a href=#until-%e5%be%aa%e7%8e%af aria-label="until 循环">until 循环</a></li></ul></li><li><a href=#%e5%9f%ba%e6%9c%ac%e5%87%bd%e6%95%b0%e5%ae%9a%e4%b9%89%e5%92%8c%e4%bd%bf%e7%94%a8 aria-label=基本函数定义和使用>基本函数定义和使用</a></li><li><a href=#reference aria-label=Reference>Reference</a></li><li><a href=#in-addition aria-label="In Addition">In Addition</a><ul class=header-level-2><li><a href=#%e6%9b%b4%e6%96%b0-mac-%e7%9a%84-bash-%e7%89%88%e6%9c%ac aria-label="更新 Mac 的 bash 版本">更新 Mac 的 bash 版本</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;document.addEventListener("DOMContentLoaded",function(){if(checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),elements.length>0){activeElement=elements[0];const e=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${e}"]`).classList.add("active")}const t=document.getElementById("top-link");t&&t.addEventListener("click",e=>{e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})})},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{const e=window.pageYOffset||document.documentElement.scrollTop;if(e===0)return;elements&&elements.length>0&&(elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase(),n=document.querySelector(`.inner ul li a[href="#${t}"]`);n.classList.remove("read")}),activeElement=Array.from(elements).find(t=>{if(getOffsetTop(t)-e>0&&getOffsetTop(t)-e<window.innerHeight/2)return t})||activeElement,elements.forEach((t)=>{const o=encodeURI(t.getAttribute("id")).toLowerCase(),s=document.querySelector(`.inner ul li a[href="#${o}"]`);if(t===activeElement){s.classList.add("active");const e=document.querySelector(".toc .inner"),t=s.offsetTop,n=e.clientHeight,o=s.clientHeight,i=t-n/2+o/2;e.scrollTo({top:i,behavior:"smooth"})}else getOffsetTop(t)<e&&s.classList.add("read"),s.classList.remove("active")}))},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return!document.querySelector(".hugo-encryptor-prompt")&&elements.length!=0&&(elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),console.log("Elements re-queried:",elements)),0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><p>整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。</p><h2 id=语句注释>语句注释<a hidden class=anchor aria-hidden=true href=#语句注释>#</a></h2><p>单行注释：<code>#</code> ，多行注释：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>:<span class=s1>&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>多行注释用冒号加单引号即可
+</span></span></span><span class=line><span class=cl><span class=s1>&#39;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;legal&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=命令行参数传递>命令行参数传递<a hidden class=anchor aria-hidden=true href=#命令行参数传递>#</a></h2><p>命令行传递参数的方式极其简单，<code> $1</code> &mldr; <code>$ 9</code> 可分别代表输入的 9 个参数，第 10 个参数则使用 <code>${10}</code> 表示，可以将其赋予变量后便于使用。</p><p>一些特殊参数：</p><ol><li><code>$0</code> 脚本本身的名称</li><li><code>$#</code> 输入参数的数量</li><li><code>$$</code> 进程 ID</li><li><code>$*</code> | <code>$ @</code> 所有参数（从第一个开始</li><li><code>$(PWD)</code> | `pwd` 都能输出当前的工作路径</li></ol><p>举个脚本例子如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># we accept args from commandline and print it to the screen</span>
+</span></span><span class=line><span class=cl><span class=c1># define</span>
+</span></span><span class=line><span class=cl><span class=nv>args1</span><span class=o>=</span><span class=nv>$1</span>
+</span></span><span class=line><span class=cl><span class=nv>args2</span><span class=o>=</span><span class=nv>$2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># print</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;using </span>$<span class=s2> { } to get the value of val, what we receive is : </span><span class=si>${</span><span class=nv>args1</span><span class=si>}</span><span class=s2> and </span><span class=si>${</span><span class=nv>args2</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;</span>$<span class=s2> can also show : </span><span class=nv>$args1</span><span class=s2> and </span><span class=nv>$args2</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># we can make those statement in a string, which may transfer to its value</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;using </span>$<span class=s2> / {} in a string can also get the value like </span><span class=nv>$args1</span><span class=s2> and </span><span class=nv>$args2</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;using $ / {} in a string single quotes cannot get the value like $args1 and $args2&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><p>一些特殊的参数，用来描述基础信息如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># basic infomation of script.</span>
+</span></span><span class=line><span class=cl><span class=nv>name_of_script</span><span class=o>=</span><span class=nv>$0</span>
+</span></span><span class=line><span class=cl><span class=nv>num_of_args</span><span class=o>=</span><span class=nv>$#</span>
+</span></span><span class=line><span class=cl><span class=nv>PID</span><span class=o>=</span><span class=nv>$$</span>
+</span></span><span class=line><span class=cl><span class=nv>args_list</span><span class=o>=</span><span class=nv>$*</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;the name of this script is </span><span class=si>${</span><span class=nv>name_of_script</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;we have </span><span class=si>${</span><span class=nv>num_of_args</span><span class=si>}</span><span class=s2> args&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;and this process&#39; ID is </span><span class=nv>$PID</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$args_list</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$@</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>PWD</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;`pwd`&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=基本数据类型>基本数据类型<a hidden class=anchor aria-hidden=true href=#基本数据类型>#</a></h2><p><strong>数组和字符串的通用操作</strong>：切片方法<code>${name:位置:长度}</code>，位置可以取负值，0的话也可以省略成冒号</p><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230129143456.png><img alt=image.png loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230129143456.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230129143456.png style="display:block;margin:0 auto" alt=image.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><h3 id=数组>数组<a hidden class=anchor aria-hidden=true href=#数组>#</a></h3><p><strong>数组的定义</strong>基本规则是：用（）定义数组，用 SPC 区分元素。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>Fruits_Array</span><span class=o>=(</span><span class=s1>&#39;apple&#39;</span> <span class=s1>&#39;banana&#39;</span> <span class=s1>&#39;ogange&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=nv>Array1</span><span class=o>=({</span>A..D<span class=o>})</span> <span class=c1># =&gt; A B C D</span>
+</span></span></code></pre></td></tr></table></div></div><p>还可以<strong>使用<a href=https://linuxhint.com/bash_declare_command/ target=_blank rel=noopener>声明</a>
+的方式构造</strong>数组：</p><blockquote><p>Bash 的变量定义可以不需要指定类型，但是声明的方式，可以在定义的同时指定变量的类型，其中参数列表可以参考跳转链接。</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>declare</span> -a <span class=nv>Numbers</span><span class=o>=(</span><span class=m>1</span> <span class=m>2</span> 3<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 不支持{}的方式构造，会只剩下最后一个元素，这个问题还需要深究。</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>数组的调用</strong>和大部分语言一样使用 <code>[]</code> 结合索引来调用其中的元素，元素的索引从 0 开始，同时在使用 echo 等特殊情况下，调用数组的时候，由于 <code>[]</code> 的存在所以要使用 <code>${}</code> 来引用。不能只是用 <code>$</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>Array1</span><span class=p>[0]</span><span class=si>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>Append 操作</strong>支持使用 <code>+=</code> 实现数组的延伸，如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>Array1</span><span class=o>+=(</span><span class=m>2</span> 3<span class=o>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>数组的拼接、添加、删除等操作</strong>，其中拼接，添加等操作存在一致性，从文件中获取数组的方式更是一个比较实用的命令，但是注意能不能自动识别其中的分隔符，或者自定义呢？</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>Array2</span><span class=o>=(</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>Array1</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;New Element&#34;</span><span class=o>)</span> 
+</span></span><span class=line><span class=cl><span class=c1># 如果不添加的话也可以用作赋值，同样也可以用这样的方式连接两个数组。</span>
+</span></span><span class=line><span class=cl><span class=nv>Array1</span><span class=o>+=(</span><span class=s2>&#34;new element&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 通过正则表达式删除的方法暂时还没掌握，占位。</span>
+</span></span><span class=line><span class=cl>unser Array1<span class=o>[</span>2<span class=o>]</span> <span class=c1># 删除一项</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 从文件中获取数组</span>
+</span></span><span class=line><span class=cl><span class=nv>Lines</span><span class=o>=(</span><span class=sb>`</span>cat <span class=s2>&#34;logfile&#34;</span><span class=sb>`</span><span class=o>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>数组的快速索引列表：便于调用或者分析数组的状态，其中范围的用法暂时比较不明确，暂时不使用，后续进行补充。</p><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230128131402.png><img alt=image.png loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230128131402.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230128131402.png style="display:block;margin:0 auto" alt=image.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><h3 id=字符串>字符串<a hidden class=anchor aria-hidden=true href=#字符串>#</a></h3><p>在大多语言中，对字符串的操作和数组的操作都会有很多的共通性，同样在bash中也是如此，例如切片之类的行为都和数组是一致的，在这里我们基于独有的共通的来描述。</p><p><strong>字符串定义</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>name</span><span class=o>=</span><span class=s2>&#34;AikenHong.bash&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>字符串操作</strong></p><ol><li>删除第一个匹配(前缀)的字符串"suffix"</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name</span><span class=p>%bash</span><span class=si>}</span> <span class=c1># 会输出AikenHong.</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>删除最后一个匹配（后缀）的字符串"prefix"</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name</span><span class=p>#AikenHong</span><span class=si>}</span> <span class=c1># 会输出.bash</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=3><li>删除（长后缀）<code>%%</code>，和删除（长前缀）<code>##</code>和非长版本的区别如下，实际上可以理解为删除第一个匹配到的或者最后一个匹配到的，长的版本最好是使用通配符来使用比较好理解。</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>name2</span><span class=o>=</span><span class=s2>&#34;aikenhong.github.bash.aikenhong&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name2</span><span class=p>%%.*</span><span class=si>}</span> <span class=c1># 输出aikenhong</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name2</span><span class=p>%.*</span><span class=si>}</span> <span class=c1># 输出aikenhong.github.bash</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name2</span><span class=p># *.</span><span class=si>}</span> <span class=c1># 输出github.bash.aikenhong</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name2</span><span class=p>## *.</span><span class=si>}</span> <span class=c1># 输出 aikenhong</span>
+</span></span></code></pre></td></tr></table></div></div><p>只要记住前缀后缀删除的关键命令分别是<code>#</code>和<code>%</code>即可，同理，替换的关键词是<code>/from/to</code>和<code>//from(all)/to</code>一个代表替换第一个，一个代表替换所有。</p><ol start=4><li>替换命令</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name</span><span class=p>/AikenHong/Metis</span><span class=si>}</span> <span class=c1># 会输出metis.bash</span>
+</span></span></code></pre></td></tr></table></div></div><p>全部替换的话</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>name</span><span class=p>//n/i</span><span class=si>}</span> <span class=c1># 会输出aikeihoig.bash</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=5><li>大小写切换，切换大写使用<code>^</code>，切换小写使用<code>,</code>，全部切换使用<code>,,</code>或<code>^^</code>，或使用<code>foo[@],</code>和<code>foo[@]^^</code></li></ol><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230129143543.png><img alt=image.png loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230129143543.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230129143543.png style="display:block;margin:0 auto" alt=image.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><p><strong>字符串的路径处理</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>SRC</span><span class=o>=</span><span class=s2>&#34;/path/to/foo.cpp&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>BASEPATH</span><span class=o>=</span><span class=si>${</span><span class=nv>SRC</span><span class=p>##*/</span><span class=si>}</span>   
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=nv>$BASEPATH</span>  <span class=c1># =&gt; &#34;foo.cpp&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>DIRPATH</span><span class=o>=</span><span class=si>${</span><span class=nv>SRC</span><span class=p>%</span><span class=nv>$BASEPATH</span><span class=si>}</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=nv>$DIRPATH</span>   <span class=c1># =&gt; &#34;/path/to/&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=字典>字典<a hidden class=anchor aria-hidden=true href=#字典>#</a></h3><blockquote><p>bash 对字典的支持是后续引入的，如果 bash 在旧的版本可能会出现 declare -A 参数无效的问题。</p></blockquote><p>字典类型有点像是原生之外拓展的类型，只能用 declare 来进行声明，声明后的定义方式借助数组，下面举个例子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>declare</span> -A myDict
+</span></span></code></pre></td></tr></table></div></div><p>接着给字典赋值，一种是用来赋初值，另一种是动态赋值方法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>myDict</span><span class=o>=([</span>key1<span class=o>]=</span><span class=s2>&#34;value1&#34;</span> <span class=o>[</span>key2<span class=o>]=</span><span class=s2>&#34;value2&#34;</span> <span class=o>[</span>key3<span class=o>]=</span><span class=s2>&#34;value3&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>myDict<span class=o>[</span><span class=s1>&#39;key&#39;</span><span class=o>]=</span>value
+</span></span></code></pre></td></tr></table></div></div><p>调用变量进行打印的时候参照定义数组的方式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${</span><span class=nv>myDict</span><span class=p>[key1]</span><span class=si>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>其他的一些常见索引，和数组是类似的，但是注意的是！输出的是 key，默认的输出的是 value：</p><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230128141227.png><img alt=image.png loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230128141227.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230128141227.png style="display:block;margin:0 auto" alt=image.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><p>字典的拼接好像没有很方便，建议是使用循环来进行复制实现复制。</p><h2 id=基础运算符>基础运算符<a hidden class=anchor aria-hidden=true href=#基础运算符>#</a></h2><ul><li><input disabled type=checkbox> 这里还需要搞清楚两个括号和一个括号的区别
+<a href=https://www.cnblogs.com/zeweiwu/p/5485711.html target=_blank rel=noopener>Shell 中test 单中括号[] 双中括号的区别</a></li></ul><h3 id=与或非>与或非<a hidden class=anchor aria-hidden=true href=#与或非>#</a></h3><ul><li><code>[[ ! EXPR ]]</code> ：Not</li><li><code>[[ X && Y ]]</code> | <code>[ -a ]</code> ：And</li><li><code>[[ X || Y ]]</code> | <code>[-o ]</code> ：Or</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s1>&#39;y&#39;</span> -a <span class=nv>$2</span> -gt <span class=m>0</span> <span class=o>]</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl>	<span class=k>then</span> <span class=nb>echo</span> <span class=s2>&#34;yes&#34;</span> 
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[[</span> X <span class=o>&amp;&amp;</span> Y <span class=o>]]</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl>	<span class=k>then</span> ... 
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=数字比较运算符>数字比较运算符<a hidden class=anchor aria-hidden=true href=#数字比较运算符>#</a></h3><p>用于 <code>[[]]</code> 的比较运算符如下</p><ul><li><code>-eq</code> | <code>-ne</code> ：（equal）等于 & 不等于</li><li><code>-lt</code> | <code>-le</code> ：（less than）小于 & 小于等于（less or equal）</li><li><code>-gt</code> | <code>-ge</code> ：（greater than）大于 & 大于等于</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=o>[[</span> NUM -eq NUM <span class=o>]]</span>
+</span></span></code></pre></td></tr></table></div></div><p>用于 <code>(())</code> 情况下的比较运算符</p><ul><li><code>&lt;</code> | <code>&lt;=</code> | <code>></code> | <code>>=</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=o>(</span> NUM &lt; NUM <span class=o>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=字符串比较运算符>字符串比较运算符<a hidden class=anchor aria-hidden=true href=#字符串比较运算符>#</a></h3><ul><li><code>[[ -z STR ]]</code> ：空字符串</li><li><code>[[ -n STR ]]</code> ：非空字符串</li><li><code>[[ STR == STR ]]</code> | <code>[[ STR = STR ]]</code> | <code>[[ STR != STR]]</code> ：相等 | 不相等</li><li><code>[[ STR &lt; STR ]]</code> | <code>[[ STR > STR ]]</code> ：基于 ASCII 的大于小于</li><li><code>[[ STR =~ re ]]</code> ：正则表达式（re）</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>if</span> <span class=o>[[</span> -z <span class=s2>&#34;</span><span class=nv>$string</span><span class=s2>&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;String is empty&#34;</span> 
+</span></span><span class=line><span class=cl><span class=k>elif</span> <span class=o>[[</span> -n <span class=s2>&#34;</span><span class=nv>$string</span><span class=s2>&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;String is not empty&#34;</span> 
+</span></span><span class=line><span class=cl><span class=k>else</span> 
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;This never happens&#34;</span> 
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=文件比较运算符>文件比较运算符<a hidden class=anchor aria-hidden=true href=#文件比较运算符>#</a></h3><p><div class=post-img-view><a data-fancybox=gallery href=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230125181208.png><img alt=image.png loading=lazy src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230125181208.png class=responsive-image src=https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20230125181208.png style="display:block;margin:0 auto" alt=image.png></a></div><script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".responsive-image"),t=window.innerHeight/2.5;e.forEach(function(e){e.style.maxHeight=t+"px"})})</script></p><h2 id=循环语句>循环语句<a hidden class=anchor aria-hidden=true href=#循环语句>#</a></h2><p>Shell 中的循环语句主要分为以下的几种，for | while | until 模式，以循环输出数字给出例子。for 和 while 和其他语言中的一致，until 为当条件不满足的时候一直进入循环，直到满足条件的时候退出循环（和 while 相反）</p><p>在描述循环之前，先解释一下<strong>生成序列</strong>的一些方法(下面都能生成 1 到 n 的序列)，就像range:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>seq <span class=m>1</span> n <span class=p>|</span> seq <span class=m>1</span> step n
+</span></span><span class=line><span class=cl><span class=o>{</span>1..n<span class=o>}</span> <span class=p>|</span> <span class=o>{</span>1..n..step<span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;a b c d&#34;</span> <span class=c1># 会产生 a b c d 的序列</span>
+</span></span><span class=line><span class=cl>‘word1’ ‘word2’ <span class=c1># 也会产生相应的序列</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><code>break</code> 和 <code>Continue</code> 的用法和其他语言中的是一致的，这里不再赘述。</li></ul><h3 id=for-循环>for 循环<a hidden class=anchor aria-hidden=true href=#for-循环>#</a></h3><p><strong>for &mldr; in &mldr; 模式</strong>： 和 python 类似，针对任何类型的列表进行循环，可以结合上述的序列生成方法进行循环。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;using seq to generate list&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> i in <span class=sb>`</span>seq <span class=m>1</span> 3<span class=sb>`</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$i</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> i in <span class=k>$(</span>seq <span class=m>1</span> 3<span class=k>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$i</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;using {...} to generate list&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> i in <span class=o>{</span>1..3<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$i</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>c 模式</strong>：类似 c 语言系列的 for 循环，相比于 list 相对灵活一些，较好构造。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>for</span> <span class=o>((</span><span class=nv>i</span><span class=o>=</span>0<span class=p>;</span>i&lt;3<span class=p>;</span><span class=nv>i</span><span class=o>+=</span>2<span class=o>))</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$i</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>利用 for 循环遍历文件</strong>：和*一起使用可以方便的遍历文件，算是 for 循环的一个优势。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>for</span> i in *.sh<span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$i</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> i in /etc/rc.*<span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$i</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>需要注意的事</strong>：如果 do 和循环同行的话就需要分号，如果执行了换行就不需要分号了。</p><h3 id=while-循环>while 循环<a hidden class=anchor aria-hidden=true href=#while-循环>#</a></h3><p>当条件满足的时候进入循环，用法如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>i</span><span class=o>=</span><span class=m>3</span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=o>[[</span> <span class=nv>$i</span> -gt <span class=m>0</span> <span class=o>]]</span><span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;Number: </span><span class=nv>$i</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=o>((</span>i--<span class=o>))</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p>典型的用法就是用来读取文件，这种时候可以通过管道命令来使用 while；</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cat file.txt <span class=p>|</span> <span class=k>while</span> <span class=nb>read</span> line<span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$line</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=until-循环>until 循环<a hidden class=anchor aria-hidden=true href=#until-循环>#</a></h3><p>until 是当条件不满足的时候进入循环，用法如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>count</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl><span class=k>until</span> <span class=o>[</span> <span class=nv>$count</span> -gt 10<span class=o>]</span><span class=p>;</span> don
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$count</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=o>((</span>count++<span class=o>))</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=基本函数定义和使用>基本函数定义和使用<a hidden class=anchor aria-hidden=true href=#基本函数定义和使用>#</a></h2><p><strong>函数定义</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>get_name<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;Aikenhong&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;you are </span><span class=k>$(</span>get_name<span class=k>)</span><span class=s2>&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>也可以使用 function 的关键字来替换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>function</span> get_name<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;Aikenhong&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;you are </span><span class=k>$(</span>get_name<span class=k>)</span><span class=s2>&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>函数的参数传递</strong>：函数相当于另一个命名空间，所以其中的传入的函数参数列表和函数的参数列表本身是互不影响独立的。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 假设此时的脚本的参数输入$1=Aikenhong</span>
+</span></span><span class=line><span class=cl>print_string<span class=o>(){</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$1</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=nv>$2</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;author is </span><span class=nv>$1</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>print_string hello world
+</span></span><span class=line><span class=cl><span class=c1># 最终会输出author is Aikenhong hello world</span>
+</span></span></code></pre></td></tr></table></div></div><p>传入参数的方式也如上面的例子所示。</p><p><strong>函数的返回值</strong>： <a href=https://www.runoob.com/linux/linux-shell-func.html target=_blank rel=noopener>https://www.runoob.com/linux/linux-shell-func.html</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>myfunc<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>myresult</span><span class=o>=</span><span class=s1>&#39;some value&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=nv>$myresult</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=nv>result</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>myfunc<span class=k>)</span><span class=s2>&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>函数用于抛出错误：</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>myfunc<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> myfunc<span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;success&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;failure&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=reference>Reference<a hidden class=anchor aria-hidden=true href=#reference>#</a></h2><ul><li><a href=https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md target=_blank rel=noopener>The Art of Command Line</a></li><li><a href=https://wangchujiang.com/reference/docs/bash.html#bash-%e5%87%bd%e6%95%b0 target=_blank rel=noopener>Quick Reference</a></li><li><a href=https://manpages.debian.org/unstable/manpages-zh/bash.1.zh_CN.html target=_blank rel=noopener>Man Page CN</a></li><li><a href=https://www.cnblogs.com/chengd/p/7803664.html target=_blank rel=noopener>Linux-shell 中 $(( ))、$ ( )与${ }</a></li></ul><h2 id=in-addition>In Addition<a hidden class=anchor aria-hidden=true href=#in-addition>#</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>g++ helloworld.cpp -o a
+</span></span><span class=line><span class=cl>./a &lt;input &gt;output
+</span></span></code></pre></td></tr></table></div></div><h3 id=更新-mac-的-bash-版本>更新 Mac 的 bash 版本<a hidden class=anchor aria-hidden=true href=#更新-mac-的-bash-版本>#</a></h3><ol><li>安装新版 bash 版本 <code>brew install bash</code></li><li>查看安装完的 bash 路径 <code>which -a bash</code> 并通过 <code>bash --version</code> 确认新bash</li><li>注册新 bash：<code>sudo vim /etc/shells</code>，将新路径加在最后一样，重启终端即可。</li><li>Zsh 不需要操作，重启后会自动使用新的这个 bash。</li><li>但是注意执行的时候可能需要改成 bash 而不是 sh，sh 我们并没有更新。</li></ol></div><footer class=post-footer><ul class=post-tags><li><a href=https://aikenh.cn/hugotest/tags/langs/>Langs</a></li><li><a href=https://aikenh.cn/hugotest/tags/bash/>Bash</a></li></ul><nav class=paginav><a class=prev href=https://aikenh.cn/hugotest/posts/powershell/><span class=title>« Prev</span><br><span>Windows Powershell 00 Install and Config</span>
+</a><a class=next href=https://aikenh.cn/hugotest/posts/dualsystemubuntu/><span class=title>Next »</span><br><span>Windows Configuration04 Dual-System-Ubuntu</span></a></nav></footer><div id=disqus_thread></div><script>function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://aiken-hugo.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url=window.location.href,this.page.identifier=window.location.href.substring(18)}}var runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){if(!isBot&&supportsIntersectionObserver){var e=new IntersectionObserver(function(t){t[0].isIntersecting&&(loadDisqus(),e.disconnect())},{threshold:[0]});e.observe(document.getElementById("disqus_thread"))}else loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by
+Disqus.</a></noscript></article></main><footer class=footer><span>&copy; 2024 <a href=https://aikenh.cn/hugotest/>aiken's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span id=busuanzi_container>Visitors: <span id=busuanzi_value_site_uv></span>
+Views: <span id=busuanzi_value_site_pv></span></span></footer><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),o=13863,i=16993;if(!e||!t){console.error("Busuanzi elements not found.");return}const n=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+o;break}}),s=new MutationObserver(e=>{for(let t of e)if(t.type==="childList"){s.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML||0)+i;break}});n.observe(e,{childList:!0}),s.observe(t,{childList:!0})})</script><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><span class=topInner><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+<span id=read_progress></span>
+</span></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))}),document.getElementById("theme-toggle-nav").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script>document.addEventListener("scroll",function(){const t=document.getElementById("read_progress"),n=document.documentElement.scrollHeight,s=document.documentElement.clientHeight,o=document.documentElement.scrollTop||document.body.scrollTop;t.innerText=((o/(n-s)).toFixed(2)*100).toFixed(0)})</script><script>(function(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(e)}),i.parentNode.insertBefore(n,i)})("/js/pangu.js",function(){pangu.spacingPage()})</script></body></html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hash on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/hash/</link>
+    <description>Recent content in Hash on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Mar 2023 13:12:20 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/hash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Count_Min Sketch算法</title>
+      <link>https://aikenh.cn/hugotest/posts/countminsketch/</link>
+      <pubDate>Fri, 10 Mar 2023 13:12:20 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/countminsketch/</guid>
+      <description>&lt;p&gt;本文介绍计算大规模数据流中的元素出现频次的方法 CMS，以及其简单改进Count-Mean-Min-Sketch&lt;/p&gt;
+&lt;h2 id=&#34;intro--scene&#34;&gt;Intro &amp;amp; Scene&lt;/h2&gt;
+&lt;p&gt;在大数据场景下，比如网页的 TopK 问题，爬虫的是否访问过的问题，都是一种出现频次相关的问题，那么在系统设计的时候，如何选择策略和数据结构去存储相关的数据是最高效合适的呢？&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

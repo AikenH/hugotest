@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://metisy.cool/sitemap.xml
+Sitemap: https://aikenh.cn/hugotest/sitemap.xml

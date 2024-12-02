@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kodi on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/kodi/</link>
+    <description>Recent content in Kodi on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Nov 2023 12:08:37 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/kodi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派家庭影音中心2</title>
+      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
+      <pubDate>Sat, 11 Nov 2023 12:08:37 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
+      <description>&lt;h2 id=&#34;禁止屏幕休眠显示作为-dashboard-显示&#34;&gt;禁止屏幕休眠显示作为 Dashboard 显示&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;树莓派官方的 Raspbian 系统使用的是 lightdm 桌面显示管理器，可以设置 xservice 桌面交互显示来达到屏幕常亮的目的，也就是修改桌面配置文件 lightdm.Conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;http://www.raspi.cc/read-10-1.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;树莓派设置禁止让屏幕休眠，显示器保持常亮状态-树莓派基础学习入门-树莓派极客,raspi.cc - Powered by raspi&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vim /etc/lightdm/lightdm.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;找到 x-server-command 取消注释并在后面加 &lt;code&gt;-s 0-dpms&lt;/code&gt;，添加完后重启即可。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231111132731.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231111132731.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/20231111132731.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参数里的：-s 参数：设置屏幕保护不启动，0 数字零，-dpms 参数：关闭电源节能管理。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>树莓派01 家庭影音中心</title>
+      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
+      <pubDate>Wed, 28 Jun 2023 07:28:27 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;将 RaspBerry Pi 4B 作为家庭影视中心/机顶盒的核心就是 KODI 软件，这是考虑到以下的几点：遥控器的控制、对挂载 webdav 和其他的支持&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最方便的方式可以选择以 KODI 为核心的两个 OS：LibreELEC、OSMC（推荐），这两个系统以 KODI 为默认启动，同时也支持远程登录和 Docker 部署等 Linux 的功能。后者更为推荐应该是前者的官方改进版本。&lt;/p&gt;
+&lt;p&gt;考虑到后续可能会将该 SD 卡用于其他用处，因此本文选择的是使用 RaspBerryPi OS 的方案，以下围绕该方案进行展开：&lt;/p&gt;
+&lt;h2 id=&#34;raspberry-pi-oskodialist-方案探究&#34;&gt;RaspBerry Pi OS+Kodi+Alist 方案探究&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以参考 trouble shooting，可以发现实际上安装 kodi 最简单的方式就是直接使用 apt，无需做其他的 PPA 添加。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;安装kodi&#34;&gt;安装Kodi&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install kodi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完后，使用 kodi 命令开启或者在开始菜单的软件中心中选择 kodi 打开。&lt;/p&gt;
+&lt;h3 id=&#34;设置-gpu-显存硬解相关&#34;&gt;设置 GPU 显存（硬解相关）&lt;/h3&gt;
+&lt;p&gt;首先做一下&lt;strong&gt;固件的升级&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo rpi-update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后&lt;strong&gt;调整一下显存&lt;/strong&gt;：系统设置里面将 gpu_mem 调高一些，我使用的是 4G，调整到了 256MB，切记不要调整太高，否则可能会开机失败，重启后查看显存是否设置成功。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查看 GPU 显存&lt;/strong&gt;的方式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vcgencmd get_mem arm &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; vcgencmd get_mem gpu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;最后在 kodi 中查看相关的选项的开关情况：&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://www.liujason.com/article/656.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;树莓派RaspberryPi 4B设置显存开启硬件加速 支持Emby|Plex|JellyFin转码 LiuJason&amp;rsquo;sBlog&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

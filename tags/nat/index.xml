@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>NAT on aiken&#39;s blog</title>
+    <link>https://aikenh.cn/hugotest/tags/nat/</link>
+    <description>Recent content in NAT on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Apr 2023 14:40:12 +0000</lastBuildDate>
+    <atom:link href="https://aikenh.cn/hugotest/tags/nat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>内网穿透（NAT穿透）</title>
+      <link>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Tue, 04 Apr 2023 14:40:12 +0000</pubDate>
+      <guid>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</guid>
+      <description>&lt;p&gt;本文简要介绍对内网穿透技术、对内网穿透技术的需求以及介绍一些用于&amp;quot;个人&amp;quot;进行内网穿透的工具和使用。&lt;/p&gt;
+&lt;h2 id=&#34;1-什么是内网穿透nat-traversal&#34;&gt;1. 什么是内网穿透(NAT traversal）&lt;/h2&gt;
+&lt;p&gt;在计算机科学中，&lt;strong&gt;NAT穿越&lt;/strong&gt;（NAT traversal）涉及TCP/IP中的一个常见问题，即在处于使用了NAT设备的私有TCP/IP网络中的主机之间创建连接的问题。&lt;/p&gt;
+&lt;p&gt;其中 NAT 即&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;网络地址转换&lt;/a&gt;
+（Network Address Translation）在计算机网络中是一种在 IP 数据包通过路由器或防火墙时重写来源 IP 地址或目的 IP 地址的技术。&lt;strong&gt;这种技术被普遍使用在有多台主机但只通过一个公有 IP 地址访问互联网的私有网络中&lt;/strong&gt;。它是一个方便且得到了广泛应用的技术。当然，NAT 也让主机之间的通信变得复杂，导致了通信效率的降低。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NAT 是作为一种解决&lt;a href=&#34;https://zh.wikipedia.org/wiki/IPv4%E4%BD%8D%E5%9D%80%E6%9E%AF%E7%AB%AD&#34; title=&#34;IPv4位址枯竭&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPv4地址短缺&lt;/a&gt;
+以避免保留 IP 地址困难的方案而流行起来的。NAT 成了家庭和小型办公室网络连接上的路由器的一个标准特征。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其中最为常见的 NAT 设备就是家家户户都有的路由器，将所有的设备在&lt;strong&gt;局域网&lt;/strong&gt;中统一管理，并基于唯一的公网 ip 对互联网（私有网络）进行访问。&lt;/p&gt;
+&lt;p&gt;而 NAT 会带来以下的问题，因此会需要内网穿透的技术：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外网主动发起的服务无法准确的定位到内网的指定机器，会被 NAT 设备丢弃，因此链接会变成单项的，无法双向交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此无法在外网访问内网机器提供给局域网的服务，因此我们的机器，我们部署于 NAS、docker 的服务就只能在局域网中访问，在一定程度上就造成不便。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
