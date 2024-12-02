@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Terminal Multiplexer on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/terminal-multiplexer/</link>
+    <link>https://hugotest-phi.vercel.app/tags/terminal-multiplexer/</link>
     <description>Recent content in Terminal Multiplexer on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 May 2023 16:40:19 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/terminal-multiplexer/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/terminal-multiplexer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terminal multiplexer Zellij</title>
-      <link>https://aikenh.cn/hugotest/posts/linuxzellij/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linuxzellij/</link>
       <pubDate>Sat, 20 May 2023 16:40:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linuxzellij/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linuxzellij/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Tmux 作为一款优秀的终端复用器，前面已经介绍过，这里在介绍一款有着相同功能的平替，个人认为 zellij 的 UI 各方面的设计，使得其相比于 Tmux 有着更低的入门难度，也避免了需要记大量快捷键，因此这里介绍一下该工具。&lt;/p&gt;
 &lt;/blockquote&gt;

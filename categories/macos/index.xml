@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>MacOS on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/macos/</link>
+    <link>https://hugotest-phi.vercel.app/categories/macos/</link>
     <description>Recent content in MacOS on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 02 Apr 2023 19:28:48 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/macos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Macos Configuration01 MacOS terminal 设置</title>
-      <link>https://aikenh.cn/hugotest/posts/macos_bash_config/</link>
+      <link>https://hugotest-phi.vercel.app/posts/macos_bash_config/</link>
       <pubDate>Sun, 02 Apr 2023 19:28:48 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/macos_bash_config/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/macos_bash_config/</guid>
       <description>&lt;p&gt;Mac 的 Terminal 和 Ubuntu 的操作上较为相似，都是 Unix 的吧，但是要注意一下安全和软件管理库。&lt;/p&gt;
 &lt;p&gt;其他的参考资料： &lt;a href=&#34;https://www.youtube.com/watch?v=RNqDkF17ogY&amp;amp;t=787s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.youtube.com/watch?v=RNqDkF17ogY&amp;t=787s&lt;/a&gt;
 &lt;/p&gt;
@@ -52,9 +52,9 @@
     </item>
     <item>
       <title>Macos Configuration00 软件安装和基础配置</title>
-      <link>https://aikenh.cn/hugotest/posts/macos/</link>
+      <link>https://hugotest-phi.vercel.app/posts/macos/</link>
       <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/macos/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/macos/</guid>
       <description>&lt;p&gt;配置一台全新的 MacOs（M1）用于日常使用和编程开发，这里总结一下自己体验比较好的 APP 和开发工具。Let‘s Go&lt;/p&gt;
 &lt;h2 id=&#34;系统基础设置&#34;&gt;系统基础设置&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;调转 F 区功能&lt;/strong&gt;：在涉及到开发的时候，F 区很多情况下就会派上用场，因此这里简单介绍一下：&lt;/p&gt;

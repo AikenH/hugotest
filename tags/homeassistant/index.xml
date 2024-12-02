@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HomeAssistant on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/homeassistant/</link>
+    <link>https://hugotest-phi.vercel.app/tags/homeassistant/</link>
     <description>Recent content in HomeAssistant on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Aug 2023 17:24:50 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HomeAssistant01 入门基础篇</title>
-      <link>https://aikenh.cn/hugotest/posts/homeassistant_init/</link>
+      <link>https://hugotest-phi.vercel.app/posts/homeassistant_init/</link>
       <pubDate>Sat, 12 Aug 2023 17:24:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/homeassistant_init/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/homeassistant_init/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;接下来本文安装的是 Container 版本的 HA，并非 Supervised 的版本，所以其中是不包含 Add-on 的，如果需要特定的 Add-on 的版本请注意。&lt;/p&gt;
 &lt;/blockquote&gt;

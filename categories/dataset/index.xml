@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Dataset on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/dataset/</link>
+    <link>https://hugotest-phi.vercel.app/categories/dataset/</link>
     <description>Recent content in Dataset on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 Jan 2020 02:13:25 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/dataset/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/dataset/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Image Caption Dataset</title>
-      <link>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</link>
+      <link>https://hugotest-phi.vercel.app/posts/imagecaptionrequirement/</link>
       <pubDate>Tue, 14 Jan 2020 02:13:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/imagecaptionrequirement/</guid>
       <description>&lt;h2 id=&#34;goals&#34;&gt;Goals：&lt;/h2&gt;
 &lt;p&gt;1.数据量要求&lt;br&gt;
 2.标注的标准&lt;br&gt;
@@ -41,9 +41,9 @@ CIDEr&lt;/p&gt;
     </item>
     <item>
       <title>表情数据集</title>
-      <link>https://aikenh.cn/hugotest/posts/emotion_dataset/</link>
+      <link>https://hugotest-phi.vercel.app/posts/emotion_dataset/</link>
       <pubDate>Mon, 14 Oct 2019 21:34:54 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/emotion_dataset/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/emotion_dataset/</guid>
       <description>&lt;p&gt;根据这次需要搜集的表情的数据集，整理一下搜索数据集的网站和思路等&lt;/p&gt;
 &lt;p&gt;##PART1 &amp;ldquo;表情数据集&amp;rdquo;
 下列是对数据搜集的要求：&lt;/p&gt;

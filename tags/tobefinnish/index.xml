@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tobefinnish on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/tobefinnish/</link>
+    <link>https://hugotest-phi.vercel.app/tags/tobefinnish/</link>
     <description>Recent content in Tobefinnish on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 31 Jul 2022 23:43:00 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/tobefinnish/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/tobefinnish/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Configuration03 LAN sharing</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Sun, 31 Jul 2022 23:43:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</guid>
       <description>&lt;p&gt;在同一个局域网（像是链接同一个wifi的环境）中，设置共享的文件夹或者磁盘，可提升文件分享的效率和速度，特别适用于与女朋友合租、与兄弟合租的情景。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h2 id=&#34;win-系统开放共享权限&#34;&gt;Win 系统开放共享权限&lt;/h2&gt;

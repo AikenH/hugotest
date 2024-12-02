@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Algorithm on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/algorithm/</link>
+    <link>https://hugotest-phi.vercel.app/categories/algorithm/</link>
     <description>Recent content in Algorithm on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Mar 2023 13:12:20 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Count_Min Sketch算法</title>
-      <link>https://aikenh.cn/hugotest/posts/countminsketch/</link>
+      <link>https://hugotest-phi.vercel.app/posts/countminsketch/</link>
       <pubDate>Fri, 10 Mar 2023 13:12:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/countminsketch/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/countminsketch/</guid>
       <description>&lt;p&gt;本文介绍计算大规模数据流中的元素出现频次的方法 CMS，以及其简单改进Count-Mean-Min-Sketch&lt;/p&gt;
 &lt;h2 id=&#34;intro--scene&#34;&gt;Intro &amp;amp; Scene&lt;/h2&gt;
 &lt;p&gt;在大数据场景下，比如网页的 TopK 问题，爬虫的是否访问过的问题，都是一种出现频次相关的问题，那么在系统设计的时候，如何选择策略和数据结构去存储相关的数据是最高效合适的呢？&lt;/p&gt;</description>
     </item>
     <item>
       <title>Markov Junior</title>
-      <link>https://aikenh.cn/hugotest/posts/markovjunior/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markovjunior/</link>
       <pubDate>Sun, 10 Jul 2022 11:26:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markovjunior/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markovjunior/</guid>
       <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzIxODg1OTk1MA==&amp;amp;mid=2247513354&amp;amp;idx=1&amp;amp;sn=28b5492cc0a86b04f0a0b975bf42568c&amp;amp;ascene=56&amp;amp;devicetype=iOS15.5&amp;amp;version=1800172f&amp;amp;nettype=WIFI&amp;amp;abtest_cookie=AAACAA%3D%3D&amp;amp;lang=zh_CN&amp;amp;fontScale=100&amp;amp;exportkey=ARSr9kinLTM%2B6fr7WYBKF%2FM%3D&amp;amp;pass_ticket=gK4kcTE5wfRRXzd0FMTJlg9zBNGh%2BZ5VoWQkUbqSJXykXGIdMXasyLJgUxII1IDt&amp;amp;wx_header=3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jack Cui&lt;/a&gt;
  | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Markov Junior&lt;/a&gt;
  | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wiki Markov algorithm&lt;/a&gt;
@@ -79,9 +79,9 @@
     </item>
     <item>
       <title>Wave Function Collapse</title>
-      <link>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</link>
+      <link>https://hugotest-phi.vercel.app/posts/wfc%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sun, 10 Jul 2022 09:42:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/wfc%E7%AE%97%E6%B3%95/</guid>
       <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://github.com/mxgmn/WaveFunctionCollapse&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Mxgmn&lt;/a&gt;
  | &lt;a href=&#34;https://zhuanlan.zhihu.com/p/66416593&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;zhihu&lt;/a&gt;
 &lt;/p&gt;
@@ -140,9 +140,9 @@ H(X) = \sum_{x\in X}p(x)log p(x)
     </item>
     <item>
       <title>Algorithm Sort</title>
-      <link>https://aikenh.cn/hugotest/posts/sorttrick/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sorttrick/</link>
       <pubDate>Mon, 06 Dec 2021 17:05:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sorttrick/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sorttrick/</guid>
       <description>&lt;p&gt;记录各种排序操作，暂时不补充最基础的排序方式和理论，只记录排序算法的拓展应用。&lt;/p&gt;
 &lt;p&gt;在理论分析的部分主要使用cpp进行撰写，而在具体使用的时候，目前会主要按照python来进行编写，这主要是面向的场景不同决定的。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -239,9 +239,9 @@ H(X) = \sum_{x\in X}p(x)log p(x)
     </item>
     <item>
       <title>Hungarian</title>
-      <link>https://aikenh.cn/hugotest/posts/hungarian/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hungarian/</link>
       <pubDate>Fri, 03 Dec 2021 00:29:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hungarian/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hungarian/</guid>
       <description>&lt;p&gt;@AikenHong 2021
 @Code: &lt;strong&gt;Scipy&lt;/strong&gt;（repo）
 @Reference:  &lt;a href=&#34;https://zhuanlan.zhihu.com/p/62981901&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;匈牙利算法&amp;amp;KM算法&lt;/a&gt;
@@ -317,9 +317,9 @@ Step2: 寻找匹配，原则如下&lt;/p&gt;
     </item>
     <item>
       <title>Astar</title>
-      <link>https://aikenh.cn/hugotest/posts/astar/</link>
+      <link>https://hugotest-phi.vercel.app/posts/astar/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/astar/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/astar/</guid>
       <description>&lt;p&gt;A* 是一种在平面图形上计算最优路径的方法，通常用来做 2D 游戏的最短寻路，该算法是一种 Dijkstra 算法的变体，使用启发式的策略来提高算法的搜索效率。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/A*%E6%90%9C%E5%B0%8B%E6%BC%94%E7%AE%97%E6%B3%95&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;wikipedia&lt;/a&gt;
 ；&lt;a href=&#34;https://medium.com/@nicholas.w.swift/easy-a-star-pathfinding-7e6689c7f7b2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;medium&lt;/a&gt;
@@ -549,9 +549,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>Leetcode 题型和框架代码总结</title>
-      <link>https://aikenh.cn/hugotest/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</link>
+      <link>https://hugotest-phi.vercel.app/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 29 Jun 2021 10:18:47 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -664,9 +664,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>Leetcode 刷题笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</link>
+      <link>https://hugotest-phi.vercel.app/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 23 Feb 2021 01:45:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;

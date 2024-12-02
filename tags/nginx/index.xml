@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Nginx on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/nginx/</link>
+    <link>https://hugotest-phi.vercel.app/tags/nginx/</link>
     <description>Recent content in Nginx on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Nov 2023 14:05:15 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>破解本地自托管Emby服务</title>
-      <link>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</link>
+      <link>https://hugotest-phi.vercel.app/posts/emby_localhost_crack_by_nginx/</link>
       <pubDate>Fri, 10 Nov 2023 14:05:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/emby_localhost_crack_by_nginx/</guid>
       <description>&lt;h2 id=&#34;intro-问题描述&#34;&gt;Intro 问题描述&lt;/h2&gt;
 &lt;p&gt;以 emby 为例，学习如何对这种自托管的服务，请求验证网站的软件进行破解，破解的整体思路分为以下的两类：&lt;/p&gt;
 &lt;blockquote&gt;
@@ -38,9 +38,9 @@
     </item>
     <item>
       <title>使用Ipv6部署服务02 Nginx和Https</title>
-      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</link>
+      <link>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6_02_nginx/</link>
       <pubDate>Mon, 06 Nov 2023 20:49:16 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6_02_nginx/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第二篇，以腾讯云和 Nginx 为例，介绍如何将服务部署到 https://域名 。&lt;/p&gt;
 &lt;/blockquote&gt;

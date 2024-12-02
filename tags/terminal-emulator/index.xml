@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Terminal Emulator on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/terminal-emulator/</link>
+    <link>https://hugotest-phi.vercel.app/tags/terminal-emulator/</link>
     <description>Recent content in Terminal Emulator on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 30 Jul 2022 10:03:26 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/terminal-emulator/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/terminal-emulator/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Configuration02 Terminal</title>
-      <link>https://aikenh.cn/hugotest/posts/windowsterminal/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windowsterminal/</link>
       <pubDate>Sat, 30 Jul 2022 10:03:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windowsterminal/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windowsterminal/</guid>
       <description>&lt;h2 id=&#34;config-windows-terminal-in-win11&#34;&gt;Config Windows Terminal in Win11&lt;/h2&gt;
 &lt;h3 id=&#34;install-安装&#34;&gt;Install 安装&lt;/h3&gt;
 &lt;p&gt;windows terminal 在 win11 已经自带，无需安装，如果需要安装的话在 Microsoft Store 下载即可，默认的 terminal 在中文环境中可能要搜索 windows 终端。&lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Semi-Supervised Learning on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/semi-supervised-learning/</link>
+    <link>https://hugotest-phi.vercel.app/tags/semi-supervised-learning/</link>
     <description>Recent content in Semi-Supervised Learning on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 Oct 2021 02:30:08 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/semi-supervised-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/semi-supervised-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SS_OD_SoftTeacher</title>
-      <link>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ss_od_softteacher/</link>
       <pubDate>Sat, 09 Oct 2021 02:30:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ss_od_softteacher/</guid>
       <description>&lt;p&gt;@ Article: ICML from Microsoft &amp;amp; Huazhong Keda
 @ Code: &lt;a href=&#34;https://github.com/microsoft/SoftTeacher&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;
 

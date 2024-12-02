@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Git on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/git/</link>
+    <link>https://hugotest-phi.vercel.app/categories/git/</link>
     <description>Recent content in Git on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Feb 2022 12:19:34 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git 01 入门与常用操作</title>
-      <link>https://aikenh.cn/hugotest/posts/git_manual1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/git_manual1/</link>
       <pubDate>Tue, 01 Feb 2022 12:19:34 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/git_manual1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/git_manual1/</guid>
       <description>&lt;p&gt;参考文献：&lt;a href=&#34;https://juejin.cn/post/7131713973572861966&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;稀土掘金&lt;/a&gt;
  | ProGit2&lt;/p&gt;
 &lt;h2 id=&#34;git-与-svn-的区别&#34;&gt;GIT 与 SVN 的区别&lt;/h2&gt;

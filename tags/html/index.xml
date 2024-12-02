@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HTML on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/html/</link>
+    <link>https://hugotest-phi.vercel.app/tags/html/</link>
     <description>Recent content in HTML on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 17 Feb 2024 08:28:28 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/html/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LearnWeb15-Web实战01-首页设计</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Sat, 17 Feb 2024 08:28:28 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -87,9 +87,9 @@
     </item>
     <item>
       <title>LearnWeb07-HTML04-表格基础</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 04 Feb 2024 16:30:09 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -101,9 +101,9 @@
     </item>
     <item>
       <title>LearnWeb06-HTML03-多媒体元素</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</link>
       <pubDate>Sat, 03 Feb 2024 09:51:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -156,9 +156,9 @@
     </item>
     <item>
       <title>LearnWeb05-HTML02-要素察觉</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</link>
       <pubDate>Fri, 02 Feb 2024 14:09:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -193,9 +193,9 @@
     </item>
     <item>
       <title>LearnWeb02-HTML01-基础的标签</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Wed, 31 Jan 2024 15:00:58 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-intro&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -269,9 +269,9 @@
     </item>
     <item>
       <title>LearnWeb01-DevPipeline</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb01-devpipeline/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb01-devpipeline/</link>
       <pubDate>Tue, 30 Jan 2024 10:40:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb01-devpipeline/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb01-devpipeline/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -322,9 +322,9 @@
     </item>
     <item>
       <title>LearnWeb00-Web入门</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb00-web%E5%85%A5%E9%97%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb00-web%E5%85%A5%E9%97%A8/</link>
       <pubDate>Sun, 28 Jan 2024 21:25:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb00-web%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb00-web%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hexo on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/hexo/</link>
+    <link>https://hugotest-phi.vercel.app/tags/hexo/</link>
     <description>Recent content in Hexo on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Mar 2023 23:46:37 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hexo Icarus 配置</title>
-      <link>https://aikenh.cn/hugotest/posts/custom_icarus/</link>
+      <link>https://hugotest-phi.vercel.app/posts/custom_icarus/</link>
       <pubDate>Sat, 11 Mar 2023 23:46:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/custom_icarus/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/custom_icarus/</guid>
       <description>&lt;p&gt;本文的博客页面基于 &lt;a href=&#34;[Hexo]%28https://hexo.io/zh-cn/%29&#34;&gt;Hexo&lt;/a&gt;
 +&lt;a href=&#34;https://ppoffice.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Icarus&lt;/a&gt;
  主题搭建，在使用过程中对该主题做了一些简单的配置，以适应自己的需求。这里介绍一下自己粗浅的方案。&lt;/p&gt;
@@ -64,9 +64,9 @@
     </item>
     <item>
       <title>Hexo Write</title>
-      <link>https://aikenh.cn/hugotest/posts/hexo_write/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hexo_write/</link>
       <pubDate>Wed, 13 Apr 2022 23:29:10 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hexo_write/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hexo_write/</guid>
       <description>&lt;p&gt;Hexo和Gitee一致，都是由Markdown文件为基础，构建的博客，编写Markdown本身无需多言，由于Hexo并非笔者的首选笔记管理方式，故而再其他地方构建和编写文件是常态，该Blog主要是利用其他工具来方便Hexo博文的编写（Header）&lt;/p&gt;
 &lt;p&gt;默认的是 &lt;code&gt;hexo new [layout] title&lt;/code&gt; 可简写为 &lt;code&gt;hexo n [layout] title&lt;/code&gt;，其中布局应该是在博客目录中定义，该命令也局限于博客的对应目录。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -121,9 +121,9 @@
     </item>
     <item>
       <title>Hexo Build</title>
-      <link>https://aikenh.cn/hugotest/posts/hexo_build/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hexo_build/</link>
       <pubDate>Tue, 12 Apr 2022 11:16:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hexo_build/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hexo_build/</guid>
       <description>&lt;p&gt;该文档用以，记录自己（外行）利用Hexo建立Blog的过程，将原本用Gitbook构建的笔记转移到Hexo中，同时购买域名并部署其上。网页部署于&lt;a href=&#34;AikenH.cn&#34;&gt;Github Page&lt;/a&gt;
 。以Live my Live主题为例。&lt;/p&gt;
 &lt;p&gt;腾讯云和Github Page的操作和理解在现有的一些博客中过时了，或者说存在一些问题，后续会对此进行简单的讲解。同时大部分博客都是使用NexT主题进行配置，这里采用的是Live My Life主题，该博文介绍自己的粗浅理解，也为自己后续的工作进行一定的参考。&lt;/p&gt;

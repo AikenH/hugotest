@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Manual on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/manual/</link>
+    <link>https://hugotest-phi.vercel.app/tags/manual/</link>
     <description>Recent content in Manual on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Sep 2022 21:30:00 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/manual/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/manual/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux02 基础指令</title>
-      <link>https://aikenh.cn/hugotest/posts/linux2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux2/</link>
       <pubDate>Sun, 04 Sep 2022 21:30:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux2/</guid>
       <description>&lt;p&gt;@Aiken 2022&lt;/p&gt;
 &lt;p&gt;If u want get detail params info go to: &lt;a href=&#34;http://www.explainshell.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://www.explainshell.com&lt;/a&gt;
 .&lt;/p&gt;
@@ -88,9 +88,9 @@
     </item>
     <item>
       <title>Linux 文件传输和同步</title>
-      <link>https://aikenh.cn/hugotest/posts/transfer-sync-files/</link>
+      <link>https://hugotest-phi.vercel.app/posts/transfer-sync-files/</link>
       <pubDate>Mon, 17 Jan 2022 03:11:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/transfer-sync-files/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/transfer-sync-files/</guid>
       <description>&lt;p&gt;@aikenhong 2022&lt;/p&gt;
 &lt;p&gt;当我们需要在Server之间进行，或者Server和WSL之间进行文件的传输，以及文件夹的同步的时候，如果要打开Xftp之类的软件进行，有繁琐的操作中转，或者说目录较为庞杂的时候，也显得有些麻烦。&lt;/p&gt;
 &lt;p&gt;于是我们可能希望使用脚本，来实现更便捷，同时也能设置定时功能，使得操作简单便捷，经过简单的调研，我们目前尝试使用以下几种方法，并取得了成功。&lt;/p&gt;
@@ -161,9 +161,9 @@ delete: 会删除目标文件中多出来的东西，保持同步，使得成为
     </item>
     <item>
       <title>Linux 基础操作 01</title>
-      <link>https://aikenh.cn/hugotest/posts/linux/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux/</guid>
       <description>&lt;h2 id=&#34;学习资源汇总&#34;&gt;学习资源汇总&lt;/h2&gt;
 &lt;p&gt;manual：&lt;a href=&#34;https://www.runoob.com/w3cnote/linux-common-command-2.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;菜鸟Shell&lt;/a&gt;
  | &lt;a href=&#34;https://www.explainshell.com/explain/1/ps&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ExplainShell&lt;/a&gt;

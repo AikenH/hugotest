@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spacevim on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/spacevim/</link>
+    <link>https://hugotest-phi.vercel.app/tags/spacevim/</link>
     <description>Recent content in Spacevim on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 Oct 2021 12:15:41 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/spacevim/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/spacevim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vim Configuration 03 Spacevim Setup</title>
-      <link>https://aikenh.cn/hugotest/posts/spacevim/</link>
+      <link>https://hugotest-phi.vercel.app/posts/spacevim/</link>
       <pubDate>Sat, 09 Oct 2021 12:15:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/spacevim/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/spacevim/</guid>
       <description>&lt;p&gt;@Aiken 2021 this file is use to record how to config out vim&amp;rsquo; by spacevim.&lt;br&gt;
 I&amp;rsquo;ll write this doc with three Parts:&lt;/p&gt;
 &lt;ul&gt;

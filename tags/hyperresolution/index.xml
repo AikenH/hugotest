@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HyperResolution on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/hyperresolution/</link>
+    <link>https://hugotest-phi.vercel.app/tags/hyperresolution/</link>
     <description>Recent content in HyperResolution on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Mar 2020 14:55:02 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/hyperresolution/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/hyperresolution/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hyper-Resolution</title>
-      <link>https://aikenh.cn/hugotest/posts/hyper_resolution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hyper_resolution/</link>
       <pubDate>Fri, 06 Mar 2020 14:55:02 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hyper_resolution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hyper_resolution/</guid>
       <description>&lt;p&gt;说明：重点针对&lt;strong&gt;超分辨率&lt;/strong&gt;技术&lt;/p&gt;
 &lt;p&gt;备注：
 超分辨率在人脸识别上的多，但是表情识别上的确实不多，不过很多都会引用一波&lt;br&gt;&lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Object Detection on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/object-detection/</link>
+    <link>https://hugotest-phi.vercel.app/tags/object-detection/</link>
     <description>Recent content in Object Detection on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Jul 2020 13:16:40 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/object-detection/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/object-detection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>YOLOv4 阅读笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/cv-yolov4/</link>
+      <link>https://hugotest-phi.vercel.app/posts/cv-yolov4/</link>
       <pubDate>Sun, 26 Jul 2020 13:16:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/cv-yolov4/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/cv-yolov4/</guid>
       <description>&lt;p&gt;@AikenHong 20200726&lt;/p&gt;
 &lt;p&gt;基于YOLO v4 掌握一些CV方面训练的&lt;strong&gt;Trick&lt;/strong&gt;，同时针对Typora的使用进行一个熟悉掌握。&lt;a href=&#34;https://github.com/AlexeyAB/darknet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB CODE&lt;/a&gt;
 &lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Augmentation on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/augmentation/</link>
+    <link>https://hugotest-phi.vercel.app/tags/augmentation/</link>
     <description>Recent content in Augmentation on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Nov 2021 06:24:20 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/augmentation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/augmentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Augmentation</title>
-      <link>https://aikenh.cn/hugotest/posts/dataaugmentation/</link>
+      <link>https://hugotest-phi.vercel.app/posts/dataaugmentation/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/dataaugmentation/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/dataaugmentation/</guid>
       <description>&lt;p&gt;intergrate with those augmentation method.&lt;/p&gt;
 &lt;p&gt;this doc will&lt;/p&gt;
 &lt;ul&gt;

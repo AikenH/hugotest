@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Fine-Tune on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/fine-tune/</link>
+    <link>https://hugotest-phi.vercel.app/tags/fine-tune/</link>
     <description>Recent content in Fine-Tune on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 08 Feb 2022 14:31:37 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/fine-tune/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/fine-tune/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fine Tuning</title>
-      <link>https://aikenh.cn/hugotest/posts/finetune/</link>
+      <link>https://hugotest-phi.vercel.app/posts/finetune/</link>
       <pubDate>Tue, 08 Feb 2022 14:31:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/finetune/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/finetune/</guid>
       <description>&lt;p&gt;@Langs: python, torch
 @reference: d2l-pytorch，&lt;a href=&#34;https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer_torch&lt;/a&gt;
 &lt;/p&gt;

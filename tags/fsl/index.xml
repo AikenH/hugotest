@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>FSL on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/fsl/</link>
+    <link>https://hugotest-phi.vercel.app/tags/fsl/</link>
     <description>Recent content in FSL on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Nov 2021 13:12:05 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/fsl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/fsl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FSL前期调研</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -62,9 +62,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Survey for Few-Shot Learning</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl-collection/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl-collection/</guid>
       <description>&lt;p&gt;@aikenhong 2020
 @h.aiken.970@gmail.com&lt;/p&gt;
 &lt;p&gt;另一个综述文章：https://zhuanlan.zhihu.com/p/61215293

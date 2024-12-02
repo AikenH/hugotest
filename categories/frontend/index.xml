@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Frontend on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/frontend/</link>
+    <link>https://hugotest-phi.vercel.app/categories/frontend/</link>
     <description>Recent content in Frontend on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 02 Oct 2022 18:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/frontend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于Vue和Django的前后端开发实践</title>
-      <link>https://aikenh.cn/hugotest/posts/custom_web/</link>
+      <link>https://hugotest-phi.vercel.app/posts/custom_web/</link>
       <pubDate>Sun, 02 Oct 2022 18:00:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/custom_web/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/custom_web/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -111,9 +111,9 @@
     </item>
     <item>
       <title>Vue Chapter1 基础语法</title>
-      <link>https://aikenh.cn/hugotest/posts/vue-chapter1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vue-chapter1/</link>
       <pubDate>Wed, 14 Sep 2022 10:34:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vue-chapter1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vue-chapter1/</guid>
       <description>&lt;p&gt;基本Vue语法规则学习笔记，方便我们去自定义和看懂别人的网页代码。&lt;/p&gt;
 &lt;p&gt;概念补充：&lt;/p&gt;
 &lt;ul&gt;

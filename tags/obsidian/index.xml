@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Obsidian on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/obsidian/</link>
+    <link>https://hugotest-phi.vercel.app/tags/obsidian/</link>
     <description>Recent content in Obsidian on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Oct 2023 00:39:59 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obsidian使用 Spaced Repetition 制作闪念卡片</title>
-      <link>https://aikenh.cn/hugotest/posts/flashcard_template/</link>
+      <link>https://hugotest-phi.vercel.app/posts/flashcard_template/</link>
       <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/flashcard_template/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/flashcard_template/</guid>
       <description>&lt;p&gt;该文作为基础的闪念卡片的使用说明，介绍几种闪念卡片定义的方式，便于后续查阅，参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/558326315&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Obsidian: Spaced Repetition插件使用指南 &lt;/a&gt;
@@ -50,9 +50,9 @@
     </item>
     <item>
       <title>Hexo Write</title>
-      <link>https://aikenh.cn/hugotest/posts/hexo_write/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hexo_write/</link>
       <pubDate>Wed, 13 Apr 2022 23:29:10 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hexo_write/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hexo_write/</guid>
       <description>&lt;p&gt;Hexo和Gitee一致，都是由Markdown文件为基础，构建的博客，编写Markdown本身无需多言，由于Hexo并非笔者的首选笔记管理方式，故而再其他地方构建和编写文件是常态，该Blog主要是利用其他工具来方便Hexo博文的编写（Header）&lt;/p&gt;
 &lt;p&gt;默认的是 &lt;code&gt;hexo new [layout] title&lt;/code&gt; 可简写为 &lt;code&gt;hexo n [layout] title&lt;/code&gt;，其中布局应该是在博客目录中定义，该命令也局限于博客的对应目录。&lt;/p&gt;
 &lt;blockquote&gt;

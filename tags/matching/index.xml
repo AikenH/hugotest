@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Matching on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/matching/</link>
+    <link>https://hugotest-phi.vercel.app/tags/matching/</link>
     <description>Recent content in Matching on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Dec 2021 00:29:37 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/matching/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/matching/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hungarian</title>
-      <link>https://aikenh.cn/hugotest/posts/hungarian/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hungarian/</link>
       <pubDate>Fri, 03 Dec 2021 00:29:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hungarian/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hungarian/</guid>
       <description>&lt;p&gt;@AikenHong 2021
 @Code: &lt;strong&gt;Scipy&lt;/strong&gt;（repo）
 @Reference:  &lt;a href=&#34;https://zhuanlan.zhihu.com/p/62981901&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;匈牙利算法&amp;amp;KM算法&lt;/a&gt;

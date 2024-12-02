@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Editor on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/editor/</link>
+    <link>https://hugotest-phi.vercel.app/categories/editor/</link>
     <description>Recent content in Editor on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Oct 2023 00:39:59 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/editor/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/editor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obsidian使用 Spaced Repetition 制作闪念卡片</title>
-      <link>https://aikenh.cn/hugotest/posts/flashcard_template/</link>
+      <link>https://hugotest-phi.vercel.app/posts/flashcard_template/</link>
       <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/flashcard_template/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/flashcard_template/</guid>
       <description>&lt;p&gt;该文作为基础的闪念卡片的使用说明，介绍几种闪念卡片定义的方式，便于后续查阅，参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/558326315&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Obsidian: Spaced Repetition插件使用指南 &lt;/a&gt;
@@ -50,9 +50,9 @@
     </item>
     <item>
       <title>VsCode&#39;s RegExp Catch 正则捕获</title>
-      <link>https://aikenh.cn/hugotest/posts/vsocde_regexp/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vsocde_regexp/</link>
       <pubDate>Thu, 19 Oct 2023 16:53:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vsocde_regexp/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vsocde_regexp/</guid>
       <description>&lt;p&gt;本篇简单介绍一些 VsCode 进行文本替换和查找的一些特殊的正则，该文会随着自己的使用来逐步记录，目前主要内容如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;捕获组合及其替换模式&lt;/li&gt;
@@ -103,9 +103,9 @@
     </item>
     <item>
       <title>转）vimscript in 5 minus</title>
-      <link>https://aikenh.cn/hugotest/posts/vimscript_5minus/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimscript_5minus/</link>
       <pubDate>Thu, 01 Sep 2022 01:01:01 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimscript_5minus/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimscript_5minus/</guid>
       <description>&lt;p&gt;学习 vimscript 理解原生 vim 的配置方法，Reference：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://andrewscala.com/vimscript/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Five Minus Vimscript&amp;rdquo;&lt;/a&gt;
@@ -116,9 +116,9 @@
     </item>
     <item>
       <title>Vim 01 Recorder</title>
-      <link>https://aikenh.cn/hugotest/posts/vimoperation/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimoperation/</link>
       <pubDate>Thu, 07 Apr 2022 14:15:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimoperation/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimoperation/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Chose Your Dotfile to start the vim&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -136,9 +136,9 @@
     </item>
     <item>
       <title>VsCode&#39;s Configuration</title>
-      <link>https://aikenh.cn/hugotest/posts/vscode/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vscode/</link>
       <pubDate>Wed, 27 Oct 2021 14:19:13 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vscode/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vscode/</guid>
       <description>&lt;h2 id=&#34;debug&#34;&gt;Debug&lt;/h2&gt;
 &lt;p&gt;配置Launch.json 能够帮助我们更好的进行debug的操作，有一些比较特别的文件名和相关编码。&lt;/p&gt;
 &lt;ul&gt;
@@ -295,9 +295,9 @@
     </item>
     <item>
       <title>Vim 00 Basic Opeation</title>
-      <link>https://aikenh.cn/hugotest/posts/vimtutor/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimtutor/</link>
       <pubDate>Thu, 14 Oct 2021 01:58:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimtutor/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimtutor/</guid>
       <description>&lt;p&gt;this is the Note record the vimtutor (the basic usage of vim.)
 @Aiken 2021&lt;/p&gt;
 &lt;ul&gt;
@@ -345,9 +345,9 @@
     </item>
     <item>
       <title>Vim Configuration 03 Spacevim Setup</title>
-      <link>https://aikenh.cn/hugotest/posts/spacevim/</link>
+      <link>https://hugotest-phi.vercel.app/posts/spacevim/</link>
       <pubDate>Sat, 09 Oct 2021 12:15:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/spacevim/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/spacevim/</guid>
       <description>&lt;p&gt;@Aiken 2021 this file is use to record how to config out vim&amp;rsquo; by spacevim.&lt;br&gt;
 I&amp;rsquo;ll write this doc with three Parts:&lt;/p&gt;
 &lt;ul&gt;
@@ -383,9 +383,9 @@ maybe it not a good way to set the vim.&lt;/li&gt;
     </item>
     <item>
       <title>Vim Configuration 02 Nvim的插件配置</title>
-      <link>https://aikenh.cn/hugotest/posts/vimconfig/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimconfig/</link>
       <pubDate>Fri, 08 Oct 2021 07:45:42 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimconfig/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimconfig/</guid>
       <description>&lt;p&gt;@Aikenhong 2021&lt;/p&gt;
 &lt;p&gt;Vim is a important consistant for editing file in shell. It&amp;rsquo;s Hightly Customized for Everyone, In this part I&amp;rsquo;ll Show my personal Vim comfigurations&lt;/p&gt;
 &lt;p&gt;And I&amp;rsquo;ll Discuss about the diff between Spacevim &amp;amp; Neovim.&lt;/p&gt;
@@ -416,9 +416,9 @@ maybe it not a good way to set the vim.&lt;/li&gt;
     </item>
     <item>
       <title>Vim Configuration 01 vim的无插件基础设置</title>
-      <link>https://aikenh.cn/hugotest/posts/vimconfigdf/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimconfigdf/</link>
       <pubDate>Thu, 07 Oct 2021 15:00:42 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimconfigdf/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimconfigdf/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 &lt;code&gt;/usr/share/vim/vimrc&lt;/code&gt;，也可以在 vim 界面使用 &lt;code&gt;:echo $MYVIMRC&lt;/code&gt; 查看当前的配置文件，默认使用的配置文件地址为 &lt;code&gt;~/.vimrc&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;

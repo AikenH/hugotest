@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Survey on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/survey/</link>
+    <link>https://hugotest-phi.vercel.app/tags/survey/</link>
     <description>Recent content in Survey on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Dec 2023 08:04:06 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/survey/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/survey/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>家庭服务器的备份工具选择</title>
-      <link>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</link>
+      <link>https://hugotest-phi.vercel.app/posts/backuptoolsforhomeserver/</link>
       <pubDate>Fri, 29 Dec 2023 08:04:06 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/backuptoolsforhomeserver/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -158,9 +158,9 @@
     </item>
     <item>
       <title>IL Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-collection/</link>
       <pubDate>Tue, 04 Jan 2022 01:38:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-collection/</guid>
       <description>&lt;p&gt;@AikenHong 2022&lt;/p&gt;
 &lt;p&gt;[[Draft/IL 总结]]: Thx 2 wyz to provide some clus for learnning Incremental Learning.&lt;/p&gt;
 &lt;p&gt;In this Doc, we may add some related knowledge distill works which is used to design our Incremental Structure.
@@ -195,9 +195,9 @@
     </item>
     <item>
       <title>WYZ-IL-Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-wyz/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-wyz/</link>
       <pubDate>Mon, 03 Jan 2022 10:41:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-wyz/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-wyz/</guid>
       <description>&lt;p&gt;: hammer: 王耀智&lt;/p&gt;
 &lt;h2 id=&#34;regularization-系列方法&#34;&gt;Regularization 系列方法&lt;/h2&gt;
 &lt;p&gt;这类方法旨在添加一些正则化损失来解决 &lt;code&gt;catastrophic forgetting&lt;/code&gt; 的问题。&lt;/p&gt;
@@ -236,9 +236,9 @@
     </item>
     <item>
       <title>LT Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/lt-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/lt-collection/</link>
       <pubDate>Wed, 22 Dec 2021 14:36:16 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/lt-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/lt-collection/</guid>
       <description>&lt;h1 id=&#34;lt-collections&#34;&gt;LT-Collections&lt;/h1&gt;
 &lt;p&gt;@AikenHong 2021&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/mitming/OpenLT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code of must of those methods&lt;/a&gt;
@@ -281,9 +281,9 @@ We will analysis those tricks on LT situation, and Analysis why it works.
     </item>
     <item>
       <title>FSL前期调研</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -333,9 +333,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Survey for Few-Shot Learning</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl-collection/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl-collection/</guid>
       <description>&lt;p&gt;@aikenhong 2020
 @h.aiken.970@gmail.com&lt;/p&gt;
 &lt;p&gt;另一个综述文章：https://zhuanlan.zhihu.com/p/61215293
@@ -400,9 +400,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>OWL-survey</title>
-      <link>https://aikenh.cn/hugotest/posts/owl-survey/</link>
+      <link>https://hugotest-phi.vercel.app/posts/owl-survey/</link>
       <pubDate>Fri, 12 Nov 2021 09:40:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/owl-survey/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/owl-survey/</guid>
       <description>&lt;p&gt;@AikenHong2021 OWL&lt;/p&gt;
 &lt;p&gt;分析现有的OWL特点，和当前自己的研究做一个区分，也汲取一下别人的研究的要点，&lt;/p&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -436,9 +436,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Pooling</title>
-      <link>https://aikenh.cn/hugotest/posts/pooling/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pooling/</link>
       <pubDate>Wed, 23 Jun 2021 13:48:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pooling/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pooling/</guid>
       <description>&lt;h1 id=&#34;downsamplingpooling的全面调研&#34;&gt;DownSampling：Pooling的全面调研&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021 笔记摘录：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;深度神经网络中的池化方法：全面调研（1989-2020） - 知乎&lt;/a&gt;
@@ -488,9 +488,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Related Word of Emotion</title>
-      <link>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</link>
+      <link>https://hugotest-phi.vercel.app/posts/facial_expression_and_emotion/</link>
       <pubDate>Wed, 16 Dec 2020 17:08:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/facial_expression_and_emotion/</guid>
       <description>&lt;h2 id=&#34;疑似&#34;&gt;疑似&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -507,9 +507,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Hyper-Resolution</title>
-      <link>https://aikenh.cn/hugotest/posts/hyper_resolution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hyper_resolution/</link>
       <pubDate>Fri, 06 Mar 2020 14:55:02 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hyper_resolution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hyper_resolution/</guid>
       <description>&lt;p&gt;说明：重点针对&lt;strong&gt;超分辨率&lt;/strong&gt;技术&lt;/p&gt;
 &lt;p&gt;备注：
 超分辨率在人脸识别上的多，但是表情识别上的确实不多，不过很多都会引用一波&lt;br&gt;&lt;/p&gt;

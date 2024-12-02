@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Game on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/game/</link>
+    <link>https://hugotest-phi.vercel.app/tags/game/</link>
     <description>Recent content in Game on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Jul 2022 11:26:00 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/game/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markov Junior</title>
-      <link>https://aikenh.cn/hugotest/posts/markovjunior/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markovjunior/</link>
       <pubDate>Sun, 10 Jul 2022 11:26:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markovjunior/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markovjunior/</guid>
       <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzIxODg1OTk1MA==&amp;amp;mid=2247513354&amp;amp;idx=1&amp;amp;sn=28b5492cc0a86b04f0a0b975bf42568c&amp;amp;ascene=56&amp;amp;devicetype=iOS15.5&amp;amp;version=1800172f&amp;amp;nettype=WIFI&amp;amp;abtest_cookie=AAACAA%3D%3D&amp;amp;lang=zh_CN&amp;amp;fontScale=100&amp;amp;exportkey=ARSr9kinLTM%2B6fr7WYBKF%2FM%3D&amp;amp;pass_ticket=gK4kcTE5wfRRXzd0FMTJlg9zBNGh%2BZ5VoWQkUbqSJXykXGIdMXasyLJgUxII1IDt&amp;amp;wx_header=3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jack Cui&lt;/a&gt;
  | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Markov Junior&lt;/a&gt;
  | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wiki Markov algorithm&lt;/a&gt;
@@ -70,9 +70,9 @@
     </item>
     <item>
       <title>Wave Function Collapse</title>
-      <link>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</link>
+      <link>https://hugotest-phi.vercel.app/posts/wfc%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sun, 10 Jul 2022 09:42:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/wfc%E7%AE%97%E6%B3%95/</guid>
       <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://github.com/mxgmn/WaveFunctionCollapse&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Mxgmn&lt;/a&gt;
  | &lt;a href=&#34;https://zhuanlan.zhihu.com/p/66416593&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;zhihu&lt;/a&gt;
 &lt;/p&gt;

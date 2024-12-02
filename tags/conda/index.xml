@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Conda on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/conda/</link>
+    <link>https://hugotest-phi.vercel.app/tags/conda/</link>
     <description>Recent content in Conda on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Mar 2023 11:27:52 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/conda/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/conda/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python00 Conda 与 Pip</title>
-      <link>https://aikenh.cn/hugotest/posts/python_pack_manager/</link>
+      <link>https://hugotest-phi.vercel.app/posts/python_pack_manager/</link>
       <pubDate>Mon, 06 Mar 2023 11:27:52 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/python_pack_manager/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/python_pack_manager/</guid>
       <description>&lt;p&gt;@Aikenhong 的旧笔记翻新完善 1.0&lt;/p&gt;
 &lt;p&gt;Python 的灵活和广泛应用场景来自于众多的第三方库，由于强大的可拓展性和众多的库，使得 Python 的使用简单灵活，且应用面极广。&lt;/p&gt;
 &lt;p&gt;但是不同库之间的相互依赖关系，对版本的不同要求等等因素，使得&amp;quot;环境配置&amp;quot;成为了开发者闻之变色的一词，对一个新的库和项目环境的配置尝尝会花去大量的时间，这可能也是 Docker、Venv（虚拟环境）必须存在的原因之一。&lt;/p&gt;

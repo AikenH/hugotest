@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AI on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/ai/</link>
+    <link>https://hugotest-phi.vercel.app/tags/ai/</link>
     <description>Recent content in AI on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 27 Jan 2024 15:42:36 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>StableDiffusionWebUI鉴权设计</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Sat, 27 Jan 2024 15:42:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
       <description>&lt;p&gt;[&amp;gt; [!summary]+&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;this article purpose is to build an authority page for stable diffusion webui using nginx &amp;amp; python/js. Which can publish my personal stable diffusion server. Wrote by GPT(try).&lt;/p&gt;
@@ -85,9 +85,9 @@
     </item>
     <item>
       <title>AIGC05 Stable Diffusion Model Training</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusiontraining/</link>
       <pubDate>Sat, 06 May 2023 23:43:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusiontraining/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该章节主要介绍 Stable-Diffusion 中模型的训练，考虑到硬件条件的限制，实际上这里介绍的训练，都是针对大模型的各种微调技术（Lora，Dreambooth，HyperNetwork, &amp;hellip;），这里会以 LoRA 模型的训练为主。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -164,9 +164,9 @@
     </item>
     <item>
       <title>AIGC04 Stable Diffusion Write Prompt Better</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusionprompt/</link>
       <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusionprompt/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该章节主要包括 Promot 生成和部分工作流的分析，旨在了解如何写出更好的关键词，如何生成更好的图片，当我们不知道怎么描述的时候也可以将该工作交给 ChatGPT，让其为我们攥写一般基础的提示词&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -191,9 +191,9 @@
     </item>
     <item>
       <title>AIGC03 Stable Diffusion Control Net</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusioncontrolnet/</link>
       <pubDate>Wed, 26 Apr 2023 21:19:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusioncontrolnet/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;ControlNet 是 Stable Diffusion 最强力的插件之一，它能够控制 SD 的整个扩散过程，包括让 AI 参考动作/骨架/线条/景深，从而更精准的生成图片。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -214,9 +214,9 @@
     </item>
     <item>
       <title>AIGC02 Stable Diffusion 基础功能介绍</title>
-      <link>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 26 Apr 2023 11:03:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本篇章介绍关于 Stable DIffusion 的一些基础概念和 WebUI 的基本功能元素，同时介绍一些启动项和模型加载的东西。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -257,9 +257,9 @@
     </item>
     <item>
       <title>AIGC01 Stable Diffusion and midjourney Setup</title>
-      <link>https://aikenh.cn/hugotest/posts/stable-diffusion/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stable-diffusion/</link>
       <pubDate>Wed, 19 Apr 2023 16:00:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stable-diffusion/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This Chapter introduce how to set up stable diffusion and mid-journey, and record some problem I meet when I deploy it.&lt;/p&gt;
 &lt;/blockquote&gt;

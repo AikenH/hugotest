@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bash on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/bash/</link>
+    <link>https://hugotest-phi.vercel.app/tags/bash/</link>
     <description>Recent content in Bash on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Apr 2023 16:00:07 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grep、Sed、Awk 03 Awk</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</link>
       <pubDate>Tue, 18 Apr 2023 16:00:07 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Linux 三剑客之 Awk (由三个创始人的姓氏首字母组成)，相比于 Grep 和 Sed 而言更为特殊一些，它是一种模式匹配的编程语言，其主要的作用匹配文本进行处理，其擅长实现对文本的格式化输出，而作为一门编程语言：支持函数，变量，循环，运算，但相对简单。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -50,9 +50,9 @@
     </item>
     <item>
       <title>Grep、Sed、Awk 02 Sed</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</link>
       <pubDate>Sat, 15 Apr 2023 23:22:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Linux 三剑客之 Sed，相比于擅长数据查找定位的 Grep，Sed（Stream Editor）擅长做的是数据修改，做的主要是做一些增删改的功能。&lt;a href=&#34;https://www.zhihu.com/question/297858714&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; sed 和 awk 的区别是什么？&lt;/a&gt;
 &lt;/p&gt;
@@ -90,9 +90,9 @@
     </item>
     <item>
       <title>Grep、Sed、Awk 01-Grep</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
       <pubDate>Wed, 12 Apr 2023 13:22:58 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Linux 三剑客之 Grep。Grep 估计会是大部分 Linux 用户最常用的文本搜索命令了，在三剑客中的使用场景也是最广泛的。在对正则有了基本了解之后，就可以更好的使用 Grep，同时也可以通过 Grep 的使用来更好的掌握常用的正则表达式。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -115,9 +115,9 @@
     </item>
     <item>
       <title>Grep、Sed、Awk 00 RegExp</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</link>
       <pubDate>Tue, 11 Apr 2023 22:57:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“awk、grep、sed 是 linux 操作文本的三大利器，合称文本三剑客，也是必须掌握的 linux 命令之一。三者的功能都是处理文本，但侧重点各不相同，其中属 awk 功能最强大，但也最复杂。grep 更适合单纯的查找或匹配文本，sed 更适合编辑匹配到的文本，awk 更适合格式化文本，对文本进行较复杂格式处理。“&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -150,9 +150,9 @@
     </item>
     <item>
       <title>Bash Notebook 01</title>
-      <link>https://aikenh.cn/hugotest/posts/shell/</link>
+      <link>https://hugotest-phi.vercel.app/posts/shell/</link>
       <pubDate>Wed, 25 Jan 2023 22:04:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/shell/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/shell/</guid>
       <description>&lt;p&gt;整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。&lt;/p&gt;
 &lt;h2 id=&#34;语句注释&#34;&gt;语句注释&lt;/h2&gt;
 &lt;p&gt;单行注释：&lt;code&gt;#&lt;/code&gt; ，多行注释：&lt;/p&gt;

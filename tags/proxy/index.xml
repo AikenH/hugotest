@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Proxy on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/proxy/</link>
+    <link>https://hugotest-phi.vercel.app/tags/proxy/</link>
     <description>Recent content in Proxy on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 22 Jun 2023 10:41:25 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clash局域网代理共享</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Thu, 22 Jun 2023 10:41:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文介绍基于 Windows Clash Desktop 的代理服务器设置，可以为局域网内的设备提供代理服务，该方案可以解决一定的科学上网需求，但是没办法覆盖所有的场景，例如 PS5 的 Netflix ，其不走代理服务器，因此无法通过该方案解决，（软路由可破）&lt;/p&gt;
 &lt;/blockquote&gt;

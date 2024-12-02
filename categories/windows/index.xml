@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Windows on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/windows/</link>
+    <link>https://hugotest-phi.vercel.app/categories/windows/</link>
     <description>Recent content in Windows on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Jan 2024 15:44:25 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Powershell 01 后台任务</title>
-      <link>https://aikenh.cn/hugotest/posts/pwsh_bgtask/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pwsh_bgtask/</link>
       <pubDate>Sun, 28 Jan 2024 15:44:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pwsh_bgtask/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pwsh_bgtask/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -58,9 +58,9 @@
     </item>
     <item>
       <title>Windows端口异常占用</title>
-      <link>https://aikenh.cn/hugotest/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</link>
       <pubDate>Sun, 05 Nov 2023 23:46:54 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</guid>
       <description>&lt;p&gt;Windows11基于 WSL2启动 docker 后报错如下（需要注意有时候使用启动命令会报错，但是 restart 命令 docker 可以运行，对应服务无法访问）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Bind: An attempt was made to access a socket in a way forbidden by its access permissions.&lt;/strong&gt;&lt;/p&gt;
@@ -107,9 +107,9 @@
     </item>
     <item>
       <title>Clash局域网代理共享</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Thu, 22 Jun 2023 10:41:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文介绍基于 Windows Clash Desktop 的代理服务器设置，可以为局域网内的设备提供代理服务，该方案可以解决一定的科学上网需求，但是没办法覆盖所有的场景，例如 PS5 的 Netflix ，其不走代理服务器，因此无法通过该方案解决，（软路由可破）&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -184,9 +184,9 @@
     </item>
     <item>
       <title>Windows App01 Potplayer &amp; Alist</title>
-      <link>https://aikenh.cn/hugotest/posts/alist_potplayer/</link>
+      <link>https://hugotest-phi.vercel.app/posts/alist_potplayer/</link>
       <pubDate>Sun, 30 Apr 2023 22:42:58 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/alist_potplayer/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/alist_potplayer/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本篇主要介绍一下播放器 PotPlayer 的设置以及结合 Alist&amp;amp;小雅 alist 的使用，这样就可以直接在播放器访问本地网盘上的内容，便于使用和观看。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -339,9 +339,9 @@
     </item>
     <item>
       <title>Windows Configuration05 CUDA &amp; Cudnn</title>
-      <link>https://aikenh.cn/hugotest/posts/windowscudacudnn/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windowscudacudnn/</link>
       <pubDate>Mon, 24 Apr 2023 09:50:01 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windowscudacudnn/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windowscudacudnn/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在 Windows 和 WSL2 中安装 Cuda 和 Cudnn ，是配置 GPU 开发环境中重要的一步，其支撑了 AI 模型进行 Training 和 Interface 。本篇介绍安装 CUDA 和 Cudnn 的步骤和一些踩过的坑。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -424,9 +424,9 @@
     </item>
     <item>
       <title>Windows Powershell 00 Install and Config</title>
-      <link>https://aikenh.cn/hugotest/posts/powershell/</link>
+      <link>https://hugotest-phi.vercel.app/posts/powershell/</link>
       <pubDate>Sun, 05 Mar 2023 09:59:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/powershell/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/powershell/</guid>
       <description>&lt;p&gt;Update:@20230214&lt;/p&gt;
 &lt;p&gt;shift+右键: 在此处打开 powershell.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/PowerShell/PowerShell/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PowerShell &lt;/a&gt;
@@ -459,9 +459,9 @@
     </item>
     <item>
       <title>Windows Configuration04 Dual-System-Ubuntu</title>
-      <link>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</link>
+      <link>https://hugotest-phi.vercel.app/posts/dualsystemubuntu/</link>
       <pubDate>Sun, 22 Jan 2023 16:25:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/dualsystemubuntu/</guid>
       <description>&lt;p&gt;该文介绍基于 Windows11 系统的双系统安装和删除，安装的双系统选择 Ubuntu（开发还是比较推荐使用 WSL2 即可）&lt;/p&gt;
 &lt;h2 id=&#34;install-dual-system&#34;&gt;Install Dual System&lt;/h2&gt;
 &lt;p&gt;参考资料：&lt;a href=&#34;https://blog.csdn.net/NeoZng/article/details/122779035&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;全面解决各种问题&lt;/a&gt;
@@ -516,9 +516,9 @@
     </item>
     <item>
       <title>Windows Configuration03 LAN sharing</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Sun, 31 Jul 2022 23:43:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</guid>
       <description>&lt;p&gt;在同一个局域网（像是链接同一个wifi的环境）中，设置共享的文件夹或者磁盘，可提升文件分享的效率和速度，特别适用于与女朋友合租、与兄弟合租的情景。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h2 id=&#34;win-系统开放共享权限&#34;&gt;Win 系统开放共享权限&lt;/h2&gt;
@@ -585,9 +585,9 @@
     </item>
     <item>
       <title>Windows Configuration00 系统初始配置</title>
-      <link>https://aikenh.cn/hugotest/posts/windows/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windows/</link>
       <pubDate>Tue, 28 Sep 2021 02:16:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windows/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windows/</guid>
       <description>&lt;p&gt;@AikenHong 2020&lt;/p&gt;
 &lt;p&gt;本文介绍个人的 windows 开发环境搭建（包括一些环境安装、功能启用）以及一些使用的小 tips。&lt;/p&gt;
 &lt;h2 id=&#34;软件推荐&#34;&gt;软件推荐&lt;/h2&gt;

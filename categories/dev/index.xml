@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Dev on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/dev/</link>
+    <link>https://hugotest-phi.vercel.app/categories/dev/</link>
     <description>Recent content in Dev on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Nov 2023 12:08:37 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>树莓派家庭影音中心2</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
       <pubDate>Sat, 11 Nov 2023 12:08:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
       <description>&lt;h2 id=&#34;禁止屏幕休眠显示作为-dashboard-显示&#34;&gt;禁止屏幕休眠显示作为 Dashboard 显示&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;树莓派官方的 Raspbian 系统使用的是 lightdm 桌面显示管理器，可以设置 xservice 桌面交互显示来达到屏幕常亮的目的，也就是修改桌面配置文件 lightdm.Conf&lt;/p&gt;
@@ -53,9 +53,9 @@
     </item>
     <item>
       <title>树莓派02 家用服务器</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 02 Jul 2023 10:30:11 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;树莓派家庭服务器的搭建以 docker 为核心，通过 docker 统一管理家庭服务，目前搭建的服务还在持续完善中，主要目的是为了方便日常使用、满足学习和探索的需求。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -150,9 +150,9 @@
     </item>
     <item>
       <title>树莓派01 家庭影音中心</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
       <pubDate>Wed, 28 Jun 2023 07:28:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;将 RaspBerry Pi 4B 作为家庭影视中心/机顶盒的核心就是 KODI 软件，这是考虑到以下的几点：遥控器的控制、对挂载 webdav 和其他的支持&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -198,9 +198,9 @@
     </item>
     <item>
       <title>树莓派00 组装和亮机篇</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Tue, 20 Jun 2023 22:38:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;最近入手了树莓派 4B，打算基于树莓派做一些有趣&amp;amp;有用的项目，该系列笔记来记录个人树莓派学习和开发的历程。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -246,9 +246,9 @@
     </item>
     <item>
       <title>Whats DevOps?</title>
-      <link>https://aikenh.cn/hugotest/posts/devops/</link>
+      <link>https://hugotest-phi.vercel.app/posts/devops/</link>
       <pubDate>Sat, 25 Mar 2023 09:55:32 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/devops/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/devops/</guid>
       <description>&lt;p&gt;在一个庞大的组织架构中，CI/CD 和 Devops 的概念是避不开的，了解它的工作原理和概念能帮助我们更好的与他人进行协作。&lt;/p&gt;
 &lt;h2 id=&#34;cicd-介绍&#34;&gt;CI/CD 介绍&lt;/h2&gt;
 &lt;div style=&#34;text-align:center&#34;&gt;
@@ -269,9 +269,9 @@
     </item>
     <item>
       <title>Git 01 入门与常用操作</title>
-      <link>https://aikenh.cn/hugotest/posts/git_manual1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/git_manual1/</link>
       <pubDate>Tue, 01 Feb 2022 12:19:34 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/git_manual1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/git_manual1/</guid>
       <description>&lt;p&gt;参考文献：&lt;a href=&#34;https://juejin.cn/post/7131713973572861966&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;稀土掘金&lt;/a&gt;
  | ProGit2&lt;/p&gt;
 &lt;h2 id=&#34;git-与-svn-的区别&#34;&gt;GIT 与 SVN 的区别&lt;/h2&gt;
@@ -311,9 +311,9 @@
     </item>
     <item>
       <title>Colab 使用的问题记录</title>
-      <link>https://aikenh.cn/hugotest/posts/googlecolab/</link>
+      <link>https://hugotest-phi.vercel.app/posts/googlecolab/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/googlecolab/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/googlecolab/</guid>
       <description>&lt;p&gt;@Aiken 2020&lt;/p&gt;
 &lt;p&gt;在使用Google Colab的时候会有一些常见的使用错误，然后我们记录一些常见的错误的解决方案，方便后续使用。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;INDEX：&lt;/strong&gt;&lt;/p&gt;
@@ -360,9 +360,9 @@
     </item>
     <item>
       <title>SSH 常用场景和操作</title>
-      <link>https://aikenh.cn/hugotest/posts/ssh/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ssh/</link>
       <pubDate>Mon, 22 Feb 2021 01:45:43 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ssh/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ssh/</guid>
       <description>&lt;p&gt;主要介绍ssh服务在以下的几个方面（windows，linux）的使用情况：远程服务器连接（22），git&amp;amp;github（gitee），vscode免密登录。&lt;/p&gt;
 &lt;h2 id=&#34;ssh-key&#34;&gt;ssh-key&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB关于SSH的教程&lt;/a&gt;

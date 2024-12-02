@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bash on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/bash/</link>
+    <link>https://hugotest-phi.vercel.app/categories/bash/</link>
     <description>Recent content in Bash on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Jan 2023 22:04:15 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/bash/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/bash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bash Notebook 01</title>
-      <link>https://aikenh.cn/hugotest/posts/shell/</link>
+      <link>https://hugotest-phi.vercel.app/posts/shell/</link>
       <pubDate>Wed, 25 Jan 2023 22:04:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/shell/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/shell/</guid>
       <description>&lt;p&gt;整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。&lt;/p&gt;
 &lt;h2 id=&#34;语句注释&#34;&gt;语句注释&lt;/h2&gt;
 &lt;p&gt;单行注释：&lt;code&gt;#&lt;/code&gt; ，多行注释：&lt;/p&gt;

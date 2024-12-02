@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Machine Learning on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/machine-learning/</link>
+    <link>https://hugotest-phi.vercel.app/categories/machine-learning/</link>
     <description>Recent content in Machine Learning on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 27 Jan 2024 15:42:36 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>StableDiffusionWebUI鉴权设计</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Sat, 27 Jan 2024 15:42:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
       <description>&lt;p&gt;[&amp;gt; [!summary]+&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;this article purpose is to build an authority page for stable diffusion webui using nginx &amp;amp; python/js. Which can publish my personal stable diffusion server. Wrote by GPT(try).&lt;/p&gt;
@@ -85,9 +85,9 @@
     </item>
     <item>
       <title>AIGC05 Stable Diffusion Model Training</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusiontraining/</link>
       <pubDate>Sat, 06 May 2023 23:43:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusiontraining/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该章节主要介绍 Stable-Diffusion 中模型的训练，考虑到硬件条件的限制，实际上这里介绍的训练，都是针对大模型的各种微调技术（Lora，Dreambooth，HyperNetwork, &amp;hellip;），这里会以 LoRA 模型的训练为主。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -164,9 +164,9 @@
     </item>
     <item>
       <title>AIGC04 Stable Diffusion Write Prompt Better</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusionprompt/</link>
       <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusionprompt/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该章节主要包括 Promot 生成和部分工作流的分析，旨在了解如何写出更好的关键词，如何生成更好的图片，当我们不知道怎么描述的时候也可以将该工作交给 ChatGPT，让其为我们攥写一般基础的提示词&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -191,9 +191,9 @@
     </item>
     <item>
       <title>AIGC03 Stable Diffusion Control Net</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusioncontrolnet/</link>
       <pubDate>Wed, 26 Apr 2023 21:19:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusioncontrolnet/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;ControlNet 是 Stable Diffusion 最强力的插件之一，它能够控制 SD 的整个扩散过程，包括让 AI 参考动作/骨架/线条/景深，从而更精准的生成图片。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -214,9 +214,9 @@
     </item>
     <item>
       <title>AIGC02 Stable Diffusion 基础功能介绍</title>
-      <link>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 26 Apr 2023 11:03:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本篇章介绍关于 Stable DIffusion 的一些基础概念和 WebUI 的基本功能元素，同时介绍一些启动项和模型加载的东西。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -257,9 +257,9 @@
     </item>
     <item>
       <title>AIGC01 Stable Diffusion and midjourney Setup</title>
-      <link>https://aikenh.cn/hugotest/posts/stable-diffusion/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stable-diffusion/</link>
       <pubDate>Wed, 19 Apr 2023 16:00:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stable-diffusion/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This Chapter introduce how to set up stable diffusion and mid-journey, and record some problem I meet when I deploy it.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -293,9 +293,9 @@
     </item>
     <item>
       <title>Fine Tuning</title>
-      <link>https://aikenh.cn/hugotest/posts/finetune/</link>
+      <link>https://hugotest-phi.vercel.app/posts/finetune/</link>
       <pubDate>Tue, 08 Feb 2022 14:31:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/finetune/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/finetune/</guid>
       <description>&lt;p&gt;@Langs: python, torch
 @reference: d2l-pytorch，&lt;a href=&#34;https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer_torch&lt;/a&gt;
 &lt;/p&gt;
@@ -398,9 +398,9 @@
     </item>
     <item>
       <title>IL Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-collection/</link>
       <pubDate>Tue, 04 Jan 2022 01:38:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-collection/</guid>
       <description>&lt;p&gt;@AikenHong 2022&lt;/p&gt;
 &lt;p&gt;[[Draft/IL 总结]]: Thx 2 wyz to provide some clus for learnning Incremental Learning.&lt;/p&gt;
 &lt;p&gt;In this Doc, we may add some related knowledge distill works which is used to design our Incremental Structure.
@@ -435,9 +435,9 @@
     </item>
     <item>
       <title>WYZ-IL-Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-wyz/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-wyz/</link>
       <pubDate>Mon, 03 Jan 2022 10:41:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-wyz/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-wyz/</guid>
       <description>&lt;p&gt;: hammer: 王耀智&lt;/p&gt;
 &lt;h2 id=&#34;regularization-系列方法&#34;&gt;Regularization 系列方法&lt;/h2&gt;
 &lt;p&gt;这类方法旨在添加一些正则化损失来解决 &lt;code&gt;catastrophic forgetting&lt;/code&gt; 的问题。&lt;/p&gt;
@@ -476,9 +476,9 @@
     </item>
     <item>
       <title>LT Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/lt-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/lt-collection/</link>
       <pubDate>Wed, 22 Dec 2021 14:36:16 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/lt-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/lt-collection/</guid>
       <description>&lt;h1 id=&#34;lt-collections&#34;&gt;LT-Collections&lt;/h1&gt;
 &lt;p&gt;@AikenHong 2021&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/mitming/OpenLT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code of must of those methods&lt;/a&gt;
@@ -521,9 +521,9 @@ We will analysis those tricks on LT situation, and Analysis why it works.
     </item>
     <item>
       <title>Loss-NCE</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-nce/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-nce/</link>
       <pubDate>Wed, 22 Dec 2021 13:39:55 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-nce/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-nce/</guid>
       <description>&lt;p&gt;@AikenHong 2021&lt;/p&gt;
 &lt;p&gt;Noise Contrastive Estimation Loss = NCE Loss 噪声对比估计损失，这里的Noise实际上就是Negative Samples.
 该损失被广泛的用于对比学习的任务，而对比学习广泛的作为自监督学习的无监督子任务用来训练一个良好的特征提取器，于是对于对比学习的目标和效用的理解十分关键。&lt;/p&gt;
@@ -564,9 +564,9 @@ L_{\text {contrast }}=\mathbb{E}\left[-\log \frac{e^{f_{x}^{T} f_{y} / \tau}}{e^
     </item>
     <item>
       <title>Loss-Smooth(Sharpen)</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-smoothsharpen/</link>
       <pubDate>Fri, 17 Dec 2021 03:35:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-smoothsharpen/</guid>
       <description>&lt;p&gt;@AikenHong 2021
 @topic&lt;/p&gt;
 &lt;ul&gt;
@@ -620,9 +620,9 @@ p_i = \left\{
     </item>
     <item>
       <title>Training Strategy</title>
-      <link>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nerualnetworktraining/</link>
       <pubDate>Thu, 16 Dec 2021 08:34:44 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nerualnetworktraining/</guid>
       <description>&lt;p&gt;@Aiken 2020，&lt;/p&gt;
 &lt;p&gt;主要针对神经网络的训练过程中的一些基础策略的调整，比如当训练的曲线出现一定的问题的时候，我们应该怎么去调整我们训练过程中的策略。&lt;/p&gt;
 &lt;p&gt;参数调整过程中最重要的就是优化器（优化或者说是下降算法）和学习率（优化算法的核心参数），此外像是数据增强策略还是Normalization策略，都能极大的影响一个模型的好坏。&lt;/p&gt;
@@ -700,9 +700,9 @@ p_i = \left\{
     </item>
     <item>
       <title>Loss-WhyZero</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-whyzero/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-whyzero/</link>
       <pubDate>Fri, 10 Dec 2021 08:24:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-whyzero/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-whyzero/</guid>
       <description>&lt;h1 id=&#34;loss-why-zero-loss&#34;&gt;Loss :Why Zero Loss？&lt;/h1&gt;
 &lt;p&gt;@Comments: ICML2020 《Do We Need Zero Training Loss After Achieving Zero Training Error》&lt;/p&gt;
 &lt;p&gt;@Noteby：AikenHong2021&lt;/p&gt;
@@ -758,9 +758,9 @@ $$
     </item>
     <item>
       <title>UniFramework 01</title>
-      <link>https://aikenh.cn/hugotest/posts/uniframework/</link>
+      <link>https://hugotest-phi.vercel.app/posts/uniframework/</link>
       <pubDate>Sat, 04 Dec 2021 01:43:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/uniframework/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/uniframework/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -849,9 +849,9 @@ Offline：基于样本池的规模和评估触发离线更新：&lt;strong&gt;�
     </item>
     <item>
       <title>FSL前期调研</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -901,9 +901,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>IL-MgSvF</title>
-      <link>https://aikenh.cn/hugotest/posts/il-mgsvf/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-mgsvf/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-mgsvf/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-mgsvf/</guid>
       <description>&lt;p&gt;@Author &amp;amp; Paper：&lt;a href=&#34;https://arxiv.org/pdf/2006.15524.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Arxiv&lt;/a&gt;
 
 @Note：Aikenhong 2021/11/12&lt;/p&gt;
@@ -963,9 +963,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>SSL-MoCov3</title>
-      <link>https://aikenh.cn/hugotest/posts/ssl-mocov3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ssl-mocov3/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ssl-mocov3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ssl-mocov3/</guid>
       <description>&lt;p&gt;@Aiken 2021&lt;/p&gt;
 &lt;p&gt;恺明大神对自监督学习+transformer的实证研究，针对Transformer再自监督学习学习框架中的训练不稳定问题提出了&lt;strong&gt;Random Patch Projection&lt;/strong&gt;的解决方案。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/waqkJkwqxU-7utfNnwr2Gg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Article&lt;/a&gt;
@@ -976,9 +976,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Survey for Few-Shot Learning</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl-collection/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl-collection/</guid>
       <description>&lt;p&gt;@aikenhong 2020
 @h.aiken.970@gmail.com&lt;/p&gt;
 &lt;p&gt;另一个综述文章：https://zhuanlan.zhihu.com/p/61215293
@@ -1043,9 +1043,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Data Augmentation</title>
-      <link>https://aikenh.cn/hugotest/posts/dataaugmentation/</link>
+      <link>https://hugotest-phi.vercel.app/posts/dataaugmentation/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/dataaugmentation/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/dataaugmentation/</guid>
       <description>&lt;p&gt;intergrate with those augmentation method.&lt;/p&gt;
 &lt;p&gt;this doc will&lt;/p&gt;
 &lt;ul&gt;
@@ -1075,9 +1075,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>MLFlow</title>
-      <link>https://aikenh.cn/hugotest/posts/mlflow/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mlflow/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mlflow/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mlflow/</guid>
       <description>&lt;h1 id=&#34;mlflow-机器学习系统的使用&#34;&gt;MLFlow 机器学习系统的使用&lt;/h1&gt;
 &lt;p&gt;@Aiken 2020&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;基于Python开发的DAG数据工作流系统，面向机器学习，支持Spark并行环境和K8S容器集群；&lt;/em&gt;&lt;/p&gt;
@@ -1116,9 +1116,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Hard Task Sampling</title>
-      <link>https://aikenh.cn/hugotest/posts/hardtask/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hardtask/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:17 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hardtask/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hardtask/</guid>
       <description>&lt;h1 id=&#34;trickhard-task&#34;&gt;Trick：Hard Task&lt;/h1&gt;
 &lt;p&gt;思路来源于Meta-Tranfer-Learning，基本思路是在Meta-Learning的每一次Meta-Test的时候，会从预训练错误率比较高的Task中再次采样，增加那些task的训练次数。也就是难题多做的策略。&lt;/p&gt;
 &lt;h2 id=&#34;基本思路&#34;&gt;基本思路&lt;/h2&gt;
@@ -1219,9 +1219,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>并行训练</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</link>
       <pubDate>Sun, 28 Nov 2021 02:20:31 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://lilianweng.github.io/lil-log/2021/09/24/train-large-neural-networks.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to Train Really Large Models on Many GPUs? (lilianweng.github.io)&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;对于浮点运算，模型参数的存储和中间计算输出（梯度和优化器状态）的存储的在 GPU 内存上的大量需求使得我们需要并行化，下面我们参考一些常用的并行化范式：&lt;/p&gt;
@@ -1282,9 +1282,9 @@ $$
     </item>
     <item>
       <title>MIM-V-simMIM</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-simmim/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-simmim/</link>
       <pubDate>Tue, 23 Nov 2021 06:38:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-simmim/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-simmim/</guid>
       <description>&lt;p&gt;@Author： MSRA Zhenda Xie
 @Source：&lt;a href=&#34;arxiv.org/abs/2111.09886&#34;&gt;Arxiv&lt;/a&gt;
 ， &lt;a href=&#34;https://github.com/microsoft/SimMIM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code TBP&lt;/a&gt;
@@ -1334,9 +1334,9 @@ $$
     </item>
     <item>
       <title>Transformer</title>
-      <link>https://aikenh.cn/hugotest/posts/transformer/</link>
+      <link>https://hugotest-phi.vercel.app/posts/transformer/</link>
       <pubDate>Tue, 23 Nov 2021 06:38:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/transformer/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/transformer/</guid>
       <description>&lt;p&gt;@aikenhong 2021&lt;/p&gt;
 &lt;p&gt;References For Transformer:&lt;/p&gt;
 &lt;ol&gt;
@@ -1385,9 +1385,9 @@ $$
     </item>
     <item>
       <title>MIM-V-iBOT</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-ibot/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-ibot/</link>
       <pubDate>Thu, 18 Nov 2021 06:35:52 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-ibot/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-ibot/</guid>
       <description>&lt;p&gt;@Read: AikenHong 2021&lt;/p&gt;
 &lt;p&gt;@Author: &lt;a href=&#34;https://arxiv.org/abs/2111.07832&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://arxiv.org/abs/2111.07832&lt;/a&gt;
 &lt;/p&gt;
@@ -1423,9 +1423,9 @@ $$
     </item>
     <item>
       <title>MIM-V-MAE</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-mae/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-mae/</link>
       <pubDate>Mon, 15 Nov 2021 12:25:45 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-mae/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-mae/</guid>
       <description>&lt;p&gt;@Author：Facebook AI Research-Kaiming He
 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/432663453&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kaiming-MAE&lt;/a&gt;
 &lt;/p&gt;
@@ -1462,9 +1462,9 @@ $$
     </item>
     <item>
       <title>OWL-survey</title>
-      <link>https://aikenh.cn/hugotest/posts/owl-survey/</link>
+      <link>https://hugotest-phi.vercel.app/posts/owl-survey/</link>
       <pubDate>Fri, 12 Nov 2021 09:40:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/owl-survey/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/owl-survey/</guid>
       <description>&lt;p&gt;@AikenHong2021 OWL&lt;/p&gt;
 &lt;p&gt;分析现有的OWL特点，和当前自己的研究做一个区分，也汲取一下别人的研究的要点，&lt;/p&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -1498,9 +1498,9 @@ $$
     </item>
     <item>
       <title>SS_OD_SoftTeacher</title>
-      <link>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ss_od_softteacher/</link>
       <pubDate>Sat, 09 Oct 2021 02:30:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ss_od_softteacher/</guid>
       <description>&lt;p&gt;@ Article: ICML from Microsoft &amp;amp; Huazhong Keda
 @ Code: &lt;a href=&#34;https://github.com/microsoft/SoftTeacher&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;
 
@@ -1545,9 +1545,9 @@ $$
     </item>
     <item>
       <title>StyleGAN</title>
-      <link>https://aikenh.cn/hugotest/posts/stylegan/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stylegan/</link>
       <pubDate>Sun, 03 Oct 2021 13:16:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stylegan/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stylegan/</guid>
       <description>&lt;h1 id=&#34;stylegan-v1&#34;&gt;StyleGAN V1&lt;/h1&gt;
 &lt;p&gt;@AikenHong 2020 10.8&lt;/p&gt;
 &lt;p&gt;《A Style-Based Generator Architecture for Generative Adversarial Networks》&lt;/p&gt;
@@ -1613,9 +1613,9 @@ $$
     </item>
     <item>
       <title>OW Object Detector</title>
-      <link>https://aikenh.cn/hugotest/posts/ow-od/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ow-od/</link>
       <pubDate>Tue, 28 Sep 2021 13:44:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ow-od/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ow-od/</guid>
       <description>&lt;p&gt;@Aiken 2021&lt;/p&gt;
 &lt;p&gt;框架撞车系列，主要看看这一篇论文中怎么解决如下的问题👇，并从中借鉴和优化的我框架设计&lt;/p&gt;
 &lt;h2 id=&#34;思路分析&#34;&gt;思路分析&lt;/h2&gt;
@@ -1664,9 +1664,9 @@ p(l \mid \boldsymbol{f})=\frac{\exp \left(\frac{g_{l}(\boldsymbol{f})}{T}\right)
     </item>
     <item>
       <title>Attention Mechanism</title>
-      <link>https://aikenh.cn/hugotest/posts/attention/</link>
+      <link>https://hugotest-phi.vercel.app/posts/attention/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/attention/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/attention/</guid>
       <description>&lt;p&gt;@Aiken 2020.9.16&lt;/p&gt;
 &lt;p&gt;对基本注意力机制的一些资料和理解做一些简单的汇总，着重分析基本思想原理，应用和实现（即 structure），还有一些Weakness和相应的解决方案。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -1720,9 +1720,9 @@ p(l \mid \boldsymbol{f})=\frac{\exp \left(\frac{g_{l}(\boldsymbol{f})}{T}\right)
     </item>
     <item>
       <title>EfficientNet</title>
-      <link>https://aikenh.cn/hugotest/posts/efficientnet/</link>
+      <link>https://hugotest-phi.vercel.app/posts/efficientnet/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/efficientnet/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/efficientnet/</guid>
       <description>&lt;p&gt;Tags: Paper
 URL1: &lt;a href=&#34;https://arxiv.org/pdf/1905.11946.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://arxiv.org/pdf/1905.11946.pdf&lt;/a&gt;
 
@@ -1763,9 +1763,9 @@ URL2: &lt;a href=&#34;https://arxiv.org/pdf/2104.00298.pdf&#34; target=&#34;_bla
     </item>
     <item>
       <title>RL-DouZero</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-douzero/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-douzero/</link>
       <pubDate>Tue, 06 Jul 2021 13:51:48 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-douzero/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-douzero/</guid>
       <description>&lt;p&gt;Desc: GAME, RL
 Finished?: Yes
 Tags: Paper
@@ -1822,9 +1822,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>Pooling</title>
-      <link>https://aikenh.cn/hugotest/posts/pooling/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pooling/</link>
       <pubDate>Wed, 23 Jun 2021 13:48:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pooling/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pooling/</guid>
       <description>&lt;h1 id=&#34;downsamplingpooling的全面调研&#34;&gt;DownSampling：Pooling的全面调研&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021 笔记摘录：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;深度神经网络中的池化方法：全面调研（1989-2020） - 知乎&lt;/a&gt;
@@ -1874,9 +1874,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>OW-openmix</title>
-      <link>https://aikenh.cn/hugotest/posts/ow-openmix/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ow-openmix/</link>
       <pubDate>Wed, 23 Jun 2021 13:45:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ow-openmix/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ow-openmix/</guid>
       <description>&lt;p&gt;@Aiken 2021 究极万恶的撞车论文&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Motivation&lt;/strong&gt; ：Tackle the problem of 发现无标注数据中与给定（已知）类别不相交的新类。&lt;/p&gt;
@@ -1939,9 +1939,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>Reward is Enough</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-reward_is_enough/</link>
       <pubDate>Sun, 06 Jun 2021 13:53:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-reward_is_enough/</guid>
       <description>&lt;p&gt;Desc: RL
 Finished?: Yes
 Tags: Paper&lt;/p&gt;
@@ -1959,9 +1959,9 @@ Tags: Paper&lt;/p&gt;
     </item>
     <item>
       <title>RL-MobaAI</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-mobaai_tencent/</link>
       <pubDate>Sun, 30 May 2021 13:52:42 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-mobaai_tencent/</guid>
       <description>&lt;p&gt;Created by: Aiken H
 Desc: GAME, RL
 Finished?: Yes
@@ -1994,9 +1994,9 @@ Tags: Paper&lt;/p&gt;
     </item>
     <item>
       <title>RL Notebook 01</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-c1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-c1/</link>
       <pubDate>Sun, 23 May 2021 13:50:06 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-c1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-c1/</guid>
       <description>&lt;p&gt;Created by: Aiken H
 Detail: survey
 Finished?: No
@@ -2063,9 +2063,9 @@ $$ v_\pi(s) = \mathbb{E}(R_{t+1} + \gamma R_{t+2} + \gamma ^2 R_{t+3} + ... |S_t
     </item>
     <item>
       <title>经典深度学习与机器学习算法</title>
-      <link>https://aikenh.cn/hugotest/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</link>
+      <link>https://hugotest-phi.vercel.app/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</link>
       <pubDate>Fri, 23 Apr 2021 01:43:43 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -2174,9 +2174,9 @@ $$ \beta,\gamma $$
     </item>
     <item>
       <title>Involution</title>
-      <link>https://aikenh.cn/hugotest/posts/involution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/involution/</link>
       <pubDate>Thu, 08 Apr 2021 13:12:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/involution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/involution/</guid>
       <description>&lt;p&gt;@Aiken 2021-4-8&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/UmumqhZW7Aqk6s8X1Aj7aA&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ariticle &lt;/a&gt;
 ；&lt;a href=&#34;https://arxiv.org/abs/2103.06255&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Paper&lt;/a&gt;
@@ -2237,9 +2237,9 @@ $$
     </item>
     <item>
       <title>Knowledge Evolution</title>
-      <link>https://aikenh.cn/hugotest/posts/knowledgeevolution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/knowledgeevolution/</link>
       <pubDate>Wed, 07 Apr 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/knowledgeevolution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/knowledgeevolution/</guid>
       <description>&lt;h1 id=&#34;knowledge-evolution-in-neural-networks&#34;&gt;Knowledge Evolution in Neural Networks&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021.4.7&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/ZdHhdTrHmdcBF4DYf1HXPQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Article：只能当成OverView，技术细节写的很差&lt;/a&gt;
@@ -2295,9 +2295,9 @@ $$
     </item>
     <item>
       <title>Related Word of Emotion</title>
-      <link>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</link>
+      <link>https://hugotest-phi.vercel.app/posts/facial_expression_and_emotion/</link>
       <pubDate>Wed, 16 Dec 2020 17:08:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/facial_expression_and_emotion/</guid>
       <description>&lt;h2 id=&#34;疑似&#34;&gt;疑似&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -2314,9 +2314,9 @@ $$
     </item>
     <item>
       <title>GANs 01</title>
-      <link>https://aikenh.cn/hugotest/posts/gans/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gans/</link>
       <pubDate>Mon, 19 Oct 2020 07:47:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gans/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gans/</guid>
       <description>&lt;h1 id=&#34;fgan-对gan理论的深度理解&#34;&gt;fGAN 对GAN理论的深度理解&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021 onenote部分的拓展编写，到时候拷过去，整合在一起。&lt;/p&gt;
 &lt;p&gt;fGAN: 不只是JS-Div散度，我们可以&lt;strong&gt;将所有的散度都应用到GANs的框架&lt;/strong&gt;中。该部分的阅读是对GAN的基本理论最重要的文章之一。&lt;/p&gt;
@@ -2353,9 +2353,9 @@ f^*(x) = \max \limits_{x\in dom(f)} xt - f(x)
     </item>
     <item>
       <title>Hyper-Resolution</title>
-      <link>https://aikenh.cn/hugotest/posts/hyper_resolution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hyper_resolution/</link>
       <pubDate>Fri, 06 Mar 2020 14:55:02 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hyper_resolution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hyper_resolution/</guid>
       <description>&lt;p&gt;说明：重点针对&lt;strong&gt;超分辨率&lt;/strong&gt;技术&lt;/p&gt;
 &lt;p&gt;备注：
 超分辨率在人脸识别上的多，但是表情识别上的确实不多，不过很多都会引用一波&lt;br&gt;&lt;/p&gt;
@@ -2392,9 +2392,9 @@ f^*(x) = \max \limits_{x\in dom(f)} xt - f(x)
     </item>
     <item>
       <title>Image Caption Dataset</title>
-      <link>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</link>
+      <link>https://hugotest-phi.vercel.app/posts/imagecaptionrequirement/</link>
       <pubDate>Tue, 14 Jan 2020 02:13:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/imagecaptionrequirement/</guid>
       <description>&lt;h2 id=&#34;goals&#34;&gt;Goals：&lt;/h2&gt;
 &lt;p&gt;1.数据量要求&lt;br&gt;
 2.标注的标准&lt;br&gt;
@@ -2423,9 +2423,9 @@ CIDEr&lt;/p&gt;
     </item>
     <item>
       <title>表情数据集</title>
-      <link>https://aikenh.cn/hugotest/posts/emotion_dataset/</link>
+      <link>https://hugotest-phi.vercel.app/posts/emotion_dataset/</link>
       <pubDate>Mon, 14 Oct 2019 21:34:54 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/emotion_dataset/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/emotion_dataset/</guid>
       <description>&lt;p&gt;根据这次需要搜集的表情的数据集，整理一下搜索数据集的网站和思路等&lt;/p&gt;
 &lt;p&gt;##PART1 &amp;ldquo;表情数据集&amp;rdquo;
 下列是对数据搜集的要求：&lt;/p&gt;

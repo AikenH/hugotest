@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SQL on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/sql/</link>
+    <link>https://hugotest-phi.vercel.app/tags/sql/</link>
     <description>Recent content in SQL on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 02 Jul 2023 10:30:11 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>树莓派02 家用服务器</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 02 Jul 2023 10:30:11 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;树莓派家庭服务器的搭建以 docker 为核心，通过 docker 统一管理家庭服务，目前搭建的服务还在持续完善中，主要目的是为了方便日常使用、满足学习和探索的需求。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -107,9 +107,9 @@
     </item>
     <item>
       <title>SQL Chapter5 mysql与事务</title>
-      <link>https://aikenh.cn/hugotest/posts/sql5/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql5/</link>
       <pubDate>Fri, 05 Aug 2022 17:30:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql5/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql5/</guid>
       <description>&lt;p&gt;廖雪峰的SQL教程的学习笔记&lt;/p&gt;
 &lt;h2 id=&#34;mysql&#34;&gt;mySQL&lt;/h2&gt;
 &lt;p&gt;how to connect mysql? Using CMD(or MySQL Client) to carry out&lt;/p&gt;
@@ -172,9 +172,9 @@
     </item>
     <item>
       <title>SQL Chapter4  增删改相关操作</title>
-      <link>https://aikenh.cn/hugotest/posts/sql4/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql4/</link>
       <pubDate>Fri, 05 Aug 2022 15:20:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql4/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql4/</guid>
       <description>&lt;p&gt;基本操作无非就是增删改查，查询在上一章Select已经学习完毕，而剩下的增、删、改对应的关键词分别是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;INSERT：插入新纪录&lt;/li&gt;
@@ -245,9 +245,9 @@
     </item>
     <item>
       <title>SQL Chapter3 查询命令</title>
-      <link>https://aikenh.cn/hugotest/posts/sql3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql3/</link>
       <pubDate>Thu, 04 Aug 2022 14:40:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql3/</guid>
       <description>&lt;p&gt;该章节介绍SQL中的查询命令，根据&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1177760294764384/1179610888796448&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;廖雪峰网站&lt;/a&gt;
 进行一步步的测试和学习即可。&lt;/p&gt;
 &lt;ul&gt;
@@ -312,9 +312,9 @@
     </item>
     <item>
       <title>SQL Chapter2 安装和基本概念</title>
-      <link>https://aikenh.cn/hugotest/posts/sql2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql2/</link>
       <pubDate>Wed, 03 Aug 2022 10:17:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql2/</guid>
       <description>&lt;p&gt;本章节从MySQL的安装到基础使用，&lt;strong&gt;MySQL&lt;/strong&gt;本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;InnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好）&lt;/li&gt;
@@ -410,9 +410,9 @@
     </item>
     <item>
       <title>SQL Chapter1 Introduce</title>
-      <link>https://aikenh.cn/hugotest/posts/sql1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql1/</link>
       <pubDate>Tue, 02 Aug 2022 11:17:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql1/</guid>
       <description>&lt;p&gt;SQL相关参考资料：尊重一下&lt;a href=&#34;https://www.runoob.com/sql/sql-tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;菜鸟教程&lt;/a&gt;
  ，该教程中的文档相对简练和入门，&lt;a href=&#34;https://www.w3school.com.cn/sql/sql_intro.asp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;W3School&lt;/a&gt;
 的资料好像就是菜鸟教程的；其次，&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1177760294764384&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;廖雪峰&lt;/a&gt;

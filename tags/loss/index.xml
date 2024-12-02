@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Loss on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/loss/</link>
+    <link>https://hugotest-phi.vercel.app/tags/loss/</link>
     <description>Recent content in Loss on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 Dec 2021 13:39:55 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/loss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/loss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Loss-NCE</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-nce/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-nce/</link>
       <pubDate>Wed, 22 Dec 2021 13:39:55 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-nce/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-nce/</guid>
       <description>&lt;p&gt;@AikenHong 2021&lt;/p&gt;
 &lt;p&gt;Noise Contrastive Estimation Loss = NCE Loss 噪声对比估计损失，这里的Noise实际上就是Negative Samples.
 该损失被广泛的用于对比学习的任务，而对比学习广泛的作为自监督学习的无监督子任务用来训练一个良好的特征提取器，于是对于对比学习的目标和效用的理解十分关键。&lt;/p&gt;
@@ -53,9 +53,9 @@ L_{\text {contrast }}=\mathbb{E}\left[-\log \frac{e^{f_{x}^{T} f_{y} / \tau}}{e^
     </item>
     <item>
       <title>Loss-Smooth(Sharpen)</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-smoothsharpen/</link>
       <pubDate>Fri, 17 Dec 2021 03:35:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-smoothsharpen/</guid>
       <description>&lt;p&gt;@AikenHong 2021
 @topic&lt;/p&gt;
 &lt;ul&gt;
@@ -109,9 +109,9 @@ p_i = \left\{
     </item>
     <item>
       <title>Loss-WhyZero</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-whyzero/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-whyzero/</link>
       <pubDate>Fri, 10 Dec 2021 08:24:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-whyzero/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-whyzero/</guid>
       <description>&lt;h1 id=&#34;loss-why-zero-loss&#34;&gt;Loss :Why Zero Loss？&lt;/h1&gt;
 &lt;p&gt;@Comments: ICML2020 《Do We Need Zero Training Loss After Achieving Zero Training Error》&lt;/p&gt;
 &lt;p&gt;@Noteby：AikenHong2021&lt;/p&gt;

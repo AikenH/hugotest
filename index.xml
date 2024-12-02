@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/</link>
+    <link>https://hugotest-phi.vercel.app/</link>
     <description>Recent content on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 Nov 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ShortCode Function Test</title>
-      <link>https://aikenh.cn/hugotest/posts/shotcode_test/</link>
+      <link>https://hugotest-phi.vercel.app/posts/shotcode_test/</link>
       <pubDate>Sat, 23 Nov 2024 11:30:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/shotcode_test/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/shotcode_test/</guid>
       <description>test website&amp;#39;s function is normal </description>
     </item>
     <item>
       <title>latextest2</title>
-      <link>https://aikenh.cn/hugotest/posts/latextest2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/latextest2/</link>
       <pubDate>Mon, 04 Nov 2024 23:30:53 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/latextest2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/latextest2/</guid>
       <description>&lt;p&gt;test
 该文档主要目的是用于测试Latex语法对应前端的渲染能力，主要用于测试Hexo站点是否能正常渲染Latex。&lt;/p&gt;
 &lt;p&gt;Example1: 2 inline in one sentence.&lt;/p&gt;
@@ -51,9 +51,9 @@ f(x)=
     </item>
     <item>
       <title>CPP_头文件互相包含</title>
-      <link>https://aikenh.cn/hugotest/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</link>
       <pubDate>Tue, 22 Oct 2024 17:05:32 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-error&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -65,9 +65,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb21-JS06-异步JS</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</link>
       <pubDate>Wed, 01 May 2024 06:22:33 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -90,9 +90,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb20-JS05-JSON使用</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb20-js05-json%E4%BD%BF%E7%94%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb20-js05-json%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Tue, 30 Apr 2024 14:44:51 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb20-js05-json%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb20-js05-json%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -225,9 +225,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb19-JS04-类与对象</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb19-js04-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb19-js04-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</link>
       <pubDate>Sun, 28 Apr 2024 16:46:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb19-js04-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb19-js04-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -344,9 +344,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb18-JS03-事件</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/</link>
       <pubDate>Wed, 17 Apr 2024 09:31:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb18-js03-%E4%BA%8B%E4%BB%B6/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -465,9 +465,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb17-JS02-Intro</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb17-js02-intro/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb17-js02-intro/</link>
       <pubDate>Fri, 29 Mar 2024 23:59:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb17-js02-intro/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb17-js02-intro/</guid>
       <description>&lt;h2 id=&#34;js-基础语法&#34;&gt;JS 基础语法&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;该部分的学习除了 MDN 的相关知识，会结合数据结构的内容来进行学。&lt;/p&gt;
@@ -581,9 +581,9 @@ f(x)=
     </item>
     <item>
       <title>《定投十年财务自由》读书笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%AE%9A%E6%8A%95%E5%8D%81%E5%B9%B4%E8%B4%A2%E5%8A%A1%E8%87%AA%E7%94%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%AE%9A%E6%8A%95%E5%8D%81%E5%B9%B4%E8%B4%A2%E5%8A%A1%E8%87%AA%E7%94%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 12 Mar 2024 23:05:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%AE%9A%E6%8A%95%E5%8D%81%E5%B9%B4%E8%B4%A2%E5%8A%A1%E8%87%AA%E7%94%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%AE%9A%E6%8A%95%E5%8D%81%E5%B9%B4%E8%B4%A2%E5%8A%A1%E8%87%AA%E7%94%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -627,9 +627,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb15-Web实战01-首页设计</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Sat, 17 Feb 2024 08:28:28 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb16-web%E5%AE%9E%E6%88%9801-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -704,9 +704,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb15-CSS09-媒体查询与响应式设计</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Thu, 08 Feb 2024 17:53:55 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb15-css09-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Responsive_Design&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;响应式设计的历史和思路：&lt;/a&gt;
 &lt;/li&gt;
@@ -719,9 +719,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb14-CSS08-CSS布局</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</link>
       <pubDate>Wed, 07 Feb 2024 17:09:44 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb14-css08-css%E5%B8%83%E5%B1%80/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -757,9 +757,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb13-CSS07-CSS开发流程</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Wed, 07 Feb 2024 15:54:33 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb13-css07-css%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -771,9 +771,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb12-CSS06-表格样式处理</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</link>
       <pubDate>Wed, 07 Feb 2024 15:06:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb12-css06-%E8%A1%A8%E6%A0%BC%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -858,9 +858,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb11-CSS05-部分常见样式设置</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Tue, 06 Feb 2024 16:24:17 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb11-css05-%E9%83%A8%E5%88%86%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -885,9 +885,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb10-CSS04-盒子模型</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Tue, 06 Feb 2024 15:08:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb10-css04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -926,9 +926,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb09-CSS03-层叠层</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</link>
       <pubDate>Tue, 06 Feb 2024 10:48:11 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb09-css03-%E5%B1%82%E5%8F%A0%E5%B1%82/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -975,9 +975,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb08-CSS02-CSS入门</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</link>
       <pubDate>Sun, 04 Feb 2024 17:05:12 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb08-css02-css%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-note&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1029,9 +1029,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb07-HTML04-表格基础</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 04 Feb 2024 16:30:09 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb07-html04-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E7%A1%80/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1043,9 +1043,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb06-HTML03-多媒体元素</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</link>
       <pubDate>Sat, 03 Feb 2024 09:51:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb06-html03-%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1098,9 +1098,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb05-HTML02-要素察觉</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</link>
       <pubDate>Fri, 02 Feb 2024 14:09:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb05-html02-%E8%A6%81%E7%B4%A0%E5%AF%9F%E8%A7%89/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1135,9 +1135,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb04-JS01-基础webJS编写</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb04-js01-%E5%9F%BA%E7%A1%80webjs%E7%BC%96%E5%86%99/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb04-js01-%E5%9F%BA%E7%A1%80webjs%E7%BC%96%E5%86%99/</link>
       <pubDate>Wed, 31 Jan 2024 21:42:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb04-js01-%E5%9F%BA%E7%A1%80webjs%E7%BC%96%E5%86%99/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb04-js01-%E5%9F%BA%E7%A1%80webjs%E7%BC%96%E5%86%99/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1175,9 +1175,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb03-CSS01-基础CSS规则</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</link>
       <pubDate>Wed, 31 Jan 2024 15:58:10 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb03-css01-%E5%9F%BA%E7%A1%80css%E8%A7%84%E5%88%99/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1259,9 +1259,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb02-HTML01-基础的标签</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Wed, 31 Jan 2024 15:00:58 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb02-html01-%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A0%87%E7%AD%BE/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-intro&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1335,9 +1335,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb01-DevPipeline</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb01-devpipeline/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb01-devpipeline/</link>
       <pubDate>Tue, 30 Jan 2024 10:40:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb01-devpipeline/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb01-devpipeline/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1388,9 +1388,9 @@ f(x)=
     </item>
     <item>
       <title>LearnWeb00-Web入门</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb00-web%E5%85%A5%E9%97%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb00-web%E5%85%A5%E9%97%A8/</link>
       <pubDate>Sun, 28 Jan 2024 21:25:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb00-web%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb00-web%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1440,9 +1440,9 @@ f(x)=
     </item>
     <item>
       <title>Windows Powershell 01 后台任务</title>
-      <link>https://aikenh.cn/hugotest/posts/pwsh_bgtask/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pwsh_bgtask/</link>
       <pubDate>Sun, 28 Jan 2024 15:44:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pwsh_bgtask/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pwsh_bgtask/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1488,9 +1488,9 @@ f(x)=
     </item>
     <item>
       <title>StableDiffusionWebUI鉴权设计</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Sat, 27 Jan 2024 15:42:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusionwebui%E9%89%B4%E6%9D%83%E8%AE%BE%E8%AE%A1/</guid>
       <description>&lt;p&gt;[&amp;gt; [!summary]+&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;this article purpose is to build an authority page for stable diffusion webui using nginx &amp;amp; python/js. Which can publish my personal stable diffusion server. Wrote by GPT(try).&lt;/p&gt;
@@ -1563,9 +1563,9 @@ f(x)=
     </item>
     <item>
       <title>家庭服务器的备份工具选择</title>
-      <link>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</link>
+      <link>https://hugotest-phi.vercel.app/posts/backuptoolsforhomeserver/</link>
       <pubDate>Fri, 29 Dec 2023 08:04:06 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/backuptoolsforhomeserver/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/backuptoolsforhomeserver/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1711,9 +1711,9 @@ f(x)=
     </item>
     <item>
       <title>家庭服务器整体方案</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</link>
       <pubDate>Wed, 20 Dec 2023 08:24:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -1772,9 +1772,9 @@ f(x)=
     </item>
     <item>
       <title>树莓派家庭影音中心2</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
       <pubDate>Sat, 11 Nov 2023 12:08:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
       <description>&lt;h2 id=&#34;禁止屏幕休眠显示作为-dashboard-显示&#34;&gt;禁止屏幕休眠显示作为 Dashboard 显示&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;树莓派官方的 Raspbian 系统使用的是 lightdm 桌面显示管理器，可以设置 xservice 桌面交互显示来达到屏幕常亮的目的，也就是修改桌面配置文件 lightdm.Conf&lt;/p&gt;
@@ -1815,9 +1815,9 @@ f(x)=
     </item>
     <item>
       <title>破解本地自托管Emby服务</title>
-      <link>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</link>
+      <link>https://hugotest-phi.vercel.app/posts/emby_localhost_crack_by_nginx/</link>
       <pubDate>Fri, 10 Nov 2023 14:05:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/emby_localhost_crack_by_nginx/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/emby_localhost_crack_by_nginx/</guid>
       <description>&lt;h2 id=&#34;intro-问题描述&#34;&gt;Intro 问题描述&lt;/h2&gt;
 &lt;p&gt;以 emby 为例，学习如何对这种自托管的服务，请求验证网站的软件进行破解，破解的整体思路分为以下的两类：&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1843,9 +1843,9 @@ f(x)=
     </item>
     <item>
       <title>使用Ipv6部署服务03 DDNS-go 动态域名解析</title>
-      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</link>
+      <link>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6_03_ddnsgo/</link>
       <pubDate>Tue, 07 Nov 2023 13:40:13 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_03_ddnsgo/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6_03_ddnsgo/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第三篇，以 DDNS-go 开源项目为例，部署动态域名解析服务，自动更新主机记录值。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1897,9 +1897,9 @@ f(x)=
     </item>
     <item>
       <title>使用Ipv6部署服务02 Nginx和Https</title>
-      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</link>
+      <link>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6_02_nginx/</link>
       <pubDate>Mon, 06 Nov 2023 20:49:16 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6_02_nginx/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6_02_nginx/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第二篇，以腾讯云和 Nginx 为例，介绍如何将服务部署到 https://域名 。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1969,9 +1969,9 @@ f(x)=
     </item>
     <item>
       <title>Windows端口异常占用</title>
-      <link>https://aikenh.cn/hugotest/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</link>
       <pubDate>Sun, 05 Nov 2023 23:46:54 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windows%E7%AB%AF%E5%8F%A3%E5%BC%82%E5%B8%B8%E5%8D%A0%E7%94%A8/</guid>
       <description>&lt;p&gt;Windows11基于 WSL2启动 docker 后报错如下（需要注意有时候使用启动命令会报错，但是 restart 命令 docker 可以运行，对应服务无法访问）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Bind: An attempt was made to access a socket in a way forbidden by its access permissions.&lt;/strong&gt;&lt;/p&gt;
@@ -2018,9 +2018,9 @@ f(x)=
     </item>
     <item>
       <title>使用Ipv6部署服务01 IPV6开启和设置</title>
-      <link>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</link>
+      <link>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6/</link>
       <pubDate>Sun, 05 Nov 2023 19:23:17 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/deploy_server_byipv6/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/deploy_server_byipv6/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本系列主要介绍通过公网的 ipv6 访问局域网设备并部署自己的服务供公网访问；本篇是其中的第一篇，以电信宽带为例，说明如何开启 ipv6 服务和外网访问放行。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2127,9 +2127,9 @@ f(x)=
     </item>
     <item>
       <title>Obsidian使用 Spaced Repetition 制作闪念卡片</title>
-      <link>https://aikenh.cn/hugotest/posts/flashcard_template/</link>
+      <link>https://hugotest-phi.vercel.app/posts/flashcard_template/</link>
       <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/flashcard_template/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/flashcard_template/</guid>
       <description>&lt;p&gt;该文作为基础的闪念卡片的使用说明，介绍几种闪念卡片定义的方式，便于后续查阅，参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/558326315&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Obsidian: Spaced Repetition插件使用指南 &lt;/a&gt;
@@ -2167,9 +2167,9 @@ f(x)=
     </item>
     <item>
       <title>VsCode&#39;s RegExp Catch 正则捕获</title>
-      <link>https://aikenh.cn/hugotest/posts/vsocde_regexp/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vsocde_regexp/</link>
       <pubDate>Thu, 19 Oct 2023 16:53:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vsocde_regexp/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vsocde_regexp/</guid>
       <description>&lt;p&gt;本篇简单介绍一些 VsCode 进行文本替换和查找的一些特殊的正则，该文会随着自己的使用来逐步记录，目前主要内容如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;捕获组合及其替换模式&lt;/li&gt;
@@ -2220,9 +2220,9 @@ f(x)=
     </item>
     <item>
       <title>GoMetis00_INTRO</title>
-      <link>https://aikenh.cn/hugotest/posts/gometis00_intro/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gometis00_intro/</link>
       <pubDate>Sun, 08 Oct 2023 17:58:57 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gometis00_intro/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gometis00_intro/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -2335,9 +2335,9 @@ f(x)=
     </item>
     <item>
       <title>Photography00 XS20_Recipes</title>
-      <link>https://aikenh.cn/hugotest/posts/taskphoto00_xs20_recipes/</link>
+      <link>https://hugotest-phi.vercel.app/posts/taskphoto00_xs20_recipes/</link>
       <pubDate>Thu, 05 Oct 2023 00:41:43 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/taskphoto00_xs20_recipes/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/taskphoto00_xs20_recipes/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -2450,9 +2450,9 @@ f(x)=
     </item>
     <item>
       <title>HomeAssistant01 入门基础篇</title>
-      <link>https://aikenh.cn/hugotest/posts/homeassistant_init/</link>
+      <link>https://hugotest-phi.vercel.app/posts/homeassistant_init/</link>
       <pubDate>Sat, 12 Aug 2023 17:24:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/homeassistant_init/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/homeassistant_init/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;接下来本文安装的是 Container 版本的 HA，并非 Supervised 的版本，所以其中是不包含 Add-on 的，如果需要特定的 Add-on 的版本请注意。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2501,9 +2501,9 @@ f(x)=
     </item>
     <item>
       <title>linux下载命令之Wget和Curl</title>
-      <link>https://aikenh.cn/hugotest/posts/linuxcli_download/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linuxcli_download/</link>
       <pubDate>Fri, 07 Jul 2023 22:10:52 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linuxcli_download/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linuxcli_download/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;想要通过命令行直接下载文件，通常想到的就是下面的两个工具：wget 和 curl，下面简单介绍一下两者的使用。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2538,9 +2538,9 @@ f(x)=
     </item>
     <item>
       <title>NumpyConcatenate加速</title>
-      <link>https://aikenh.cn/hugotest/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</link>
+      <link>https://hugotest-phi.vercel.app/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</link>
       <pubDate>Sun, 02 Jul 2023 10:52:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</guid>
       <description>&lt;p&gt;多次循环进行 Numpy Concentrate 操作后，当原始数组变得过大的时，单步处理时间会逐渐变长，处理大量数据的时候时间成本极高。&lt;/p&gt;
 &lt;h2 id=&#34;解决思路&#34;&gt;解决思路&lt;/h2&gt;
 &lt;p&gt;这里简单的讲一下问题的定位过程，通过装饰器 Check 每个函数的执行时间，重点关注执行时长逐渐变长的部分。&lt;/p&gt;
@@ -2615,9 +2615,9 @@ f(x)=
     </item>
     <item>
       <title>树莓派02 家用服务器</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 02 Jul 2023 10:30:11 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;树莓派家庭服务器的搭建以 docker 为核心，通过 docker 统一管理家庭服务，目前搭建的服务还在持续完善中，主要目的是为了方便日常使用、满足学习和探索的需求。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2712,9 +2712,9 @@ f(x)=
     </item>
     <item>
       <title>树莓派01 家庭影音中心</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
       <pubDate>Wed, 28 Jun 2023 07:28:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;将 RaspBerry Pi 4B 作为家庭影视中心/机顶盒的核心就是 KODI 软件，这是考虑到以下的几点：遥控器的控制、对挂载 webdav 和其他的支持&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2760,9 +2760,9 @@ f(x)=
     </item>
     <item>
       <title>Clash局域网代理共享</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Thu, 22 Jun 2023 10:41:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%A3%E7%90%86%E5%85%B1%E4%BA%AB/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文介绍基于 Windows Clash Desktop 的代理服务器设置，可以为局域网内的设备提供代理服务，该方案可以解决一定的科学上网需求，但是没办法覆盖所有的场景，例如 PS5 的 Netflix ，其不走代理服务器，因此无法通过该方案解决，（软路由可破）&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2837,9 +2837,9 @@ f(x)=
     </item>
     <item>
       <title>Docker Configuration01 Install on Linux</title>
-      <link>https://aikenh.cn/hugotest/posts/docker01_linux/</link>
+      <link>https://hugotest-phi.vercel.app/posts/docker01_linux/</link>
       <pubDate>Thu, 22 Jun 2023 09:25:29 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/docker01_linux/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/docker01_linux/</guid>
       <description>&lt;p&gt;不同于 Docker 在 Windows 端借助 Desktop 可视化进行安装和配置，Linux 端没有默认的 Desktop 界面，因此会额外安装 portainer 作为我们 docker 的 Dashboard.&lt;/p&gt;
 &lt;h2 id=&#34;install-docker-on-ubuntu&#34;&gt;Install Docker on Ubuntu&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -2890,9 +2890,9 @@ f(x)=
     </item>
     <item>
       <title>树莓派00 组装和亮机篇</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Tue, 20 Jun 2023 22:38:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;最近入手了树莓派 4B，打算基于树莓派做一些有趣&amp;amp;有用的项目，该系列笔记来记录个人树莓派学习和开发的历程。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2938,9 +2938,9 @@ f(x)=
     </item>
     <item>
       <title>Terminal multiplexer Zellij</title>
-      <link>https://aikenh.cn/hugotest/posts/linuxzellij/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linuxzellij/</link>
       <pubDate>Sat, 20 May 2023 16:40:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linuxzellij/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linuxzellij/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Tmux 作为一款优秀的终端复用器，前面已经介绍过，这里在介绍一款有着相同功能的平替，个人认为 zellij 的 UI 各方面的设计，使得其相比于 Tmux 有着更低的入门难度，也避免了需要记大量快捷键，因此这里介绍一下该工具。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2984,9 +2984,9 @@ f(x)=
     </item>
     <item>
       <title>AIGC05 Stable Diffusion Model Training</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusiontraining/</link>
       <pubDate>Sat, 06 May 2023 23:43:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusiontraining/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusiontraining/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该章节主要介绍 Stable-Diffusion 中模型的训练，考虑到硬件条件的限制，实际上这里介绍的训练，都是针对大模型的各种微调技术（Lora，Dreambooth，HyperNetwork, &amp;hellip;），这里会以 LoRA 模型的训练为主。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3063,9 +3063,9 @@ f(x)=
     </item>
     <item>
       <title>Docker-App 1 Backup Photos by Immich</title>
-      <link>https://aikenh.cn/hugotest/posts/immich_backup/</link>
+      <link>https://hugotest-phi.vercel.app/posts/immich_backup/</link>
       <pubDate>Mon, 01 May 2023 09:12:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/immich_backup/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/immich_backup/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;手机到电脑端的图像备份和预览往往是一个大问题，特别是当多个手机要备份的时候，说难不难，但说简单也确实有很多麻烦的地方，因此我推荐 Immich 的解决方案。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3088,9 +3088,9 @@ f(x)=
     </item>
     <item>
       <title>Windows App01 Potplayer &amp; Alist</title>
-      <link>https://aikenh.cn/hugotest/posts/alist_potplayer/</link>
+      <link>https://hugotest-phi.vercel.app/posts/alist_potplayer/</link>
       <pubDate>Sun, 30 Apr 2023 22:42:58 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/alist_potplayer/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/alist_potplayer/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本篇主要介绍一下播放器 PotPlayer 的设置以及结合 Alist&amp;amp;小雅 alist 的使用，这样就可以直接在播放器访问本地网盘上的内容，便于使用和观看。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3243,9 +3243,9 @@ f(x)=
     </item>
     <item>
       <title>AIGC04 Stable Diffusion Write Prompt Better</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusionprompt/</link>
       <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusionprompt/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusionprompt/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该章节主要包括 Promot 生成和部分工作流的分析，旨在了解如何写出更好的关键词，如何生成更好的图片，当我们不知道怎么描述的时候也可以将该工作交给 ChatGPT，让其为我们攥写一般基础的提示词&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3270,9 +3270,9 @@ f(x)=
     </item>
     <item>
       <title>AIGC03 Stable Diffusion Control Net</title>
-      <link>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stablediffusioncontrolnet/</link>
       <pubDate>Wed, 26 Apr 2023 21:19:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stablediffusioncontrolnet/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stablediffusioncontrolnet/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;ControlNet 是 Stable Diffusion 最强力的插件之一，它能够控制 SD 的整个扩散过程，包括让 AI 参考动作/骨架/线条/景深，从而更精准的生成图片。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3293,9 +3293,9 @@ f(x)=
     </item>
     <item>
       <title>AIGC02 Stable Diffusion 基础功能介绍</title>
-      <link>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 26 Apr 2023 11:03:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stable-diffusion-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本篇章介绍关于 Stable DIffusion 的一些基础概念和 WebUI 的基本功能元素，同时介绍一些启动项和模型加载的东西。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3336,9 +3336,9 @@ f(x)=
     </item>
     <item>
       <title>Windows Configuration05 CUDA &amp; Cudnn</title>
-      <link>https://aikenh.cn/hugotest/posts/windowscudacudnn/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windowscudacudnn/</link>
       <pubDate>Mon, 24 Apr 2023 09:50:01 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windowscudacudnn/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windowscudacudnn/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在 Windows 和 WSL2 中安装 Cuda 和 Cudnn ，是配置 GPU 开发环境中重要的一步，其支撑了 AI 模型进行 Training 和 Interface 。本篇介绍安装 CUDA 和 Cudnn 的步骤和一些踩过的坑。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3421,9 +3421,9 @@ f(x)=
     </item>
     <item>
       <title>AIGC01 Stable Diffusion and midjourney Setup</title>
-      <link>https://aikenh.cn/hugotest/posts/stable-diffusion/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stable-diffusion/</link>
       <pubDate>Wed, 19 Apr 2023 16:00:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stable-diffusion/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stable-diffusion/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This Chapter introduce how to set up stable diffusion and mid-journey, and record some problem I meet when I deploy it.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3457,9 +3457,9 @@ f(x)=
     </item>
     <item>
       <title>Grep、Sed、Awk 03 Awk</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</link>
       <pubDate>Tue, 18 Apr 2023 16:00:07 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Linux 三剑客之 Awk (由三个创始人的姓氏首字母组成)，相比于 Grep 和 Sed 而言更为特殊一些，它是一种模式匹配的编程语言，其主要的作用匹配文本进行处理，其擅长实现对文本的格式化输出，而作为一门编程语言：支持函数，变量，循环，运算，但相对简单。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3497,9 +3497,9 @@ f(x)=
     </item>
     <item>
       <title>Grep、Sed、Awk 02 Sed</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</link>
       <pubDate>Sat, 15 Apr 2023 23:22:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Linux 三剑客之 Sed，相比于擅长数据查找定位的 Grep，Sed（Stream Editor）擅长做的是数据修改，做的主要是做一些增删改的功能。&lt;a href=&#34;https://www.zhihu.com/question/297858714&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; sed 和 awk 的区别是什么？&lt;/a&gt;
 &lt;/p&gt;
@@ -3537,9 +3537,9 @@ f(x)=
     </item>
     <item>
       <title>Grep、Sed、Awk 01-Grep</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
       <pubDate>Wed, 12 Apr 2023 13:22:58 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Linux 三剑客之 Grep。Grep 估计会是大部分 Linux 用户最常用的文本搜索命令了，在三剑客中的使用场景也是最广泛的。在对正则有了基本了解之后，就可以更好的使用 Grep，同时也可以通过 Grep 的使用来更好的掌握常用的正则表达式。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3562,9 +3562,9 @@ f(x)=
     </item>
     <item>
       <title>Grep、Sed、Awk 00 RegExp</title>
-      <link>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</link>
       <pubDate>Tue, 11 Apr 2023 22:57:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8B%E6%AD%A3%E5%88%99/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“awk、grep、sed 是 linux 操作文本的三大利器，合称文本三剑客，也是必须掌握的 linux 命令之一。三者的功能都是处理文本，但侧重点各不相同，其中属 awk 功能最强大，但也最复杂。grep 更适合单纯的查找或匹配文本，sed 更适合编辑匹配到的文本，awk 更适合格式化文本，对文本进行较复杂格式处理。“&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3597,9 +3597,9 @@ f(x)=
     </item>
     <item>
       <title>内网穿透（NAT穿透）</title>
-      <link>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nat%E7%A9%BF%E9%80%8F/</link>
       <pubDate>Tue, 04 Apr 2023 14:40:12 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nat%E7%A9%BF%E9%80%8F/</guid>
       <description>&lt;p&gt;本文简要介绍对内网穿透技术、对内网穿透技术的需求以及介绍一些用于&amp;quot;个人&amp;quot;进行内网穿透的工具和使用。&lt;/p&gt;
 &lt;h2 id=&#34;1-什么是内网穿透nat-traversal&#34;&gt;1. 什么是内网穿透(NAT traversal）&lt;/h2&gt;
 &lt;p&gt;在计算机科学中，&lt;strong&gt;NAT穿越&lt;/strong&gt;（NAT traversal）涉及TCP/IP中的一个常见问题，即在处于使用了NAT设备的私有TCP/IP网络中的主机之间创建连接的问题。&lt;/p&gt;
@@ -3618,9 +3618,9 @@ f(x)=
     </item>
     <item>
       <title>Macos Configuration01 MacOS terminal 设置</title>
-      <link>https://aikenh.cn/hugotest/posts/macos_bash_config/</link>
+      <link>https://hugotest-phi.vercel.app/posts/macos_bash_config/</link>
       <pubDate>Sun, 02 Apr 2023 19:28:48 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/macos_bash_config/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/macos_bash_config/</guid>
       <description>&lt;p&gt;Mac 的 Terminal 和 Ubuntu 的操作上较为相似，都是 Unix 的吧，但是要注意一下安全和软件管理库。&lt;/p&gt;
 &lt;p&gt;其他的参考资料： &lt;a href=&#34;https://www.youtube.com/watch?v=RNqDkF17ogY&amp;amp;t=787s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.youtube.com/watch?v=RNqDkF17ogY&amp;t=787s&lt;/a&gt;
 &lt;/p&gt;
@@ -3660,9 +3660,9 @@ f(x)=
     </item>
     <item>
       <title>Whats DevOps?</title>
-      <link>https://aikenh.cn/hugotest/posts/devops/</link>
+      <link>https://hugotest-phi.vercel.app/posts/devops/</link>
       <pubDate>Sat, 25 Mar 2023 09:55:32 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/devops/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/devops/</guid>
       <description>&lt;p&gt;在一个庞大的组织架构中，CI/CD 和 Devops 的概念是避不开的，了解它的工作原理和概念能帮助我们更好的与他人进行协作。&lt;/p&gt;
 &lt;h2 id=&#34;cicd-介绍&#34;&gt;CI/CD 介绍&lt;/h2&gt;
 &lt;div style=&#34;text-align:center&#34;&gt;
@@ -3683,9 +3683,9 @@ f(x)=
     </item>
     <item>
       <title>Hexo Icarus 配置</title>
-      <link>https://aikenh.cn/hugotest/posts/custom_icarus/</link>
+      <link>https://hugotest-phi.vercel.app/posts/custom_icarus/</link>
       <pubDate>Sat, 11 Mar 2023 23:46:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/custom_icarus/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/custom_icarus/</guid>
       <description>&lt;p&gt;本文的博客页面基于 &lt;a href=&#34;[Hexo]%28https://hexo.io/zh-cn/%29&#34;&gt;Hexo&lt;/a&gt;
 +&lt;a href=&#34;https://ppoffice.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Icarus&lt;/a&gt;
  主题搭建，在使用过程中对该主题做了一些简单的配置，以适应自己的需求。这里介绍一下自己粗浅的方案。&lt;/p&gt;
@@ -3737,18 +3737,18 @@ f(x)=
     </item>
     <item>
       <title>Count_Min Sketch算法</title>
-      <link>https://aikenh.cn/hugotest/posts/countminsketch/</link>
+      <link>https://hugotest-phi.vercel.app/posts/countminsketch/</link>
       <pubDate>Fri, 10 Mar 2023 13:12:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/countminsketch/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/countminsketch/</guid>
       <description>&lt;p&gt;本文介绍计算大规模数据流中的元素出现频次的方法 CMS，以及其简单改进Count-Mean-Min-Sketch&lt;/p&gt;
 &lt;h2 id=&#34;intro--scene&#34;&gt;Intro &amp;amp; Scene&lt;/h2&gt;
 &lt;p&gt;在大数据场景下，比如网页的 TopK 问题，爬虫的是否访问过的问题，都是一种出现频次相关的问题，那么在系统设计的时候，如何选择策略和数据结构去存储相关的数据是最高效合适的呢？&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python00 Conda 与 Pip</title>
-      <link>https://aikenh.cn/hugotest/posts/python_pack_manager/</link>
+      <link>https://hugotest-phi.vercel.app/posts/python_pack_manager/</link>
       <pubDate>Mon, 06 Mar 2023 11:27:52 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/python_pack_manager/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/python_pack_manager/</guid>
       <description>&lt;p&gt;@Aikenhong 的旧笔记翻新完善 1.0&lt;/p&gt;
 &lt;p&gt;Python 的灵活和广泛应用场景来自于众多的第三方库，由于强大的可拓展性和众多的库，使得 Python 的使用简单灵活，且应用面极广。&lt;/p&gt;
 &lt;p&gt;但是不同库之间的相互依赖关系，对版本的不同要求等等因素，使得&amp;quot;环境配置&amp;quot;成为了开发者闻之变色的一词，对一个新的库和项目环境的配置尝尝会花去大量的时间，这可能也是 Docker、Venv（虚拟环境）必须存在的原因之一。&lt;/p&gt;
@@ -3759,9 +3759,9 @@ f(x)=
     </item>
     <item>
       <title>Windows Powershell 00 Install and Config</title>
-      <link>https://aikenh.cn/hugotest/posts/powershell/</link>
+      <link>https://hugotest-phi.vercel.app/posts/powershell/</link>
       <pubDate>Sun, 05 Mar 2023 09:59:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/powershell/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/powershell/</guid>
       <description>&lt;p&gt;Update:@20230214&lt;/p&gt;
 &lt;p&gt;shift+右键: 在此处打开 powershell.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/PowerShell/PowerShell/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PowerShell &lt;/a&gt;
@@ -3794,9 +3794,9 @@ f(x)=
     </item>
     <item>
       <title>Bash Notebook 01</title>
-      <link>https://aikenh.cn/hugotest/posts/shell/</link>
+      <link>https://hugotest-phi.vercel.app/posts/shell/</link>
       <pubDate>Wed, 25 Jan 2023 22:04:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/shell/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/shell/</guid>
       <description>&lt;p&gt;整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。&lt;/p&gt;
 &lt;h2 id=&#34;语句注释&#34;&gt;语句注释&lt;/h2&gt;
 &lt;p&gt;单行注释：&lt;code&gt;#&lt;/code&gt; ，多行注释：&lt;/p&gt;
@@ -3859,9 +3859,9 @@ f(x)=
     </item>
     <item>
       <title>Windows Configuration04 Dual-System-Ubuntu</title>
-      <link>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</link>
+      <link>https://hugotest-phi.vercel.app/posts/dualsystemubuntu/</link>
       <pubDate>Sun, 22 Jan 2023 16:25:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/dualsystemubuntu/</guid>
       <description>&lt;p&gt;该文介绍基于 Windows11 系统的双系统安装和删除，安装的双系统选择 Ubuntu（开发还是比较推荐使用 WSL2 即可）&lt;/p&gt;
 &lt;h2 id=&#34;install-dual-system&#34;&gt;Install Dual System&lt;/h2&gt;
 &lt;p&gt;参考资料：&lt;a href=&#34;https://blog.csdn.net/NeoZng/article/details/122779035&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;全面解决各种问题&lt;/a&gt;
@@ -3916,9 +3916,9 @@ f(x)=
     </item>
     <item>
       <title>Github Profile 个人主页</title>
-      <link>https://aikenh.cn/hugotest/posts/githubprofile/</link>
+      <link>https://hugotest-phi.vercel.app/posts/githubprofile/</link>
       <pubDate>Sat, 21 Jan 2023 21:25:24 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/githubprofile/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/githubprofile/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文介绍如何配置自己的 Github 的个人资料界面，同时会介绍相关美化个人资料的一些资源网站和项目，并简单介绍其用法。最终结果如下（还有许多优化的空间）：&lt;/p&gt;
 &lt;p&gt;
@@ -3962,9 +3962,9 @@ f(x)=
     </item>
     <item>
       <title>Nodejs、yarn、npm关系辨析</title>
-      <link>https://aikenh.cn/hugotest/posts/nodes/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nodes/</link>
       <pubDate>Sun, 09 Oct 2022 13:33:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nodes/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nodes/</guid>
       <description>&lt;p&gt;@AikenH 2022 Node-JS-Chapter1&lt;/p&gt;
 &lt;p&gt;参考：&lt;a href=&#34;https://blog.csdn.net/Newbie___/article/details/104759861&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;包管理工具npm、yarn以及nvm简介及简单使用&lt;/a&gt;
 &lt;/p&gt;
@@ -3973,9 +3973,9 @@ f(x)=
     </item>
     <item>
       <title>基于Vue和Django的前后端开发实践</title>
-      <link>https://aikenh.cn/hugotest/posts/custom_web/</link>
+      <link>https://hugotest-phi.vercel.app/posts/custom_web/</link>
       <pubDate>Sun, 02 Oct 2022 18:00:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/custom_web/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/custom_web/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -4074,9 +4074,9 @@ f(x)=
     </item>
     <item>
       <title>Vue Chapter1 基础语法</title>
-      <link>https://aikenh.cn/hugotest/posts/vue-chapter1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vue-chapter1/</link>
       <pubDate>Wed, 14 Sep 2022 10:34:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vue-chapter1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vue-chapter1/</guid>
       <description>&lt;p&gt;基本Vue语法规则学习笔记，方便我们去自定义和看懂别人的网页代码。&lt;/p&gt;
 &lt;p&gt;概念补充：&lt;/p&gt;
 &lt;ul&gt;
@@ -4095,9 +4095,9 @@ f(x)=
     </item>
     <item>
       <title>Macos Configuration00 软件安装和基础配置</title>
-      <link>https://aikenh.cn/hugotest/posts/macos/</link>
+      <link>https://hugotest-phi.vercel.app/posts/macos/</link>
       <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/macos/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/macos/</guid>
       <description>&lt;p&gt;配置一台全新的 MacOs（M1）用于日常使用和编程开发，这里总结一下自己体验比较好的 APP 和开发工具。Let‘s Go&lt;/p&gt;
 &lt;h2 id=&#34;系统基础设置&#34;&gt;系统基础设置&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;调转 F 区功能&lt;/strong&gt;：在涉及到开发的时候，F 区很多情况下就会派上用场，因此这里简单介绍一下：&lt;/p&gt;
@@ -4140,9 +4140,9 @@ f(x)=
     </item>
     <item>
       <title>Linux02 基础指令</title>
-      <link>https://aikenh.cn/hugotest/posts/linux2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux2/</link>
       <pubDate>Sun, 04 Sep 2022 21:30:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux2/</guid>
       <description>&lt;p&gt;@Aiken 2022&lt;/p&gt;
 &lt;p&gt;If u want get detail params info go to: &lt;a href=&#34;http://www.explainshell.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://www.explainshell.com&lt;/a&gt;
 .&lt;/p&gt;
@@ -4218,9 +4218,9 @@ f(x)=
     </item>
     <item>
       <title>转）vimscript in 5 minus</title>
-      <link>https://aikenh.cn/hugotest/posts/vimscript_5minus/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimscript_5minus/</link>
       <pubDate>Thu, 01 Sep 2022 01:01:01 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimscript_5minus/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimscript_5minus/</guid>
       <description>&lt;p&gt;学习 vimscript 理解原生 vim 的配置方法，Reference：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://andrewscala.com/vimscript/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Five Minus Vimscript&amp;rdquo;&lt;/a&gt;
@@ -4231,9 +4231,9 @@ f(x)=
     </item>
     <item>
       <title>Python Unittest 单元测试的编写与执行</title>
-      <link>https://aikenh.cn/hugotest/posts/unittest/</link>
+      <link>https://hugotest-phi.vercel.app/posts/unittest/</link>
       <pubDate>Fri, 12 Aug 2022 20:37:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/unittest/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/unittest/</guid>
       <description>&lt;p&gt;该文章将介绍 Python 中的单元测试之 Unittest 模块，及其在 VsCode 中的集成和使用，主要参考的链接有以下的三个：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/sinat_38682860/article/details/102838668&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unittest的基本用法&lt;/a&gt;
@@ -4247,9 +4247,9 @@ f(x)=
     </item>
     <item>
       <title>SQL Chapter5 mysql与事务</title>
-      <link>https://aikenh.cn/hugotest/posts/sql5/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql5/</link>
       <pubDate>Fri, 05 Aug 2022 17:30:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql5/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql5/</guid>
       <description>&lt;p&gt;廖雪峰的SQL教程的学习笔记&lt;/p&gt;
 &lt;h2 id=&#34;mysql&#34;&gt;mySQL&lt;/h2&gt;
 &lt;p&gt;how to connect mysql? Using CMD(or MySQL Client) to carry out&lt;/p&gt;
@@ -4312,9 +4312,9 @@ f(x)=
     </item>
     <item>
       <title>SQL Chapter4  增删改相关操作</title>
-      <link>https://aikenh.cn/hugotest/posts/sql4/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql4/</link>
       <pubDate>Fri, 05 Aug 2022 15:20:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql4/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql4/</guid>
       <description>&lt;p&gt;基本操作无非就是增删改查，查询在上一章Select已经学习完毕，而剩下的增、删、改对应的关键词分别是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;INSERT：插入新纪录&lt;/li&gt;
@@ -4385,9 +4385,9 @@ f(x)=
     </item>
     <item>
       <title>SQL Chapter3 查询命令</title>
-      <link>https://aikenh.cn/hugotest/posts/sql3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql3/</link>
       <pubDate>Thu, 04 Aug 2022 14:40:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql3/</guid>
       <description>&lt;p&gt;该章节介绍SQL中的查询命令，根据&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1177760294764384/1179610888796448&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;廖雪峰网站&lt;/a&gt;
 进行一步步的测试和学习即可。&lt;/p&gt;
 &lt;ul&gt;
@@ -4452,9 +4452,9 @@ f(x)=
     </item>
     <item>
       <title>SQL Chapter2 安装和基本概念</title>
-      <link>https://aikenh.cn/hugotest/posts/sql2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql2/</link>
       <pubDate>Wed, 03 Aug 2022 10:17:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql2/</guid>
       <description>&lt;p&gt;本章节从MySQL的安装到基础使用，&lt;strong&gt;MySQL&lt;/strong&gt;本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;InnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好）&lt;/li&gt;
@@ -4550,9 +4550,9 @@ f(x)=
     </item>
     <item>
       <title>SQL Chapter1 Introduce</title>
-      <link>https://aikenh.cn/hugotest/posts/sql1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql1/</link>
       <pubDate>Tue, 02 Aug 2022 11:17:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql1/</guid>
       <description>&lt;p&gt;SQL相关参考资料：尊重一下&lt;a href=&#34;https://www.runoob.com/sql/sql-tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;菜鸟教程&lt;/a&gt;
  ，该教程中的文档相对简练和入门，&lt;a href=&#34;https://www.w3school.com.cn/sql/sql_intro.asp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;W3School&lt;/a&gt;
 的资料好像就是菜鸟教程的；其次，&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1177760294764384&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;廖雪峰&lt;/a&gt;
@@ -4616,9 +4616,9 @@ f(x)=
     </item>
     <item>
       <title>Windows Configuration03 LAN sharing</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Sun, 31 Jul 2022 23:43:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB/</guid>
       <description>&lt;p&gt;在同一个局域网（像是链接同一个wifi的环境）中，设置共享的文件夹或者磁盘，可提升文件分享的效率和速度，特别适用于与女朋友合租、与兄弟合租的情景。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h2 id=&#34;win-系统开放共享权限&#34;&gt;Win 系统开放共享权限&lt;/h2&gt;
@@ -4685,9 +4685,9 @@ f(x)=
     </item>
     <item>
       <title>Windows Configuration02 Terminal</title>
-      <link>https://aikenh.cn/hugotest/posts/windowsterminal/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windowsterminal/</link>
       <pubDate>Sat, 30 Jul 2022 10:03:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windowsterminal/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windowsterminal/</guid>
       <description>&lt;h2 id=&#34;config-windows-terminal-in-win11&#34;&gt;Config Windows Terminal in Win11&lt;/h2&gt;
 &lt;h3 id=&#34;install-安装&#34;&gt;Install 安装&lt;/h3&gt;
 &lt;p&gt;windows terminal 在 win11 已经自带，无需安装，如果需要安装的话在 Microsoft Store 下载即可，默认的 terminal 在中文环境中可能要搜索 windows 终端。&lt;/p&gt;
@@ -4697,9 +4697,9 @@ f(x)=
     </item>
     <item>
       <title>NAS</title>
-      <link>https://aikenh.cn/hugotest/posts/nas/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nas/</link>
       <pubDate>Wed, 27 Jul 2022 23:30:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nas/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nas/</guid>
       <description>&lt;p&gt;“NAS本质上就是一个可以开启文件共享的具有大存储的系统：无论是Windows，Linux或其他一切可基于诸如SMB、Internet提供文件共享或访问功能的系统都可以作为NAS的系统使用。”&lt;/p&gt;
 &lt;p&gt;不出意外，针对该应用场景，也有针对性的一些简化OS，故而在构建NAS之前，首先分析对NAS存储的需求，进而选择一个合适的系统去构建。&lt;/p&gt;
 &lt;h2 id=&#34;个人nas需求分析&#34;&gt;个人NAS需求分析&lt;/h2&gt;
@@ -4845,9 +4845,9 @@ f(x)=
     </item>
     <item>
       <title>Markov Junior</title>
-      <link>https://aikenh.cn/hugotest/posts/markovjunior/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markovjunior/</link>
       <pubDate>Sun, 10 Jul 2022 11:26:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markovjunior/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markovjunior/</guid>
       <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzIxODg1OTk1MA==&amp;amp;mid=2247513354&amp;amp;idx=1&amp;amp;sn=28b5492cc0a86b04f0a0b975bf42568c&amp;amp;ascene=56&amp;amp;devicetype=iOS15.5&amp;amp;version=1800172f&amp;amp;nettype=WIFI&amp;amp;abtest_cookie=AAACAA%3D%3D&amp;amp;lang=zh_CN&amp;amp;fontScale=100&amp;amp;exportkey=ARSr9kinLTM%2B6fr7WYBKF%2FM%3D&amp;amp;pass_ticket=gK4kcTE5wfRRXzd0FMTJlg9zBNGh%2BZ5VoWQkUbqSJXykXGIdMXasyLJgUxII1IDt&amp;amp;wx_header=3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jack Cui&lt;/a&gt;
  | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Markov Junior&lt;/a&gt;
  | &lt;a href=&#34;https://github.com/mxgmn/MarkovJunior&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wiki Markov algorithm&lt;/a&gt;
@@ -4905,9 +4905,9 @@ f(x)=
     </item>
     <item>
       <title>Wave Function Collapse</title>
-      <link>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</link>
+      <link>https://hugotest-phi.vercel.app/posts/wfc%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sun, 10 Jul 2022 09:42:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/wfc%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/wfc%E7%AE%97%E6%B3%95/</guid>
       <description>&lt;p&gt;@Reference: &lt;a href=&#34;https://github.com/mxgmn/WaveFunctionCollapse&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github-Mxgmn&lt;/a&gt;
  | &lt;a href=&#34;https://zhuanlan.zhihu.com/p/66416593&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;zhihu&lt;/a&gt;
 &lt;/p&gt;
@@ -4966,9 +4966,9 @@ H(X) = \sum_{x\in X}p(x)log p(x)
     </item>
     <item>
       <title>Using Z Jumper in CLI</title>
-      <link>https://aikenh.cn/hugotest/posts/linux_cli_z/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux_cli_z/</link>
       <pubDate>Fri, 20 May 2022 21:22:53 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux_cli_z/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux_cli_z/</guid>
       <description>&lt;p&gt;Star this &lt;a href=&#34;https://github.com/rupa/z&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Project&lt;/a&gt;
  in Github after u decide to use it.&lt;/p&gt;
 &lt;h2 id=&#34;download--install&#34;&gt;Download &amp;amp; Install&lt;/h2&gt;
@@ -5000,9 +5000,9 @@ H(X) = \sum_{x\in X}p(x)log p(x)
     </item>
     <item>
       <title>Hexo Write</title>
-      <link>https://aikenh.cn/hugotest/posts/hexo_write/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hexo_write/</link>
       <pubDate>Wed, 13 Apr 2022 23:29:10 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hexo_write/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hexo_write/</guid>
       <description>&lt;p&gt;Hexo和Gitee一致，都是由Markdown文件为基础，构建的博客，编写Markdown本身无需多言，由于Hexo并非笔者的首选笔记管理方式，故而再其他地方构建和编写文件是常态，该Blog主要是利用其他工具来方便Hexo博文的编写（Header）&lt;/p&gt;
 &lt;p&gt;默认的是 &lt;code&gt;hexo new [layout] title&lt;/code&gt; 可简写为 &lt;code&gt;hexo n [layout] title&lt;/code&gt;，其中布局应该是在博客目录中定义，该命令也局限于博客的对应目录。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -5057,9 +5057,9 @@ H(X) = \sum_{x\in X}p(x)log p(x)
     </item>
     <item>
       <title>Latex tesing</title>
-      <link>https://aikenh.cn/hugotest/posts/latex_testing/</link>
+      <link>https://hugotest-phi.vercel.app/posts/latex_testing/</link>
       <pubDate>Wed, 13 Apr 2022 16:50:53 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/latex_testing/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/latex_testing/</guid>
       <description>&lt;p&gt;该文档主要目的是用于测试Latex语法对应前端的渲染能力，主要用于测试Hexo站点是否能正常渲染Latex。&lt;/p&gt;
 &lt;p&gt;Example1: 2 inline in one sentence.&lt;/p&gt;
 &lt;p&gt;When $a \ne 0$ , there are two solutions to $(ax^2 + bx + c = 0)$ and they are&lt;/p&gt;
@@ -5090,9 +5090,9 @@ f(x)=
     </item>
     <item>
       <title>Hexo Build</title>
-      <link>https://aikenh.cn/hugotest/posts/hexo_build/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hexo_build/</link>
       <pubDate>Tue, 12 Apr 2022 11:16:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hexo_build/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hexo_build/</guid>
       <description>&lt;p&gt;该文档用以，记录自己（外行）利用Hexo建立Blog的过程，将原本用Gitbook构建的笔记转移到Hexo中，同时购买域名并部署其上。网页部署于&lt;a href=&#34;AikenH.cn&#34;&gt;Github Page&lt;/a&gt;
 。以Live my Live主题为例。&lt;/p&gt;
 &lt;p&gt;腾讯云和Github Page的操作和理解在现有的一些博客中过时了，或者说存在一些问题，后续会对此进行简单的讲解。同时大部分博客都是使用NexT主题进行配置，这里采用的是Live My Life主题，该博文介绍自己的粗浅理解，也为自己后续的工作进行一定的参考。&lt;/p&gt;
@@ -5171,9 +5171,9 @@ f(x)=
     </item>
     <item>
       <title>Vim 01 Recorder</title>
-      <link>https://aikenh.cn/hugotest/posts/vimoperation/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimoperation/</link>
       <pubDate>Thu, 07 Apr 2022 14:15:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimoperation/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimoperation/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Chose Your Dotfile to start the vim&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -5191,9 +5191,9 @@ f(x)=
     </item>
     <item>
       <title>PicBed Setting for note and blog</title>
-      <link>https://aikenh.cn/hugotest/posts/picbed/</link>
+      <link>https://hugotest-phi.vercel.app/posts/picbed/</link>
       <pubDate>Sun, 27 Mar 2022 09:19:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/picbed/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/picbed/</guid>
       <description>&lt;p&gt;@Aiken 2020 first write，2021 modify&lt;/p&gt;
 &lt;p&gt;Mainly using picgo-core(command line) to setting picbed，and we can update the setting method&lt;/p&gt;
 &lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
@@ -5281,9 +5281,9 @@ f(x)=
     </item>
     <item>
       <title>Fine Tuning</title>
-      <link>https://aikenh.cn/hugotest/posts/finetune/</link>
+      <link>https://hugotest-phi.vercel.app/posts/finetune/</link>
       <pubDate>Tue, 08 Feb 2022 14:31:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/finetune/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/finetune/</guid>
       <description>&lt;p&gt;@Langs: python, torch
 @reference: d2l-pytorch，&lt;a href=&#34;https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer_torch&lt;/a&gt;
 &lt;/p&gt;
@@ -5386,9 +5386,9 @@ f(x)=
     </item>
     <item>
       <title>Git 01 入门与常用操作</title>
-      <link>https://aikenh.cn/hugotest/posts/git_manual1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/git_manual1/</link>
       <pubDate>Tue, 01 Feb 2022 12:19:34 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/git_manual1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/git_manual1/</guid>
       <description>&lt;p&gt;参考文献：&lt;a href=&#34;https://juejin.cn/post/7131713973572861966&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;稀土掘金&lt;/a&gt;
  | ProGit2&lt;/p&gt;
 &lt;h2 id=&#34;git-与-svn-的区别&#34;&gt;GIT 与 SVN 的区别&lt;/h2&gt;
@@ -5428,9 +5428,9 @@ f(x)=
     </item>
     <item>
       <title>Linux 文件传输和同步</title>
-      <link>https://aikenh.cn/hugotest/posts/transfer-sync-files/</link>
+      <link>https://hugotest-phi.vercel.app/posts/transfer-sync-files/</link>
       <pubDate>Mon, 17 Jan 2022 03:11:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/transfer-sync-files/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/transfer-sync-files/</guid>
       <description>&lt;p&gt;@aikenhong 2022&lt;/p&gt;
 &lt;p&gt;当我们需要在Server之间进行，或者Server和WSL之间进行文件的传输，以及文件夹的同步的时候，如果要打开Xftp之类的软件进行，有繁琐的操作中转，或者说目录较为庞杂的时候，也显得有些麻烦。&lt;/p&gt;
 &lt;p&gt;于是我们可能希望使用脚本，来实现更便捷，同时也能设置定时功能，使得操作简单便捷，经过简单的调研，我们目前尝试使用以下几种方法，并取得了成功。&lt;/p&gt;
@@ -5501,9 +5501,9 @@ delete: 会删除目标文件中多出来的东西，保持同步，使得成为
     </item>
     <item>
       <title>IL Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-collection/</link>
       <pubDate>Tue, 04 Jan 2022 01:38:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-collection/</guid>
       <description>&lt;p&gt;@AikenHong 2022&lt;/p&gt;
 &lt;p&gt;[[Draft/IL 总结]]: Thx 2 wyz to provide some clus for learnning Incremental Learning.&lt;/p&gt;
 &lt;p&gt;In this Doc, we may add some related knowledge distill works which is used to design our Incremental Structure.
@@ -5538,9 +5538,9 @@ delete: 会删除目标文件中多出来的东西，保持同步，使得成为
     </item>
     <item>
       <title>WYZ-IL-Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-wyz/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-wyz/</link>
       <pubDate>Mon, 03 Jan 2022 10:41:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-wyz/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-wyz/</guid>
       <description>&lt;p&gt;: hammer: 王耀智&lt;/p&gt;
 &lt;h2 id=&#34;regularization-系列方法&#34;&gt;Regularization 系列方法&lt;/h2&gt;
 &lt;p&gt;这类方法旨在添加一些正则化损失来解决 &lt;code&gt;catastrophic forgetting&lt;/code&gt; 的问题。&lt;/p&gt;
@@ -5579,9 +5579,9 @@ delete: 会删除目标文件中多出来的东西，保持同步，使得成为
     </item>
     <item>
       <title>LT Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/lt-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/lt-collection/</link>
       <pubDate>Wed, 22 Dec 2021 14:36:16 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/lt-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/lt-collection/</guid>
       <description>&lt;h1 id=&#34;lt-collections&#34;&gt;LT-Collections&lt;/h1&gt;
 &lt;p&gt;@AikenHong 2021&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/mitming/OpenLT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code of must of those methods&lt;/a&gt;
@@ -5624,9 +5624,9 @@ We will analysis those tricks on LT situation, and Analysis why it works.
     </item>
     <item>
       <title>Loss-NCE</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-nce/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-nce/</link>
       <pubDate>Wed, 22 Dec 2021 13:39:55 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-nce/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-nce/</guid>
       <description>&lt;p&gt;@AikenHong 2021&lt;/p&gt;
 &lt;p&gt;Noise Contrastive Estimation Loss = NCE Loss 噪声对比估计损失，这里的Noise实际上就是Negative Samples.
 该损失被广泛的用于对比学习的任务，而对比学习广泛的作为自监督学习的无监督子任务用来训练一个良好的特征提取器，于是对于对比学习的目标和效用的理解十分关键。&lt;/p&gt;
@@ -5667,9 +5667,9 @@ L_{\text {contrast }}=\mathbb{E}\left[-\log \frac{e^{f_{x}^{T} f_{y} / \tau}}{e^
     </item>
     <item>
       <title>Loss-Smooth(Sharpen)</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-smoothsharpen/</link>
       <pubDate>Fri, 17 Dec 2021 03:35:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-smoothsharpen/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-smoothsharpen/</guid>
       <description>&lt;p&gt;@AikenHong 2021
 @topic&lt;/p&gt;
 &lt;ul&gt;
@@ -5723,9 +5723,9 @@ p_i = \left\{
     </item>
     <item>
       <title>Training Strategy</title>
-      <link>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nerualnetworktraining/</link>
       <pubDate>Thu, 16 Dec 2021 08:34:44 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nerualnetworktraining/</guid>
       <description>&lt;p&gt;@Aiken 2020，&lt;/p&gt;
 &lt;p&gt;主要针对神经网络的训练过程中的一些基础策略的调整，比如当训练的曲线出现一定的问题的时候，我们应该怎么去调整我们训练过程中的策略。&lt;/p&gt;
 &lt;p&gt;参数调整过程中最重要的就是优化器（优化或者说是下降算法）和学习率（优化算法的核心参数），此外像是数据增强策略还是Normalization策略，都能极大的影响一个模型的好坏。&lt;/p&gt;
@@ -5803,9 +5803,9 @@ p_i = \left\{
     </item>
     <item>
       <title>PyTorch Handbook 00 （Archive）</title>
-      <link>https://aikenh.cn/hugotest/posts/pytorch/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pytorch/</link>
       <pubDate>Wed, 15 Dec 2021 08:00:57 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pytorch/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pytorch/</guid>
       <description>&lt;h1 id=&#34;basic-part基础设定部分&#34;&gt;Basic Part基础设定部分&lt;/h1&gt;
 &lt;p&gt;@AikenH 2020 + 2021&lt;/p&gt;
 &lt;p&gt;this part is about pytorch basic unit, help me to code deep learning better.&lt;/p&gt;
@@ -5895,9 +5895,9 @@ p_i = \left\{
     </item>
     <item>
       <title>Loss-WhyZero</title>
-      <link>https://aikenh.cn/hugotest/posts/loss-whyzero/</link>
+      <link>https://hugotest-phi.vercel.app/posts/loss-whyzero/</link>
       <pubDate>Fri, 10 Dec 2021 08:24:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/loss-whyzero/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/loss-whyzero/</guid>
       <description>&lt;h1 id=&#34;loss-why-zero-loss&#34;&gt;Loss :Why Zero Loss？&lt;/h1&gt;
 &lt;p&gt;@Comments: ICML2020 《Do We Need Zero Training Loss After Achieving Zero Training Error》&lt;/p&gt;
 &lt;p&gt;@Noteby：AikenHong2021&lt;/p&gt;
@@ -5953,9 +5953,9 @@ $$
     </item>
     <item>
       <title>Algorithm Sort</title>
-      <link>https://aikenh.cn/hugotest/posts/sorttrick/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sorttrick/</link>
       <pubDate>Mon, 06 Dec 2021 17:05:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sorttrick/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sorttrick/</guid>
       <description>&lt;p&gt;记录各种排序操作，暂时不补充最基础的排序方式和理论，只记录排序算法的拓展应用。&lt;/p&gt;
 &lt;p&gt;在理论分析的部分主要使用cpp进行撰写，而在具体使用的时候，目前会主要按照python来进行编写，这主要是面向的场景不同决定的。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -6052,9 +6052,9 @@ $$
     </item>
     <item>
       <title>UniFramework 01</title>
-      <link>https://aikenh.cn/hugotest/posts/uniframework/</link>
+      <link>https://hugotest-phi.vercel.app/posts/uniframework/</link>
       <pubDate>Sat, 04 Dec 2021 01:43:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/uniframework/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/uniframework/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -6143,9 +6143,9 @@ Offline：基于样本池的规模和评估触发离线更新：&lt;strong&gt;�
     </item>
     <item>
       <title>Hungarian</title>
-      <link>https://aikenh.cn/hugotest/posts/hungarian/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hungarian/</link>
       <pubDate>Fri, 03 Dec 2021 00:29:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hungarian/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hungarian/</guid>
       <description>&lt;p&gt;@AikenHong 2021
 @Code: &lt;strong&gt;Scipy&lt;/strong&gt;（repo）
 @Reference:  &lt;a href=&#34;https://zhuanlan.zhihu.com/p/62981901&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;匈牙利算法&amp;amp;KM算法&lt;/a&gt;
@@ -6221,9 +6221,9 @@ Step2: 寻找匹配，原则如下&lt;/p&gt;
     </item>
     <item>
       <title>Cherno的cpp教程笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/cpp/</link>
+      <link>https://hugotest-phi.vercel.app/posts/cpp/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:17 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/cpp/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/cpp/</guid>
       <description>&lt;p&gt;this notebook is based on Cherno‘s Video Class in &lt;a href=&#34;https://www.youtube.com/watch?v=wXBcwHwIt_I&amp;amp;list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&amp;amp;index=62&amp;amp;ab_channel=TheCherno&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YouTube&lt;/a&gt;
 ；if there is sth get confused，I can &lt;strong&gt;recheck&lt;/strong&gt; the video which talk about it, or &lt;strong&gt;just google it&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul&gt;
@@ -6245,9 +6245,9 @@ Step2: 寻找匹配，原则如下&lt;/p&gt;
     </item>
     <item>
       <title>FSL前期调研</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -6297,9 +6297,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>IL-MgSvF</title>
-      <link>https://aikenh.cn/hugotest/posts/il-mgsvf/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-mgsvf/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-mgsvf/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-mgsvf/</guid>
       <description>&lt;p&gt;@Author &amp;amp; Paper：&lt;a href=&#34;https://arxiv.org/pdf/2006.15524.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Arxiv&lt;/a&gt;
 
 @Note：Aikenhong 2021/11/12&lt;/p&gt;
@@ -6359,9 +6359,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>SSL-MoCov3</title>
-      <link>https://aikenh.cn/hugotest/posts/ssl-mocov3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ssl-mocov3/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ssl-mocov3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ssl-mocov3/</guid>
       <description>&lt;p&gt;@Aiken 2021&lt;/p&gt;
 &lt;p&gt;恺明大神对自监督学习+transformer的实证研究，针对Transformer再自监督学习学习框架中的训练不稳定问题提出了&lt;strong&gt;Random Patch Projection&lt;/strong&gt;的解决方案。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/waqkJkwqxU-7utfNnwr2Gg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Article&lt;/a&gt;
@@ -6372,9 +6372,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Survey for Few-Shot Learning</title>
-      <link>https://aikenh.cn/hugotest/posts/fsl-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fsl-collection/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fsl-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fsl-collection/</guid>
       <description>&lt;p&gt;@aikenhong 2020
 @h.aiken.970@gmail.com&lt;/p&gt;
 &lt;p&gt;另一个综述文章：https://zhuanlan.zhihu.com/p/61215293
@@ -6439,9 +6439,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>python 与标记语言的交互</title>
-      <link>https://aikenh.cn/hugotest/posts/markup_langs/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markup_langs/</link>
       <pubDate>Sun, 28 Nov 2021 11:16:10 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markup_langs/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markup_langs/</guid>
       <description>&lt;p&gt;对于各种形式的标记文档（markup）和数据集的处理进行一个整合，还有一些python中的相关模块（比比如glob，后续可能会迁移到别的文档中），主要包括：yaml，json，csv，xml，这些可拓展的标记语言.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TODO：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -6505,10 +6505,10 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>（转）What the Fuck Python！ 一些python特性</title>
-      <link>https://aikenh.cn/hugotest/posts/pythontips/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pythontips/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pythontips/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://aikenh.cn/hugotest/images/logo.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>https://hugotest-phi.vercel.app/posts/pythontips/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://hugotest-phi.vercel.app/images/logo.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h1 align=&#34;center&#34;&gt;What the f*ck Python! 🐍&lt;/h1&gt;
 &lt;p align=&#34;center&#34;&gt;一些有趣且鲜为人知的 Python 特性.&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
@@ -6691,9 +6691,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>C&#43;&#43;的常见数据类型和操作</title>
-      <link>https://aikenh.cn/hugotest/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</link>
+      <link>https://hugotest-phi.vercel.app/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</guid>
       <description>&lt;p&gt;主要介绍一些常用数据类型的一些method，区别还有一些特殊的定义；&lt;/p&gt;
 &lt;p&gt;priority_queue 默认是大顶堆，great的话是小顶堆，less的话是大顶堆，自定义的话不知道是不是一致的&lt;/p&gt;
 &lt;p&gt;set默认top是小顶，这个大小我就不知道了，自定义的话，好像和我想得是一致的&lt;/p&gt;
@@ -6770,9 +6770,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Linux 基础操作 01</title>
-      <link>https://aikenh.cn/hugotest/posts/linux/</link>
+      <link>https://hugotest-phi.vercel.app/posts/linux/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/linux/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/linux/</guid>
       <description>&lt;h2 id=&#34;学习资源汇总&#34;&gt;学习资源汇总&lt;/h2&gt;
 &lt;p&gt;manual：&lt;a href=&#34;https://www.runoob.com/w3cnote/linux-common-command-2.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;菜鸟Shell&lt;/a&gt;
  | &lt;a href=&#34;https://www.explainshell.com/explain/1/ps&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ExplainShell&lt;/a&gt;
@@ -6836,9 +6836,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Data Augmentation</title>
-      <link>https://aikenh.cn/hugotest/posts/dataaugmentation/</link>
+      <link>https://hugotest-phi.vercel.app/posts/dataaugmentation/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/dataaugmentation/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/dataaugmentation/</guid>
       <description>&lt;p&gt;intergrate with those augmentation method.&lt;/p&gt;
 &lt;p&gt;this doc will&lt;/p&gt;
 &lt;ul&gt;
@@ -6868,9 +6868,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>MLFlow</title>
-      <link>https://aikenh.cn/hugotest/posts/mlflow/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mlflow/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mlflow/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mlflow/</guid>
       <description>&lt;h1 id=&#34;mlflow-机器学习系统的使用&#34;&gt;MLFlow 机器学习系统的使用&lt;/h1&gt;
 &lt;p&gt;@Aiken 2020&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;基于Python开发的DAG数据工作流系统，面向机器学习，支持Spark并行环境和K8S容器集群；&lt;/em&gt;&lt;/p&gt;
@@ -6909,9 +6909,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>Hard Task Sampling</title>
-      <link>https://aikenh.cn/hugotest/posts/hardtask/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hardtask/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:17 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hardtask/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hardtask/</guid>
       <description>&lt;h1 id=&#34;trickhard-task&#34;&gt;Trick：Hard Task&lt;/h1&gt;
 &lt;p&gt;思路来源于Meta-Tranfer-Learning，基本思路是在Meta-Learning的每一次Meta-Test的时候，会从预训练错误率比较高的Task中再次采样，增加那些task的训练次数。也就是难题多做的策略。&lt;/p&gt;
 &lt;h2 id=&#34;基本思路&#34;&gt;基本思路&lt;/h2&gt;
@@ -7012,9 +7012,9 @@ distant supervisor到底是什么机制可以去CSDN什么的看一下&lt;/p&gt;
     </item>
     <item>
       <title>并行训练</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</link>
       <pubDate>Sun, 28 Nov 2021 02:20:31 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://lilianweng.github.io/lil-log/2021/09/24/train-large-neural-networks.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to Train Really Large Models on Many GPUs? (lilianweng.github.io)&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;对于浮点运算，模型参数的存储和中间计算输出（梯度和优化器状态）的存储的在 GPU 内存上的大量需求使得我们需要并行化，下面我们参考一些常用的并行化范式：&lt;/p&gt;
@@ -7075,9 +7075,9 @@ $$
     </item>
     <item>
       <title>MIM-V-simMIM</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-simmim/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-simmim/</link>
       <pubDate>Tue, 23 Nov 2021 06:38:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-simmim/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-simmim/</guid>
       <description>&lt;p&gt;@Author： MSRA Zhenda Xie
 @Source：&lt;a href=&#34;arxiv.org/abs/2111.09886&#34;&gt;Arxiv&lt;/a&gt;
 ， &lt;a href=&#34;https://github.com/microsoft/SimMIM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code TBP&lt;/a&gt;
@@ -7127,9 +7127,9 @@ $$
     </item>
     <item>
       <title>Transformer</title>
-      <link>https://aikenh.cn/hugotest/posts/transformer/</link>
+      <link>https://hugotest-phi.vercel.app/posts/transformer/</link>
       <pubDate>Tue, 23 Nov 2021 06:38:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/transformer/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/transformer/</guid>
       <description>&lt;p&gt;@aikenhong 2021&lt;/p&gt;
 &lt;p&gt;References For Transformer:&lt;/p&gt;
 &lt;ol&gt;
@@ -7178,9 +7178,9 @@ $$
     </item>
     <item>
       <title>MIM-V-iBOT</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-ibot/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-ibot/</link>
       <pubDate>Thu, 18 Nov 2021 06:35:52 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-ibot/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-ibot/</guid>
       <description>&lt;p&gt;@Read: AikenHong 2021&lt;/p&gt;
 &lt;p&gt;@Author: &lt;a href=&#34;https://arxiv.org/abs/2111.07832&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://arxiv.org/abs/2111.07832&lt;/a&gt;
 &lt;/p&gt;
@@ -7216,9 +7216,9 @@ $$
     </item>
     <item>
       <title>MIM-V-MAE</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-mae/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-mae/</link>
       <pubDate>Mon, 15 Nov 2021 12:25:45 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-mae/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-mae/</guid>
       <description>&lt;p&gt;@Author：Facebook AI Research-Kaiming He
 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/432663453&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kaiming-MAE&lt;/a&gt;
 &lt;/p&gt;
@@ -7255,9 +7255,9 @@ $$
     </item>
     <item>
       <title>OWL-survey</title>
-      <link>https://aikenh.cn/hugotest/posts/owl-survey/</link>
+      <link>https://hugotest-phi.vercel.app/posts/owl-survey/</link>
       <pubDate>Fri, 12 Nov 2021 09:40:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/owl-survey/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/owl-survey/</guid>
       <description>&lt;p&gt;@AikenHong2021 OWL&lt;/p&gt;
 &lt;p&gt;分析现有的OWL特点，和当前自己的研究做一个区分，也汲取一下别人的研究的要点，&lt;/p&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -7291,9 +7291,9 @@ $$
     </item>
     <item>
       <title>Fluent Python 01 数据模型与结构</title>
-      <link>https://aikenh.cn/hugotest/posts/fluent_python/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fluent_python/</link>
       <pubDate>Sat, 06 Nov 2021 12:53:47 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fluent_python/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fluent_python/</guid>
       <description>&lt;h2 id=&#34;chapter-1-数据模型&#34;&gt;Chapter 1 数据模型&lt;/h2&gt;
 &lt;h3 id=&#34;se1-magic-method&#34;&gt;Se1 magic method&lt;/h3&gt;
 &lt;p&gt;数据模型在这里的定义是对python框架的描述,他规范了python构建模块的接口；这些接口对应解释器中对一些特殊句法(常用句法)的激活和使用.本章节的核心就在于对这些特殊句法的理解和使用.
@@ -7385,9 +7385,9 @@ $$
     </item>
     <item>
       <title>Python01 数据模型和常用数据结构</title>
-      <link>https://aikenh.cn/hugotest/posts/python/</link>
+      <link>https://hugotest-phi.vercel.app/posts/python/</link>
       <pubDate>Wed, 27 Oct 2021 14:19:13 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/python/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/python/</guid>
       <description>&lt;p&gt;个人的《Python Cookbook》 &amp;amp;&amp;amp; 《Fluent Python》阅读笔记。&lt;/p&gt;
 &lt;h1 id=&#34;数据模型python结构的通用范式&#34;&gt;数据模型（Python结构的通用范式）&lt;/h1&gt;
 &lt;p&gt;（Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:&lt;/p&gt;
@@ -7450,9 +7450,9 @@ $$
     </item>
     <item>
       <title>VsCode&#39;s Configuration</title>
-      <link>https://aikenh.cn/hugotest/posts/vscode/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vscode/</link>
       <pubDate>Wed, 27 Oct 2021 14:19:13 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vscode/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vscode/</guid>
       <description>&lt;h2 id=&#34;debug&#34;&gt;Debug&lt;/h2&gt;
 &lt;p&gt;配置Launch.json 能够帮助我们更好的进行debug的操作，有一些比较特别的文件名和相关编码。&lt;/p&gt;
 &lt;ul&gt;
@@ -7609,9 +7609,9 @@ $$
     </item>
     <item>
       <title>Vim 00 Basic Opeation</title>
-      <link>https://aikenh.cn/hugotest/posts/vimtutor/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimtutor/</link>
       <pubDate>Thu, 14 Oct 2021 01:58:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimtutor/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimtutor/</guid>
       <description>&lt;p&gt;this is the Note record the vimtutor (the basic usage of vim.)
 @Aiken 2021&lt;/p&gt;
 &lt;ul&gt;
@@ -7659,9 +7659,9 @@ $$
     </item>
     <item>
       <title>Vim Configuration 03 Spacevim Setup</title>
-      <link>https://aikenh.cn/hugotest/posts/spacevim/</link>
+      <link>https://hugotest-phi.vercel.app/posts/spacevim/</link>
       <pubDate>Sat, 09 Oct 2021 12:15:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/spacevim/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/spacevim/</guid>
       <description>&lt;p&gt;@Aiken 2021 this file is use to record how to config out vim&amp;rsquo; by spacevim.&lt;br&gt;
 I&amp;rsquo;ll write this doc with three Parts:&lt;/p&gt;
 &lt;ul&gt;
@@ -7697,9 +7697,9 @@ maybe it not a good way to set the vim.&lt;/li&gt;
     </item>
     <item>
       <title>SS_OD_SoftTeacher</title>
-      <link>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ss_od_softteacher/</link>
       <pubDate>Sat, 09 Oct 2021 02:30:08 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ss_od_softteacher/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ss_od_softteacher/</guid>
       <description>&lt;p&gt;@ Article: ICML from Microsoft &amp;amp; Huazhong Keda
 @ Code: &lt;a href=&#34;https://github.com/microsoft/SoftTeacher&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;
 
@@ -7744,9 +7744,9 @@ maybe it not a good way to set the vim.&lt;/li&gt;
     </item>
     <item>
       <title>Vim Configuration 02 Nvim的插件配置</title>
-      <link>https://aikenh.cn/hugotest/posts/vimconfig/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimconfig/</link>
       <pubDate>Fri, 08 Oct 2021 07:45:42 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimconfig/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimconfig/</guid>
       <description>&lt;p&gt;@Aikenhong 2021&lt;/p&gt;
 &lt;p&gt;Vim is a important consistant for editing file in shell. It&amp;rsquo;s Hightly Customized for Everyone, In this part I&amp;rsquo;ll Show my personal Vim comfigurations&lt;/p&gt;
 &lt;p&gt;And I&amp;rsquo;ll Discuss about the diff between Spacevim &amp;amp; Neovim.&lt;/p&gt;
@@ -7777,9 +7777,9 @@ maybe it not a good way to set the vim.&lt;/li&gt;
     </item>
     <item>
       <title>Vim Configuration 01 vim的无插件基础设置</title>
-      <link>https://aikenh.cn/hugotest/posts/vimconfigdf/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vimconfigdf/</link>
       <pubDate>Thu, 07 Oct 2021 15:00:42 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vimconfigdf/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vimconfigdf/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;该配置笔记于 20230521 重新整理。默认的 Vimrc 位置为 &lt;code&gt;/usr/share/vim/vimrc&lt;/code&gt;，也可以在 vim 界面使用 &lt;code&gt;:echo $MYVIMRC&lt;/code&gt; 查看当前的配置文件，默认使用的配置文件地址为 &lt;code&gt;~/.vimrc&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -7878,9 +7878,9 @@ maybe it not a good way to set the vim.&lt;/li&gt;
     </item>
     <item>
       <title>StyleGAN</title>
-      <link>https://aikenh.cn/hugotest/posts/stylegan/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stylegan/</link>
       <pubDate>Sun, 03 Oct 2021 13:16:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stylegan/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stylegan/</guid>
       <description>&lt;h1 id=&#34;stylegan-v1&#34;&gt;StyleGAN V1&lt;/h1&gt;
 &lt;p&gt;@AikenHong 2020 10.8&lt;/p&gt;
 &lt;p&gt;《A Style-Based Generator Architecture for Generative Adversarial Networks》&lt;/p&gt;
@@ -7946,9 +7946,9 @@ maybe it not a good way to set the vim.&lt;/li&gt;
     </item>
     <item>
       <title>OW Object Detector</title>
-      <link>https://aikenh.cn/hugotest/posts/ow-od/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ow-od/</link>
       <pubDate>Tue, 28 Sep 2021 13:44:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ow-od/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ow-od/</guid>
       <description>&lt;p&gt;@Aiken 2021&lt;/p&gt;
 &lt;p&gt;框架撞车系列，主要看看这一篇论文中怎么解决如下的问题👇，并从中借鉴和优化的我框架设计&lt;/p&gt;
 &lt;h2 id=&#34;思路分析&#34;&gt;思路分析&lt;/h2&gt;
@@ -7997,9 +7997,9 @@ p(l \mid \boldsymbol{f})=\frac{\exp \left(\frac{g_{l}(\boldsymbol{f})}{T}\right)
     </item>
     <item>
       <title>Attention Mechanism</title>
-      <link>https://aikenh.cn/hugotest/posts/attention/</link>
+      <link>https://hugotest-phi.vercel.app/posts/attention/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/attention/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/attention/</guid>
       <description>&lt;p&gt;@Aiken 2020.9.16&lt;/p&gt;
 &lt;p&gt;对基本注意力机制的一些资料和理解做一些简单的汇总，着重分析基本思想原理，应用和实现（即 structure），还有一些Weakness和相应的解决方案。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -8053,9 +8053,9 @@ p(l \mid \boldsymbol{f})=\frac{\exp \left(\frac{g_{l}(\boldsymbol{f})}{T}\right)
     </item>
     <item>
       <title>EfficientNet</title>
-      <link>https://aikenh.cn/hugotest/posts/efficientnet/</link>
+      <link>https://hugotest-phi.vercel.app/posts/efficientnet/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/efficientnet/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/efficientnet/</guid>
       <description>&lt;p&gt;Tags: Paper
 URL1: &lt;a href=&#34;https://arxiv.org/pdf/1905.11946.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://arxiv.org/pdf/1905.11946.pdf&lt;/a&gt;
 
@@ -8096,9 +8096,9 @@ URL2: &lt;a href=&#34;https://arxiv.org/pdf/2104.00298.pdf&#34; target=&#34;_bla
     </item>
     <item>
       <title>Astar</title>
-      <link>https://aikenh.cn/hugotest/posts/astar/</link>
+      <link>https://hugotest-phi.vercel.app/posts/astar/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/astar/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/astar/</guid>
       <description>&lt;p&gt;A* 是一种在平面图形上计算最优路径的方法，通常用来做 2D 游戏的最短寻路，该算法是一种 Dijkstra 算法的变体，使用启发式的策略来提高算法的搜索效率。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/A*%E6%90%9C%E5%B0%8B%E6%BC%94%E7%AE%97%E6%B3%95&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;wikipedia&lt;/a&gt;
 ；&lt;a href=&#34;https://medium.com/@nicholas.w.swift/easy-a-star-pathfinding-7e6689c7f7b2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;medium&lt;/a&gt;
@@ -8328,9 +8328,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>Colab 使用的问题记录</title>
-      <link>https://aikenh.cn/hugotest/posts/googlecolab/</link>
+      <link>https://hugotest-phi.vercel.app/posts/googlecolab/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/googlecolab/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/googlecolab/</guid>
       <description>&lt;p&gt;@Aiken 2020&lt;/p&gt;
 &lt;p&gt;在使用Google Colab的时候会有一些常见的使用错误，然后我们记录一些常见的错误的解决方案，方便后续使用。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;INDEX：&lt;/strong&gt;&lt;/p&gt;
@@ -8377,9 +8377,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>Docker Configuration00 Install on WSL2</title>
-      <link>https://aikenh.cn/hugotest/posts/docker/</link>
+      <link>https://hugotest-phi.vercel.app/posts/docker/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/docker/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/docker/</guid>
       <description>&lt;p&gt;基于 WSL2 对于 Docker 的适配，本文介绍 Windows 下利用 WSL2 对 Docker 的安装和部署，对于 WSL2 的安装可以参考上篇文章： &lt;a href=&#34;https://aikenh.cn/cn/WSL2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Configuration01 WSL2 - AikenH Blogs&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;install-docker-on-windows&#34;&gt;Install Docker on Windows&lt;/h2&gt;
@@ -8396,9 +8396,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>Windows Configuration01 WSL2</title>
-      <link>https://aikenh.cn/hugotest/posts/windows-wsl2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windows-wsl2/</link>
       <pubDate>Tue, 28 Sep 2021 02:17:39 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windows-wsl2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windows-wsl2/</guid>
       <description>&lt;p&gt;WSL（Windows Subsystem Linux） 将 Linux 环境部署在 Windows 中，Linux 环境在补全了 Windows 开发上的不足之外（Bash 等），还有以下的几个特性极大的便利开发和日常使用，因此强烈推荐启用并安装。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;win11 中 wsl2 已经支持相应主机的 cuda，便利了机器学习的开发；&lt;/li&gt;
@@ -8482,9 +8482,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>Windows Configuration00 系统初始配置</title>
-      <link>https://aikenh.cn/hugotest/posts/windows/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windows/</link>
       <pubDate>Tue, 28 Sep 2021 02:16:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windows/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windows/</guid>
       <description>&lt;p&gt;@AikenHong 2020&lt;/p&gt;
 &lt;p&gt;本文介绍个人的 windows 开发环境搭建（包括一些环境安装、功能启用）以及一些使用的小 tips。&lt;/p&gt;
 &lt;h2 id=&#34;软件推荐&#34;&gt;软件推荐&lt;/h2&gt;
@@ -8722,9 +8722,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>Build Gitbook</title>
-      <link>https://aikenh.cn/hugotest/posts/gitbook/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gitbook/</link>
       <pubDate>Sun, 26 Sep 2021 15:36:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gitbook/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gitbook/</guid>
       <description>&lt;p&gt;Gitbook命令行工具，基于Markdown编写文档，后续基于Github发布该Blog&lt;/p&gt;
 &lt;p&gt;笔记的构建流程：&lt;/p&gt;
 &lt;h2 id=&#34;chapter1-install&#34;&gt;Chapter1 Install&lt;/h2&gt;
@@ -8789,9 +8789,9 @@ $$ f(n) = g(n) + h(n) $$
     </item>
     <item>
       <title>RL-DouZero</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-douzero/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-douzero/</link>
       <pubDate>Tue, 06 Jul 2021 13:51:48 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-douzero/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-douzero/</guid>
       <description>&lt;p&gt;Desc: GAME, RL
 Finished?: Yes
 Tags: Paper
@@ -8848,9 +8848,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>Leetcode 题型和框架代码总结</title>
-      <link>https://aikenh.cn/hugotest/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</link>
+      <link>https://hugotest-phi.vercel.app/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 29 Jun 2021 10:18:47 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/intview_%E7%AC%94%E8%AF%95%E9%A2%98%E5%9E%8B%E5%92%8C%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -8963,9 +8963,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>Pooling</title>
-      <link>https://aikenh.cn/hugotest/posts/pooling/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pooling/</link>
       <pubDate>Wed, 23 Jun 2021 13:48:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pooling/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pooling/</guid>
       <description>&lt;h1 id=&#34;downsamplingpooling的全面调研&#34;&gt;DownSampling：Pooling的全面调研&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021 笔记摘录：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;深度神经网络中的池化方法：全面调研（1989-2020） - 知乎&lt;/a&gt;
@@ -9015,9 +9015,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>OW-openmix</title>
-      <link>https://aikenh.cn/hugotest/posts/ow-openmix/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ow-openmix/</link>
       <pubDate>Wed, 23 Jun 2021 13:45:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ow-openmix/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ow-openmix/</guid>
       <description>&lt;p&gt;@Aiken 2021 究极万恶的撞车论文&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Motivation&lt;/strong&gt; ：Tackle the problem of 发现无标注数据中与给定（已知）类别不相交的新类。&lt;/p&gt;
@@ -9080,9 +9080,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>Reward is Enough</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-reward_is_enough/</link>
       <pubDate>Sun, 06 Jun 2021 13:53:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-reward_is_enough/</guid>
       <description>&lt;p&gt;Desc: RL
 Finished?: Yes
 Tags: Paper&lt;/p&gt;
@@ -9100,9 +9100,9 @@ Tags: Paper&lt;/p&gt;
     </item>
     <item>
       <title>RL-MobaAI</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-mobaai_tencent/</link>
       <pubDate>Sun, 30 May 2021 13:52:42 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-mobaai_tencent/</guid>
       <description>&lt;p&gt;Created by: Aiken H
 Desc: GAME, RL
 Finished?: Yes
@@ -9135,9 +9135,9 @@ Tags: Paper&lt;/p&gt;
     </item>
     <item>
       <title>RL Notebook 01</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-c1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-c1/</link>
       <pubDate>Sun, 23 May 2021 13:50:06 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-c1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-c1/</guid>
       <description>&lt;p&gt;Created by: Aiken H
 Detail: survey
 Finished?: No
@@ -9204,9 +9204,9 @@ $$ v_\pi(s) = \mathbb{E}(R_{t+1} + \gamma R_{t+2} + \gamma ^2 R_{t+3} + ... |S_t
     </item>
     <item>
       <title>经典深度学习与机器学习算法</title>
-      <link>https://aikenh.cn/hugotest/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</link>
+      <link>https://hugotest-phi.vercel.app/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</link>
       <pubDate>Fri, 23 Apr 2021 01:43:43 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/intview_%E9%9D%A2%E8%AF%95%E8%A1%A5%E5%85%85/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -9315,9 +9315,9 @@ $$ \beta,\gamma $$
     </item>
     <item>
       <title>Involution</title>
-      <link>https://aikenh.cn/hugotest/posts/involution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/involution/</link>
       <pubDate>Thu, 08 Apr 2021 13:12:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/involution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/involution/</guid>
       <description>&lt;p&gt;@Aiken 2021-4-8&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/UmumqhZW7Aqk6s8X1Aj7aA&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ariticle &lt;/a&gt;
 ；&lt;a href=&#34;https://arxiv.org/abs/2103.06255&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Paper&lt;/a&gt;
@@ -9378,9 +9378,9 @@ $$
     </item>
     <item>
       <title>Knowledge Evolution</title>
-      <link>https://aikenh.cn/hugotest/posts/knowledgeevolution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/knowledgeevolution/</link>
       <pubDate>Wed, 07 Apr 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/knowledgeevolution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/knowledgeevolution/</guid>
       <description>&lt;h1 id=&#34;knowledge-evolution-in-neural-networks&#34;&gt;Knowledge Evolution in Neural Networks&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021.4.7&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/ZdHhdTrHmdcBF4DYf1HXPQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Article：只能当成OverView，技术细节写的很差&lt;/a&gt;
@@ -9436,9 +9436,9 @@ $$
     </item>
     <item>
       <title>Leetcode 刷题笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</link>
+      <link>https://hugotest-phi.vercel.app/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 23 Feb 2021 01:45:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/intview_%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -9634,9 +9634,9 @@ $$
     </item>
     <item>
       <title>SSH 常用场景和操作</title>
-      <link>https://aikenh.cn/hugotest/posts/ssh/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ssh/</link>
       <pubDate>Mon, 22 Feb 2021 01:45:43 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ssh/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ssh/</guid>
       <description>&lt;p&gt;主要介绍ssh服务在以下的几个方面（windows，linux）的使用情况：远程服务器连接（22），git&amp;amp;github（gitee），vscode免密登录。&lt;/p&gt;
 &lt;h2 id=&#34;ssh-key&#34;&gt;ssh-key&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB关于SSH的教程&lt;/a&gt;
@@ -9705,9 +9705,9 @@ $$
     </item>
     <item>
       <title>Related Word of Emotion</title>
-      <link>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</link>
+      <link>https://hugotest-phi.vercel.app/posts/facial_expression_and_emotion/</link>
       <pubDate>Wed, 16 Dec 2020 17:08:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/facial_expression_and_emotion/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/facial_expression_and_emotion/</guid>
       <description>&lt;h2 id=&#34;疑似&#34;&gt;疑似&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -9724,9 +9724,9 @@ $$
     </item>
     <item>
       <title>GANs 01</title>
-      <link>https://aikenh.cn/hugotest/posts/gans/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gans/</link>
       <pubDate>Mon, 19 Oct 2020 07:47:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gans/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gans/</guid>
       <description>&lt;h1 id=&#34;fgan-对gan理论的深度理解&#34;&gt;fGAN 对GAN理论的深度理解&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021 onenote部分的拓展编写，到时候拷过去，整合在一起。&lt;/p&gt;
 &lt;p&gt;fGAN: 不只是JS-Div散度，我们可以&lt;strong&gt;将所有的散度都应用到GANs的框架&lt;/strong&gt;中。该部分的阅读是对GAN的基本理论最重要的文章之一。&lt;/p&gt;
@@ -9763,9 +9763,9 @@ f^*(x) = \max \limits_{x\in dom(f)} xt - f(x)
     </item>
     <item>
       <title>About Me</title>
-      <link>https://aikenh.cn/hugotest/about/</link>
+      <link>https://hugotest-phi.vercel.app/about/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/about/</guid>
+      <guid>https://hugotest-phi.vercel.app/about/</guid>
       <description>&lt;p align=&#34;center&#34;&gt;
   &lt;img src=&#34; https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/DSCF4104_%E5%89%AF%E6%9C%AC.JPG&#34; width=100%&gt;
 &lt;/p&gt;
@@ -9778,9 +9778,9 @@ f^*(x) = \max \limits_{x\in dom(f)} xt - f(x)
     </item>
     <item>
       <title>YOLOv4 阅读笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/cv-yolov4/</link>
+      <link>https://hugotest-phi.vercel.app/posts/cv-yolov4/</link>
       <pubDate>Sun, 26 Jul 2020 13:16:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/cv-yolov4/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/cv-yolov4/</guid>
       <description>&lt;p&gt;@AikenHong 20200726&lt;/p&gt;
 &lt;p&gt;基于YOLO v4 掌握一些CV方面训练的&lt;strong&gt;Trick&lt;/strong&gt;，同时针对Typora的使用进行一个熟悉掌握。&lt;a href=&#34;https://github.com/AlexeyAB/darknet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB CODE&lt;/a&gt;
 &lt;/p&gt;
@@ -9827,9 +9827,9 @@ f^*(x) = \max \limits_{x\in dom(f)} xt - f(x)
     </item>
     <item>
       <title>Markdown Handbook</title>
-      <link>https://aikenh.cn/hugotest/posts/markdown/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markdown/</link>
       <pubDate>Sat, 18 Apr 2020 02:21:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markdown/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markdown/</guid>
       <description>&lt;p&gt;&lt;strong&gt;参考资料&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;一些关于markdown语法的参考资料，但是实际上如果用Typora的话，有很多的语法是不需要记忆的，只需要稍微了解就可以了，更需要学习的其实是&lt;strong&gt;Latex的公式&lt;/strong&gt;编写。&lt;/p&gt;
 &lt;ol&gt;
@@ -10036,9 +10036,9 @@ f^*(x) = \max \limits_{x\in dom(f)} xt - f(x)
     </item>
     <item>
       <title>Hyper-Resolution</title>
-      <link>https://aikenh.cn/hugotest/posts/hyper_resolution/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hyper_resolution/</link>
       <pubDate>Fri, 06 Mar 2020 14:55:02 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hyper_resolution/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hyper_resolution/</guid>
       <description>&lt;p&gt;说明：重点针对&lt;strong&gt;超分辨率&lt;/strong&gt;技术&lt;/p&gt;
 &lt;p&gt;备注：
 超分辨率在人脸识别上的多，但是表情识别上的确实不多，不过很多都会引用一波&lt;br&gt;&lt;/p&gt;
@@ -10075,9 +10075,9 @@ f^*(x) = \max \limits_{x\in dom(f)} xt - f(x)
     </item>
     <item>
       <title>Image Caption Dataset</title>
-      <link>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</link>
+      <link>https://hugotest-phi.vercel.app/posts/imagecaptionrequirement/</link>
       <pubDate>Tue, 14 Jan 2020 02:13:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/imagecaptionrequirement/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/imagecaptionrequirement/</guid>
       <description>&lt;h2 id=&#34;goals&#34;&gt;Goals：&lt;/h2&gt;
 &lt;p&gt;1.数据量要求&lt;br&gt;
 2.标注的标准&lt;br&gt;
@@ -10106,9 +10106,9 @@ CIDEr&lt;/p&gt;
     </item>
     <item>
       <title>表情数据集</title>
-      <link>https://aikenh.cn/hugotest/posts/emotion_dataset/</link>
+      <link>https://hugotest-phi.vercel.app/posts/emotion_dataset/</link>
       <pubDate>Mon, 14 Oct 2019 21:34:54 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/emotion_dataset/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/emotion_dataset/</guid>
       <description>&lt;p&gt;根据这次需要搜集的表情的数据集，整理一下搜索数据集的网站和思路等&lt;/p&gt;
 &lt;p&gt;##PART1 &amp;ldquo;表情数据集&amp;rdquo;
 下列是对数据搜集的要求：&lt;/p&gt;

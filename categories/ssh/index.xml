@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SSH on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/ssh/</link>
+    <link>https://hugotest-phi.vercel.app/categories/ssh/</link>
     <description>Recent content in SSH on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Feb 2021 01:45:43 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSH 常用场景和操作</title>
-      <link>https://aikenh.cn/hugotest/posts/ssh/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ssh/</link>
       <pubDate>Mon, 22 Feb 2021 01:45:43 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ssh/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ssh/</guid>
       <description>&lt;p&gt;主要介绍ssh服务在以下的几个方面（windows，linux）的使用情况：远程服务器连接（22），git&amp;amp;github（gitee），vscode免密登录。&lt;/p&gt;
 &lt;h2 id=&#34;ssh-key&#34;&gt;ssh-key&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB关于SSH的教程&lt;/a&gt;

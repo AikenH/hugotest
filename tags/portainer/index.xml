@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Portainer on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/portainer/</link>
+    <link>https://hugotest-phi.vercel.app/tags/portainer/</link>
     <description>Recent content in Portainer on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 22 Jun 2023 09:25:29 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/portainer/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/portainer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Configuration01 Install on Linux</title>
-      <link>https://aikenh.cn/hugotest/posts/docker01_linux/</link>
+      <link>https://hugotest-phi.vercel.app/posts/docker01_linux/</link>
       <pubDate>Thu, 22 Jun 2023 09:25:29 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/docker01_linux/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/docker01_linux/</guid>
       <description>&lt;p&gt;不同于 Docker 在 Windows 端借助 Desktop 可视化进行安装和配置，Linux 端没有默认的 Desktop 界面，因此会额外安装 portainer 作为我们 docker 的 Dashboard.&lt;/p&gt;
 &lt;h2 id=&#34;install-docker-on-ubuntu&#34;&gt;Install Docker on Ubuntu&lt;/h2&gt;
 &lt;blockquote&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Pooling on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/pooling/</link>
+    <link>https://hugotest-phi.vercel.app/tags/pooling/</link>
     <description>Recent content in Pooling on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 23 Jun 2021 13:48:56 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/pooling/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/pooling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pooling</title>
-      <link>https://aikenh.cn/hugotest/posts/pooling/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pooling/</link>
       <pubDate>Wed, 23 Jun 2021 13:48:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pooling/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pooling/</guid>
       <description>&lt;h1 id=&#34;downsamplingpooling的全面调研&#34;&gt;DownSampling：Pooling的全面调研&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021 笔记摘录：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/341820742&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;深度神经网络中的池化方法：全面调研（1989-2020） - 知乎&lt;/a&gt;

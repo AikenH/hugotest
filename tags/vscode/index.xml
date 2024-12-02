@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>VsCode on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/vscode/</link>
+    <link>https://hugotest-phi.vercel.app/tags/vscode/</link>
     <description>Recent content in VsCode on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 19 Oct 2023 16:53:03 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VsCode&#39;s RegExp Catch 正则捕获</title>
-      <link>https://aikenh.cn/hugotest/posts/vsocde_regexp/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vsocde_regexp/</link>
       <pubDate>Thu, 19 Oct 2023 16:53:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vsocde_regexp/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vsocde_regexp/</guid>
       <description>&lt;p&gt;本篇简单介绍一些 VsCode 进行文本替换和查找的一些特殊的正则，该文会随着自己的使用来逐步记录，目前主要内容如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;捕获组合及其替换模式&lt;/li&gt;
@@ -63,9 +63,9 @@
     </item>
     <item>
       <title>Python Unittest 单元测试的编写与执行</title>
-      <link>https://aikenh.cn/hugotest/posts/unittest/</link>
+      <link>https://hugotest-phi.vercel.app/posts/unittest/</link>
       <pubDate>Fri, 12 Aug 2022 20:37:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/unittest/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/unittest/</guid>
       <description>&lt;p&gt;该文章将介绍 Python 中的单元测试之 Unittest 模块，及其在 VsCode 中的集成和使用，主要参考的链接有以下的三个：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/sinat_38682860/article/details/102838668&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unittest的基本用法&lt;/a&gt;
@@ -79,9 +79,9 @@
     </item>
     <item>
       <title>VsCode&#39;s Configuration</title>
-      <link>https://aikenh.cn/hugotest/posts/vscode/</link>
+      <link>https://hugotest-phi.vercel.app/posts/vscode/</link>
       <pubDate>Wed, 27 Oct 2021 14:19:13 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/vscode/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/vscode/</guid>
       <description>&lt;h2 id=&#34;debug&#34;&gt;Debug&lt;/h2&gt;
 &lt;p&gt;配置Launch.json 能够帮助我们更好的进行debug的操作，有一些比较特别的文件名和相关编码。&lt;/p&gt;
 &lt;ul&gt;

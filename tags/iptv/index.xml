@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Iptv on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/iptv/</link>
+    <link>https://hugotest-phi.vercel.app/tags/iptv/</link>
     <description>Recent content in Iptv on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 30 Apr 2023 22:42:58 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/iptv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/iptv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows App01 Potplayer &amp; Alist</title>
-      <link>https://aikenh.cn/hugotest/posts/alist_potplayer/</link>
+      <link>https://hugotest-phi.vercel.app/posts/alist_potplayer/</link>
       <pubDate>Sun, 30 Apr 2023 22:42:58 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/alist_potplayer/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/alist_potplayer/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本篇主要介绍一下播放器 PotPlayer 的设置以及结合 Alist&amp;amp;小雅 alist 的使用，这样就可以直接在播放器访问本地网盘上的内容，便于使用和观看。&lt;/p&gt;
 &lt;/blockquote&gt;

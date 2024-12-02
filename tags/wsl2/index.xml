@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>WSL2 on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/wsl2/</link>
+    <link>https://hugotest-phi.vercel.app/tags/wsl2/</link>
     <description>Recent content in WSL2 on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Apr 2023 09:50:01 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/wsl2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/wsl2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Configuration05 CUDA &amp; Cudnn</title>
-      <link>https://aikenh.cn/hugotest/posts/windowscudacudnn/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windowscudacudnn/</link>
       <pubDate>Mon, 24 Apr 2023 09:50:01 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windowscudacudnn/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windowscudacudnn/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在 Windows 和 WSL2 中安装 Cuda 和 Cudnn ，是配置 GPU 开发环境中重要的一步，其支撑了 AI 模型进行 Training 和 Interface 。本篇介绍安装 CUDA 和 Cudnn 的步骤和一些踩过的坑。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -95,9 +95,9 @@
     </item>
     <item>
       <title>Windows Configuration01 WSL2</title>
-      <link>https://aikenh.cn/hugotest/posts/windows-wsl2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/windows-wsl2/</link>
       <pubDate>Tue, 28 Sep 2021 02:17:39 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/windows-wsl2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/windows-wsl2/</guid>
       <description>&lt;p&gt;WSL（Windows Subsystem Linux） 将 Linux 环境部署在 Windows 中，Linux 环境在补全了 Windows 开发上的不足之外（Bash 等），还有以下的几个特性极大的便利开发和日常使用，因此强烈推荐启用并安装。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;win11 中 wsl2 已经支持相应主机的 cuda，便利了机器学习的开发；&lt;/li&gt;

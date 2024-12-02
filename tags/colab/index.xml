@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Colab on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/colab/</link>
+    <link>https://hugotest-phi.vercel.app/tags/colab/</link>
     <description>Recent content in Colab on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Sep 2021 05:34:21 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/colab/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/colab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Colab 使用的问题记录</title>
-      <link>https://aikenh.cn/hugotest/posts/googlecolab/</link>
+      <link>https://hugotest-phi.vercel.app/posts/googlecolab/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/googlecolab/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/googlecolab/</guid>
       <description>&lt;p&gt;@Aiken 2020&lt;/p&gt;
 &lt;p&gt;在使用Google Colab的时候会有一些常见的使用错误，然后我们记录一些常见的错误的解决方案，方便后续使用。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;INDEX：&lt;/strong&gt;&lt;/p&gt;

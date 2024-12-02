@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Gitbook on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/gitbook/</link>
+    <link>https://hugotest-phi.vercel.app/categories/gitbook/</link>
     <description>Recent content in Gitbook on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Sep 2021 15:36:25 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/gitbook/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/gitbook/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build Gitbook</title>
-      <link>https://aikenh.cn/hugotest/posts/gitbook/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gitbook/</link>
       <pubDate>Sun, 26 Sep 2021 15:36:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gitbook/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gitbook/</guid>
       <description>&lt;p&gt;Gitbook命令行工具，基于Markdown编写文档，后续基于Github发布该Blog&lt;/p&gt;
 &lt;p&gt;笔记的构建流程：&lt;/p&gt;
 &lt;h2 id=&#34;chapter1-install&#34;&gt;Chapter1 Install&lt;/h2&gt;

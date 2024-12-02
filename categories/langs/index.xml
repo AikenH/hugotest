@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Langs on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/langs/</link>
+    <link>https://hugotest-phi.vercel.app/categories/langs/</link>
     <description>Recent content in Langs on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 22 Oct 2024 17:05:32 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/langs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/langs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CPP_头文件互相包含</title>
-      <link>https://aikenh.cn/hugotest/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</link>
       <pubDate>Tue, 22 Oct 2024 17:05:32 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ts1_%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%92%E7%9B%B8%E5%8C%85%E5%90%AB/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-error&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -24,9 +24,9 @@
     </item>
     <item>
       <title>NumpyConcatenate加速</title>
-      <link>https://aikenh.cn/hugotest/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</link>
+      <link>https://hugotest-phi.vercel.app/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</link>
       <pubDate>Sun, 02 Jul 2023 10:52:26 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/numpyconcatenate%E5%8A%A0%E9%80%9F/</guid>
       <description>&lt;p&gt;多次循环进行 Numpy Concentrate 操作后，当原始数组变得过大的时，单步处理时间会逐渐变长，处理大量数据的时候时间成本极高。&lt;/p&gt;
 &lt;h2 id=&#34;解决思路&#34;&gt;解决思路&lt;/h2&gt;
 &lt;p&gt;这里简单的讲一下问题的定位过程，通过装饰器 Check 每个函数的执行时间，重点关注执行时长逐渐变长的部分。&lt;/p&gt;
@@ -101,9 +101,9 @@
     </item>
     <item>
       <title>Python00 Conda 与 Pip</title>
-      <link>https://aikenh.cn/hugotest/posts/python_pack_manager/</link>
+      <link>https://hugotest-phi.vercel.app/posts/python_pack_manager/</link>
       <pubDate>Mon, 06 Mar 2023 11:27:52 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/python_pack_manager/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/python_pack_manager/</guid>
       <description>&lt;p&gt;@Aikenhong 的旧笔记翻新完善 1.0&lt;/p&gt;
 &lt;p&gt;Python 的灵活和广泛应用场景来自于众多的第三方库，由于强大的可拓展性和众多的库，使得 Python 的使用简单灵活，且应用面极广。&lt;/p&gt;
 &lt;p&gt;但是不同库之间的相互依赖关系，对版本的不同要求等等因素，使得&amp;quot;环境配置&amp;quot;成为了开发者闻之变色的一词，对一个新的库和项目环境的配置尝尝会花去大量的时间，这可能也是 Docker、Venv（虚拟环境）必须存在的原因之一。&lt;/p&gt;
@@ -114,9 +114,9 @@
     </item>
     <item>
       <title>Bash Notebook 01</title>
-      <link>https://aikenh.cn/hugotest/posts/shell/</link>
+      <link>https://hugotest-phi.vercel.app/posts/shell/</link>
       <pubDate>Wed, 25 Jan 2023 22:04:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/shell/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/shell/</guid>
       <description>&lt;p&gt;整理脚本编写的一些最基本语法，包括参数传递，赋值，循环等基本语句，方便后续的脚本编写和改动。&lt;/p&gt;
 &lt;h2 id=&#34;语句注释&#34;&gt;语句注释&lt;/h2&gt;
 &lt;p&gt;单行注释：&lt;code&gt;#&lt;/code&gt; ，多行注释：&lt;/p&gt;
@@ -179,9 +179,9 @@
     </item>
     <item>
       <title>Nodejs、yarn、npm关系辨析</title>
-      <link>https://aikenh.cn/hugotest/posts/nodes/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nodes/</link>
       <pubDate>Sun, 09 Oct 2022 13:33:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nodes/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nodes/</guid>
       <description>&lt;p&gt;@AikenH 2022 Node-JS-Chapter1&lt;/p&gt;
 &lt;p&gt;参考：&lt;a href=&#34;https://blog.csdn.net/Newbie___/article/details/104759861&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;包管理工具npm、yarn以及nvm简介及简单使用&lt;/a&gt;
 &lt;/p&gt;
@@ -190,9 +190,9 @@
     </item>
     <item>
       <title>Python Unittest 单元测试的编写与执行</title>
-      <link>https://aikenh.cn/hugotest/posts/unittest/</link>
+      <link>https://hugotest-phi.vercel.app/posts/unittest/</link>
       <pubDate>Fri, 12 Aug 2022 20:37:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/unittest/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/unittest/</guid>
       <description>&lt;p&gt;该文章将介绍 Python 中的单元测试之 Unittest 模块，及其在 VsCode 中的集成和使用，主要参考的链接有以下的三个：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/sinat_38682860/article/details/102838668&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unittest的基本用法&lt;/a&gt;
@@ -206,9 +206,9 @@
     </item>
     <item>
       <title>SQL Chapter5 mysql与事务</title>
-      <link>https://aikenh.cn/hugotest/posts/sql5/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql5/</link>
       <pubDate>Fri, 05 Aug 2022 17:30:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql5/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql5/</guid>
       <description>&lt;p&gt;廖雪峰的SQL教程的学习笔记&lt;/p&gt;
 &lt;h2 id=&#34;mysql&#34;&gt;mySQL&lt;/h2&gt;
 &lt;p&gt;how to connect mysql? Using CMD(or MySQL Client) to carry out&lt;/p&gt;
@@ -271,9 +271,9 @@
     </item>
     <item>
       <title>SQL Chapter4  增删改相关操作</title>
-      <link>https://aikenh.cn/hugotest/posts/sql4/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql4/</link>
       <pubDate>Fri, 05 Aug 2022 15:20:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql4/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql4/</guid>
       <description>&lt;p&gt;基本操作无非就是增删改查，查询在上一章Select已经学习完毕，而剩下的增、删、改对应的关键词分别是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;INSERT：插入新纪录&lt;/li&gt;
@@ -344,9 +344,9 @@
     </item>
     <item>
       <title>SQL Chapter3 查询命令</title>
-      <link>https://aikenh.cn/hugotest/posts/sql3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql3/</link>
       <pubDate>Thu, 04 Aug 2022 14:40:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql3/</guid>
       <description>&lt;p&gt;该章节介绍SQL中的查询命令，根据&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1177760294764384/1179610888796448&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;廖雪峰网站&lt;/a&gt;
 进行一步步的测试和学习即可。&lt;/p&gt;
 &lt;ul&gt;
@@ -411,9 +411,9 @@
     </item>
     <item>
       <title>SQL Chapter2 安装和基本概念</title>
-      <link>https://aikenh.cn/hugotest/posts/sql2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql2/</link>
       <pubDate>Wed, 03 Aug 2022 10:17:00 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql2/</guid>
       <description>&lt;p&gt;本章节从MySQL的安装到基础使用，&lt;strong&gt;MySQL&lt;/strong&gt;本身只是一个SQL接口，它内部还包含多种数据引擎，常用的包括：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;InnoDB：支持事务的数据库引擎（不知道选啥的时候选他就好）&lt;/li&gt;
@@ -509,9 +509,9 @@
     </item>
     <item>
       <title>SQL Chapter1 Introduce</title>
-      <link>https://aikenh.cn/hugotest/posts/sql1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sql1/</link>
       <pubDate>Tue, 02 Aug 2022 11:17:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sql1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sql1/</guid>
       <description>&lt;p&gt;SQL相关参考资料：尊重一下&lt;a href=&#34;https://www.runoob.com/sql/sql-tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;菜鸟教程&lt;/a&gt;
  ，该教程中的文档相对简练和入门，&lt;a href=&#34;https://www.w3school.com.cn/sql/sql_intro.asp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;W3School&lt;/a&gt;
 的资料好像就是菜鸟教程的；其次，&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1177760294764384&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;廖雪峰&lt;/a&gt;
@@ -575,9 +575,9 @@
     </item>
     <item>
       <title>PyTorch Handbook 00 （Archive）</title>
-      <link>https://aikenh.cn/hugotest/posts/pytorch/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pytorch/</link>
       <pubDate>Wed, 15 Dec 2021 08:00:57 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pytorch/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pytorch/</guid>
       <description>&lt;h1 id=&#34;basic-part基础设定部分&#34;&gt;Basic Part基础设定部分&lt;/h1&gt;
 &lt;p&gt;@AikenH 2020 + 2021&lt;/p&gt;
 &lt;p&gt;this part is about pytorch basic unit, help me to code deep learning better.&lt;/p&gt;
@@ -667,9 +667,9 @@
     </item>
     <item>
       <title>Cherno的cpp教程笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/cpp/</link>
+      <link>https://hugotest-phi.vercel.app/posts/cpp/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:17 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/cpp/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/cpp/</guid>
       <description>&lt;p&gt;this notebook is based on Cherno‘s Video Class in &lt;a href=&#34;https://www.youtube.com/watch?v=wXBcwHwIt_I&amp;amp;list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&amp;amp;index=62&amp;amp;ab_channel=TheCherno&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YouTube&lt;/a&gt;
 ；if there is sth get confused，I can &lt;strong&gt;recheck&lt;/strong&gt; the video which talk about it, or &lt;strong&gt;just google it&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul&gt;
@@ -691,9 +691,9 @@
     </item>
     <item>
       <title>python 与标记语言的交互</title>
-      <link>https://aikenh.cn/hugotest/posts/markup_langs/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markup_langs/</link>
       <pubDate>Sun, 28 Nov 2021 11:16:10 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markup_langs/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markup_langs/</guid>
       <description>&lt;p&gt;对于各种形式的标记文档（markup）和数据集的处理进行一个整合，还有一些python中的相关模块（比比如glob，后续可能会迁移到别的文档中），主要包括：yaml，json，csv，xml，这些可拓展的标记语言.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TODO：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -757,10 +757,10 @@
     </item>
     <item>
       <title>（转）What the Fuck Python！ 一些python特性</title>
-      <link>https://aikenh.cn/hugotest/posts/pythontips/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pythontips/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pythontips/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://aikenh.cn/hugotest/images/logo.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>https://hugotest-phi.vercel.app/posts/pythontips/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://hugotest-phi.vercel.app/images/logo.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h1 align=&#34;center&#34;&gt;What the f*ck Python! 🐍&lt;/h1&gt;
 &lt;p align=&#34;center&#34;&gt;一些有趣且鲜为人知的 Python 特性.&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
@@ -943,9 +943,9 @@
     </item>
     <item>
       <title>C&#43;&#43;的常见数据类型和操作</title>
-      <link>https://aikenh.cn/hugotest/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</link>
+      <link>https://hugotest-phi.vercel.app/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/cpp%E8%A6%81%E7%82%B9%E8%BE%A8%E6%9E%90%E4%B8%8E%E8%A1%A5%E5%85%85/</guid>
       <description>&lt;p&gt;主要介绍一些常用数据类型的一些method，区别还有一些特殊的定义；&lt;/p&gt;
 &lt;p&gt;priority_queue 默认是大顶堆，great的话是小顶堆，less的话是大顶堆，自定义的话不知道是不是一致的&lt;/p&gt;
 &lt;p&gt;set默认top是小顶，这个大小我就不知道了，自定义的话，好像和我想得是一致的&lt;/p&gt;
@@ -1022,9 +1022,9 @@
     </item>
     <item>
       <title>Fluent Python 01 数据模型与结构</title>
-      <link>https://aikenh.cn/hugotest/posts/fluent_python/</link>
+      <link>https://hugotest-phi.vercel.app/posts/fluent_python/</link>
       <pubDate>Sat, 06 Nov 2021 12:53:47 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/fluent_python/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/fluent_python/</guid>
       <description>&lt;h2 id=&#34;chapter-1-数据模型&#34;&gt;Chapter 1 数据模型&lt;/h2&gt;
 &lt;h3 id=&#34;se1-magic-method&#34;&gt;Se1 magic method&lt;/h3&gt;
 &lt;p&gt;数据模型在这里的定义是对python框架的描述,他规范了python构建模块的接口；这些接口对应解释器中对一些特殊句法(常用句法)的激活和使用.本章节的核心就在于对这些特殊句法的理解和使用.
@@ -1116,9 +1116,9 @@
     </item>
     <item>
       <title>Python01 数据模型和常用数据结构</title>
-      <link>https://aikenh.cn/hugotest/posts/python/</link>
+      <link>https://hugotest-phi.vercel.app/posts/python/</link>
       <pubDate>Wed, 27 Oct 2021 14:19:13 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/python/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/python/</guid>
       <description>&lt;p&gt;个人的《Python Cookbook》 &amp;amp;&amp;amp; 《Fluent Python》阅读笔记。&lt;/p&gt;
 &lt;h1 id=&#34;数据模型python结构的通用范式&#34;&gt;数据模型（Python结构的通用范式）&lt;/h1&gt;
 &lt;p&gt;（Magic method）dunder method：Python特有的双下划线方法，这些方法能够支持Python进行特殊的调用，实现通用方法在新定义的数据结构上的使用，比如最典型的:&lt;/p&gt;
@@ -1181,9 +1181,9 @@
     </item>
     <item>
       <title>Markdown Handbook</title>
-      <link>https://aikenh.cn/hugotest/posts/markdown/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markdown/</link>
       <pubDate>Sat, 18 Apr 2020 02:21:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markdown/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markdown/</guid>
       <description>&lt;p&gt;&lt;strong&gt;参考资料&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;一些关于markdown语法的参考资料，但是实际上如果用Typora的话，有很多的语法是不需要记忆的，只需要稍微了解就可以了，更需要学习的其实是&lt;strong&gt;Latex的公式&lt;/strong&gt;编写。&lt;/p&gt;
 &lt;ol&gt;

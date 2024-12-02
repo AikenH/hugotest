@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Pytorch on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/pytorch/</link>
+    <link>https://hugotest-phi.vercel.app/tags/pytorch/</link>
     <description>Recent content in Pytorch on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 08 Feb 2022 14:31:37 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fine Tuning</title>
-      <link>https://aikenh.cn/hugotest/posts/finetune/</link>
+      <link>https://hugotest-phi.vercel.app/posts/finetune/</link>
       <pubDate>Tue, 08 Feb 2022 14:31:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/finetune/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/finetune/</guid>
       <description>&lt;p&gt;@Langs: python, torch
 @reference: d2l-pytorch，&lt;a href=&#34;https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer_torch&lt;/a&gt;
 &lt;/p&gt;
@@ -115,9 +115,9 @@
     </item>
     <item>
       <title>Training Strategy</title>
-      <link>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nerualnetworktraining/</link>
       <pubDate>Thu, 16 Dec 2021 08:34:44 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nerualnetworktraining/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nerualnetworktraining/</guid>
       <description>&lt;p&gt;@Aiken 2020，&lt;/p&gt;
 &lt;p&gt;主要针对神经网络的训练过程中的一些基础策略的调整，比如当训练的曲线出现一定的问题的时候，我们应该怎么去调整我们训练过程中的策略。&lt;/p&gt;
 &lt;p&gt;参数调整过程中最重要的就是优化器（优化或者说是下降算法）和学习率（优化算法的核心参数），此外像是数据增强策略还是Normalization策略，都能极大的影响一个模型的好坏。&lt;/p&gt;
@@ -195,9 +195,9 @@
     </item>
     <item>
       <title>PyTorch Handbook 00 （Archive）</title>
-      <link>https://aikenh.cn/hugotest/posts/pytorch/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pytorch/</link>
       <pubDate>Wed, 15 Dec 2021 08:00:57 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pytorch/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pytorch/</guid>
       <description>&lt;h1 id=&#34;basic-part基础设定部分&#34;&gt;Basic Part基础设定部分&lt;/h1&gt;
 &lt;p&gt;@AikenH 2020 + 2021&lt;/p&gt;
 &lt;p&gt;this part is about pytorch basic unit, help me to code deep learning better.&lt;/p&gt;
@@ -287,9 +287,9 @@
     </item>
     <item>
       <title>Data Augmentation</title>
-      <link>https://aikenh.cn/hugotest/posts/dataaugmentation/</link>
+      <link>https://hugotest-phi.vercel.app/posts/dataaugmentation/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/dataaugmentation/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/dataaugmentation/</guid>
       <description>&lt;p&gt;intergrate with those augmentation method.&lt;/p&gt;
 &lt;p&gt;this doc will&lt;/p&gt;
 &lt;ul&gt;
@@ -319,9 +319,9 @@
     </item>
     <item>
       <title>并行训练</title>
-      <link>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</link>
       <pubDate>Sun, 28 Nov 2021 02:20:31 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://lilianweng.github.io/lil-log/2021/09/24/train-large-neural-networks.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to Train Really Large Models on Many GPUs? (lilianweng.github.io)&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;对于浮点运算，模型参数的存储和中间计算输出（梯度和优化器状态）的存储的在 GPU 内存上的大量需求使得我们需要并行化，下面我们参考一些常用的并行化范式：&lt;/p&gt;

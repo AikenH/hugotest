@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Raspberry-Pie on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/raspberry-pie/</link>
+    <link>https://hugotest-phi.vercel.app/tags/raspberry-pie/</link>
     <description>Recent content in Raspberry-Pie on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Nov 2023 12:08:37 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/raspberry-pie/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/raspberry-pie/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>树莓派家庭影音中心2</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</link>
       <pubDate>Sat, 11 Nov 2023 12:08:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%832/</guid>
       <description>&lt;h2 id=&#34;禁止屏幕休眠显示作为-dashboard-显示&#34;&gt;禁止屏幕休眠显示作为 Dashboard 显示&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;树莓派官方的 Raspbian 系统使用的是 lightdm 桌面显示管理器，可以设置 xservice 桌面交互显示来达到屏幕常亮的目的，也就是修改桌面配置文件 lightdm.Conf&lt;/p&gt;
@@ -53,9 +53,9 @@
     </item>
     <item>
       <title>HomeAssistant01 入门基础篇</title>
-      <link>https://aikenh.cn/hugotest/posts/homeassistant_init/</link>
+      <link>https://hugotest-phi.vercel.app/posts/homeassistant_init/</link>
       <pubDate>Sat, 12 Aug 2023 17:24:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/homeassistant_init/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/homeassistant_init/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;接下来本文安装的是 Container 版本的 HA，并非 Supervised 的版本，所以其中是不包含 Add-on 的，如果需要特定的 Add-on 的版本请注意。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -104,9 +104,9 @@
     </item>
     <item>
       <title>树莓派02 家用服务器</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 02 Jul 2023 10:30:11 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;树莓派家庭服务器的搭建以 docker 为核心，通过 docker 统一管理家庭服务，目前搭建的服务还在持续完善中，主要目的是为了方便日常使用、满足学习和探索的需求。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -201,9 +201,9 @@
     </item>
     <item>
       <title>树莓派01 家庭影音中心</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</link>
       <pubDate>Wed, 28 Jun 2023 07:28:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;将 RaspBerry Pi 4B 作为家庭影视中心/机顶盒的核心就是 KODI 软件，这是考虑到以下的几点：遥控器的控制、对挂载 webdav 和其他的支持&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -249,9 +249,9 @@
     </item>
     <item>
       <title>树莓派00 组装和亮机篇</title>
-      <link>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</link>
+      <link>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Tue, 20 Jun 2023 22:38:15 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;最近入手了树莓派 4B，打算基于树莓派做一些有趣&amp;amp;有用的项目，该系列笔记来记录个人树莓派学习和开发的历程。&lt;/p&gt;
 &lt;/blockquote&gt;

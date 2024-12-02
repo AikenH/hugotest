@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Pytorch on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/pytorch/</link>
+    <link>https://hugotest-phi.vercel.app/categories/pytorch/</link>
     <description>Recent content in Pytorch on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Dec 2021 08:00:57 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/pytorch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PyTorch Handbook 00 （Archive）</title>
-      <link>https://aikenh.cn/hugotest/posts/pytorch/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pytorch/</link>
       <pubDate>Wed, 15 Dec 2021 08:00:57 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pytorch/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pytorch/</guid>
       <description>&lt;h1 id=&#34;basic-part基础设定部分&#34;&gt;Basic Part基础设定部分&lt;/h1&gt;
 &lt;p&gt;@AikenH 2020 + 2021&lt;/p&gt;
 &lt;p&gt;this part is about pytorch basic unit, help me to code deep learning better.&lt;/p&gt;

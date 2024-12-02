@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Open World Learning on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/open-world-learning/</link>
+    <link>https://hugotest-phi.vercel.app/tags/open-world-learning/</link>
     <description>Recent content in Open World Learning on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 12 Nov 2021 09:40:46 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/open-world-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/open-world-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OWL-survey</title>
-      <link>https://aikenh.cn/hugotest/posts/owl-survey/</link>
+      <link>https://hugotest-phi.vercel.app/posts/owl-survey/</link>
       <pubDate>Fri, 12 Nov 2021 09:40:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/owl-survey/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/owl-survey/</guid>
       <description>&lt;p&gt;@AikenHong2021 OWL&lt;/p&gt;
 &lt;p&gt;分析现有的OWL特点，和当前自己的研究做一个区分，也汲取一下别人的研究的要点，&lt;/p&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -46,9 +46,9 @@
     </item>
     <item>
       <title>OW Object Detector</title>
-      <link>https://aikenh.cn/hugotest/posts/ow-od/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ow-od/</link>
       <pubDate>Tue, 28 Sep 2021 13:44:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ow-od/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ow-od/</guid>
       <description>&lt;p&gt;@Aiken 2021&lt;/p&gt;
 &lt;p&gt;框架撞车系列，主要看看这一篇论文中怎么解决如下的问题👇，并从中借鉴和优化的我框架设计&lt;/p&gt;
 &lt;h2 id=&#34;思路分析&#34;&gt;思路分析&lt;/h2&gt;

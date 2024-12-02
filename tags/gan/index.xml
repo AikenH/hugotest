@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>GAN on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/gan/</link>
+    <link>https://hugotest-phi.vercel.app/tags/gan/</link>
     <description>Recent content in GAN on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 03 Oct 2021 13:16:40 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/gan/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/gan/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>StyleGAN</title>
-      <link>https://aikenh.cn/hugotest/posts/stylegan/</link>
+      <link>https://hugotest-phi.vercel.app/posts/stylegan/</link>
       <pubDate>Sun, 03 Oct 2021 13:16:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/stylegan/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/stylegan/</guid>
       <description>&lt;h1 id=&#34;stylegan-v1&#34;&gt;StyleGAN V1&lt;/h1&gt;
 &lt;p&gt;@AikenHong 2020 10.8&lt;/p&gt;
 &lt;p&gt;《A Style-Based Generator Architecture for Generative Adversarial Networks》&lt;/p&gt;
@@ -78,9 +78,9 @@
     </item>
     <item>
       <title>GANs 01</title>
-      <link>https://aikenh.cn/hugotest/posts/gans/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gans/</link>
       <pubDate>Mon, 19 Oct 2020 07:47:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gans/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gans/</guid>
       <description>&lt;h1 id=&#34;fgan-对gan理论的深度理解&#34;&gt;fGAN 对GAN理论的深度理解&lt;/h1&gt;
 &lt;p&gt;@Aiken 2021 onenote部分的拓展编写，到时候拷过去，整合在一起。&lt;/p&gt;
 &lt;p&gt;fGAN: 不只是JS-Div散度，我们可以&lt;strong&gt;将所有的散度都应用到GANs的框架&lt;/strong&gt;中。该部分的阅读是对GAN的基本理论最重要的文章之一。&lt;/p&gt;

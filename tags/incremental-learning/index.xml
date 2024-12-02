@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Incremental Learning on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/incremental-learning/</link>
+    <link>https://hugotest-phi.vercel.app/tags/incremental-learning/</link>
     <description>Recent content in Incremental Learning on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jan 2022 01:38:04 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/incremental-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/incremental-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IL Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-collection/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-collection/</link>
       <pubDate>Tue, 04 Jan 2022 01:38:04 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-collection/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-collection/</guid>
       <description>&lt;p&gt;@AikenHong 2022&lt;/p&gt;
 &lt;p&gt;[[Draft/IL 总结]]: Thx 2 wyz to provide some clus for learnning Incremental Learning.&lt;/p&gt;
 &lt;p&gt;In this Doc, we may add some related knowledge distill works which is used to design our Incremental Structure.
@@ -47,9 +47,9 @@
     </item>
     <item>
       <title>WYZ-IL-Collection</title>
-      <link>https://aikenh.cn/hugotest/posts/il-wyz/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-wyz/</link>
       <pubDate>Mon, 03 Jan 2022 10:41:56 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-wyz/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-wyz/</guid>
       <description>&lt;p&gt;: hammer: 王耀智&lt;/p&gt;
 &lt;h2 id=&#34;regularization-系列方法&#34;&gt;Regularization 系列方法&lt;/h2&gt;
 &lt;p&gt;这类方法旨在添加一些正则化损失来解决 &lt;code&gt;catastrophic forgetting&lt;/code&gt; 的问题。&lt;/p&gt;
@@ -88,9 +88,9 @@
     </item>
     <item>
       <title>IL-MgSvF</title>
-      <link>https://aikenh.cn/hugotest/posts/il-mgsvf/</link>
+      <link>https://hugotest-phi.vercel.app/posts/il-mgsvf/</link>
       <pubDate>Mon, 29 Nov 2021 13:12:05 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/il-mgsvf/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/il-mgsvf/</guid>
       <description>&lt;p&gt;@Author &amp;amp; Paper：&lt;a href=&#34;https://arxiv.org/pdf/2006.15524.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Arxiv&lt;/a&gt;
 
 @Note：Aikenhong 2021/11/12&lt;/p&gt;

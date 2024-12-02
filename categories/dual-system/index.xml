@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Dual System on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/dual-system/</link>
+    <link>https://hugotest-phi.vercel.app/categories/dual-system/</link>
     <description>Recent content in Dual System on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 22 Jan 2023 16:25:27 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/dual-system/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/dual-system/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Configuration04 Dual-System-Ubuntu</title>
-      <link>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</link>
+      <link>https://hugotest-phi.vercel.app/posts/dualsystemubuntu/</link>
       <pubDate>Sun, 22 Jan 2023 16:25:27 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/dualsystemubuntu/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/dualsystemubuntu/</guid>
       <description>&lt;p&gt;该文介绍基于 Windows11 系统的双系统安装和删除，安装的双系统选择 Ubuntu（开发还是比较推荐使用 WSL2 即可）&lt;/p&gt;
 &lt;h2 id=&#34;install-dual-system&#34;&gt;Install Dual System&lt;/h2&gt;
 &lt;p&gt;参考资料：&lt;a href=&#34;https://blog.csdn.net/NeoZng/article/details/122779035&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;全面解决各种问题&lt;/a&gt;

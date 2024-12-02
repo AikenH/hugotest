@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Attention on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/attention/</link>
+    <link>https://hugotest-phi.vercel.app/tags/attention/</link>
     <description>Recent content in Attention on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Sep 2021 05:34:22 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/attention/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/attention/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attention Mechanism</title>
-      <link>https://aikenh.cn/hugotest/posts/attention/</link>
+      <link>https://hugotest-phi.vercel.app/posts/attention/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/attention/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/attention/</guid>
       <description>&lt;p&gt;@Aiken 2020.9.16&lt;/p&gt;
 &lt;p&gt;对基本注意力机制的一些资料和理解做一些简单的汇总，着重分析基本思想原理，应用和实现（即 structure），还有一些Weakness和相应的解决方案。&lt;/p&gt;
 &lt;!-- more --&gt;

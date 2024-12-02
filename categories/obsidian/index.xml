@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Obsidian on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/obsidian/</link>
+    <link>https://hugotest-phi.vercel.app/categories/obsidian/</link>
     <description>Recent content in Obsidian on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Oct 2023 00:39:59 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/obsidian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obsidian使用 Spaced Repetition 制作闪念卡片</title>
-      <link>https://aikenh.cn/hugotest/posts/flashcard_template/</link>
+      <link>https://hugotest-phi.vercel.app/posts/flashcard_template/</link>
       <pubDate>Sat, 28 Oct 2023 00:39:59 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/flashcard_template/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/flashcard_template/</guid>
       <description>&lt;p&gt;该文作为基础的闪念卡片的使用说明，介绍几种闪念卡片定义的方式，便于后续查阅，参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/558326315&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Obsidian: Spaced Repetition插件使用指南 &lt;/a&gt;

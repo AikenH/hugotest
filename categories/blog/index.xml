@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blog on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/blog/</link>
+    <link>https://hugotest-phi.vercel.app/categories/blog/</link>
     <description>Recent content in Blog on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Mar 2023 23:46:37 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hexo Icarus 配置</title>
-      <link>https://aikenh.cn/hugotest/posts/custom_icarus/</link>
+      <link>https://hugotest-phi.vercel.app/posts/custom_icarus/</link>
       <pubDate>Sat, 11 Mar 2023 23:46:37 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/custom_icarus/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/custom_icarus/</guid>
       <description>&lt;p&gt;本文的博客页面基于 &lt;a href=&#34;[Hexo]%28https://hexo.io/zh-cn/%29&#34;&gt;Hexo&lt;/a&gt;
 +&lt;a href=&#34;https://ppoffice.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Icarus&lt;/a&gt;
  主题搭建，在使用过程中对该主题做了一些简单的配置，以适应自己的需求。这里介绍一下自己粗浅的方案。&lt;/p&gt;
@@ -64,9 +64,9 @@
     </item>
     <item>
       <title>Hexo Write</title>
-      <link>https://aikenh.cn/hugotest/posts/hexo_write/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hexo_write/</link>
       <pubDate>Wed, 13 Apr 2022 23:29:10 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hexo_write/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hexo_write/</guid>
       <description>&lt;p&gt;Hexo和Gitee一致，都是由Markdown文件为基础，构建的博客，编写Markdown本身无需多言，由于Hexo并非笔者的首选笔记管理方式，故而再其他地方构建和编写文件是常态，该Blog主要是利用其他工具来方便Hexo博文的编写（Header）&lt;/p&gt;
 &lt;p&gt;默认的是 &lt;code&gt;hexo new [layout] title&lt;/code&gt; 可简写为 &lt;code&gt;hexo n [layout] title&lt;/code&gt;，其中布局应该是在博客目录中定义，该命令也局限于博客的对应目录。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -121,9 +121,9 @@
     </item>
     <item>
       <title>Latex tesing</title>
-      <link>https://aikenh.cn/hugotest/posts/latex_testing/</link>
+      <link>https://hugotest-phi.vercel.app/posts/latex_testing/</link>
       <pubDate>Wed, 13 Apr 2022 16:50:53 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/latex_testing/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/latex_testing/</guid>
       <description>&lt;p&gt;该文档主要目的是用于测试Latex语法对应前端的渲染能力，主要用于测试Hexo站点是否能正常渲染Latex。&lt;/p&gt;
 &lt;p&gt;Example1: 2 inline in one sentence.&lt;/p&gt;
 &lt;p&gt;When $a \ne 0$ , there are two solutions to $(ax^2 + bx + c = 0)$ and they are&lt;/p&gt;
@@ -154,9 +154,9 @@ f(x)=
     </item>
     <item>
       <title>Hexo Build</title>
-      <link>https://aikenh.cn/hugotest/posts/hexo_build/</link>
+      <link>https://hugotest-phi.vercel.app/posts/hexo_build/</link>
       <pubDate>Tue, 12 Apr 2022 11:16:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/hexo_build/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/hexo_build/</guid>
       <description>&lt;p&gt;该文档用以，记录自己（外行）利用Hexo建立Blog的过程，将原本用Gitbook构建的笔记转移到Hexo中，同时购买域名并部署其上。网页部署于&lt;a href=&#34;AikenH.cn&#34;&gt;Github Page&lt;/a&gt;
 。以Live my Live主题为例。&lt;/p&gt;
 &lt;p&gt;腾讯云和Github Page的操作和理解在现有的一些博客中过时了，或者说存在一些问题，后续会对此进行简单的讲解。同时大部分博客都是使用NexT主题进行配置，这里采用的是Live My Life主题，该博文介绍自己的粗浅理解，也为自己后续的工作进行一定的参考。&lt;/p&gt;
@@ -235,9 +235,9 @@ f(x)=
     </item>
     <item>
       <title>PicBed Setting for note and blog</title>
-      <link>https://aikenh.cn/hugotest/posts/picbed/</link>
+      <link>https://hugotest-phi.vercel.app/posts/picbed/</link>
       <pubDate>Sun, 27 Mar 2022 09:19:23 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/picbed/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/picbed/</guid>
       <description>&lt;p&gt;@Aiken 2020 first write，2021 modify&lt;/p&gt;
 &lt;p&gt;Mainly using picgo-core(command line) to setting picbed，and we can update the setting method&lt;/p&gt;
 &lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
@@ -325,9 +325,9 @@ f(x)=
     </item>
     <item>
       <title>Build Gitbook</title>
-      <link>https://aikenh.cn/hugotest/posts/gitbook/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gitbook/</link>
       <pubDate>Sun, 26 Sep 2021 15:36:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gitbook/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gitbook/</guid>
       <description>&lt;p&gt;Gitbook命令行工具，基于Markdown编写文档，后续基于Github发布该Blog&lt;/p&gt;
 &lt;p&gt;笔记的构建流程：&lt;/p&gt;
 &lt;h2 id=&#34;chapter1-install&#34;&gt;Chapter1 Install&lt;/h2&gt;

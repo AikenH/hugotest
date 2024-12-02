@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CV on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/cv/</link>
+    <link>https://hugotest-phi.vercel.app/tags/cv/</link>
     <description>Recent content in CV on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Dec 2021 01:43:30 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/cv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/cv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UniFramework 01</title>
-      <link>https://aikenh.cn/hugotest/posts/uniframework/</link>
+      <link>https://hugotest-phi.vercel.app/posts/uniframework/</link>
       <pubDate>Sat, 04 Dec 2021 01:43:30 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/uniframework/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/uniframework/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;
@@ -101,9 +101,9 @@ Offline：基于样本池的规模和评估触发离线更新：&lt;strong&gt;�
     </item>
     <item>
       <title>MIM-V-simMIM</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-simmim/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-simmim/</link>
       <pubDate>Tue, 23 Nov 2021 06:38:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-simmim/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-simmim/</guid>
       <description>&lt;p&gt;@Author： MSRA Zhenda Xie
 @Source：&lt;a href=&#34;arxiv.org/abs/2111.09886&#34;&gt;Arxiv&lt;/a&gt;
 ， &lt;a href=&#34;https://github.com/microsoft/SimMIM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code TBP&lt;/a&gt;
@@ -153,9 +153,9 @@ Offline：基于样本池的规模和评估触发离线更新：&lt;strong&gt;�
     </item>
     <item>
       <title>MIM-V-iBOT</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-ibot/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-ibot/</link>
       <pubDate>Thu, 18 Nov 2021 06:35:52 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-ibot/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-ibot/</guid>
       <description>&lt;p&gt;@Read: AikenHong 2021&lt;/p&gt;
 &lt;p&gt;@Author: &lt;a href=&#34;https://arxiv.org/abs/2111.07832&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://arxiv.org/abs/2111.07832&lt;/a&gt;
 &lt;/p&gt;
@@ -191,9 +191,9 @@ Offline：基于样本池的规模和评估触发离线更新：&lt;strong&gt;�
     </item>
     <item>
       <title>MIM-V-MAE</title>
-      <link>https://aikenh.cn/hugotest/posts/mim-v-mae/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mim-v-mae/</link>
       <pubDate>Mon, 15 Nov 2021 12:25:45 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mim-v-mae/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mim-v-mae/</guid>
       <description>&lt;p&gt;@Author：Facebook AI Research-Kaiming He
 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/432663453&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kaiming-MAE&lt;/a&gt;
 &lt;/p&gt;
@@ -230,9 +230,9 @@ Offline：基于样本池的规模和评估触发离线更新：&lt;strong&gt;�
     </item>
     <item>
       <title>OWL-survey</title>
-      <link>https://aikenh.cn/hugotest/posts/owl-survey/</link>
+      <link>https://hugotest-phi.vercel.app/posts/owl-survey/</link>
       <pubDate>Fri, 12 Nov 2021 09:40:46 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/owl-survey/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/owl-survey/</guid>
       <description>&lt;p&gt;@AikenHong2021 OWL&lt;/p&gt;
 &lt;p&gt;分析现有的OWL特点，和当前自己的研究做一个区分，也汲取一下别人的研究的要点，&lt;/p&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -266,9 +266,9 @@ Offline：基于样本池的规模和评估触发离线更新：&lt;strong&gt;�
     </item>
     <item>
       <title>OW Object Detector</title>
-      <link>https://aikenh.cn/hugotest/posts/ow-od/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ow-od/</link>
       <pubDate>Tue, 28 Sep 2021 13:44:20 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ow-od/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ow-od/</guid>
       <description>&lt;p&gt;@Aiken 2021&lt;/p&gt;
 &lt;p&gt;框架撞车系列，主要看看这一篇论文中怎么解决如下的问题👇，并从中借鉴和优化的我框架设计&lt;/p&gt;
 &lt;h2 id=&#34;思路分析&#34;&gt;思路分析&lt;/h2&gt;
@@ -317,9 +317,9 @@ p(l \mid \boldsymbol{f})=\frac{\exp \left(\frac{g_{l}(\boldsymbol{f})}{T}\right)
     </item>
     <item>
       <title>EfficientNet</title>
-      <link>https://aikenh.cn/hugotest/posts/efficientnet/</link>
+      <link>https://hugotest-phi.vercel.app/posts/efficientnet/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/efficientnet/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/efficientnet/</guid>
       <description>&lt;p&gt;Tags: Paper
 URL1: &lt;a href=&#34;https://arxiv.org/pdf/1905.11946.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://arxiv.org/pdf/1905.11946.pdf&lt;/a&gt;
 
@@ -360,9 +360,9 @@ URL2: &lt;a href=&#34;https://arxiv.org/pdf/2104.00298.pdf&#34; target=&#34;_bla
     </item>
     <item>
       <title>OW-openmix</title>
-      <link>https://aikenh.cn/hugotest/posts/ow-openmix/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ow-openmix/</link>
       <pubDate>Wed, 23 Jun 2021 13:45:50 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ow-openmix/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ow-openmix/</guid>
       <description>&lt;p&gt;@Aiken 2021 究极万恶的撞车论文&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Motivation&lt;/strong&gt; ：Tackle the problem of 发现无标注数据中与给定（已知）类别不相交的新类。&lt;/p&gt;
@@ -425,9 +425,9 @@ URL2: &lt;a href=&#34;https://arxiv.org/pdf/2104.00298.pdf&#34; target=&#34;_bla
     </item>
     <item>
       <title>YOLOv4 阅读笔记</title>
-      <link>https://aikenh.cn/hugotest/posts/cv-yolov4/</link>
+      <link>https://hugotest-phi.vercel.app/posts/cv-yolov4/</link>
       <pubDate>Sun, 26 Jul 2020 13:16:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/cv-yolov4/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/cv-yolov4/</guid>
       <description>&lt;p&gt;@AikenHong 20200726&lt;/p&gt;
 &lt;p&gt;基于YOLO v4 掌握一些CV方面训练的&lt;strong&gt;Trick&lt;/strong&gt;，同时针对Typora的使用进行一个熟悉掌握。&lt;a href=&#34;https://github.com/AlexeyAB/darknet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB CODE&lt;/a&gt;
 &lt;/p&gt;

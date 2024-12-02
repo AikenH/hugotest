@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Sort on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/sort/</link>
+    <link>https://hugotest-phi.vercel.app/tags/sort/</link>
     <description>Recent content in Sort on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Dec 2021 17:05:03 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/sort/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/sort/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm Sort</title>
-      <link>https://aikenh.cn/hugotest/posts/sorttrick/</link>
+      <link>https://hugotest-phi.vercel.app/posts/sorttrick/</link>
       <pubDate>Mon, 06 Dec 2021 17:05:03 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/sorttrick/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/sorttrick/</guid>
       <description>&lt;p&gt;记录各种排序操作，暂时不补充最基础的排序方式和理论，只记录排序算法的拓展应用。&lt;/p&gt;
 &lt;p&gt;在理论分析的部分主要使用cpp进行撰写，而在具体使用的时候，目前会主要按照python来进行编写，这主要是面向的场景不同决定的。&lt;/p&gt;
 &lt;blockquote&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Wsl on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/wsl/</link>
+    <link>https://hugotest-phi.vercel.app/tags/wsl/</link>
     <description>Recent content in Wsl on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Sep 2021 05:34:21 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Configuration00 Install on WSL2</title>
-      <link>https://aikenh.cn/hugotest/posts/docker/</link>
+      <link>https://hugotest-phi.vercel.app/posts/docker/</link>
       <pubDate>Tue, 28 Sep 2021 05:34:21 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/docker/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/docker/</guid>
       <description>&lt;p&gt;基于 WSL2 对于 Docker 的适配，本文介绍 Windows 下利用 WSL2 对 Docker 的安装和部署，对于 WSL2 的安装可以参考上篇文章： &lt;a href=&#34;https://aikenh.cn/cn/WSL2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Configuration01 WSL2 - AikenH Blogs&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;install-docker-on-windows&#34;&gt;Install Docker on Windows&lt;/h2&gt;

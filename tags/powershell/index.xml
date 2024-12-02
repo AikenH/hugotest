@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Powershell on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/powershell/</link>
+    <link>https://hugotest-phi.vercel.app/tags/powershell/</link>
     <description>Recent content in Powershell on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Jan 2024 15:44:25 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Powershell 01 后台任务</title>
-      <link>https://aikenh.cn/hugotest/posts/pwsh_bgtask/</link>
+      <link>https://hugotest-phi.vercel.app/posts/pwsh_bgtask/</link>
       <pubDate>Sun, 28 Jan 2024 15:44:25 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/pwsh_bgtask/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/pwsh_bgtask/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -58,9 +58,9 @@
     </item>
     <item>
       <title>Windows Powershell 00 Install and Config</title>
-      <link>https://aikenh.cn/hugotest/posts/powershell/</link>
+      <link>https://hugotest-phi.vercel.app/posts/powershell/</link>
       <pubDate>Sun, 05 Mar 2023 09:59:40 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/powershell/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/powershell/</guid>
       <description>&lt;p&gt;Update:@20230214&lt;/p&gt;
 &lt;p&gt;shift+右键: 在此处打开 powershell.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/PowerShell/PowerShell/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PowerShell &lt;/a&gt;

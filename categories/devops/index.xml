@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Devops on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/devops/</link>
+    <link>https://hugotest-phi.vercel.app/categories/devops/</link>
     <description>Recent content in Devops on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Mar 2023 09:55:32 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Whats DevOps?</title>
-      <link>https://aikenh.cn/hugotest/posts/devops/</link>
+      <link>https://hugotest-phi.vercel.app/posts/devops/</link>
       <pubDate>Sat, 25 Mar 2023 09:55:32 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/devops/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/devops/</guid>
       <description>&lt;p&gt;在一个庞大的组织架构中，CI/CD 和 Devops 的概念是避不开的，了解它的工作原理和概念能帮助我们更好的与他人进行协作。&lt;/p&gt;
 &lt;h2 id=&#34;cicd-介绍&#34;&gt;CI/CD 介绍&lt;/h2&gt;
 &lt;div style=&#34;text-align:center&#34;&gt;

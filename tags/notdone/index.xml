@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>NotDone on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/notdone/</link>
+    <link>https://hugotest-phi.vercel.app/tags/notdone/</link>
     <description>Recent content in NotDone on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2024 06:22:33 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/notdone/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/notdone/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LearnWeb21-JS06-异步JS</title>
-      <link>https://aikenh.cn/hugotest/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</link>
+      <link>https://hugotest-phi.vercel.app/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</link>
       <pubDate>Wed, 01 May 2024 06:22:33 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/learnweb21-js06-%E5%BC%82%E6%AD%A5js/</guid>
       <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
   &lt;p class=&#34;alert-heading&#34;&gt;
     &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
@@ -35,9 +35,9 @@
     </item>
     <item>
       <title>GoMetis00_INTRO</title>
-      <link>https://aikenh.cn/hugotest/posts/gometis00_intro/</link>
+      <link>https://hugotest-phi.vercel.app/posts/gometis00_intro/</link>
       <pubDate>Sun, 08 Oct 2023 17:58:57 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/gometis00_intro/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/gometis00_intro/</guid>
       <description>&lt;head&gt;
     
     &lt;script src=&#34;https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/crypto-js/3.1.9-1/crypto-js.js&#34;&gt;&lt;/script&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SSH on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/ssh/</link>
+    <link>https://hugotest-phi.vercel.app/tags/ssh/</link>
     <description>Recent content in SSH on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Jan 2022 03:11:41 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 文件传输和同步</title>
-      <link>https://aikenh.cn/hugotest/posts/transfer-sync-files/</link>
+      <link>https://hugotest-phi.vercel.app/posts/transfer-sync-files/</link>
       <pubDate>Mon, 17 Jan 2022 03:11:41 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/transfer-sync-files/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/transfer-sync-files/</guid>
       <description>&lt;p&gt;@aikenhong 2022&lt;/p&gt;
 &lt;p&gt;当我们需要在Server之间进行，或者Server和WSL之间进行文件的传输，以及文件夹的同步的时候，如果要打开Xftp之类的软件进行，有繁琐的操作中转，或者说目录较为庞杂的时候，也显得有些麻烦。&lt;/p&gt;
 &lt;p&gt;于是我们可能希望使用脚本，来实现更便捷，同时也能设置定时功能，使得操作简单便捷，经过简单的调研，我们目前尝试使用以下几种方法，并取得了成功。&lt;/p&gt;
@@ -83,9 +83,9 @@ delete: 会删除目标文件中多出来的东西，保持同步，使得成为
     </item>
     <item>
       <title>SSH 常用场景和操作</title>
-      <link>https://aikenh.cn/hugotest/posts/ssh/</link>
+      <link>https://hugotest-phi.vercel.app/posts/ssh/</link>
       <pubDate>Mon, 22 Feb 2021 01:45:43 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/ssh/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/ssh/</guid>
       <description>&lt;p&gt;主要介绍ssh服务在以下的几个方面（windows，linux）的使用情况：远程服务器连接（22），git&amp;amp;github（gitee），vscode免密登录。&lt;/p&gt;
 &lt;h2 id=&#34;ssh-key&#34;&gt;ssh-key&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GITHUB关于SSH的教程&lt;/a&gt;

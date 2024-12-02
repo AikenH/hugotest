@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>NAT on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/nat/</link>
+    <link>https://hugotest-phi.vercel.app/tags/nat/</link>
     <description>Recent content in NAT on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Apr 2023 14:40:12 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/nat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/nat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>内网穿透（NAT穿透）</title>
-      <link>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</link>
+      <link>https://hugotest-phi.vercel.app/posts/nat%E7%A9%BF%E9%80%8F/</link>
       <pubDate>Tue, 04 Apr 2023 14:40:12 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/nat%E7%A9%BF%E9%80%8F/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/nat%E7%A9%BF%E9%80%8F/</guid>
       <description>&lt;p&gt;本文简要介绍对内网穿透技术、对内网穿透技术的需求以及介绍一些用于&amp;quot;个人&amp;quot;进行内网穿透的工具和使用。&lt;/p&gt;
 &lt;h2 id=&#34;1-什么是内网穿透nat-traversal&#34;&gt;1. 什么是内网穿透(NAT traversal）&lt;/h2&gt;
 &lt;p&gt;在计算机科学中，&lt;strong&gt;NAT穿越&lt;/strong&gt;（NAT traversal）涉及TCP/IP中的一个常见问题，即在处于使用了NAT设备的私有TCP/IP网络中的主机之间创建连接的问题。&lt;/p&gt;

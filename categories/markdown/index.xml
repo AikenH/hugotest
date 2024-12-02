@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Markdown on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/categories/markdown/</link>
+    <link>https://hugotest-phi.vercel.app/categories/markdown/</link>
     <description>Recent content in Markdown on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 18 Apr 2020 02:21:22 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/categories/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/categories/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown Handbook</title>
-      <link>https://aikenh.cn/hugotest/posts/markdown/</link>
+      <link>https://hugotest-phi.vercel.app/posts/markdown/</link>
       <pubDate>Sat, 18 Apr 2020 02:21:22 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/markdown/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/markdown/</guid>
       <description>&lt;p&gt;&lt;strong&gt;参考资料&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;一些关于markdown语法的参考资料，但是实际上如果用Typora的话，有很多的语法是不需要记忆的，只需要稍微了解就可以了，更需要学习的其实是&lt;strong&gt;Latex的公式&lt;/strong&gt;编写。&lt;/p&gt;
 &lt;ol&gt;

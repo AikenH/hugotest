@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Reinforcement Learning on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/reinforcement-learning/</link>
+    <link>https://hugotest-phi.vercel.app/tags/reinforcement-learning/</link>
     <description>Recent content in Reinforcement Learning on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Jul 2021 13:51:48 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RL-DouZero</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-douzero/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-douzero/</link>
       <pubDate>Tue, 06 Jul 2021 13:51:48 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-douzero/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-douzero/</guid>
       <description>&lt;p&gt;Desc: GAME, RL
 Finished?: Yes
 Tags: Paper
@@ -69,9 +69,9 @@ URL3: &lt;a href=&#34;https://github.com/datamllab/rlcard-showdown&#34; target=&
     </item>
     <item>
       <title>Reward is Enough</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-reward_is_enough/</link>
       <pubDate>Sun, 06 Jun 2021 13:53:36 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-reward_is_enough/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-reward_is_enough/</guid>
       <description>&lt;p&gt;Desc: RL
 Finished?: Yes
 Tags: Paper&lt;/p&gt;
@@ -89,9 +89,9 @@ Tags: Paper&lt;/p&gt;
     </item>
     <item>
       <title>RL-MobaAI</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-mobaai_tencent/</link>
       <pubDate>Sun, 30 May 2021 13:52:42 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-mobaai_tencent/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-mobaai_tencent/</guid>
       <description>&lt;p&gt;Created by: Aiken H
 Desc: GAME, RL
 Finished?: Yes
@@ -124,9 +124,9 @@ Tags: Paper&lt;/p&gt;
     </item>
     <item>
       <title>RL Notebook 01</title>
-      <link>https://aikenh.cn/hugotest/posts/rl-c1/</link>
+      <link>https://hugotest-phi.vercel.app/posts/rl-c1/</link>
       <pubDate>Sun, 23 May 2021 13:50:06 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/rl-c1/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/rl-c1/</guid>
       <description>&lt;p&gt;Created by: Aiken H
 Detail: survey
 Finished?: No

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Latex on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/latex/</link>
+    <link>https://hugotest-phi.vercel.app/tags/latex/</link>
     <description>Recent content in Latex on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Apr 2022 16:50:53 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Latex tesing</title>
-      <link>https://aikenh.cn/hugotest/posts/latex_testing/</link>
+      <link>https://hugotest-phi.vercel.app/posts/latex_testing/</link>
       <pubDate>Wed, 13 Apr 2022 16:50:53 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/latex_testing/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/latex_testing/</guid>
       <description>&lt;p&gt;该文档主要目的是用于测试Latex语法对应前端的渲染能力，主要用于测试Hexo站点是否能正常渲染Latex。&lt;/p&gt;
 &lt;p&gt;Example1: 2 inline in one sentence.&lt;/p&gt;
 &lt;p&gt;When $a \ne 0$ , there are two solutions to $(ax^2 + bx + c = 0)$ and they are&lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>MLFlow on aiken&#39;s blog</title>
-    <link>https://aikenh.cn/hugotest/tags/mlflow/</link>
+    <link>https://hugotest-phi.vercel.app/tags/mlflow/</link>
     <description>Recent content in MLFlow on aiken&#39;s blog</description>
     <generator>Hugo -- 0.137.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Nov 2021 06:24:19 +0000</lastBuildDate>
-    <atom:link href="https://aikenh.cn/hugotest/tags/mlflow/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hugotest-phi.vercel.app/tags/mlflow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MLFlow</title>
-      <link>https://aikenh.cn/hugotest/posts/mlflow/</link>
+      <link>https://hugotest-phi.vercel.app/posts/mlflow/</link>
       <pubDate>Sun, 28 Nov 2021 06:24:19 +0000</pubDate>
-      <guid>https://aikenh.cn/hugotest/posts/mlflow/</guid>
+      <guid>https://hugotest-phi.vercel.app/posts/mlflow/</guid>
       <description>&lt;h1 id=&#34;mlflow-机器学习系统的使用&#34;&gt;MLFlow 机器学习系统的使用&lt;/h1&gt;
 &lt;p&gt;@Aiken 2020&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;基于Python开发的DAG数据工作流系统，面向机器学习，支持Spark并行环境和K8S容器集群；&lt;/em&gt;&lt;/p&gt;
