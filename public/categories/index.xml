@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on aiken&#39;s blog</title>
+    <link>https://metisy.cool/categories/</link>
+    <description>Recent content in Categories on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Nov 2024 11:30:03 +0000</lastBuildDate>
+    <atom:link href="https://metisy.cool/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://metisy.cool/categories/hugo/</link>
+      <pubDate>Sat, 23 Nov 2024 11:30:03 +0000</pubDate>
+      <guid>https://metisy.cool/categories/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Util</title>
+      <link>https://metisy.cool/categories/util/</link>
+      <pubDate>Sat, 23 Nov 2024 11:30:03 +0000</pubDate>
+      <guid>https://metisy.cool/categories/util/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NAS</title>
+      <link>https://metisy.cool/categories/nas/</link>
+      <pubDate>Wed, 20 Dec 2023 08:24:36 +0000</pubDate>
+      <guid>https://metisy.cool/categories/nas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AIGC</title>
+      <link>https://metisy.cool/categories/aigc/</link>
+      <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
+      <guid>https://metisy.cool/categories/aigc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://metisy.cool/categories/machine-learning/</link>
+      <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
+      <guid>https://metisy.cool/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Latex</title>
+      <link>https://metisy.cool/categories/latex/</link>
+      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <guid>https://metisy.cool/categories/latex/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

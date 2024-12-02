@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI on aiken&#39;s blog</title>
+    <link>https://metisy.cool/tags/ai/</link>
+    <description>Recent content in AI on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Apr 2023 21:22:38 +0000</lastBuildDate>
+    <atom:link href="https://metisy.cool/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AIGC04 Stable Diffusion Write Prompt Better</title>
+      <link>https://metisy.cool/posts/stablediffusionprompt/</link>
+      <pubDate>Wed, 26 Apr 2023 21:22:38 +0000</pubDate>
+      <guid>https://metisy.cool/posts/stablediffusionprompt/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;该章节主要包括 Promot 生成和部分工作流的分析，旨在了解如何写出更好的关键词，如何生成更好的图片，当我们不知道怎么描述的时候也可以将该工作交给 ChatGPT，让其为我们攥写一般基础的提示词&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;prompt-编写范式&#34;&gt;Prompt 编写范式&lt;/h2&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/619247417?utm_id=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;【Stable Diffusion】Prompt&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;通常编写可以遵照以下的类别进行组织，主要有 &lt;code&gt;&amp;lt;质量控制&amp;gt; + &amp;lt;前置&amp;gt; + &amp;lt;主体&amp;gt; + &amp;lt;场景词&amp;gt;&lt;/code&gt; 几类，其中分别包括以下的几类词：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;质量控制&lt;/strong&gt;：画质、镜头效果、光照效果&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置词&lt;/strong&gt;：画风、艺术家、风格&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主体&lt;/strong&gt;：人物&amp;amp;对象、姿势、服装、道具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;场景&lt;/strong&gt;：环境、背景、细节&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Additional Network&lt;/strong&gt;：载入额外模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;分割符号：&lt;/strong&gt; 各个关键词之间用 &lt;code&gt;,&lt;/code&gt; 分割，且对应的权重从前到后依次递减，因此在编写关键词的时候也要注意先后顺序。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;权重加权符号&lt;/strong&gt;：各种括号代表各种不同的加权系数，这里建议用 &lt;code&gt;(prompt: weight)&lt;/code&gt; 统一来编写提示词的权重规则，整体可读性会更好。&lt;/p&gt;
+&lt;p&gt;这里的 weight 指的是权重变成原本的 weight 倍，就可以调整加强或减弱。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;各个括号的默认系数如下: () -&amp;gt; 1.1 ; {} -&amp;gt; 1.05 ; &lt;code&gt;[]&lt;/code&gt; -&amp;gt; 0.952
+可以通过(())进行叠加即 1.1*1.1&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

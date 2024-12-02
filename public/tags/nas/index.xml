@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>NAS on aiken&#39;s blog</title>
+    <link>https://metisy.cool/tags/nas/</link>
+    <description>Recent content in NAS on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Dec 2023 08:24:36 +0000</lastBuildDate>
+    <atom:link href="https://metisy.cool/tags/nas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>家庭服务器整体方案</title>
+      <link>https://metisy.cool/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Wed, 20 Dec 2023 08:24:36 +0000</pubDate>
+      <guid>https://metisy.cool/posts/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%96%B9%E6%A1%88/</guid>
+      <description>&lt;blockquote class=&#34;alert-blockquote alert-summary&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Summary&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;本文主要介绍笔者的家庭服务器设计方案 V1。该方案中中涵盖影视、图像、图书&amp;amp;文献、博客、智能家居管理、密码管理服务，以及公网上内容分发的初步设计和选择的考量。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;整体架构&#34;&gt;整体架构&lt;/h2&gt;
+&lt;p&gt;整个服务中心在设计的时候主要考虑以下的几个方面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;💻操作设备&amp;amp;系统(OS)和内容存储方案：如何&lt;strong&gt;经济实惠&lt;/strong&gt;的选择合适的设备和系统&lt;/li&gt;
+&lt;li&gt;🌦️服务需求：需要搭建&lt;strong&gt;哪些服务&lt;/strong&gt;，应该选择&lt;strong&gt;哪个服务&lt;/strong&gt;进行自托管&lt;/li&gt;
+&lt;li&gt;🌍部署方案：如何保证在局域网+&lt;strong&gt;公网&lt;/strong&gt;都能顺利且&lt;strong&gt;安全的访问&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;📱访问策略：各个平台上的访问方式的选择&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此外，并非所有服务都需要在公网上进行部署，这里的部分服务可以仅用于局域网，由于仅开放了 Nginx 端口，因此从公网中访问不到未分发的内容，因此，部分存储与敏感信息相关的服务可以仅保留在局域网中进行访问。&lt;/p&gt;
+
+
+
+  
+  
+
+&lt;blockquote class=&#34;alert-blockquote alert-note&#34;&gt;
+  &lt;p class=&#34;alert-heading&#34;&gt;
+    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+      &lt;path d=&#34;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Note&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;在这种情况下如果希望能够使用一致的域名访问方式，是否可以考虑使用 Nginx 鉴权限制访问 ip 为内网 ip，其他公网访问直接丢弃？&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;初版家庭服务中心的架构图如下，(这里并非列出所有的服务组件)，该架构图中所有的应用都是为了方便日常生活中的各项活动，下面会对架构图自底向上的做一些简单的说明。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231209082421.png&#34;&gt;
+    &lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231209082421.png&#34;class=&#34;responsive-image&#34; src=&#34;https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/3070PC/20231209082421.png&#34; style=&#34;display: block; margin: 0 auto;&#34;
+      alt=&#34;image.png&#34;  /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+  document.addEventListener(&#34;DOMContentLoaded&#34;, function() {
+      var images = document.querySelectorAll(&#34;.responsive-image&#34;);
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + &#34;px&#34;;
+      });
+  });
+&lt;/script&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

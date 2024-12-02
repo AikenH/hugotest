@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>About on aiken&#39;s blog</title>
+    <link>https://metisy.cool/tags/about/</link>
+    <description>Recent content in About on aiken&#39;s blog</description>
+    <generator>Hugo -- 0.137.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
+    <atom:link href="https://metisy.cool/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://metisy.cool/about/</link>
+      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <guid>https://metisy.cool/about/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+  &lt;img src=&#34; https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/DSCF4104_%E5%89%AF%E6%9C%AC.JPG&#34; width=100%&gt;
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+  👋 Hi there! I&#39;m AikenHong.
+&lt;/p&gt;
+&lt;h3 id=&#34;-about-me&#34;&gt;🚀 About Me&lt;/h3&gt;
+&lt;p&gt;I am a Machine Learning Engineer and passionate software developer, specializing in AI research, with a strong commitment to exploring the endless possibilities within the IT industry. I hold a master&amp;rsquo;s degree from Xi&amp;rsquo;an Jiaotong University.&lt;/p&gt;
+&lt;p&gt;I am currently focused on AI and machine learning projects while diligently working to become a full-stack developer. My enthusiasm for exploring new worlds and concepts is fueled by my love for travel and immersive video games, which inspire my creativity and drive my eagerness to learn and try new things.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
